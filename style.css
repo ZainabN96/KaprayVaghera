@@ -258,10 +258,17 @@ body {
 /*  2. header area
 /*----------------------------------------*/
 .top-logo {
-    padding: 20px 0;
-    /* margin-top: 5px; */
-    margin-left: 200px;
+  
+    margin-top: 5px; 
+    text-align: center!important;
 }
+
+ /* Make the logo responsive */
+ .logo-img {
+    max-width: 100%; /* Set maximum width to 100% */
+    height: auto; /* Allow the height to adjust proportionally */
+}
+
 
 /*  2.1  mainmenu area
 /*----------------------------------------*/
