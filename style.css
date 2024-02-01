@@ -12,6 +12,7 @@
     CSS INDEX
     ===================
 	
+    
 	1.  Theme Default CSS (body, link color, section etc)
 	2. header area
 		2.1  mainmenu area
@@ -315,9 +316,9 @@ body {
 }
 
 .mainmenu ul li .mega-menu {
-    padding: 30px;
+    padding: 10px;
     background: #3f3f3f;
-    width: 850px;
+    width: 600px;
 }
 
 .mainmenu ul li ul.sub-menu {
