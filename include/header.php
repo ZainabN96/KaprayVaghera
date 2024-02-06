@@ -126,8 +126,8 @@
 											</span>
 										</div>
 									</li>
-									<li><a href="shop-list.html">Our Story</a></li>
-								
+									<li><a href="about-us.php">Our Story</a></li>
+                                    
 								</ul>
 							</nav>
 						</div> 
@@ -160,7 +160,7 @@
 												
 												</ul>
 											</li>
-											<li><a href="shop-list.html">Our story</a>
+											<li><a href="about-us.php">Our story</a>
 												
 											</li>
 											

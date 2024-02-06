@@ -75,7 +75,7 @@
 												</a>
 												<div class="action-zoom">
 													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+														<a href="product-details.html" title="Quick View"><i class="fa fa-search-plus"></i></a>
 													</div>
 												</div>
 												<div class="actions">
@@ -98,7 +98,7 @@
 												</div>
 											</div>
 											<div class="product-content">
-												<h2 class="product-name"><a href="#">Donec ac tempus</a></h2>
+												<h2 class="product-name"><a href="product-details.html">Donec ac tempus</a></h2>
 												<p>Nunc facilisis sagittis ullamcorper...</p>
 											</div>
 										</div>
@@ -244,9 +244,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -281,9 +281,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -321,9 +321,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -359,9 +359,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -399,9 +399,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -437,9 +437,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -459,8 +459,8 @@
 										<div class="single-product slider-item">
 											<div class="product-img">
 												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-8.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-9.webp" alt="" />
+													<img class="primary-image" width="540" height="660" src="img/products/product5.jpeg" alt="" />
+													<img class="secondary-image" width="540" height="660" src="img/products/pr5.jpeg" alt="" />
 												</a>
 												<div class="action-zoom">
 													<div class="add-to-cart">
@@ -477,9 +477,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -515,9 +515,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -556,9 +556,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -594,9 +594,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -634,9 +634,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -671,9 +671,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -714,9 +714,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -751,9 +751,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -790,9 +790,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -828,9 +828,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -867,9 +867,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -904,9 +904,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -944,9 +944,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -981,9 +981,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -1020,9 +1020,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -1040,8 +1040,8 @@
 											<span class="sale-text">Sale</span>
 											<div class="product-img">
 												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-13.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-2.webp" alt="" />
+													<img class="primary-image" width="540" height="660" src="img/products/producy1front.jpg" alt="" />
+													<img class="secondary-image" width="540" height="660" src="img/products/producy1front.jpg" alt="" />
 												</a>
 												<div class="action-zoom">
 													<div class="add-to-cart">
@@ -1058,9 +1058,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -1079,12 +1079,12 @@
 										<div class="single-product slider-item">
 											<div class="product-img">
 												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-8.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-9.webp" alt="" />
+													<img class="primary-image" width="540" height="660" src="img/products/product9.jpeg" alt="" />
+													<img class="secondary-image" width="540" height="660" src="img/products/pr9.jpeg" alt="" />
 												</a>
 												<div class="action-zoom">
 													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+														<a href="" title="Quick View"><i class="fa fa-search-plus"></i></a>
 													</div>
 												</div>
 												<div class="actions">
@@ -1097,9 +1097,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -1117,8 +1117,8 @@
 											<span class="sale-text">Sale</span>
 											<div class="product-img">
 												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-10.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-12.webp" alt="" />
+													<img class="primary-image" width="540" height="660" src="img/products/product8.jpeg" alt="" />
+													<img class="secondary-image" width="540" height="660" src="img/products/pr8.jpeg" alt="" />
 												</a>
 												<div class="action-zoom">
 													<div class="add-to-cart">
@@ -1135,9 +1135,10 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
+
 													</div>
 												</div>
 												<div class="price-box">
@@ -1156,8 +1157,8 @@
 										<div class="single-product slider-item">
 											<div class="product-img">
 												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-13.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-1.webp" alt="" />
+													<img class="primary-image" width="540" height="660" src="img/products/product6.jpeg" alt="" />
+													<img class="secondary-image" width="540" height="660" src="img/products/pr6.jpeg" alt="" />
 												</a>
 												<div class="action-zoom">
 													<div class="add-to-cart">
@@ -1174,9 +1175,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">
@@ -1193,8 +1194,8 @@
 										<div class="single-product slider-item">
 											<div class="product-img">
 												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-2.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-3.webp" alt="" />
+													<img class="primary-image" width="540" height="660" src="img/products/product3.jpeg" alt="" />
+													<img class="secondary-image" width="540" height="660" src="img/products/pr3.jpeg" alt="" />
 												</a>
 												<div class="action-zoom">
 													<div class="add-to-cart">
@@ -1211,9 +1212,9 @@
 																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 															</div>									
 														</div>
-														<div class="quickviewbtn">
+														<!-- <div class="quickviewbtn">
 															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
+														</div> -->
 													</div>
 												</div>
 												<div class="price-box">

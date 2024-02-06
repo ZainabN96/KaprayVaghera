@@ -351,7 +351,7 @@ body {
 }
 
 .mainmenu ul li .mega-menu {
-    padding: 10px;
+    padding: 20px;
     background: #3f3f3f;
     width: 100vw;
 }
@@ -387,12 +387,12 @@ body {
 .mainmenu ul li .mega-menu span a.mega-menu-title {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 8px;
-    padding: 0 0 10px 0;
+    margin-bottom: 20px;
+    padding: 0 0 20px 0;
     text-transform: uppercase;
     color: #fff;
     line-height: 10px;
-    border-bottom: 1px solid #575757;
+    border-bottom: 1px solid #03a5e9;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -1134,7 +1134,7 @@ button{
 }
 
 .product-content p {
-    font-size: 16px;
+    font-size: 14px;
     color: #6d6d6d;
     letter-spacing: 1.1px;
     display: inline-block;
@@ -1146,7 +1146,7 @@ h2.product-name {
 }
 
 h2.product-name a {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     font-family: Montserrat;
     color: #3f3f3f;
@@ -1878,7 +1878,8 @@ span.old-price {
 .cakewalk-footer-content p {
     color: #ccc;
     line-height: 24px;
-    width: 90%;
+    width: 100%;
+    font-size: 14px;
 }
 
 .cakewalk-footer-content .read-more {
@@ -1891,7 +1892,7 @@ span.old-price {
 
 .cakewalk-footer-content ul li a {
     line-height: 30px;
-    font-size: 17px;
+    font-size: 14px;
     color: #ccc;
 }
 
@@ -1960,7 +1961,7 @@ span.old-price {
     margin-bottom: 0;
     font-family: Montserrat;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
     color: #e2e2e2;
 }
 
@@ -3004,9 +3005,21 @@ aside.sidebar-content ul li a:hover {
 }
 
 .product-list-wrapper .add-to-links i {
-    border: 1px solid #3f3f3f;
-    background: #fff;
-    color: #3f3f3f;
+    border: 1px solid #fff;
+    background: red;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    height: 31px;
+    line-height: 29px;
+    transition: all 0.3s ease 0s;
+    width: 38px;
+}
+
+.product-list-wrapper .add-to-links i:hover {
+    border: 1px solid red;
+    background: red;
+    color: #fff;
     text-align: center;
     font-size: 14px;
     height: 31px;
@@ -3025,14 +3038,14 @@ aside.sidebar-content ul li a:hover {
     letter-spacing: 1.2px;
     padding: 9px 18px;
     line-height: 1;
-    border-color: #3f3f3f;
+    border-color: #03a5e9;
     color: #fff;
-    background: #3f3f3f;
+    background: #03a5e9;
     margin: 0;
 }
 
 .product-list-wrapper .add-to-cart a:hover {
-    color: #03a5e9;
+    color: black;
 }
 
 .product-list-wrapper .single-product:hover .add-to-wishlist a {
@@ -4089,8 +4102,8 @@ blockquote {
     border: none;
     font-size: 14px;
     font-style: italic;
-    margin: 20px 0;
-    padding: 30px 45px;
+    margin: 40px 0;
+    padding: 50px 45px;
 }
 
 .our-services-info {
@@ -4104,7 +4117,7 @@ blockquote {
     margin: 0 0 60px;
     padding-bottom: 5px;
     position: relative;
-    color: #3f3f3f
+    color: #03a5e9
 }
 
 .f-title .title:before {
@@ -4248,6 +4261,104 @@ blockquote {
 .testimonial-area .bar-title.rox-title {
     text-align: initial;
 }
+
+
+
+/* ---------------------------------------
+23. NNEW ABOUT US
+-----------------------------------------*/
+
+
+:root {
+	--p-pos: 3rem;
+	--p-2pos: 6rem;
+	--p-neg: 3rem;
+	--minwidth-1: 20rem;
+	--maxwidth-1: 30rem;
+}
+
+.abt-banner {
+	padding-top: var(--p-2pos);
+	padding-bottom: var(--p-2pos);
+	padding-right: 5%;
+	padding-left: 5%;
+}
+
+@media only screen and (max-width: 576px) {
+	.abt-banner {
+		padding-top: var(--p-pos);
+		padding-bottom: var(--p-pos);
+	}
+}
+
+figcaption {
+	font-family: var(--font-3);
+	font-size: 1.5rem;
+	margin-bottom: 0;
+	text-align: left;
+	padding-top: 0.3rem;
+}
+
+.abt-row {
+	max-width: 80rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-left: var(--p-neg-1);
+	margin-right: var(--p-neg-1);
+	flex-wrap: wrap;
+}
+
+.abt-col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-left: var(--p-pos);
+	padding-right: var(--p-pos);
+	flex: 0 0 50%;
+	min-width: var(--minwidth-1);
+}
+
+.abt-col-txt {
+	align-items: flex-start;
+}
+
+@media only screen and (max-width: 768px) {
+	.abt-col {
+		flex: unset;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.abt-col-txt {
+		padding-top: var(--p-pos);
+		order: 1;
+	}
+}
+
+.align-l {
+	text-align: left;
+}
+
+.align-r {
+	text-align: right;
+}
+
+.sub-text-1,
+.subtext-2 {
+	font-weight: 400;
+	margin-bottom: 0.2rem;
+}
+
+.sub-text-1 {
+	font-size: 0.85rem;
+}
+
+.sub-text-2 {
+	font-size: 0.7rem;
+}
+
 
 /* ---------------------------------------
 23. Contact Page area

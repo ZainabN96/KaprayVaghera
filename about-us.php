@@ -1,8 +1,7 @@
-<?php include 'include/header.php' ?>
 
 
 		<!-- breadcrumbs area start -->
-		<!-- <div class="breadcrumbs">
+		<div class="breadcrumbs">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -18,8 +17,10 @@
 					</div>
 				</div>
 			</div>
-		</div> -->
+		</div> 
 		<!-- breadcrumbs area end -->
+		<?php include 'include/header.php' ?>
+
 		<!-- hello about start -->
 		<div class="home-hello-info">
 			<div class="container">
@@ -34,16 +35,19 @@
 					<div class="col-lg-7 col-12">
 						<div class="about-page-cntent">
 							<h3>The standard lorem ipsum passage</h3>
-							<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+							<!-- <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p> -->
 							<blockquote>
 								<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, non! Quas, voluptatum maiores facere blanditiis fuga debitis eius eum necessitatibus animi recusandae reprehenderit velit!
+								</p>
+								<p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id blanditiis nesciunt corporis labore non culpa eligendi eius. Consequuntur commodi porro atque corporis, esse tenetur quidem quam cum in provident delectus iusto! Necessitatibus, earum voluptate laudantium architecto facere sit inventore debitis.</p>
 							</blockquote>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu nisi ac mi malesuada vestibulum. Phasellus tempor nunc eleifend cursus molestie. Mauris lectus arcu, pellentesque at sodales sit amet, condimentum id nunc. Donec ornare mattis suscipit. Praesent fermentum accumsan vulputate.</p>
+							<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu nisi ac mi malesuada vestibulum. Phasellus tempor nunc eleifend cursus molestie. Mauris lectus arcu, pellentesque at sodales sit amet, condimentum id nunc. Donec ornare mattis suscipit. Praesent fermentum accumsan vulputate.</p> -->
 						</div>
 					</div>
 					<div class="col-lg-5 col-12">
 						<div class="img-element">
-							<img width="650" height="538" src="img/about/about.webp" alt="banner1">
+							<img width="650" height="538" src="img/about/image-650x538.jpg" alt="banner1">
 						</div>
 					</div>
 				</div>
@@ -117,16 +121,18 @@
 		</div>
 		<!-- service about end -->
 		<!-- meet about start -->
-		<div class="home-our-team">
+		<!-- <div class="home-our-team">
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
 						<div class="f-title text-center">
 							<h3 class="title text-uppercase">Meet the team</h3>
 						</div>
-					</div><!-- End .col-md-12 -->
-				</div><!-- End .row -->
-				<div class="row">
+					</div> -->
+					<!-- End .col-md-12 -->
+				<!-- </div> -->
+				<!-- End .row -->
+				<!-- <div class="row">
 					<div class="col-lg-3 col-md-6">
 						<div class="item-team text-center">
 							<div class="team-info">
@@ -141,10 +147,12 @@
 								</div>
 							</div>
 							<h4>Havier Macherano</h4>
-							<h5>Developer</h5>
-						</div><!-- End .item-team -->
-					</div><!-- End .col-sm-3 -->
-					<div class="col-lg-3 col-md-6">
+							<h5>Developer</h5> -->
+						<!-- </div> -->
+						<!-- End .item-team -->
+					<!-- </div> -->
+					<!-- End .col-sm-3 -->
+					<!-- <div class="col-lg-3 col-md-6">
 						<div class="item-team text-center">
 							<div class="team-info">
 								<div class="team-img">
@@ -156,12 +164,14 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<h4>Luka Biglia</h4>
-							<h5>Programmer</h5>
-						</div><!-- End .item-team -->
-					</div><!-- End .col-sm-3 -->
-					<div class="col-lg-3 col-md-6">
+							</div> -->
+							<!-- <h4>Luka Biglia</h4>
+							<h5>Programmer</h5> -->
+						<!-- </div> -->
+						<!-- End .item-team -->
+					<!-- </div> -->
+					<!-- End .col-sm-3 -->
+					<!-- <div class="col-lg-3 col-md-6">
 						<div class="item-team text-center">
 							<div class="team-info">
 								<div class="team-img">
@@ -175,10 +185,12 @@
 								</div>
 							</div>
 							<h4>Anzo Perez</h4>
-							<h5>Designer</h5>
-						</div><!-- End .item-team -->
-					</div><!-- End .col-sm-3 -->
-					<div class="col-lg-3 col-md-6">
+							<h5>Designer</h5> -->
+						<!-- </div> -->
+						<!-- End .item-team -->
+					<!-- </div> -->
+					<!-- End .col-sm-3 -->
+					<!-- <div class="col-lg-3 col-md-6">
 						<div class="item-team text-center">
 							<div class="team-info">
 								<div class="team-img">
@@ -193,11 +205,15 @@
 							</div>
 							<h4>Martin Demichelis</h4>
 							<h5>PHP Developer</h5>
-						</div><!-- End .item-team -->
-					</div><!-- End .col-sm-3 -->
-				</div><!-- End .row -->
-			</div><!-- End .container -->
-		</div>
+						</div> -->
+						<!-- End .item-team -->
+					<!-- </div> -->
+					<!-- End .col-sm-3 -->
+				<!-- </div> -->
+				<!-- End .row -->
+			<!-- </div> -->
+			<!-- End .container -->
+		<!-- </div> -->
 		<!-- meet about end -->
 		<!-- FOOTER START -->
 		<?php include 'include/footer.php' ?>
