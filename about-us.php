@@ -1,7 +1,7 @@
 
 
 		<!-- breadcrumbs area start -->
-		<div class="breadcrumbs">
+		<!-- <div class="breadcrumbs">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
@@ -17,7 +17,7 @@
 					</div>
 				</div>
 			</div>
-		</div> 
+		</div>  -->
 		<!-- breadcrumbs area end -->
 		<?php include 'include/header.php' ?>
 

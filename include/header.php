@@ -11,14 +11,15 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Lavoro | Home 5</title>
+        <title>Kapray Wagara | Home </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Favicon
 		============================================ -->
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="img/iconbg.ico">
 		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8i7uZLdMC+5EW/CNE3I5I5PjGQy4Kx8V5+5u4N2K4LrD2f5Y5f5l5u5l5" crossorigin="anonymous">
 		<!-- Fonts
 		============================================ -->
 		<link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -104,7 +105,7 @@
 					<div class="col-lg-6 text-center">
 						<div class="mainmenu">
 							<nav>
-								<ul class="d-flex align-items-left justify-content-left">
+								<ul class="d-flex align-items-right justify-content-right">
 									
 									<li class="expand" href=""><a >Shop</a>
 										<div class="restrain mega-menu megamenu1">
@@ -178,7 +179,7 @@
 					<div class="col-lg-3 nopadding-left">
 						<div class="top-detail">
 							<!-- language division start -->
-							<div class="disflow">
+							<div class="disflow" style="height: 60; width:25.19">
 								<div class="expand lang-all disflow">
 									<a href="#"><img src="img/country/en.gif" width="18" height="12" alt="">English</a>
 									<ul class="restrain language">
@@ -199,7 +200,7 @@
 							</div>
 							<!-- language division end -->
 							<!-- addcart top start -->
-							<div class="disflow">
+							<div class="disflow" style="height: 60; width:25.19">
 								<div class="circle-shopping expand">
 									<div class="shopping-carts text-end">
 										<div class="cart-toggler">
@@ -239,9 +240,15 @@
 									</div>
 								</div>
 							</div>
+							<div class="disflow" style="height: 60; width:25.19">
+            <a href="#" id="contactUsBtn" class="whatsapp-icon">
+                <i class="fa fa-whatsapp whatsapp-icon-custom-size"></i>
+            </a>
+        </div>
+
 							<!-- addcart top start -->
 							<!-- search divition start -->
-							<div class="disflow">
+							<!-- <div class="disflow" style="height: 60; width:25.19">
 								<div class="header-search expand">
 									<div class="search-icon fa fa-search"></div>
 									<div class="product-search restrain">
@@ -257,9 +264,9 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!-- search divition end -->
-							<div class="disflow">
+							<div class="disflow" style="height: 60; width:25.19">
 								<div class="expand dropps-menu">
 									<a href="#"><i class="fa fa-align-right fa-lg"></i></a>
 									<ul class="restrain language">

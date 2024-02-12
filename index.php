@@ -58,7 +58,6 @@
 						</div>				
 					</div>
 				</div>
-
 				<!-- Tab pans -->
 				<div class="row">
 					<div class="col-12">

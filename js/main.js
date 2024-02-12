@@ -237,4 +237,15 @@
 		pause: 3000,
 		adaptiveHeight: false
 	});
+
+	document.addEventListener("DOMContentLoaded", function () {
+		var phoneNumber = '+923264577208';
+	  
+		$('#contactUsBtn').on('click', function (e) {
+	e.preventDefault();
+		  var whatsappLink = 'https://api.whatsapp.com/send?phone=' + encodeURIComponent(phoneNumber);
+		  window.open(whatsappLink, '_blank');
+		  });
+		});
+	
 })(jQuery);    

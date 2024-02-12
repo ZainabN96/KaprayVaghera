@@ -1,7 +1,7 @@
 	<!-- FOOTER START   -->
     <footer class="mt-5"> 
 			<!-- banner footer area start -->
-			<div class="banner-footer" style="background-color: black;">
+			<div class="banner-footer" style="background-color: white;">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-lg-2 col-md-2 col-3 nopadding">
@@ -60,23 +60,32 @@
 									<h4>Company info</h4>
 								</div>
 								<div class="cakewalk-footer-content">
-									<p class="footer-des">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adm.</p>
-									<a href="#" class="read-more">Read more</a>
+									<!-- <p class="footer-des">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adm.</p>
+									<a href="#" class="read-more">Read more</a> -->
+									<ul>
+									<li><a href="about-us.php">About Us</a></li>
+									<li><a href="about-us.php">Contact Us</a></li>
+										<li><a href="#">Shipping Information</a></li>
+										<li><a href="#">Return & Exchange</a></li>
+										
+									</ul>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-4">
 							<div class="single-snap-footer">
 								<div class="snap-footer-title">
-									<h4>Information</h4>
+									<h4>Help</h4>
 								</div>
 								<div class="cakewalk-footer-content">
 									<ul>
-										<li><a href="about-us.php">About Us</a></li>
-										<li><a href="#">Careers</a></li>
-										<li><a href="#">Delivery Information</a></li>
+										<li><a href="about-us.php">Track Your Order</a></li>
+									
+										<li><a href="#">Return & Exchange</a></li>
 										<li><a href="#">Privacy Policy</a></li>
 										<li><a href="#">Terms & Condition</a></li>
+										<li><a href="#">Payment Informartion</a></li>
+
 									</ul>
 								</div>
 							</div>
@@ -84,15 +93,13 @@
 						<div class="col-lg-2 col-md-4">
 							<div class="single-snap-footer">
 								<div class="snap-footer-title">
-									<h4>Fashion Tags</h4>
+									<h4>Size</h4>
 								</div>
 								<div class="cakewalk-footer-content">
 									<ul>
-										<li><a href="#">My Account</a></li>
-										<li><a href="#">Login</a></li>
-										<li><a href="#">My Cart</a></li>
-										<li><a href="#">Wishlist</a></li>
-										<li><a href="#">Checkout</a></li>
+										<li><a href="#">Size Guide</a></li>
+										<li><a href="#">Size Chart</a></li>
+									
 									</ul>
 								</div>
 							</div>
@@ -100,15 +107,15 @@
 						<div class="col-lg-2 d-lg-block d-none">
 							<div class="single-snap-footer">
 								<div class="snap-footer-title">
-									<h4>Fashion Tags</h4>
+									<h4>Customer Care</h4>
 								</div>
 								<div class="cakewalk-footer-content">
 									<ul>
-										<li><a href="#">Sitemap</a></li>
-										<li><a href="#">Privacy Policy</a></li>
-										<li><a href="#">Advanced Search</a></li>
-										<li><a href="#">Affiliates</a></li>
 										<li><a href="#">Contact Us</a></li>
+										<li><a href="#">Privacy Policy</a></li>
+									
+										<li><a href="#">Rate & Exchange</a></li>
+										<li><a href="#">FAQ</a></li>
 									</ul>
 								</div>
 							</div>
@@ -120,10 +127,12 @@
 								</div>
 								<div class="cakewalk-footer-content social-footer">
 									<ul>
-										<li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a><span> Facebook</span></li>
+										<li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a><span> Facebook</span></li>
 										<li><a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a><span> Google Plus</span></li>
-										<li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a><span> Twitter</span></li>
+										<li><a href="https://twitter.com/" style="color: black;" target="_blank"><img src="img/icons8-twitterx-16 (1).png"  alt=""></a><span> Twitter</span></li>
+										
 										<li><a href="https://youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a><span> Youtube</span></li>
+										
 									</ul>
 								</div>
 							</div>

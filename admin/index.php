@@ -1,6 +1,7 @@
-<?php
-require('top.inc.php');
-?>
+
+<!-- require('top.inc.php'); -->
+
+<?php include 'top.inc.php' ?>
 <div class="content pb-0">
 	<div class="orders">
 	   <div class="row">

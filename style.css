@@ -261,23 +261,40 @@ body {
 /*  2. header area
 /*----------------------------------------*/
 
+.whatsapp-icon-custom-size {
+    font-size: 24px; /* Adjust the size as needed */
+    color: white;
+    margin-left: 10px;
+}
+
 .header-5 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+
 }
 
 .top-logo {
-  
     margin-top: 5px; 
-    text-align: center!important;
+    text-align: left!important;
 }
+
+@media (max-width: 991px) {
+    .top-logo {
+    text-align: center!important;
+    }
+}
+
+
+
+
 
  /* Make the logo responsive */
  .logo-img {
     max-width: 100%; /* Set maximum width to 100% */
     height: auto; /* Allow the height to adjust proportionally */
+   
+
 }
 
 
@@ -524,9 +541,15 @@ a.meanmenu-reveal {
     padding: 36px 0 36px 0;
 }
 
+@media (max-width: 1346px) {
+    .lang-all>a {
+        margin-right: 8px;
+        padding-right: 8px;
+    }
+}
 .lang-all>a {
-    margin-right: 10px;
-    padding-right: 15px;
+    margin-right: 8px;
+    padding-right: 8px;
     border-right: 1px solid #3f3f3f;
     text-decoration: none;
     display: inline-block;
@@ -718,7 +741,7 @@ button{
 .search-icon.fa.fa-search {
     font-size: 18px;
     color: #3f3f3f;
-    padding: 30px 0 37px 16px;
+    padding: 30px 0 30px 15px;
 }
 
 .header-search.expand {
@@ -792,7 +815,7 @@ button{
 .dropps-menu {
     padding-left: 15px;
     position: relative;
-    padding-bottom: 36px;
+    padding-bottom: 30px;
 }
 
 .dropps-menu .language {
@@ -1866,23 +1889,28 @@ span.old-price {
 .top-footer-area,
 .info-footer {
     padding: 60px 0;
-    background: #3f3f3f;
+    /* background: #3f3f3f; */
+    background: black;
 }
 
 .snap-footer-title h4 {
     font-size: 16px;
-    color: #fff;
+    color: white;
     margin-bottom: 25px;
 }
 
 .cakewalk-footer-content p {
-    color: #ccc;
+    color: white;
+
+    /* color: #3f3f3f; */
+    
     line-height: 24px;
     width: 100%;
     font-size: 14px;
 }
 
 .cakewalk-footer-content .read-more {
+    /* color: #fff; */
     color: #fff;
 }
 
@@ -1893,12 +1921,14 @@ span.old-price {
 .cakewalk-footer-content ul li a {
     line-height: 30px;
     font-size: 14px;
-    color: #ccc;
+    /* color: #ccc; */
+    color: #fff;
 }
 
 .cakewalk-footer-content ul li a:hover {
     color: #03a5e9;
-}
+} 
+
 
 .infof-icon {
     float: left;
@@ -1909,10 +1939,10 @@ span.old-price {
 .infof-icon i {
     width: 35px;
     height: 35px;
-    border: 1px solid #03a5e9;
+    /* border: 1px solid #03a5e9; */
     border-radius: 3px;
     font-size: 30px;
-    color: #fff;
+    color: #03a5e9;
     line-height: 30px;
     text-align: center;
 }
@@ -1981,16 +2011,22 @@ span.old-price {
 }
 
 .social-footer ul li a {
-    width: 21px;
-    height: 21px;
+    width: 25px;
+    height: 25px;
     text-align: center;
     line-height: 21px;
-    color: #fff;
+    /* color: #fff; */
+    color: #03a5e9;
     font-size: 12px;
-    border: 1px solid #555;
+    /* border: 1px solid #555; */
     border-radius: 3px;
     margin-right: 15px;
     display: inline-block;
+}
+
+.social-footer ul li a:hover{
+
+    color: #026bbe;
 }
 
 /*----------------------------------------*/
@@ -4086,6 +4122,7 @@ a.proceedbtn {
 ------------------------------------*/
 .home-hello-info {
     margin: 50px 0;
+    
 }
 
 .about-page-cntent h3 {
