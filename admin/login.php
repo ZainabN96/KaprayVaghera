@@ -48,10 +48,10 @@ if(isset($_POST['submit'])){
       <div class="sufee-login d-flex align-content-center flex-wrap">
          <div class="container">
             <div class="login-content">
-               <div class="login-form mt-150">
+               <div class="login-form mt-100">
                   <form method="post">
                      <div class="text-center mb-5">
-                        <img src="../media/Logo.jpeg" width="150" height="150">
+                        <img src="../img/newlogoo.png" width="150" height="150">
                      </div>
                      <div class="form-group">
                         <label>Username</label>

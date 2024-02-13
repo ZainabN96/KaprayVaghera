@@ -53,7 +53,7 @@ $res=mysqli_query($con,$sql);
 							   <th width="10%">MRP</th>
 							   <th width="7%">Price</th>
 							   <th width="7%">Qty</th>
-							   <th width="26%"></th>
+							   <th width="26%" class="text-left pl-5">Action</th>
 							</tr>
 						 </thead>
 						 <tbody>
