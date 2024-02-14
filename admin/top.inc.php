@@ -96,9 +96,9 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                <div class="navbar-header">
                <!-- <a class="navbar-brand" href="index.php"><img src="../media/Logo.jpeg" alt="Logo" width="45" height="45" ></a> -->
                   <!-- <a class="navbar-brand" href="index.php"><img src="admin/images/newlogoo.png" alt="" width="45" height="45" ></a> -->
-                  <a class="navbar-brand" href="index.php"><img src="admin/images/newlogoo.png" alt="" width="45" height="45" ></a> 
+                  <a class="navbar-brand" href="index.php"><img src="../img/newlogoo.png" alt="" width="70" height="70" ></a> 
 
-                  <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                  <a id="menuToggle" class="menutoggle"><i class="fa fa-bars fa-lg text-dark"></i></a>
                </div>
             </div>
             <div class="top-right">
