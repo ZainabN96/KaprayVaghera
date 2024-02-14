@@ -70,7 +70,7 @@
 										<!-- single-product start -->
 										<div class="single-product slider-item">
 											<div class="product-img">
-												<a href="#">
+												<a href="product-details.html">
 													<img class="primary-image" src="img/products/producy1front.jpg" alt="" />
 													<img class="secondary-image" width="540" height="660" src="img/products/image-540x660.jpg" alt="" />
 												</a>

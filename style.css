@@ -448,6 +448,7 @@ body {
     border-bottom-color: #03a5e9;
 }
 
+
 .mainmenu ul li .mega-menu.megamenu3,
 .mainmenu ul li .mega-menu.megamenu4 {
     width: 500px;
@@ -830,7 +831,7 @@ button{
 }
 
 .readon-red a {
-    color: #3f3f3f;
+    color: #3f3f3f; 
 }
 
 .readon-red:hover {
@@ -915,7 +916,7 @@ button{
     margin: 0;
     font-weight: 700;
     font-size: 18px;
-    color: #3f3f3f;
+    color: #03a5e9;
     background: #fff;
     padding: 0 20px;
     display: inline-block;
@@ -1096,7 +1097,7 @@ button{
 .compare-button a i,
 .quickviewbtn a i {
     background: #fff;
-    color: #3f3f3f;
+    color: red;
     font-size: 14px;
     height: 35px;
     line-height: 35px;

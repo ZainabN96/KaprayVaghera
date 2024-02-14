@@ -1,7 +1,7 @@
 	<!-- FOOTER START   -->
     <footer class="mt-5"> 
 			<!-- banner footer area start -->
-			<div class="banner-footer" style="background-color: white;">
+			<!-- <div class="banner-footer" style="background-color: white;">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-lg-2 col-md-2 col-3 nopadding">
@@ -48,7 +48,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- banner footer area end -->
 			<!-- top footer area start -->
 			<div class="top-footer-area">
