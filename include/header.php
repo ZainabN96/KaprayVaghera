@@ -165,6 +165,30 @@
 											<li>
 												<a href="shop-grid.html">Shop</a>
 												<ul>
+													<?php 
+														foreach($cat_arr as $list){
+															?>
+															<li><a href=""><?php echo $list['categories']?> </a>
+															<?php
+																$cat_id=$list['id'];
+																$sub_cat_res=mysqli_query($con,"select * from sub_categories where status='1' and categories_id='$cat_id'");
+																if(mysqli_num_rows($sub_cat_res)>0){
+																?>
+																	<ul>
+																	<?php
+																		while($sub_cat_rows=mysqli_fetch_assoc($sub_cat_res)){
+																			echo '<li><a href="categories.php?id='.$list['id'].'&sub_categories='.$sub_cat_rows['id'].'">'.$sub_cat_rows['sub_categories'].'</a></li>';
+																		}
+																	?>
+																	</ul>
+																	<?php
+																} 
+															?>
+															
+															</li>
+														<?php	
+														}
+													?>
 													<li><a href="shop-grid.html"></a>
 													<ul>
 															<li><a href="shop-grid.html">Shalwar</a></li>
