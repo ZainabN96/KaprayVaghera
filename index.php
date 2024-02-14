@@ -1,4 +1,6 @@
-<?php include 'include/header.php' ?>
+<?php 
+	include 'include/header.php' ;
+?>
 		<!-- start home slider -->
         <div class="slider-area an-1 hm-1 clr">
              <!-- slider -->

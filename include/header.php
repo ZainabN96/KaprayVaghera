@@ -1,13 +1,18 @@
+<?php
+	
+	require('connection.php');
+	require('functions.php');
+	require('add_to_cart.php');
+	
+	$cat_res=mysqli_query($con,"select * from categories where status=1");
+	$cat_arr=array();
+	while($row=mysqli_fetch_assoc($cat_res)){
+		$cat_arr[]=$row;	
+	}
+?>
 <!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
 <html class="no-js" lang="">
     
-<!-- Mirrored from htmldemo.net/lavoro/lavoro/index-5.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:29:07 GMT -->
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -23,8 +28,8 @@
 		<!-- Fonts
 		============================================ -->
 		<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
 		
  		<!-- CSS  -->
 		
@@ -84,11 +89,7 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body class="home-five">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         
-        <!-- Add your site or application content here -->
 		<!-- header area start -->
 		<header class="header-5 short-stor">
 			<div class="container-fluid">
@@ -109,18 +110,40 @@
 									
 									<li class="expand" href=""><a >Shop</a>
 										<div class="restrain mega-menu megamenu1">
-											<span>
-												<a class="mega-menu-title" >Tops </a>
-												<a href="">Shalwar</a>
-												<a >Trousers</a>											
-											</span>
-											<span>
-												<a class="mega-menu-title" > Bottoms </a>
-												<a>Short Shirts</a>
-												<a>Full Suit</a>
-												<a>Kameez</a>
+											<?php 
+												foreach($cat_arr as $list){
+													?>
+													<span>
+														<a class="mega-menu-title" ><?php echo $list['categories']?> </a>
+														<?php
+															$cat_id=$list['id'];
+															$sub_cat_res=mysqli_query($con,"select * from sub_categories where status='1' and categories_id='$cat_id'");
+															if(mysqli_num_rows($sub_cat_res)>0){
+															
+																while($sub_cat_rows=mysqli_fetch_assoc($sub_cat_res)){
+																	echo '<a href="categories.php?id='.$list['id'].'&sub_categories='.$sub_cat_rows['id'].'">'.$sub_cat_rows['sub_categories'].'</a>';
+																}
+															 } 
+														?>
+														<!-- <a href="">Shalwar</a>
+														<a>Trousers</a>											 -->
+													</span>
+												<?php	
+												}
+											?>
+											
+											<!-- // <span>
+											// 	<a class="mega-menu-title" >Tops </a>
+											// 	<a href="">Shalwar</a>
+											// 	<a >Trousers</a>											
+											// </span>
+											// <span>
+											// 	<a class="mega-menu-title" > Bottoms </a>
+											// 	<a>Short Shirts</a>
+											// 	<a>Full Suit</a>
+											// 	<a>Kameez</a>
 												
-											</span>
+											// </span> -->
 											
 											<span class="block-last">
 												<img width="600" height="800" src="img/brown kurta.webp" alt="" />
@@ -128,7 +151,6 @@
 										</div>
 									</li>
 									<li><a href="about-us.php">Our Story</a></li>
-                                    
 								</ul>
 							</nav>
 						</div> 

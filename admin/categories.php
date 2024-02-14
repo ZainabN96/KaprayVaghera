@@ -41,8 +41,8 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <th class="serial">#</th>
 							   <th>Categories</th>
-							   <th>Image</th>
-							   <th></th>
+							   <!-- <th>Image</th> -->
+							   <th class"text-left pl-5"> Action</th>
 							</tr>
 						 </thead>
 						 <tbody>
@@ -52,11 +52,11 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <td class="serial"><?php echo $i?></td>
 							   <td><?php echo $row['categories']?></td>
-							   <td>
+							   <!-- <td>
 							    <?php
 							   
-echo "<a target='_blank' href='".CAT_SITE_PATH.$row['cat_image']."'><img width='150px' src='".CAT_SITE_PATH.$row['cat_image']."'/></a>";
-							   ?></td>
+								echo "<a target='_blank' href='".CAT_SITE_PATH.$row['cat_image']."'><img width='150px' src='".CAT_SITE_PATH.$row['cat_image']."'/></a>";
+							   ?></td> -->
 							   <td>
 								<?php
 								if($row['status']==1){
