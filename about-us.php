@@ -31,7 +31,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<!-- <div class="row">
 					<div class="col-lg-7 col-12">
 						<div class="about-page-cntent">
@@ -55,7 +55,7 @@
 
 <div class="about-container">
         <div class="left">
-            <h1 class="font_4 wixui-rich-text__text" style="text-align:center; line-height:1.25em; font-size:72px;"><span style="font-weight:bold;" class="wixui-rich-text__text"><span style="text-transform:uppercase;" class="wixui-rich-text__text">KAPRAY VAPRAY </span></span></span></h1>
+            <h1 class="font_4 wixui-rich-text__text" style="text-align:center; line-height:1.25em; font-size:72px;"><span style="font-weight:bold;" class="wixui-rich-text__text"><span style="text-transform:uppercase;" class="wixui-rich-text__text">KAPRAY VAGHERA </span></span></span></h1>
            
             <hr>
             <h3 class="font_7 wixui-rich-text__text" style="line-height:1.67em; text-align:center; font-size:20px;"><span class="color_15 wixui-rich-text__text">Wrap yourself in elegance with our hand-embroidered kurtas, where tradition meets contemporary style.</span></h3>
@@ -70,6 +70,7 @@
             <p>Kapray Vaghera stands out in the fashion industry not only as a brand but as a symbol of tradition, craftsmanship, and sustainability. Founded in 2001 by Ayesha Chaudhury, a graduate of PSFD, the brand has been on a mission to revive old Pakistani crafts while creating timeless pieces that transcend trends.
 One of Kapray Vaghera's core principles is to offer customers the ability to curate their own unique style by mixing and matching different pieces, from salwars to pants to stoles. The brand places a strong emphasis on the quality of the cloth, ensuring that every garment is made to the highest standards.
 What truly sets Kapray Vaghera apart is its commitment to empowering women through employment opportunities. </p>
+
             <p>By employing women to hand embroider garments from their homes, the brand not only supports their livelihoods but also enables them to maintain a balance between work and home life.
 Through carefully crafted patterns perfected over the years, Kapray Vaghera produces one-of-a-kind pieces that never go out of style. This approach not only contributes to sustainable fashion but also preserves and celebrates Pakistan's rich textile heritage.
 In essence, Kapray Vaghera is more than just a fashion brand; it's a symbol of empowerment, craftsmanship, and timeless elegance.</p>
@@ -259,4 +260,4 @@ In essence, Kapray Vaghera is more than just a fashion brand; it's a symbol of e
 		<!-- meet about end -->
 		<!-- FOOTER START -->
 		<?php include 'include/footer.php' ?>
-		
+		<!-- FOOTER END -->

@@ -112,12 +112,19 @@
 										<div class="restrain mega-menu megamenu1">
 											<div class="">
 											<?php 
+										
 												foreach($cat_arr as $list){
 													?>
 													<div class="col-12">
 														<span>
-															<a class="mega-menu-title" ><?php echo $list['categories']?> </a>
+															
+															 <!-- <a class="mega-menu-title" > -->
+																<!-- <?php echo $list['categories']?> -->
+															 <!-- </a>  -->
+															<?php echo '<a class="mega-menu-title" href="' . strtolower($list['categories']) . '.php">' . $list['categories'] . '</a>'; ?>
+														
 															<?php
+															
 																$cat_id=$list['id'];
 																$sub_cat_res=mysqli_query($con,"select * from sub_categories where status='1' and categories_id='$cat_id'");
 																if(mysqli_num_rows($sub_cat_res)>0){

@@ -1780,3 +1780,5 @@
 		<!-- FOOTER START -->
 		
 		<?php include 'include/footer.php' ?>
+
+		<!-- FOOTER END -->
