@@ -427,6 +427,22 @@ body {
 .mainmenu ul li .mega-menu span.block-last {
     margin-right: 0;
 }
+/* 
+Mainmenu IMAGE STYLING */
+
+
+/* .mega-menu-img {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.mega-menu-img img {
+    width: 100%;
+    height: auto;
+} */
+
+
 
 .mainmenu ul li a:after {
     content: "";
@@ -525,6 +541,7 @@ span.mobile-menu-title {
     color: #fff;
     font-size: 16px;
     left: 18px;
+    
     line-height: 18px;
     position: absolute;
     text-transform: uppercase;
@@ -4122,10 +4139,91 @@ a.proceedbtn {
 /* ----------------------------------
 22. About us area
 ------------------------------------*/
+/* body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+} */
+
+
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.right {
+    background-image: url('img/about/nearredkurta.webp'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.about-container p {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.scroll-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.left-scroll {
+    background-image: url('img/about/anothercover.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.right-scroll {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    
+}
+
+
+.font_4{
+font-size:normal 72px/1.25em;
+font-family: oswald-extralight,oswald,sans-serif;
+    background: -webkit-linear-gradient(#026bbe, #03a5e9, #05bcd1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.font_6{
+font-size: normal 40px/1.35em;
+font-family: oswald-extralight,oswald,sans-serif;
+}
+.font_7{
+font-size:normal 20px/1.67em;
+font-family: playfair display,serif;
+
+}
+
 .home-hello-info {
     margin: 50px 0;
     
 }
+
 
 .about-page-cntent h3 {
     background: none;
@@ -4133,7 +4231,7 @@ a.proceedbtn {
     font-size: 21px;
     margin: 0 0 20px;
     padding: 0;
-    color: #3f3f3f;
+    color: black;
 }
 
 blockquote {
