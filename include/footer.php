@@ -127,11 +127,11 @@
 								</div>
 								<div class="cakewalk-footer-content social-footer">
 									<ul>
-										<li><a href="https://www.facebook.com/KaprayV" target="_blank"><i class="fa fa-facebook-f"></i></a><span> Facebook</span></li>
-										<li><a href="https://www.instagram.com/kaprayvaghera?igshid=OGQ5ZDc2ODk2ZA%3D%3D" target="_blank"><i class="fa fa-instagram"></i></a><span> Instagram </span></li>
-										<li><a href="https://twitter.com/" style="color: black;" target="_blank"><img src="img/icons8-twitterx-16 (1).png"  alt=""></a><span> Twitter</span></li>
+										<li><a href="https://www.facebook.com/KaprayV" target="_blank"><i class="fa fa-facebook-f fa-lg"></i><span class="ps-3 text-light"> Facebook</span></a></li>
+										<li><a href="https://www.instagram.com/kaprayvaghera?igshid=OGQ5ZDc2ODk2ZA%3D%3D" target="_blank"><i class="fa fa-instagram  fa-lg"></i><span class="ps-3 text-light"> Instagram </a></span></li>
+										<li><a href="https://twitter.com/" style="color: black;" target="_blank"><img src="img/icons8-twitterx-16 (1).png"  alt=""></a><span class="text-light"> Twitter</span></a></li>
 										
-										<li><a href="https://youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a><span> Youtube</span></li>
+										<li><a href="https://youtube.com/" target="_blank"><i class="fa fa-youtube-play fa-lg"></i><span class="ps-3 text-light"> Youtube</span></a></li>
 										
 									</ul>
 								</div>
