@@ -110,47 +110,39 @@
 									
 									<li class="expand" href=""><a >Shop</a>
 										<div class="restrain mega-menu megamenu1">
+											<div class="">
 											<?php 
 												foreach($cat_arr as $list){
 													?>
-													<span>
-														<a class="mega-menu-title" ><?php echo $list['categories']?> </a>
-														<?php
-															$cat_id=$list['id'];
-															$sub_cat_res=mysqli_query($con,"select * from sub_categories where status='1' and categories_id='$cat_id'");
-															if(mysqli_num_rows($sub_cat_res)>0){
-															
-																while($sub_cat_rows=mysqli_fetch_assoc($sub_cat_res)){
-																	echo '<a href="categories.php?id='.$list['id'].'&sub_categories='.$sub_cat_rows['id'].'">'.$sub_cat_rows['sub_categories'].'</a>';
-																}
-															 } 
-														?>
-														<!-- <a href="">Shalwar</a>
-														<a>Trousers</a>											 -->
-													</span>
-												<?php	
+													<div class="col-12">
+														<span>
+															<a class="mega-menu-title" ><?php echo $list['categories']?> </a>
+															<?php
+																$cat_id=$list['id'];
+																$sub_cat_res=mysqli_query($con,"select * from sub_categories where status='1' and categories_id='$cat_id'");
+																if(mysqli_num_rows($sub_cat_res)>0){
+																	while($sub_cat_rows=mysqli_fetch_assoc($sub_cat_res)){
+																		echo '<a href="categories.php?id='.$list['id'].'&sub_categories='.$sub_cat_rows['id'].'">'.$sub_cat_rows['sub_categories'].'</a>';
+																	}
+																} 
+															?>
+																<!-- <a href="">Shalwar</a>
+																<a>Trousers</a>											 -->
+														</span>
+													</div>
+													<?php	
 												}
 											?>
-											
-											<!-- // <span>
-											// 	<a class="mega-menu-title" >Tops </a>
-											// 	<a href="">Shalwar</a>
-											// 	<a >Trousers</a>											
-											// </span>
-											// <span>
-											// 	<a class="mega-menu-title" > Bottoms </a>
-											// 	<a>Short Shirts</a>
-											// 	<a>Full Suit</a>
-											// 	<a>Kameez</a>
-												
-											// </span> -->
-											
-											<span class="block-last">
-												<img width="600" height="800" src="img/brown kurta.webp" alt="" />
-											</span>
+											</div>
+										
+											<div class="">
+												<span class="block-last">
+													<img class="img-fluid" src="img/brown kurta.webp" alt="" />
+												</span>
+											</div>
 										</div>
 									</li>
-									<li><a href="about-us.php">Our Story</a></li>
+									<li><a href="about-us.php">About Us</a></li>
 								</ul>
 							</nav>
 						</div> 
@@ -189,7 +181,7 @@
 														<?php	
 														}
 													?>
-													<li><a href="shop-grid.html"></a>
+													<!-- <li><a href="shop-grid.html"></a>
 													<ul>
 															<li><a href="shop-grid.html">Shalwar</a></li>
 															<li><a href="shop-grid.html">Trousers</a></li>
@@ -203,16 +195,13 @@
 															<li><a href="shop-grid.html">Kameez</a></li>
 															
 														</ul>
-													</li>
+													</li> -->
 												
 												</ul>
 											</li>
-											<li><a href="about-us.php">Our story</a>
-												
-											</li>
-											
 											<li><a href="about-us.php">About Us</a></li>
-											<li><a href="contact-us.html">Contact Us</a></li>
+											<!-- <li><a href="about-us.php">About Us</a></li>
+											<li><a href="contact-us.html">Contact Us</a></li> -->
 										</ul>
 									</nav>
 								</div>						
@@ -226,15 +215,22 @@
 						<div class="top-detail">
 							<!-- language division start -->
 							<div class="disflow" style="height: 60; width:25.19">
+							<?php 
+								if(isset($_SESSION['USER_LOGIN'])){
+							?>
 								<div class="expand lang-all disflow">
-									<a href="#"><img src="img/country/en.gif" width="18" height="12" alt="">English</a>
+									<span><?php echo $_SESSION['USER_NAME']?></span>
+									<!-- <a href="#"><img src="img/country/en.gif" width="18" height="12" alt="">English</a>
 									<ul class="restrain language">
 										<li><a href="#"><img src="img/country/it.gif"  width="18" height="12" alt="">italiano</a></li>
 										<li><a href="#"><img src="img/country/nl_nl.gif"  width="18" height="12" alt="">Nederlands</a></li>
 										<li><a href="#"><img src="img/country/de_de.gif"  width="18" height="12" alt="">Deutsch</a></li>
 										<li><a href="#"><img src="img/country/en.gif"  width="18" height="12" alt="">English</a></li>
-									</ul>
+									</ul> -->
 								</div>
+								<?php
+								}
+								?>
 								<div class="expand lang-all disflow">
 									<a href="#">$ USD</a>
 									<ul class="restrain language">
@@ -287,14 +283,14 @@
 								</div>
 							</div>
 							<div class="disflow" style="height: 60; width:25.19">
-            <a href="#" id="contactUsBtn" class="whatsapp-icon">
-                <i class="fa fa-whatsapp whatsapp-icon-custom-size"></i>
-            </a>
-        </div>
+								<a href="#" id="contactUsBtn" class="whatsapp-icon">
+									<i class="fa fa-whatsapp whatsapp-icon-custom-size"></i>
+								</a>
+							</div>
 
 							<!-- addcart top start -->
 							<!-- search divition start -->
-							<!-- <div class="disflow" style="height: 60; width:25.19">
+							<div class="disflow" style="height: 60; width:25.19">
 								<div class="header-search expand">
 									<div class="search-icon fa fa-search"></div>
 									<div class="product-search restrain">
@@ -310,7 +306,7 @@
 										</div>
 									</div>
 								</div>
-							</div> -->
+							</div>
 							<!-- search divition end -->
 							<div class="disflow" style="height: 60; width:25.19">
 								<div class="expand dropps-menu">
@@ -321,7 +317,19 @@
 										<li><a href="cart.html">My Cart</a></li>
 										<li><a href="checkout.html">Checkout</a></li>
 										<li><a href="#">Testimonial</a></li>
+										<?php 
+										if(isset($_SESSION['USER_LOGIN'])){
+											?>
+											<li><a href="login.html">Log out</a></li>
+										<?php
+										}
+										
+										else{
+										?>
 										<li><a href="login.html">Log In</a></li>
+										<?php
+										}
+										?>
 									</ul>
 								</div>
 							</div>
