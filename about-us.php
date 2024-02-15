@@ -19,7 +19,7 @@
 			</div>
 		</div>  -->
 		<!-- breadcrumbs area end -->
-		<?php include 'include/header.php' ?>
+		<?php include 'include/header2.php' ?>
 
 		<!-- hello about start -->
 		<div class="home-hello-info">

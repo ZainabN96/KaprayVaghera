@@ -174,7 +174,14 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
-
+.aboutheader{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #3f3f3f;
+}
 
 @media (min-width: 576px) {
 
@@ -759,7 +766,7 @@ button{
 /*----------------------------------------*/
 .search-icon.fa.fa-search {
     font-size: 18px;
-    color: #3f3f3f;
+    color: #b21010;
     padding: 30px 0 30px 15px;
 }
 
@@ -841,6 +848,7 @@ button{
     right: 0;
     text-align: right;
 }
+
 
 .lang-all>a:hover,
 .search-icon.fa.fa-search:hover {
@@ -2267,7 +2275,7 @@ span.old-price {
 }
 
 .header-four .search-icon.fa.fa-search {
-    padding-top: 37px;
+    padding-top: 7px;
 }
 
 .home-four .restrain.mega-menu.megamenu1 {
@@ -2523,17 +2531,26 @@ span.old-price {
 .home-five .mainmenu ul li a {
     color: #fff;
 }
+.home-five .about ul li a {
+    color: #000000;
+}
+
 
 .home-five .lang-all>a {
     color: #fff;
 }
 
+
 .home-five .cart-toggler i {
     color: #fff;
 }
 
+
 .home-five .search-icon.fa.fa-search {
     color: #fff;
+}
+.home-five .card.fa.fa-search {
+    color: #4114b4;
 }
 
 .home-five .dropps-menu a {
