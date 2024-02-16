@@ -247,5 +247,30 @@
 		  window.open(whatsappLink, '_blank');
 		  });
 		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+            const leftScroll = document.querySelector('.left-scroll');
+            const rightScroll = document.querySelector('.right-scroll');
+
+            function handleScroll() {
+                const scrollPosition = window.scrollY;
+                const elementOffset = leftScroll.offsetTop; 
+
+                if (scrollPosition > elementOffset - window.innerHeight / 2) {
+                    leftScroll.style.opacity = 1;
+                    leftScroll.style.transform = 'translateY(0)';
+                }
+
+                if (scrollPosition > elementOffset - window.innerHeight / 2) {
+                    rightScroll.style.opacity = 1;
+                    rightScroll.style.transform = 'translateY(0)';
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+        });
+
+		
+
 	
 })(jQuery);    

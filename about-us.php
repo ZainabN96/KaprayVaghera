@@ -57,8 +57,8 @@
 			<div class="left">
 				<!-- <h1 class="font_4 wixui-rich-text__text" style="text-align:center; line-height:1.25em; font-size:72px;"><span style="font-weight:bold;" class="wixui-rich-text__text"><span style="text-transform:uppercase;" class="wixui-rich-text__text">KAPRAY VAGHERA </span></span></span></h1> -->
 				<hr>
-				<h1 class="font_7 wixui-rich-text__text" style="line-height:1.67em; text-align:center; font-size:50px;">
-					<span class="color_15 wixui-rich-text__text">
+				<h1 class="font_7 wixui-rich-text__text" style="line-height:1.67em; text-align:center; font-size:30px;">
+					<span class="color_15 text">
 						Wrap yourself in elegance with our hand-embroidered kurtas, where tradition meets contemporary style.
 					</span>
 				</h1>
@@ -69,7 +69,7 @@
 
     	<div class="scroll-container">
 			<div class="left-scroll"></div>
-        	<div class="right-scroll" style="line-height:1.67em; text-align:center; font-size:18px;">
+        	<div class="right-scroll" style="line-height:1.67em; text-align:center; font-size:16px;">
             	<p>
 					Kapray Vaghera stands out in the fashion industry not only as a brand but as a symbol of tradition, craftsmanship, and sustainability. Founded in 2001 by Ayesha Chaudhury, a graduate of PSFD, the brand has been on a mission to revive old Pakistani crafts while creating timeless pieces that transcend trends.
                     One of Kapray Vaghera's core principles is to offer customers the ability to curate their own unique style by mixing and matching different pieces, from salwars to pants to stoles. The brand places a strong emphasis on the quality of the cloth, ensuring that every garment is made to the highest standards.

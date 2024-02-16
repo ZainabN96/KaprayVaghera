@@ -4185,7 +4185,7 @@ header {
 }
 
 .right {
-    background-image: url('img/about/nearredkurta.webp'); 
+    background-image: url('img/about/red kurtaa2.png'); 
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -4194,6 +4194,7 @@ header {
 .about-container p {
     font-size: 1.2em;
     text-align: center;
+    
 }
 
 .scroll-container {
@@ -4236,11 +4237,66 @@ font-family: playfair display,serif;
 
 }
 
+
 .home-hello-info {
     margin: 50px 0;
     
 }
+/* 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
+.left-scroll,
+.right-scroll {
+    animation: fadeIn 2s ease-in-out; 
+} */
+
+/* .left-scroll,
+.right-scroll {
+    animation: fadeIn 2s ease-in-out; 
+} */
+ 
+@keyframes fadeInFromSides {
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.left,
+.right {
+    animation: fadeInFromSides 2s ease-in-out; 
+} 
+
+
+
+.left-scroll,
+.right-scroll {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 1s, transform 1s;
+}
+
+@media screen and (max-width: 996px) and (min-width: 1200px) {
+
+.scroll-container .right-scroll p {
+    font-size: 10px;
+}
+
+
+
+
+}
 
 .about-page-cntent h3 {
     background: none;
