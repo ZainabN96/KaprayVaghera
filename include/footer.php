@@ -131,7 +131,7 @@
 										<li><a href="https://www.instagram.com/kaprayvaghera?igshid=OGQ5ZDc2ODk2ZA%3D%3D" class="instagram"><i class="bi bi-instagram"></i><span class="ps-3 text-light"> Instagram </a></span></li>
 										<li><a href="https://twitter.com/"  class="twitter"><i class="bi bi-twitter-x"></i><span class="ps-3 text-light"> Twitter </a></span></li>
 										
-										<li><a href="https://youtube.com/" class="tiktok"><i class="bi bi-tiktok"></i><span class="ps-3 text-light"> Youtube </a></span></li>
+										<!-- <li><a href="https://youtube.com/" class="tiktok"><i class="bi bi-tiktok"></i><span class="ps-3 text-light"> Youtube </a></span></li> -->
 										
 									</ul>
 								</div>
@@ -153,7 +153,7 @@
 								</div>
 								<div class="infof-content">
 									<h3>Our Address</h3>
-									<p>Your address goes here.</p>
+									<p>25 Main Market Rd, Gulberg 2, Lahore, Punjab</p>
 								</div>
 							</div>
 						</div>
