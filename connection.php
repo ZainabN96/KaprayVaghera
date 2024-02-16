@@ -2,7 +2,7 @@
 session_start();
 $con=mysqli_connect("localhost","root","","ecom");
 define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'/KAPRAWAPRA/');
-define('SITE_PATH','');
+define('SITE_PATH','/KAPRAWAPRA/');
 
 define('INSTAMOJO_REDIRECT',SITE_PATH.'payment_complete.php');
 
