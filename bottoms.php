@@ -1,6 +1,5 @@
-<?php 
-	include 'include/header.php' ;
-?>
+<?php include 'include/header2.php' ?>
+
 
 		<!-- header area end -->
 		<!-- category-banner area start -->
