@@ -68,17 +68,28 @@
 							<div role="tabpanel" class="tab-pane fade show active" id="home">
 								<div class="features-curosel owl-carousel owl-theme">
 									<div class="owl-slider-rows--multiple">
-									<?php
+									<!-- <?php
 										$get_product=get_product($con,4);
 										foreach($get_product as $list){
-										?>
+										?> -->
 											<!-- single-product start -->
 											<div class="single-product slider-item">
 												<div class="product-img">
-													<a href="product-details.html">
+													<!-- <a href="product-details.html">
 														<img class="primary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
 														<img class="secondary-image" width="540" height="660" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
-													</a>
+														
+													</a> -->
+													<div class="col-md-3">
+                                                         <div class="card">
+                                                            <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
+                                                                     <div class="card-body">
+                                                                     <h5 class="card-title">Card 1</h5>
+                                                                         <p class="card-text">This is a sample text for Card 1.</p>
+                                                                             <a href="#" class="btn btn-primary">Read More</a>
+                                                                    </div>
+                                                         </div>
+                                                    </div>
 													<div class="action-zoom">
 														<div class="add-to-cart">
 															<a href="product-details.html" title="Quick View"><i class="fa fa-search-plus"></i></a>
@@ -108,6 +119,16 @@
 													<p><?php echo $list['short_desc']?></p>
 												</div>
 											</div>
+											<!-- <div class="col-md-3">
+      <div class="card">
+        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
+        <div class="card-body">
+          <h5 class="card-title">Card 1</h5>
+          <p class="card-text">This is a sample text for Card 1.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div> -->
 										<?php 
 										}
 										?>
@@ -658,6 +679,51 @@
 									</div>
 								</div>
 							</div>
+							<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
+        <div class="card-body">
+          <h5 class="card-title">Card 1</h5>
+          <p class="card-text">This is a sample text for Card 1.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
+        <div class="card-body">
+          <h5 class="card-title">Card 2</h5>
+          <p class="card-text">This is a sample text for Card 2.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
+        <div class="card-body">
+          <h5 class="card-title">Card 3</h5>
+          <p class="card-text">This is a sample text for Card 3.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card">
+        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
+        <div class="card-body">
+          <h5 class="card-title">Card 4</h5>
+          <p class="card-text">Lorem ipsum dolor, sit amet consectetur.</p>
+          <a href="#" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 							<!-- <div role="tabpanel" class="tab-pane fade" id="profile">
 								<div class="features-curosel owl-carousel owl-theme">
 									<div class="owl-slider-rows--multiple"> -->
