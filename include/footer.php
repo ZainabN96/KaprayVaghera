@@ -247,6 +247,10 @@
 		<!-- jquery.bxslider.min.js
 		============================================ -->       
         <script src="js/jquery.bxslider.min.js"></script>
+
+		<!-- aos js
+		============================================ -->         
+        <script src="js/vendor/aos/aos.js"></script> 
 		
 		<!-- mobile menu js
 		============================================ -->  
@@ -259,6 +263,8 @@
    		<!-- plugins js
 		============================================ -->         
         <script src="js/plugins.js"></script>
+
+		
         
    		<!-- main js
 		============================================ -->           

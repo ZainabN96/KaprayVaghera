@@ -65,7 +65,12 @@
  		<!-- animate CSS
 		============================================ -->         
         <link rel="stylesheet" href="css/animate.css">
-		
+
+		<!-- Vendor CSS
+		============================================ -->   
+		<link href="js/vendor/aos/aos.css" rel="stylesheet">
+
+
 		<!-- mobile menu CSS
 		============================================ -->
 		<link rel="stylesheet" href="css/meanmenu.min.css">

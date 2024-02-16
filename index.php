@@ -68,18 +68,11 @@
 							<div role="tabpanel" class="tab-pane fade show active" id="home">
 								<div class="features-curosel owl-carousel owl-theme">
 									<div class="owl-slider-rows--multiple">
-									<!-- <?php
-										$get_product=get_product($con,4);
-										foreach($get_product as $list){
-										?> -->
+								
 											<!-- single-product start -->
 											<div class="single-product slider-item">
 												<div class="product-img">
-													<!-- <a href="product-details.html">
-														<img class="primary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
-														<img class="secondary-image" width="540" height="660" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
-														
-													</a> -->
+												
 													<div class="col-md-3">
                                                          <div class="card">
                                                             <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
@@ -88,8 +81,7 @@
                                                                          <p class="card-text">This is a sample text for Card 1.</p>
                                                                              <a href="#" class="btn btn-primary">Read More</a>
                                                                     </div>
-                                                         </div>
-                                                    </div>
+                                                        
 													<div class="action-zoom">
 														<div class="add-to-cart">
 															<a href="product-details.html" title="Quick View"><i class="fa fa-search-plus"></i></a>
@@ -115,23 +107,10 @@
 													</div>
 												</div>
 												<div class="product-content">
-													<h2 class="product-name"><a href="product-details.html"><?php echo $list['name']?></a></h2>
-													<p><?php echo $list['short_desc']?></p>
+
 												</div>
 											</div>
-											<!-- <div class="col-md-3">
-      <div class="card">
-        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
-        <div class="card-body">
-          <h5 class="card-title">Card 1</h5>
-          <p class="card-text">This is a sample text for Card 1.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div> -->
-										<?php 
-										}
-										?>
+											
 										<!-- single-product end -->
 										
 									</div>
