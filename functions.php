@@ -1,4 +1,11 @@
 <?php
+
+$cat_res=mysqli_query($con,"select * from categories where status=1");
+$cat_arr=array();
+while($row=mysqli_fetch_assoc($cat_res)){
+	$cat_arr[]=$row;	
+}
+
 function pr($arr){
 	echo '<pre>';
 	print_r($arr);

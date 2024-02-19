@@ -4,11 +4,6 @@
 	require('functions.php');
 	require('add_to_cart.php');
 	
-	$cat_res=mysqli_query($con,"select * from categories where status=1");
-	$cat_arr=array();
-	while($row=mysqli_fetch_assoc($cat_res)){
-		$cat_arr[]=$row;	
-	}
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="">
@@ -24,7 +19,7 @@
 		============================================ -->
 		<link rel="shortcut icon" type="image/x-icon" href="img/iconbg.ico">
 		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-GLhlTQ8i7uZLdMC+5EW/CNE3I5I5PjGQy4Kx8V5+5u4N2K4LrD2f5Y5f5l5u5l5" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/all.min.css">
 		<!-- Fonts
 		============================================ -->
 		<link rel="preconnect" href="https://fonts.googleapis.com/">

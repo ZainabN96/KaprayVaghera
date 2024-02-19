@@ -18,7 +18,7 @@ define('BANNER_SITE_PATH',SITE_PATH.'img/banner/');
 define('INSTAMOJO_KEY','key');
 define('INSTAMOJO_TOKEN','token');
 
-define('SMTP_EMAIL','email@gmail.com');
+define('SMTP_EMAIL','Zainabnaveed.hcc@gmail.com');
 define('SMTP_PASSWORD','password');
 
 define('SMS_KEY','sms_key');
