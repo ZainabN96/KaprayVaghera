@@ -4311,8 +4311,6 @@ margin-bottom: 40px;
 .font_4{
 font-size:normal 72px/1.25em;
 font-family: oswald-extralight,oswald,sans-serif;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .font_6{
 font-size: normal 40px/1.35em;
