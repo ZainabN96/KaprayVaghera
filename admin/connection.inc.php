@@ -1,8 +1,8 @@
 <?php
 session_start();
 $con=mysqli_connect("localhost","root","","ecom");
-define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'/KAPRAWAPRA/');
-define('SITE_PATH','/KAPRAWAPRA/');
+define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'/KAPRAYVAGHERA/');
+define('SITE_PATH','');
 
 define('LOGO_SERVER_PATH',SERVER_PATH.'/img/');
 define('LOGO_SITE_PATH',SITE_PATH.'../img/');
