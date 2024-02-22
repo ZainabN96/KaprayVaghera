@@ -1,6 +1,17 @@
-<?php 
-	include 'include/header.php' ;
-?>
+<!DOCTYPE html>
+<html class="no-js" lang="">
+	
+    <?php 
+		$title='Home | Kapray Veghera';
+		include 'includes/header.php'; 
+	?>
+
+    <body class="home-five">
+        
+		<!-- header area start -->
+		<?php include 'includes/Navbar.php' ?>
+		<!-- header area end -->
+
 		<!-- start home slider -->
         <div class="slider-area an-1 hm-1 clr">
              <!-- slider -->
@@ -39,1286 +50,256 @@
 			<!-- slider end-->
 		</div>
         <!-- end home slider -->
-		
-		<!-- product section start -->
+		<!-- New Arrival section start -->
 		<div class="our-product-area">
 			<div class="container">
 				<!-- area title start -->
 				<div class="area-title">
-					<h2>New Arrivals</h2>
+					<h2>New Arrival</h2>
 				</div>
-				<!-- area title end -->
-				<!-- our-product area start -->
-				<!-- <div class="row">
-					<div class="col-12">
-						<div class="features-tab">
-							Nav tabs
-							<ul class="nav nav-tabs">
-								<li class="nav-item" role="presentation"><button class="nav-link active" data-bs-target="#home" data-bs-toggle="tab">Bestsellers</button></li>
-								<li class="nav-item" role="presentation"><button class="nav-link" data-bs-target="#new-arrival" data-bs-toggle="tab">New Arrivals</button></li>
-								<li class="nav-item" role="presentation"><button class="nav-link" data-bs-target="#profile" data-bs-toggle="tab">Random Products</button></li>
-							</ul>
-						</div>				
-					</div>
-				</div> -->
-				<!-- Tab pans -->
+			
 				<div class="row">
-					<div class="col-12">
-						<div class="tab-content">
-							<div role="tabpanel" class="tab-pane fade show active" id="home">
-								<div class="features-curosel owl-carousel owl-theme">
-									<div class="owl-slider-rows--multiple">
-								
-											<!-- single-product start -->
-											<div class="single-product slider-item">
-												<div class="product-img">
-												
-													<div class="col-md-3">
-                                                         <div class="card">
-                                                            <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
-                                                                     <div class="card-body">
-                                                                     <h5 class="card-title">Card 1</h5>
-                                                                         <p class="card-text">This is a sample text for Card 1.</p>
-                                                                             <a href="#" class="btn btn-primary">Read More</a>
-                                                                    </div>
-                                                        
-													<div class="action-zoom">
-														<div class="add-to-cart">
-															<a href="product-details.html" title="Quick View"><i class="fa fa-search-plus"></i></a>
-														</div>
-													</div>
-													<div class="actions">
-														<div class="action-buttons">
-															<div class="add-to-links">
-																<div class="add-to-wishlist">
-																	<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-																</div>
-																<div class="compare-button">
-																	<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-																</div>									
-															</div>
-															<!-- <div class="quickviewbtn">
-																<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-															</div> -->
-														</div>
-													</div>
-													<div class="price-box">
-														<span class="new-price">$<?php echo $list['price']?></span>
-													</div>
-												</div>
-												<div class="product-content">
-
-												</div>
-											</div>
-											
-										<!-- single-product end -->
-										
+					<?php
+						$get_product=get_product($con,4);
+						foreach($get_product as $list){
+					?> 
+					<div class="col-lg-3 col-md-4 col-sm-6">
+						<div class="single-product slider-item">
+							<div class="product-img">
+								<a href="#">
+									<img class="primary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
+									<img class="secondary-image" width="540" height="660" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
+								</a>
+								<div class="action-zoom">
+									<div class="add-to-cart">
+										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
 									</div>
-
+								</div>
+								<div class="actions">
+									<div class="action-buttons">
+										<div class="add-to-links">
+											<div class="add-to-wishlist">
+												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+											</div>
+											<div class="compare-button">
+												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+											</div>									
+										</div>
+										<!-- <div class="quickviewbtn">
+											<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
+										</div> -->
+									</div>
+								</div>
+								<div class="price-box">
+									<span class="new-price"><?php echo $list['price']?></span>
 								</div>
 							</div>
-							<div role="tabpanel" class="tab-pane fade" id="new-arrival">
-								<div class="features-curosel owl-carousel owl-theme">
-									<div class="owl-slider-rows--multiple">
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product4.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/pr4.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$350.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Quisque in arcu</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product9.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/pr9.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$250.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Primis in faucibus</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-									</div>
-									<div class="owl-slider-rows--multiple">
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/pr8.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product8.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$180.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Voluptas nulla</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<span class="sale-text">Sale</span>
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/pr5.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product5.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$310.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Cras neque metus</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-									</div>
-									<div class="owl-slider-rows--multiple">
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product2.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product2front.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$450.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Occaecati cupiditate</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/pr9.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product9.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$178.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Donec non est</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-									</div>
-									<div class="owl-slider-rows--multiple">
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<span class="sale-text">Sale</span>
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product9.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/pr9.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$110.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Pellentesque habitant</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/pr7.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product7.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$300.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Donec non est</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-									</div>
-									<div class="owl-slider-rows--multiple">
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/pr5.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product5.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$200.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Nunc facilisis</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<span class="sale-text">Sale</span>
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/producy1front.jpg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/producy1front.jpg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$250.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Fusce aliquam</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-									</div>
-									<div class="owl-slider-rows--multiple">
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product9.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/pr9.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$370.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Aliquam consequat</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<span class="sale-text">Sale</span>
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product8.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/pr8.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$170.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Pleasure rationally</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-									</div>
-									<div class="owl-slider-rows--multiple">
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product6.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/pr6.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$450.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Proin lectus ipsum</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product3.jpeg" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/pr3.jpeg" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<!-- <div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$300.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Consequences</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div>
-										<!-- single-product end -->
-									</div>
-								</div>
-							</div>
-							<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-3">
-      <div class="card">
-        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
-        <div class="card-body">
-          <h5 class="card-title">Card 1</h5>
-          <p class="card-text">This is a sample text for Card 1.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card">
-        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
-        <div class="card-body">
-          <h5 class="card-title">Card 2</h5>
-          <p class="card-text">This is a sample text for Card 2.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card">
-        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
-        <div class="card-body">
-          <h5 class="card-title">Card 3</h5>
-          <p class="card-text">This is a sample text for Card 3.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card">
-        <img src="img/image-420x355.jpg" class="card-img-top" alt="Card Image">
-        <div class="card-body">
-          <h5 class="card-title">Card 4</h5>
-          <p class="card-text">Lorem ipsum dolor, sit amet consectetur.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-							<!-- <div role="tabpanel" class="tab-pane fade" id="profile">
-								<div class="features-curosel owl-carousel owl-theme">
-									<div class="owl-slider-rows--multiple"> -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<span class="sale-text">Sale</span>
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-11.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-2.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$110.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Pellentesque habitant</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-11.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-12.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$300.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Donec non est</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-									<!-- </div>
-									<div class="owl-slider-rows--multiple"> -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-11.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-12.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$200.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Nunc facilisis</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<span class="sale-text">Sale</span>
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-13.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-2.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$250.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Fusce aliquam</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-									<!-- </div>
-									<div class="owl-slider-rows--multiple"> -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-8.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-9.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$370.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Aliquam consequat</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<span class="sale-text">Sale</span>
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-10.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-12.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$170.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Pleasure rationally</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-									<!-- </div>
-									<div class="owl-slider-rows--multiple"> -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-13.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-1.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$450.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Proin lectus ipsum</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-2.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-3.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$300.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Consequences</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-									<!-- </div>
-									<div class="owl-slider-rows--multiple"> -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-4.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-5.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$350.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Quisque in arcu</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-6.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-7.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$250.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Primis in faucibus</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-									<!-- </div>
-									<div class="owl-slider-rows--multiple"> -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-9.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-10.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$180.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Voluptas nulla</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<span class="sale-text">Sale</span>
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-11.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-12.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$310.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Cras neque metus</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-									<!-- </div>
-									<div class="owl-slider-rows--multiple"> -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-5.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-6.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$450.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Occaecati cupiditate</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<!-- <div class="single-product slider-item">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image" width="540" height="660" src="img/products/product-7.webp" alt="" />
-													<img class="secondary-image" width="540" height="660" src="img/products/product-8.webp" alt="" />
-												</a>
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-															</div>									
-														</div>
-														<div class="quickviewbtn">
-															<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-														</div>
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">$178.00</span>
-												</div>
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">Donec non est</a></h2>
-												<p>Nunc facilisis sagittis ullamcorper...</p>
-											</div>
-										</div> -->
-										<!-- single-product end -->
-									</div>
-								</div>
+							<div class="product-content">
+								<h2 class="product-name"><a href="#"><?php echo $list['name']?></a></h2>
+								<p><?php echo $list['short_desc']?></p>
 							</div>
 						</div>
 					</div>
-				</div>
-				</div>
-		<!-- our-product area end -->	
-		<!-- product section end -->
-		
-		<!-- product section start -->
+					<?php } ?>
+					<!-- <div class="col-lg-3 col-md-4 col-sm-6">
+						<div class="single-product slider-item">
+							<div class="product-img">
+								<a href="#">
+									<img class="primary-image" src="img/products/producy1front.jpg" alt="" />
+									<img class="secondary-image" width="540" height="660" src="img/products/image-540x660.jpg" alt="" />
+								</a>
+								<div class="action-zoom">
+									<div class="add-to-cart">
+										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+									</div>
+								</div>
+								<div class="actions">
+									<div class="action-buttons">
+										<div class="add-to-links">
+											<div class="add-to-wishlist">
+												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+											</div>
+											<div class="compare-button">
+												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+											</div>									
+										</div>
+									</div>
+								</div>
+								<div class="price-box">
+									<span class="new-price">$222.00</span>
+								</div>
+							</div>
+							<div class="product-content">
+								<h2 class="product-name"><a href="#">Donec ac tempus</a></h2>
+								<p>Nunc facilisis sagittis ullamcorper...</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6">
+						<div class="single-product slider-item">
+							<div class="product-img">
+								<a href="#">
+									<img class="primary-image" src="img/products/producy1front.jpg" alt="" />
+									<img class="secondary-image" width="540" height="660" src="img/products/image-540x660.jpg" alt="" />
+								</a>
+								<div class="action-zoom">
+									<div class="add-to-cart">
+										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+									</div>
+								</div>
+								<div class="actions">
+									<div class="action-buttons">
+										<div class="add-to-links">
+											<div class="add-to-wishlist">
+												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+											</div>
+											<div class="compare-button">
+												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+											</div>									
+										</div>
+									</div>
+								</div>
+								<div class="price-box">
+									<span class="new-price">$222.00</span>
+								</div>
+							</div>
+							<div class="product-content">
+								<h2 class="product-name"><a href="#">Donec ac tempus</a></h2>
+								<p>Nunc facilisis sagittis ullamcorper...</p>
+							</div>
+						</div>
+					</div> -->
+				</div>		
+		</div>	
+		<!-- New Arrival section end -->
+		<!-- Hot Selling section start -->
 		<div class="our-product-area">
 			<div class="container">
 				<!-- area title start -->
 				<div class="area-title">
-					<h2>Best Selling</h2>
+					<h2>Hot Selling</h2>
 				</div>
-				<!-- area title end -->
-				<!-- Tab pans -->
+			
 				<div class="row">
-					<div class="col-12">
-						<div class="tab-content">
-							<div role="tabpanel" class="tab-pane fade show active" id="home">
-								<div class="features-curosel owl-carousel owl-theme">
-									<div class="owl-slider-rows--multiple">
-										<?php
-										$get_product=get_product($con,4,'','','','','yes');
-										foreach($get_product as $list){
-										?>
-											<!-- single-product start -->
-											<div class="single-product slider-item">
-												<div class="product-img">
-													<a href="product-details.html">
-														<img class="primary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
-														<img class="secondary-image" width="540" height="660" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
-													</a>
-													<div class="action-zoom">
-														<div class="add-to-cart">
-															<a href="product-details.html" title="Quick View"><i class="fa fa-search-plus"></i></a>
-														</div>
-													</div>
-													<div class="actions">
-														<div class="action-buttons">
-															<div class="add-to-links">
-																<div class="add-to-wishlist">
-																	<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-																</div>
-																<div class="compare-button">
-																	<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-																</div>									
-															</div>
-															<!-- <div class="quickviewbtn">
-																<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-															</div> -->
-														</div>
-													</div>
-													<div class="price-box">
-														<span class="new-price">$<?php echo $list['price']?></span>
-													</div>
-												</div>
-												<div class="product-content">
-													<h2 class="product-name"><a href="product-details.html"><?php echo $list['name']?></a></h2>
-													<p><?php echo $list['short_desc']?></p>
-												</div>
-											</div>
-										<?php 
-										}
-										?>
-										<!-- single-product end -->
+					<div class="col-lg-3 col-md-4 col-sm-6">
+						<div class="single-product slider-item">
+							<div class="product-img">
+								<a href="#">
+									<img class="primary-image" src="img/products/producy1front.jpg" alt="" />
+									<img class="secondary-image" width="540" height="660" src="img/products/image-540x660.jpg" alt="" />
+								</a>
+								<div class="action-zoom">
+									<div class="add-to-cart">
+										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
 									</div>
 								</div>
+								<div class="actions">
+									<div class="action-buttons">
+										<div class="add-to-links">
+											<div class="add-to-wishlist">
+												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+											</div>
+											<div class="compare-button">
+												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+											</div>									
+										</div>
+									</div>
+								</div>
+								<div class="price-box">
+									<span class="new-price">$222.00</span>
+								</div>
+							</div>
+							<div class="product-content">
+								<h2 class="product-name"><a href="#">Donec ac tempus</a></h2>
+								<p>Nunc facilisis sagittis ullamcorper...</p>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		<!-- our-product area end -->	
+					<div class="col-lg-3 col-md-4 col-sm-6">
+						<div class="single-product slider-item">
+							<div class="product-img">
+								<a href="#">
+									<img class="primary-image" src="img/products/producy1front.jpg" alt="" />
+									<img class="secondary-image" width="540" height="660" src="img/products/image-540x660.jpg" alt="" />
+								</a>
+								<div class="action-zoom">
+									<div class="add-to-cart">
+										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+									</div>
+								</div>
+								<div class="actions">
+									<div class="action-buttons">
+										<div class="add-to-links">
+											<div class="add-to-wishlist">
+												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+											</div>
+											<div class="compare-button">
+												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+											</div>									
+										</div>
+										<!-- <div class="quickviewbtn">
+											<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
+										</div> -->
+									</div>
+								</div>
+								<div class="price-box">
+									<span class="new-price">$222.00</span>
+								</div>
+							</div>
+							<div class="product-content">
+								<h2 class="product-name"><a href="#">Donec ac tempus</a></h2>
+								<p>Nunc facilisis sagittis ullamcorper...</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-4 col-sm-6">
+						<div class="single-product slider-item">
+							<div class="product-img">
+								<a href="#">
+									<img class="primary-image" src="img/products/producy1front.jpg" alt="" />
+									<img class="secondary-image" width="540" height="660" src="img/products/image-540x660.jpg" alt="" />
+								</a>
+								<div class="action-zoom">
+									<div class="add-to-cart">
+										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+									</div>
+								</div>
+								<div class="actions">
+									<div class="action-buttons">
+										<div class="add-to-links">
+											<div class="add-to-wishlist">
+												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+											</div>
+											<div class="compare-button">
+												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+											</div>									
+										</div>
+										<!-- <div class="quickviewbtn">
+											<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
+										</div> -->
+									</div>
+								</div>
+								<div class="price-box">
+									<span class="new-price">$222.00</span>
+								</div>
+							</div>
+							<div class="product-content">
+								<h2 class="product-name"><a href="#">Donec ac tempus</a></h2>
+								<p>Nunc facilisis sagittis ullamcorper...</p>
+							</div>
+						</div>
+					</div>
+				</div>		
+		</div>	
 		<!-- product section end -->
 		<!-- FOOTER START -->
-		<?php include 'include/footer.php' ?>
-
+		<?php include 'includes/footer.php'; ?>
 		<!-- FOOTER END -->
+		
+        <!-- JS -->
+        <?php include 'includes/jsfiles.php';?>
+ 		
+    </body>
+
+<!-- Mirrored from htmldemo.net/lavoro/lavoro/index-5.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:29:40 GMT -->
+</html>
