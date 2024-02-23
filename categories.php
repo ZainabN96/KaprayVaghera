@@ -1,10 +1,132 @@
+<?php
+	
+	require('connection.php');
+	require('functions.php');
+	require('add_to_cart.php');
+
+	if(!isset($_GET['id']) && $_GET['id']!=''){
+		?>
+		<script>
+		window.location.href='index.php';
+		</script>
+		<?php
+	}
+	
+	$cat_id=mysqli_real_escape_string($con,$_GET['id']);
+	
+	$sub_categories='';
+	if(isset($_GET['sub_categories'])){
+		$sub_categories=mysqli_real_escape_string($con,$_GET['sub_categories']);
+	}
+	$price_high_selected="";
+	$price_low_selected="";
+	$new_selected="";
+	$old_selected="";
+	$sort_order="";
+	if(isset($_GET['sort'])){
+		$sort=mysqli_real_escape_string($con,$_GET['sort']);
+		if($sort=="price_high"){
+			$sort_order=" order by product.price desc ";
+			$price_high_selected="selected";	
+		}if($sort=="price_low"){
+			$sort_order=" order by product.price asc ";
+			$price_low_selected="selected";
+		}if($sort=="new"){
+			$sort_order=" order by product.id desc ";
+			$new_selected="selected";
+		}if($sort=="old"){
+			$sort_order=" order by product.id asc ";
+			$old_selected="selected";
+		}
+	}
+	
+	if($cat_id>0){
+		$get_product=get_product($con,'',$cat_id,'','',$sort_order,'',$sub_categories);
+	}else{
+		?>
+		<script>
+		window.location.href='index.php';
+		</script>
+		<?php
+	}			
+	
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="">
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Categories | Kapray Vaghera</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<?php 
-		$title='Category | Kapray Veghera';
-		include 'includes/header.php'; 
-	?>
+        <!-- Favicon
+		============================================ -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/iconbg.ico.ico">
+		
+		<!-- Fonts
+		============================================ -->
+		<link rel="preconnect" href="https://fonts.googleapis.com/">
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+		
+ 		<!-- CSS  -->
+		
+		<!-- Bootstrap CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        
+		<!-- owl.carousel CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        
+		<!-- owl.theme CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/owl.theme.css">
+           	
+		<!-- owl.transitions CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/owl.transitions.css">
+        
+		<!-- font-awesome.min CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+		
+		<!-- font-icon CSS
+		============================================ -->      
+        <link rel="stylesheet" href="fonts/font-icon.css">
+		
+		<!-- jquery-ui CSS
+		============================================ -->
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        
+ 		<!-- animate CSS
+		============================================ -->         
+        <link rel="stylesheet" href="css/animate.css">
+		
+		<!-- mobile menu CSS
+		============================================ -->
+		<link rel="stylesheet" href="css/meanmenu.min.css">
+        
+ 		<!-- normalize CSS
+		============================================ -->        
+        <link rel="stylesheet" href="css/normalize.css">
+   
+        <!-- main CSS
+		============================================ -->          
+        <link rel="stylesheet" href="css/main.css">
+        
+        <!-- style CSS
+		============================================ -->          
+        <link rel="stylesheet" href="style.css">
+        
+        <!-- responsive CSS
+		============================================ -->          
+        <link rel="stylesheet" href="css/responsive.css">
+        
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+	
 
     <body class="shop">
 
@@ -51,12 +173,12 @@
 										<div class="orderby-wrapper">
 											<label>Sort By</label>
 											<select name="orderby" class="orderby">
-												<option value="menu_order" selected="selected">Default sorting</option>
-												<option value="popularity">Sort by popularity</option>
-												<option value="rating">Sort by average rating</option>
-												<option value="date">Sort by newness</option>
-												<option value="price">Sort by price: low to high</option>
-												<option value="price-desc">Sort by price: high to low</option>
+												<option value="" selected="selected">Default sorting</option>
+												<option value="old">Sort by popularity</option>
+												<!-- <option value="rating">Sort by average rating</option> -->
+												<option value="new">Sort by newness</option>
+												<option value="price_low">Sort by price: low to high</option>
+												<option value="price_high">Sort by price: high to low</option>
 											</select>
 										</div>
 									</form>
@@ -85,11 +207,15 @@
 							</div>
 						</div>
 						<!-- shop toolbar end -->
+						<?php if(count($get_product)>0){?>
 						<!-- product-row start -->
 						<div class="tab-content">
 							<!-- list view -->
 							<div class="tab-pane fade show active" id="shop-list-tab">
 								<div class="list-view">
+									<?php
+										foreach($get_product as $list){
+									?>
 									<!-- single-product start -->
 									<div class="product-list-wrapper">
 										<div class="single-product">
@@ -97,28 +223,28 @@
 												<div class="col-md-4 col-12">
 													<div class="product-img">
 														<a href="#">
-															<img class="primary-image img-fluid" src="img/products/product-7.webp" alt="" />
-															<img class="secondary-image img-fluid" src="img/products/product-2.webp" alt="" />
+															<img class="primary-image img-fluid" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
+															<img class="secondary-image img-fluid" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
 														</a>
 													</div>								
 												</div>
 												<div class="col-md-8 col-12">
 													<div class="product-content">
-														<h2 class="product-name"><a href="#">Cras neque metus</a></h2>
+														<h2 class="product-name"><a href="#"><?php echo $list['name']?></a></h2>
 														<div class="rating-price">	
-															<div class="pro-rating">
+															<!-- <div class="pro-rating">
 																<a href="#"><i class="fa fa-star"></i></a>
 																<a href="#"><i class="fa fa-star"></i></a>
 																<a href="#"><i class="fa fa-star"></i></a>
 																<a href="#"><i class="fa fa-star"></i></a>
 																<a href="#"><i class="fa fa-star"></i></a>
-															</div>
+															</div> -->
 															<div class="price-boxes">
-																<span class="new-price">$110.00</span>
+																<span class="new-price"><?php echo $list['price']?></span>
 															</div>
 														</div>
 														<div class="product-desc">
-															<p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva</p>
+															<p><?php echo $list['short_desc']?></p>
 														</div>
 														<div class="actions-e">
 															<div class="action-buttons">
@@ -138,10 +264,10 @@
 										</div>
 									</div>
 									<!-- single-product end -->	
-									
+									<?php } ?>
 								
 									<!-- single-product start -->
-									<div class="product-list-wrapper">
+									<!-- <div class="product-list-wrapper">
 										<div class="single-product">
 											<div class="row">
 												<div class="col-md-4 col-12">
@@ -189,10 +315,10 @@
 												</div>
 											</div>	 							
 										</div>
-									</div>
+									</div> -->
 									<!-- single-product end -->
 									<!-- single-product start -->
-									<div class="product-list-wrapper">
+									<!-- <div class="product-list-wrapper">
 										<div class="single-product">
 											<div class="row">
 												<div class="col-md-4 col-12">
@@ -240,7 +366,7 @@
 												</div>
 											</div>	 							
 										</div>
-									</div>
+									</div> -->
 									<!-- single-product end -->
 								</div>
 							</div>
@@ -261,6 +387,9 @@
 							</div>
 							<!-- shop toolbar end -->
 						</div>
+						<?php } else { 
+						echo "No Product Found";
+					} ?>
 					</div>
 					<!-- right sidebar end -->
 				</div>

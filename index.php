@@ -181,114 +181,46 @@
 				</div>
 			
 				<div class="row">
-					<div class="col-lg-3 col-md-4 col-sm-6">
-						<div class="single-product slider-item">
-							<div class="product-img">
-								<a href="#">
-									<img class="primary-image" src="img/products/producy1front.jpg" alt="" />
-									<img class="secondary-image" width="540" height="660" src="img/products/image-540x660.jpg" alt="" />
-								</a>
-								<div class="action-zoom">
-									<div class="add-to-cart">
-										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-									</div>
-								</div>
-								<div class="actions">
-									<div class="action-buttons">
-										<div class="add-to-links">
-											<div class="add-to-wishlist">
-												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-											</div>
-											<div class="compare-button">
-												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-											</div>									
+					<?PHP
+					$get_product=get_product($con,4,'','','','','yes');
+					foreach($get_product as $list){
+					?>
+						<div class="col-lg-3 col-md-4 col-sm-6">
+							<div class="single-product slider-item">
+								<div class="product-img">
+									<a href="#">
+										<img class="primary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
+										<img class="secondary-image" width="540" height="660" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
+									</a>
+									<div class="action-zoom">
+										<div class="add-to-cart">
+											<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
 										</div>
 									</div>
-								</div>
-								<div class="price-box">
-									<span class="new-price">$222.00</span>
-								</div>
-							</div>
-							<div class="product-content">
-								<h2 class="product-name"><a href="#">Donec ac tempus</a></h2>
-								<p>Nunc facilisis sagittis ullamcorper...</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6">
-						<div class="single-product slider-item">
-							<div class="product-img">
-								<a href="#">
-									<img class="primary-image" src="img/products/producy1front.jpg" alt="" />
-									<img class="secondary-image" width="540" height="660" src="img/products/image-540x660.jpg" alt="" />
-								</a>
-								<div class="action-zoom">
-									<div class="add-to-cart">
-										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-									</div>
-								</div>
-								<div class="actions">
-									<div class="action-buttons">
-										<div class="add-to-links">
-											<div class="add-to-wishlist">
-												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+									<div class="actions">
+										<div class="action-buttons">
+											<div class="add-to-links">
+												<div class="add-to-wishlist">
+													<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+												</div>
+												<div class="compare-button">
+													<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
+												</div>									
 											</div>
-											<div class="compare-button">
-												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-											</div>									
 										</div>
-										<!-- <div class="quickviewbtn">
-											<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-										</div> -->
+									</div>
+									<div class="price-box">
+										<span class="new-price">$<?php echo $list['price']?></span>
 									</div>
 								</div>
-								<div class="price-box">
-									<span class="new-price">$222.00</span>
+								<div class="product-content">
+									<h2 class="product-name"><a href="#"><?php echo $list['name']?></a></h2>
+									<p><?php echo $list['short_desc']?></p>
 								</div>
-							</div>
-							<div class="product-content">
-								<h2 class="product-name"><a href="#">Donec ac tempus</a></h2>
-								<p>Nunc facilisis sagittis ullamcorper...</p>
 							</div>
 						</div>
-					</div>
-					<div class="col-lg-3 col-md-4 col-sm-6">
-						<div class="single-product slider-item">
-							<div class="product-img">
-								<a href="#">
-									<img class="primary-image" src="img/products/producy1front.jpg" alt="" />
-									<img class="secondary-image" width="540" height="660" src="img/products/image-540x660.jpg" alt="" />
-								</a>
-								<div class="action-zoom">
-									<div class="add-to-cart">
-										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-									</div>
-								</div>
-								<div class="actions">
-									<div class="action-buttons">
-										<div class="add-to-links">
-											<div class="add-to-wishlist">
-												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-											</div>
-											<div class="compare-button">
-												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
-											</div>									
-										</div>
-										<!-- <div class="quickviewbtn">
-											<a href="#" title="Add to Compare"><i class="fa fa-retweet"></i></a>
-										</div> -->
-									</div>
-								</div>
-								<div class="price-box">
-									<span class="new-price">$222.00</span>
-								</div>
-							</div>
-							<div class="product-content">
-								<h2 class="product-name"><a href="#">Donec ac tempus</a></h2>
-								<p>Nunc facilisis sagittis ullamcorper...</p>
-							</div>
-						</div>
-					</div>
+						<?php }?>
+					<!--  -->
 				</div>		
 		</div>	
 		<!-- product section end -->

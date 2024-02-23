@@ -23,6 +23,7 @@
 		============================================ --> 
         <script src="js/price-slider.js"></script>
 		
+
 		<!-- elevateZoom js 
 		============================================ -->
 		<script src="js/jquery.elevateZoom-3.0.8.min.js"></script>
@@ -42,6 +43,9 @@
    		<!-- plugins js
 		============================================ -->         
         <script src="js/plugins.js"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
         
    		<!-- main js
 		============================================ -->           
