@@ -3183,7 +3183,7 @@ aside.sidebar-content ul li a:hover {
 /*  18. Product details area
 /*----------------------------------------*/
 .product-details-area .inputx-content {
-    float: left;
+    /* float: left; */
     margin-right: 10px;
 }
 

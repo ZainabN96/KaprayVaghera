@@ -198,7 +198,7 @@
                     </div>
                     <div class="disflow" style="height: 60; width:25.19">
                         <a href="#" id="contactUsBtn" class="whatsapp-icon">
-                            <i class="fa fa-whatsapp whatsapp-icon-custom-size"></i>
+                            <i class="fa fa-whatsapp whatsapp-icon-custom-size text-success"></i>
                         </a>
                     </div>
 
