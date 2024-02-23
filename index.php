@@ -2,7 +2,7 @@
 <html class="no-js" lang="">
 	
     <?php 
-		$title='Home | Kapray Veghera';
+		$title='Home | Kapray Vaghera';
 		include 'includes/header.php'; 
 	?>
 
