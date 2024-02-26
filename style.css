@@ -4203,22 +4203,51 @@ a.proceedbtn {
 ------------------------------------*/
 
 
-/* header {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f2f2f2;
+ /* 5. promotion area */
+ .promotion-img {
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50%;
   }
-   */
-
-   
-.home-hello-info {
-    margin-top: 60px ;
+  .promotion-area {
+    padding-top: 30px;
+    position: relative;
+  }
+  .promotion-text {
+    padding-left: 65px;
+  }
+  .promotion-thumb img {
+      width: 100%;
+  }
+  .promotion-text h3 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+  .promotion-text > span {
+    color: #777777;
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
+  .promotion-text > p {
+    font-size: 18px;
+    /* line-height: 30px; */
     margin-bottom: 30px;
+    line-height:1.87em;
+   
     
-}
+
+  }
+  .promotion-img-3 {
+    width: 100%;
+  }
+
   .fade-heading {
+    padding-top: 50px;
     text-align: center;
     color: rgb(69, 66, 66);
     font-size: 35px;
@@ -4234,79 +4263,6 @@ margin-bottom: 40px;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
   }
-  
-  .about-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
-}
-
-.about-container p,
-.left p,
-.right-scroll p {
-  font-size: 15px; /* Set the desired font size for paragraph text */
-  text-align: center;
-  margin-bottom: 10px; 
-  color: black;
-  font-family: Montserrat;
-}
-
-
-.scroll-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100vh;
-    margin-bottom: -180px
-}
-
- .left-scroll {
-    background-image: url('img/about/woman.jpg'); 
-    background-size: cover;
-    background-position: center;
-  
-}
-
-.right-scroll {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-
-} 
-
-.left-scroll,
-.right-scroll {
-  height: auto;
-  max-height: 350px;
-  background-size: cover;
-  background-position: center;
-}
-
-.left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.right {
-    background-image: url('img/about/anothercover.jpg'); 
-    background-size: cover;
-    background-position: center;
-  
-}
-
-
-.left,
-.right {
-  height: auto;
-  max-height: 350px;
-  background-size: cover;
-  background-position: center;
-}
-
 
 .font_4{
 font-size:normal 72px/1.25em;
@@ -4320,6 +4276,160 @@ font-family: oswald-extralight,oswald,sans-serif;
 font-size:normal 16px;
 font-family: playfair display,serif;
 }
+
+
+@media (min-width: 1300px) and (max-width: 2000px) {
+  
+    .promotion-text {
+      padding-bottom: 80px;
+      padding-left: 20px;
+      padding-top: 80px;
+    }
+    .promotion-img-3 {
+        width: 100%;
+        min-height: 400px;
+        position: inherit;
+    }
+}
+
+/* LG Device :992px. */
+@media (min-width: 992px) and (max-width: 1300px) {
+
+    .fade-heading p{
+        margin-top: 10px;
+    }
+  
+    .promotion-text {
+      padding-bottom: 80px;
+      padding-left: 20px;
+      padding-top: 80px;
+    }
+    .promotion-img-3 {
+        width: 100%;
+        min-height: 400px;
+        position: inherit;
+    }
+}
+/* MD Device :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    
+    .fade-heading p{
+      
+        font-size: 23px;
+    }
+    .fade-heading {
+        padding-top: 10px;
+    }
+   
+    .promotion-area {
+        padding-top: 10px;
+        position: relative;
+    }
+    .promotion-text {
+      padding-left: 0;
+      
+    }
+    .promotion-text > p {
+        font-size: 15px;
+    }
+    .promotion-img-3 {
+      width: 50%;
+        min-height: 400px;
+        position: inherit;
+
+    }
+    .promotion-img-3 {
+        position: inherit;
+        min-height: 400px;
+    }
+    /* .promotion-text.promo-2 {
+        padding-top: 40px;
+        padding-bottom: 0;
+    } */
+    
+    .promotion-text {
+        padding-bottom: 50px;
+       
+        padding-top: 50px;
+      }
+}
+
+
+
+/* Extra small Device. */
+@media  (min-width: 440px) and (max-width: 767px) {
+
+    .fade-heading {
+        padding-top: 5px;
+    }
+    .fade-heading p{
+       font-size: 16px;
+    }
+
+    .promotion-area {
+        padding-top: 10px;
+        position: relative;
+    }
+    .promotion-text {
+      padding-left: 0;
+      
+    }
+    .promotion-text > p {
+        font-size: 15px;
+    }
+    .promotion-img-3 {
+        position: inherit;
+        min-height: 400px;
+    }
+    /* .promotion-text.promo-2 {
+        padding-top: 40px;
+        padding-bottom: 0;
+    } */
+    
+    .promotion-text {
+        padding-bottom: 50px;
+       
+        padding-top: 50px;
+      }
+
+    }
+    
+
+/* SM Small Device :550px. */
+@media only screen and  (min-width: 280px) and (max-width: 440px) {
+ 
+    .fade-heading p{
+        font-size: 16px;
+    }
+    
+     .promotion-area {
+        padding-top: 10px;
+        position: relative;
+    }
+    .promotion-text > p {
+        font-size: 14px;
+    }
+    
+	.promotion-img-3 {
+		width: 100%;
+		min-height: 250px;
+		position:static;
+	}
+	.promotion-text {
+		padding-bottom: 30px;
+		padding-left: 0px;
+		padding-top: 30px;
+	  }
+
+}
+
+
+
+
+
+
+
 
 
 
