@@ -4195,8 +4195,88 @@ a.proceedbtn {
 }
 
 .cart-area-start {
-    margin: 50px 0 50px;
+    margin: 130px 0 50px;
 }
+
+.icon-hover-primary:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+  }
+  
+  .icon-hover-primary:hover i {
+    color: #3b71ca !important;
+  }
+  .icon-hover-danger:hover {
+    border-color: #dc4c64 !important;
+    background-color: white !important;
+  }
+  
+  .icon-hover-danger:hover i {
+    color: #dc4c64 !important;
+  }
+
+  .btn-process {
+    color: #fff;
+    background-color: #03a5e9;
+    border-color: #03a5e9;
+}
+.btn-process:hover {
+    color: #03a5e9 !important;
+    background-color: #fff;
+    border-color:#0f99de ;
+}
+
+.wrapper{
+height: 25px;
+min-width: 90px;
+border:  1px solid rgba(0, 0, 0, 0.2);;
+border-radius: 3px;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #fff;
+/* box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2); */
+margin-right: 50px;
+margin-top: 7px;
+}
+
+.wrapper span{
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.wrapper span.num{
+    font-size: 14px;
+    border-right: 2px solid rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(0, 0, 0, 0.2);
+pointer-events: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 6px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
 
 /* ----------------------------------
 22. About us area
