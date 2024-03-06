@@ -198,7 +198,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-12">
-					<address>2022 &copy; <strong> Kapray Wagara	 </strong> Made with by <a href="https://www.hcc-me.com/hcc-technology-foundation/" target="_blank"><strong>HCC Technology Foundation</strong></a></address>
+					<address>2022 &copy; <strong> Kapray Vaghera	 </strong> Made with by <a href="https://www.hcc-me.com/hcc-technology-foundation/" target="_blank"><strong>HCC Technology Foundation</strong></a></address>
 				</div>
 				<div class="col-lg-6 col-12">
 					<div class="footer-payment pull-right">

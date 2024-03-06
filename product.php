@@ -94,6 +94,7 @@
 		</div>
 		<!-- breadcrumbs area end -->
 		<!-- product-details Area Start -->
+		
 		<div class="product-details-area mt-5">
 			<div class="container">
 				<div class="row">

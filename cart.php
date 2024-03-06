@@ -8,86 +8,86 @@ require('add_to_cart.php');
 <html class="no-js" lang="">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Cart | Kapray Vaghera</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Cart | Kapray Vaghera</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Favicon
-		============================================ -->
-	<link rel="shortcut icon" type="image/x-icon" href="img/iconbg.ico">
+  <!-- Favicon
+    ============================================ -->
+  <link rel="shortcut icon" type="image/x-icon" href="img/iconbg.ico">
 
-	<!-- Fonts
-		============================================ -->
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
-		rel="stylesheet">
+  <!-- Fonts
+    ============================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
+    rel="stylesheet">
 
-	<!-- CSS  -->
+  <!-- CSS  -->
 
-	<!-- Bootstrap CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Bootstrap CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 
-	<!-- owl.carousel CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/owl.carousel.css">
+  <!-- owl.carousel CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/owl.carousel.css">
 
-	<!-- owl.theme CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/owl.theme.css">
+  <!-- owl.theme CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/owl.theme.css">
 
-	<!-- owl.transitions CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/owl.transitions.css">
+  <!-- owl.transitions CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/owl.transitions.css">
 
-	<!-- font-awesome.min CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+  <!-- font-awesome.min CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
 
-	<!-- font-icon CSS
-		============================================ -->
-	<link rel="stylesheet" href="fonts/font-icon.css">
+  <!-- font-icon CSS
+    ============================================ -->
+  <link rel="stylesheet" href="fonts/font-icon.css">
 
-	<!-- jquery-ui CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/jquery-ui.css">
+  <!-- jquery-ui CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
 
-	<!-- animate CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/animate.css">
+  <!-- animate CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/animate.css">
 
-	<!-- mobile menu CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/meanmenu.min.css">
+  <!-- mobile menu CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/meanmenu.min.css">
 
-	<!-- normalize CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/normalize.css">
+  <!-- normalize CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/normalize.css">
 
-	<!-- main CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/main.css">
+  <!-- main CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/main.css">
 
-	<!-- style CSS
-		============================================ -->
-	<link rel="stylesheet" href="style.css">
+  <!-- style CSS
+    ============================================ -->
+  <link rel="stylesheet" href="style.css">
 
-	<!-- responsive CSS
-		============================================ -->
-	<link rel="stylesheet" href="css/responsive.css">
+  <!-- responsive CSS
+    ============================================ -->
+  <link rel="stylesheet" href="css/responsive.css">
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-		integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
 
-	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 
@@ -95,51 +95,54 @@ require('add_to_cart.php');
 
 <body>
 
-<!-- header area start -->
-<?php include 'includes/navBar2.php' ?>
+  <!-- header area start -->
+  <?php include 'includes/navBar2.php' ?>
 
-	<!-- breadcrumbs area end -->
-	<!-- cart + summary -->
-	<div class="cart-area-start"> 
-<section class="my-5">
-  <div class="container">
-    <div class="row">
-      <!-- cart -->
-      <div class="col-lg-9">
-        <div class="card border shadow-0">
-          <div class="m-4">
-            <h4 class="card-title mb-4">Your shopping cart</h4>
-            <div class="row gy-3 mb-4">
-              <div class="col-lg-5">
-                <div class="me-lg-5">
-                  <div class="d-flex">
-                    <img src="img/products/422890794_434002837_product9.jpeg" class="border rounded me-3" style="width: 150px; height: 150px;" />
+  <!-- breadcrumbs area end -->
+  <!-- cart + summary -->
+  <div class="cart-area-start">
+    <section class="my-5">
+      <div class="container">
+        <div class="row">
+          <!-- cart -->
+          <div class="col-lg-9">
+          <h4 class="card-title mb-4 fw-bold">Your shopping cart</h4>
+            <div class="card border shadow-0">
+              <div class="m-4">
+                <div class="row gy-3 mb-4">
+                  <div class="col-lg-5">
+                    <div class="me-lg-5">
+                      <div class="d-flex">
+                        <img src="img/products/422890794_434002837_product9.jpeg" class="border rounded me-3"
+                          style="width: 150px; height: 150px;" />
+                        <div class="">
+                          <a href="#" class="nav-link">Winter kurta for lady</a>
+                          <p class="text-muted">Yellow, Kurta</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap ">
+                    <div class="wrapper">
+                      <span class="minus">-</span>
+                      <span class="num">01</span>
+                      <span class="plus">+</span>
+                    </div>
                     <div class="">
-                      <a href="#" class="nav-link">Winter kurta for lady</a>
-                      <p class="text-muted">Yellow, Kurta</p>
+                      <text class="h5 fw-bold">$1156.00</text> <br />
+                      <small class="text-muted text-nowrap"> $460.00 / per item </small>
+                    </div>
+                  </div>
+                  <div
+                    class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                    <div class="float-md-end">
+                      <a href="#!" class="btn btn-light border px-2 icon-hover-danger"><i class="fa fa-heart"></i></a>
+                      <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap ">
-				<div class="wrapper">
-                <span class="minus">-</span>
-				<span class="num">01</span>
-				<span class="plus">+</span>
-				</div>
-                <div class="">
-                  <text class="h6">$1156.00</text> <br />
-                  <small class="text-muted text-nowrap"> $460.00 / per item </small>
-                </div>
-              </div>
-              <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
-                <div class="float-md-end">
-                  <a href="#!" class="btn btn-light border px-2 icon-hover-danger"><i class="fa fa-heart"></i></a>
-                  <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
-                </div>
-              </div>
-            </div>
-<!-- 
+                
+                <!-- 
             <div class="row gy-3 mb-4">
               <div class="col-lg-5">
                 <div class="me-lg-5">
@@ -174,39 +177,41 @@ require('add_to_cart.php');
               </div>
             </div> -->
 
-       <div class="row gy-3">
-              <div class="col-lg-5">
-                <div class="me-lg-5">
-                  <div class="d-flex">
-                    <img src="img/products/247519152_image-540x660.jpg" class="border rounded me-3" style="width: 150px; height: 150px;" />
+                <div class="row gy-3">
+                  <div class="col-lg-5">
+                    <div class="me-lg-5">
+                      <div class="d-flex">
+                        <img src="img/products/247519152_image-540x660.jpg" class="border rounded me-3"
+                          style="width: 150px; height: 150px;" />
+                        <div class="">
+                          <a href="#" class="nav-link">Embroidered Suit </a>
+                          <p class="text-muted">Kurta, Blue</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                    <div class="wrapper">
+                      <span class="minus">-</span>
+                      <span class="num">01</span>
+                      <span class="plus">+</span>
+                    </div>
                     <div class="">
-                      <a href="#" class="nav-link">Embroidered Suit  </a>
-                      <p class="text-muted">Kurta, Blue</p>
+                      <text class="h5 fw-bold">$1156.00</text> <br />
+                      <small class="text-muted text-nowrap"> $460.00 / per item </small>
+                    </div>
+                  </div>
+                  <div
+                    class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                    <div class="float-md-end">
+                      <a href="#!" class="btn btn-light border px-2  icon-hover-danger"><i class="fa fa-heart"></i></a>
+
+                      <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
-			  <div class="wrapper">
-                <span class="minus">-</span>
-				<span class="num">01</span>
-				<span class="plus">+</span>
-				</div>
-                <div class="">
-                  <text class="h6">$1156.00</text> <br />
-                  <small class="text-muted text-nowrap"> $460.00 / per item </small>
-                </div>
-              </div>
-              <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
-                <div class="float-md-end">
-                  <a href="#!" class="btn btn-light border px-2  icon-hover-danger"><i class="fa fa-heart"></i></a>
-				
-                  <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
-                </div>
-              </div>
-            </div>
-          </div>
-<!-- 
+              <!-- 
           <div class="border-top pt-4 mx-4 mb-4">
             <p><i class="fas fa-truck text-muted fa-lg"></i> Free Delivery within 1-2 weeks</p>
             <p class="text-muted">
@@ -214,58 +219,57 @@ require('add_to_cart.php');
               aliquip
             </p>
           </div> -->
-        </div>
-      </div>
-      <!-- cart -->
-      <!-- summary -->
-      <div class="col-lg-3">
-        <div class="card mb-3 border shadow-0">
-          <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label class="form-label">APPLY DISCOUNT CODE</label>
-                <div class="input-group">
-                  <input type="text" class="form-control border" name="" placeholder="Enter discount code" />
-                  <button class="btn btn-success border mt-2">Apply</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="card shadow-0 border">
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <p class="mb-2">Subtotal:</p>
-              <p class="mb-2">$329.00</p>
             </div>
-            <div class="d-flex justify-content-between">
+          </div>
+          <!-- cart -->
+          <!-- summary -->
+          <div class="col-lg-3">
+            <div class="card mb-3 border shadow-0">
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label class="form-label">APPLY DISCOUNT CODE</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control border" name="" placeholder="Enter discount code" />
+                      <button class="btn btn-success border mt-2">Apply</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="card shadow-0 border">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <p class="mb-2">Subtotal:</p>
+                  <p class="mb-2">$329.00</p>
+                </div>
+                <!-- <div class="d-flex justify-content-between">
               <p class="mb-2">Discount:</p>
               <p class="mb-2 text-success">-$60.00</p>
-            </div>
-            <!-- <div class="d-flex justify-content-between">
+             </div> -->
+                <!-- <div class="d-flex justify-content-between">
               <p class="mb-2">TAX:</p>
               <p class="mb-2">$14.00</p>
-            </div> -->
-            <hr />
-            <div class="d-flex justify-content-between">
-              <p class="mb-2">Order Total:</p>
-              <p class="mb-2 fw-bold">$283.00</p>
-            </div>
-
-            <div class="mt-3">
-              <a href="#" class="btn btn-process w-100 shadow-0 mb-2">PROCEED TO CHECKOUT </a>
-              <a href="#" class="btn btn-light w-100 border mt-2"> CONTINUE SHOPPING </a>
+             </div> -->
+                <hr />
+                <div class="d-flex justify-content-between">
+                  <p class="mb-2">Order Total:</p>
+                  <p class="mb-2 fw-bold">$329.00</p>
+                </div>
+                <div class="mt-3">
+                  <a href="checkout.php" class="btn btn-process w-100 shadow-0 mb-2">PROCEED TO CHECKOUT </a>
+                  <a href="index.php" class="btn btn-light w-100 border mt-2"> CONTINUE SHOPPING </a>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- summary -->
         </div>
       </div>
-      <!-- summary -->
-    </div>
+    </section>
+    <!-- cart + summary -->
+    <section>
   </div>
-</section>
-<!-- cart + summary -->
-<section>
-</div>
 
   <!-- <div class="container my-5">
     <header class="mb-4">
@@ -356,17 +360,17 @@ require('add_to_cart.php');
     </div>
   </div>
 </section> -->
-<!-- Recommended -->
+  <!-- Recommended -->
 
 
-	
 
-		<!-- FOOTER START -->
-		<?php include 'includes/footer.php'; ?>
-		<!-- FOOTER END -->
 
-		<!-- JS -->
-		<?php include 'includes/jsfiles.php'; ?>
+  <!-- FOOTER START -->
+  <?php include 'includes/footer.php'; ?>
+  <!-- FOOTER END -->
+
+  <!-- JS -->
+  <?php include 'includes/jsfiles.php'; ?>
 
 
 </body>

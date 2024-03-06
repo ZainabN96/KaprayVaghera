@@ -191,7 +191,7 @@
 											</ul>
 											<p class="total">Subtotal: <span class="amount">$155.00</span></p>
 											<p class="buttons">
-												<a href="checkout.html" class="button">Checkout</a>
+												<a href="checkout.php" class="button">Checkout</a>
 											</p>
 										</div>
 									</div>
@@ -228,9 +228,9 @@
 									<a href="#"><i class="fa fa-align-right fa-lg" style="color:black"></i></a>
 									<ul class="restrain language">
 										<li><a href="login.html">My Account</a></li>
-										<li><a href="wishlist.html">My Wishlist</a></li>
-										<li><a href="cart.html">My Cart</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
+										<li><a href="wishlist.php">My Wishlist</a></li>
+										<li><a href="cart.php">My Cart</a></li>
+										<li><a href="checkout.php">Checkout</a></li>
 										<li><a href="#">Testimonial</a></li>
 										<?php 
 										if(isset($_SESSION['USER_LOGIN'])){

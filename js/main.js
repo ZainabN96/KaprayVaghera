@@ -279,8 +279,95 @@
 			  mirror: false
 			});
 		  });
+		 
+		   
+		 
+const plus =document.querySelector(".plus"),
+minus =document.querySelector(".minus"),
+ num =document.querySelector(".num");
 
-		
+ let a = 1;
 
-	
-})(jQuery);    
+plus.addEventListener("click", ()=> {
+a++;
+a = (a < 10) ? "0" + a : a;
+num.innerText = a ;
+console.log(a);
+
+
+ }); 	
+ minus.addEventListener("click", ()=> {
+	if(a > 1){
+	a--;
+	a = (a < 10) ? "0" + a : a;
+	num.innerText = a ;
+	}
+ });	
+ 
+});
+document.addEventListener('DOMContentLoaded', function () {
+ // Get the radio buttons and card details div
+ const codRadio = document.getElementById('cod');
+ const creditRadio = document.getElementById('credit');
+ const creditCardDetails = document.getElementById('creditCardDetails');
+
+ // Add event listeners to the radio buttons
+ codRadio.addEventListener('change', toggleCreditCardDetails);
+ creditRadio.addEventListener('change', toggleCreditCardDetails);
+
+ // Function to toggle visibility based on selected radio button
+ function toggleCreditCardDetails() {
+	 if (creditRadio.checked) {
+		 creditCardDetails.style.display = 'block';
+	 } else {
+		 creditCardDetails.style.display = 'none';
+	 }
+ }
+
+
+ // Initial call to set the initial visibility state
+ toggleCreditCardDetails();
+
+
+
+});
+
+
+ // Define a mapping of provinces to cities
+ var provinceCities = {
+	'Punjab': ['Lahore', 'Rawalpindi', 'Faisalabad', 'Multan', 'Gujranwala', 'Sialkot', 'Lodhran', 'Jhang', 'Bahawalpur', 'Sahiwal'],
+    'Balochistan': ['Quetta', 'Gwadar', 'Turbat', 'Khuzdar', 'Loralai', 'Chaman', 'Zhob', 'Kharan', 'Hub', 'Nushki'],
+    'Sindh': ['Karachi', 'Hyderabad', 'Larkana', 'Sukkur', 'Mirpur Khas', 'Nawabshah', 'Jacobabad', 'Shikarpur', 'Dadu', 'Thatta'],
+    'Azad Jammu and Kashmir': ['Muzaffarabad', 'Mirpur', 'Bhimber', 'Kotli', 'Rawalakot', 'Hattian', 'Neelum', 'Bagh', 'Sudhanoti', 'Poonch'],
+    'Gilgit-Baltistan': ['Gilgit', 'Skardu', 'Hunza', 'Ghizer', 'Astore', 'Diamer', 'Shigar', 'Ghanche', 'Kharmang', 'Nagar'],
+    'Khyber Pakhtunkhwa': ['Peshawar', 'Abbottabad', 'Mardan', 'Swat', 'Charsadda', 'Nowshera', 'Kohat', 'Haripur', 'Bannu', 'Mansehra'],
+	'Islamabad Capital Territory': ['Islamabad']
+	// Add other provinces and their cities as needed
+};
+
+function updateCities() {
+	var provinceDropdown = document.getElementById('province');
+	var cityDropdown = document.getElementById('city');
+
+	// Clear existing options
+	cityDropdown.innerHTML = '<option value="">Choose...</option>';
+
+	// Get selected province
+	var selectedProvince = provinceDropdown.value;
+
+	// Add cities based on the selected province
+	if (provinceCities[selectedProvince]) {
+		provinceCities[selectedProvince].forEach(function(city) {
+			addCityOption(city);
+		});
+	}
+}
+
+function addCityOption(city) {
+	var cityDropdown = document.getElementById('city');
+	var option = document.createElement('option');
+	option.value = city;
+	option.text = city;
+	cityDropdown.add(option);
+}
+(jQuery);    
