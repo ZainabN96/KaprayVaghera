@@ -305,33 +305,30 @@ console.log(a);
  });	
  
 });
-document.addEventListener('DOMContentLoaded', function () {
- // Get the radio buttons and card details div
- const codRadio = document.getElementById('cod');
- const creditRadio = document.getElementById('credit');
- const creditCardDetails = document.getElementById('creditCardDetails');
-
- // Add event listeners to the radio buttons
- codRadio.addEventListener('change', toggleCreditCardDetails);
- creditRadio.addEventListener('change', toggleCreditCardDetails);
-
- // Function to toggle visibility based on selected radio button
- function toggleCreditCardDetails() {
-	 if (creditRadio.checked) {
-		 creditCardDetails.style.display = 'block';
-	 } else {
-		 creditCardDetails.style.display = 'none';
-	 }
- }
 
 
- // Initial call to set the initial visibility state
- toggleCreditCardDetails();
+// document.addEventListener('DOMContentLoaded', function () {
+//   const codRadio = document.getElementById('cod');
+//  const creditRadio = document.getElementById('credit');
+//  const creditCardDetails = document.getElementById('creditCardDetails');
+
+//  codRadio.addEventListener('change', toggleCreditCardDetails);
+//  creditRadio.addEventListener('change', toggleCreditCardDetails);
+
+//  function toggleCreditCardDetails() {
+// 	 if (creditRadio.checked) {
+// 		 creditCardDetails.style.display = 'block';
+// 	 } else {
+// 		 creditCardDetails.style.display = 'none';
+// 	 }
+//  }
+
+
+//  toggleCreditCardDetails();
 
 
 
-});
-
+// });
 
  // Define a mapping of provinces to cities
  var provinceCities = {
@@ -370,4 +367,7 @@ function addCityOption(city) {
 	option.text = city;
 	cityDropdown.add(option);
 }
+
+
+
 (jQuery);    

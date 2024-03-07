@@ -81,11 +81,12 @@ require('add_to_cart.php');
   <link rel="stylesheet" href="css/responsive.css">
 
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ 
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+
+    
 
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -105,8 +106,8 @@ require('add_to_cart.php');
       <div class="container">
         <div class="row">
           <!-- cart -->
-          <div class="col-lg-9">
-          <h4 class="card-title mb-4 fw-bold">Your shopping cart</h4>
+        <div class="col-lg-9" style="color: black;"   >
+          <h5 class="card-title mb-4 fw-bold">Your shopping cart</h5>
             <div class="card border shadow-0">
               <div class="m-4">
                 <div class="row gy-3 mb-4">
@@ -129,7 +130,7 @@ require('add_to_cart.php');
                       <span class="plus">+</span>
                     </div>
                     <div class="">
-                      <text class="h5 fw-bold">$1156.00</text> <br />
+                      <text class="h6 fw-bold">$1156.00</text> <br />
                       <small class="text-muted text-nowrap"> $460.00 / per item </small>
                     </div>
                   </div>
@@ -182,7 +183,7 @@ require('add_to_cart.php');
                     <div class="me-lg-5">
                       <div class="d-flex">
                         <img src="img/products/247519152_image-540x660.jpg" class="border rounded me-3"
-                          style="width: 150px; height: 150px;" />
+                          style="width: 120px; height: 150px;" />
                         <div class="">
                           <a href="#" class="nav-link">Embroidered Suit </a>
                           <p class="text-muted">Kurta, Blue</p>
@@ -197,7 +198,7 @@ require('add_to_cart.php');
                       <span class="plus">+</span>
                     </div>
                     <div class="">
-                      <text class="h5 fw-bold">$1156.00</text> <br />
+                      <text class="h6 fw-bold">$1156.00</text> <br />
                       <small class="text-muted text-nowrap"> $460.00 / per item </small>
                     </div>
                   </div>
@@ -227,12 +228,12 @@ require('add_to_cart.php');
             <div class="card mb-3 border shadow-0">
               <div class="card-body">
                 <form>
-                  <div class="form-group">
-                    <label class="form-label">APPLY DISCOUNT CODE</label>
+                  <div class="form-group" style="color: black;" >
+                    <label class="form-label fw-bold">APPLY DISCOUNT CODE</label>
                     <div class="input-group">
                       <input type="text" class="form-control border" name="" placeholder="Enter discount code" />
-                      <button class="btn btn-success border mt-2">Apply</button>
-                    </div>
+                                    </div>
+                    <button class="btn btn-success border w-100 m-2">Apply</button>
                   </div>
                 </form>
               </div>
@@ -252,7 +253,7 @@ require('add_to_cart.php');
               <p class="mb-2">$14.00</p>
              </div> -->
                 <hr />
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between" style="color: black;">
                   <p class="mb-2">Order Total:</p>
                   <p class="mb-2 fw-bold">$329.00</p>
                 </div>
