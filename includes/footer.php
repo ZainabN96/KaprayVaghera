@@ -63,7 +63,7 @@
 							<a href="#" class="read-more">Read more</a> -->
 							<ul>
 							<li><a href="about-us.php">About Us</a></li>
-							<li><a href="about-us.php">Contact Us</a></li>
+							<li><a href="contact-us.php">Contact Us</a></li>
 								<li><a href="#">Shipping Information</a></li>
 								<li><a href="#">Return & Exchange</a></li>
 								
@@ -110,7 +110,7 @@
 						</div>
 						<div class="cakewalk-footer-content">
 							<ul>
-								<li><a href="#">Contact Us</a></li>
+								<li><a href="contact-us.php">Contact Us</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 							
 								<li><a href="#">Rate & Exchange</a></li>
