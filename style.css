@@ -1397,9 +1397,9 @@ span.sale-text {
     width: 100%;
 }
 
-/* .our-product-area .owl-theme .owl-nav .owl-next:before {
+ .our-product-area .owl-theme .owl-nav .owl-next:before {
     content: "\f105";
-} */
+} 
 
 .our-product-area .owl-theme .owl-nav .owl-prev:after {
     content: "";
@@ -4385,8 +4385,8 @@ pointer-events: none;
     width: 100%;
   }
 
-  .fade-heading {
-    padding-top: 50px;
+.heading {
+    padding-top: 70px;
     text-align: center;
     color: rgb(69, 66, 66);
     font-size: 35px;
@@ -4396,8 +4396,7 @@ text-transform: uppercase;
 margin-bottom: 40px;
   }
 
-  .fade-heading .part {
-
+  .heading .part {
    background: -webkit-linear-gradient(#03a5e9, #026bbe);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
@@ -4818,6 +4817,7 @@ span.legend {
 --------------------------------------*/
 .customer-login-area {
     margin-bottom: 50px;
+    margin-top: 110px;
 }
 
 .my-account {
@@ -4909,7 +4909,7 @@ input#rememberme {
 
 .actions-log input {
     border: 0;
-    background: #c2a376;
+    background: #03a5e9;
     color: #fff;
     text-transform: uppercase;
     padding: 10px 20px;
@@ -4917,7 +4917,7 @@ input#rememberme {
 }
 
 .actions-log input:hover {
-    background: #3f3f3f;
+    background: #026bbe;
     transition: .3s
 }
 

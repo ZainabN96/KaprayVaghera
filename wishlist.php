@@ -3,6 +3,16 @@ require('connection.php');
 require('functions.php');
 require('add_to_cart.php');
 
+if(!isset($_SESSION['USER_LOGIN'])){
+	?>
+	<script>
+	window.location.href='index.php';
+	</script>
+	<?php
+}
+$uid=$_SESSION['USER_ID'];
+
+$res=mysqli_query($con,"select product.name,product.image,product_attributes.price,product_attributes.mrp,product.id as pid,wishlist.id from product,wishlist,product_attributes where wishlist.product_id=product.id and wishlist.user_id='$uid' and product_attributes.product_id=product.id group by product_attributes.product_id");
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="">
@@ -97,9 +107,6 @@ require('add_to_cart.php');
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-
-
-
 <body>
 
     <!-- header area start -->
@@ -122,35 +129,25 @@ require('add_to_cart.php');
 							</tr>
 						</thead>
 						<tbody class="wishlist-items-wrapper">
+						<?php
+										while($row=mysqli_fetch_assoc($res)){
+										?>
+											<tr>
+												<td class="product-thumbnail"><a href="#"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"  /></a></td>
+												<td class="product-name"><a href="#"><?php echo $row['name']?></a>
+													
+												</td>
+
+												<td class="product-price">
+									<span class="amount"><?php echo $row['price']?></span>
+								</td>
+												
+												<td class="product-remove"><a href="wishlist.php?wishlist_id=<?php echo $row['id']?>"><i class="bi bi-x-lg"></i></a></td>
+												<td class="product-add-to-cart"><a href="javascript:void(0)" onclick="manage_cart('<?php echo $row['pid']?>','add')">Add to Cart</a></td>
+											</tr>
+											<?php } ?>
 							<tr>
-								<td class="product-thumbnail">
-									<a href="product-simple.html">
-										<figure>
-											<img src="img/products/248047910_trouser1.jpg" width="100" height="100"
-												alt="product">
-										</figure>
-									</a>
-								</td>
-								<td class="product-name">
-									<a href="product-simple.html">Beige knitted elastic trouser </a>
-								</td>
-								<td class="product-price">
-									<span class="amount">$84.00</span>
-								</td>
-								<td class="product-stock-status">
-									<span class="wishlist-in-stock">In Stock</span>
-								</td>
-								<td class="product-add-to-cart">
-									<a href="product.php" class="btn-product"><span>Select option</span></a>
-								</td>
-								<td class="product-remove">
-									<div>
-										<a href="#" class="remove" title="Remove this product">
-										<i class="bi bi-x-lg"></i></a>
-									</div>
-								</td>
-							</tr>
-							<tr>
+							<!-- <tr>
 								<td class="product-thumbnail">
 									<a href="product-simple.html">
 										<figure>
@@ -177,8 +174,8 @@ require('add_to_cart.php');
 										<i class="bi bi-x-lg"></i></a>
 									</div>
 								</td>
-							</tr>
-							<tr>
+							</tr> -->
+							<!-- <tr>
 								<td class="product-thumbnail">
 									<a href="product-simple.html">
 										<figure>
@@ -206,7 +203,7 @@ require('add_to_cart.php');
 										<i class="bi bi-x-lg"></i></a>
 									</div>
 								</td>
-							</tr>
+							</tr> -->
 						</tbody>
 					</table>
 				</div>

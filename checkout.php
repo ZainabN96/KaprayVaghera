@@ -346,9 +346,9 @@ require('add_to_cart.php');
                             </div>
                         </div>
                     </div>
-                    <hr class="mb-4">
+                    
 
-                    <button class="btn btn-process btn-lg btn-block" type="submit">PLACE ORDER</button>
+                    <button class="btn btn-process btn-lg w-100 btn-block" type="submit">PLACE ORDER</button>
 
 
             </div>

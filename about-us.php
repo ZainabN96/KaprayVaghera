@@ -76,37 +76,34 @@ require('add_to_cart.php');
 		============================================ -->
 	<link rel="stylesheet" href="style.css">
 
+	<!-- Latest compiled and minified CSS -->
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+		integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+
 	<!-- responsive CSS
 		============================================ -->
 	<link rel="stylesheet" href="css/responsive.css">
-
-	
-	<!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-        integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
 
 	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
 
 <body>
-
 	<!-- header area start -->
 	<?php include 'includes/navBar2.php' ?>
-
 	<!-- promotion-area start -->
 	<div class="our-product-area">
-
 		<div class="container mt-5">
-
-			<div class="fade-heading" data-aos="fade-up">
+			<div class="heading">
 				<p><span class="part"> Kapray Vaghera </span> stands out in the fashion industry not only as a brand but
 					as
 					a symbol of tradition, craftsmanship, and sustainability. </p>
 			</div>
 			<div class="promotion-area pt-100 pb-50">
 				<div class="container">
-					<div data-aos="fade-up" data-aos-delay="400" class="row">
+					<div class="row">
 						<div class="col-xl-6 col-lg-6">
 							<div class="promotion-img promotion-img-3"
 								style="background-image:url(img/about/anothercover.jpg)"></div>
@@ -136,7 +133,7 @@ require('add_to_cart.php');
 			<!-- promotion-area end -->
 
 
-			<div data-aos="fade-up" data-aos-delay="600" class="promotion-area pt-100 pb-20">
+			<div class="promotion-area pt-100 pb-20">
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-6 col-lg-6 col-md-12">
@@ -163,8 +160,6 @@ require('add_to_cart.php');
 			</div>
 		</div>
 	</div>
-
-
 
 
 

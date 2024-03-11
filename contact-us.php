@@ -234,11 +234,6 @@ require('add_to_cart.php');
 	  <?php include 'includes/footer.php'; ?>
     <!-- FOOTER END -->
 
-
-
-   
-
-
 </body>
 
 <!-- Mirrored from htmldemo.net/lavoro/lavoro/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:30:18 GMT -->

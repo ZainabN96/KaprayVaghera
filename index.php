@@ -72,17 +72,21 @@
 								</a>
 								<div class="action-zoom">
 									<div class="add-to-cart">
-										<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+										<a href="product.php?id=<?php echo $list['id']?>" ><i class="fa fa-search-plus"></i></a> 
 									</div>
 								</div>
 								<div class="actions">
 									<div class="action-buttons">
 										<div class="add-to-links">
 											<div class="add-to-wishlist">
-												<a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+												<!-- <a href="#" title="Add to Wishlist"><i class="fa fa-heart"></i></a> -->
+
+												
+										<a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id']?>','add')"><i class="fa fa-heart"></i></a>
+								
 											</div>
 											<div class="compare-button">
-												<a href="product.php?id=<?php echo $list['id']?>" title="Add to Cart"><i class="icon-bag"></i></a>
+												<a href="#" title="Add to Cart"><i class="icon-bag"></i></a>
 											</div>									
 										</div>
 										<!-- <div class="quickviewbtn">
@@ -193,9 +197,9 @@
 										<img class="secondary-image" width="540" height="660" src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image']?>" alt="" />
 									</a>
 									<div class="action-zoom">
-										<div class="add-to-cart">
-											<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
-										</div>
+									<div class="add-to-cart">
+										<a href="product.php?id=<?php echo $list['id']?>" ><i class="fa fa-search-plus"></i></a> 
+									</div>
 									</div>
 									<div class="actions">
 										<div class="action-buttons">
