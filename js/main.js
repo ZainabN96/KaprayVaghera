@@ -413,7 +413,7 @@ function user_login(){
 	jQuery('.field_error').html('');
 	var email=jQuery("#login_email").val();
 	var password=jQuery("#login_password").val();
-	var is_error='Please enter valid credentials';
+	var is_error='';
 	if(email==""){
 		jQuery('#login_email_error').html('Please enter your email');
 		is_error='yes';

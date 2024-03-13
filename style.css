@@ -4835,11 +4835,11 @@ span.legend {
 }
 
 .form-fields {
-    /* border-bottom: none; */
-    /* border-bottom: 1px solid #d3d3d3;
+     border-bottom: none; 
+     /* border-bottom: 1px solid #d3d3d3; */
     border-left: 1px solid #d3d3d3;
     border-right: 1px solid #d3d3d3;
-    border-top: 1px solid #d3d3d3; */
+    border-top: 1px solid #d3d3d3; 
     float: left;
     padding: 20px 25px;
     width: 100%;
@@ -4884,15 +4884,16 @@ span.legend {
 
 .customer-register .form-action,
 .customer-login .form-action {
-    /* background: #e0e0e0; 
-    border-bottom: 1px solid #d3d3d3;
-    border-left: 1px solid #d3d3d3;
-    border-right: 1px solid #d3d3d3; */
-    border-top: none;
-    float: left;
-    padding: 0px 5px 0px 0px;
-    width: 100%;
-}
+   
+        background: #e0e0e0;
+        border-bottom: 1px solid #d3d3d3;
+        border-left: 1px solid #d3d3d3;
+        border-right: 1px solid #d3d3d3;
+        border-top: none;
+        float: left;
+        padding: 20px 10px 16px;
+        width: 100%;
+    }
 
 .my-account p.lost_password {
     float: left;
