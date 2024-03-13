@@ -227,7 +227,7 @@
 								<div class="expand dropps-menu">
 									<a href="#"><i class="fa fa-align-right fa-lg" style="color:black"></i></a>
 									<ul class="restrain language">
-										<li><a href="login.html">My Account</a></li>
+										<li><a href="login.php">My Account</a></li>
 										<li><a href="wishlist.php">My Wishlist</a></li>
 										<li><a href="cart.php">My Cart</a></li>
 										<li><a href="checkout.php">Checkout</a></li>
@@ -235,13 +235,13 @@
 										<?php 
 										if(isset($_SESSION['USER_LOGIN'])){
 											?>
-											<li><a href="login.html">Log out</a></li>
+											<li><a href="login.php">Log out</a></li>
 										<?php
 										}
 										
 										else{
 										?>
-										<li><a href="login.html">Log In</a></li>
+										<li><a href="loginandregister.php">Log In</a></li>
 										<?php
 										}
 										?>

@@ -240,7 +240,7 @@
                                 
                                 else{
                                 ?>
-                                <li><a href="login.php">Log In</a></li>
+                                <li><a href="loginandregister.php">Log In</a></li>
                                 <?php
                                 }
                                 ?>
