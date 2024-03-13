@@ -3683,9 +3683,9 @@ margin-right:.8rem;
 	color:#222;
 	outline:0;
 	border-radius:0;
-	padding:1em 2em;
-	font-weight:700;
-	font-size:1.4rem;
+	padding:0.4em 2em;
+	font-weight:600;
+	font-size:1.6rem;
 	font-family:'Open Sans', sans-serif;
 	letter-spacing:-0.025em;
 	line-height:1.2;
@@ -11231,7 +11231,7 @@ height:.5rem;
 .banner-newsletter .icon-box {
 	justify-content:center
 }
-}
+
 @media (max-width: 575px) {
 .banner {
 font-size:.9rem

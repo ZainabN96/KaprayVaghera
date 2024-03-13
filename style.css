@@ -4318,8 +4318,11 @@ pointer-events: none;
     display: inline-block;
     padding: 6px 6px;
     margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
+   
+        margin-left: 66px;
+        width: 80%;
+    font-size: 15px;
+    font-weight: 500;
     line-height: 1.42857143;
     text-align: center;
     white-space: nowrap;
@@ -4815,6 +4818,13 @@ span.legend {
 /* ------------------------------------
 24. Login page area
 --------------------------------------*/
+
+.field_error{
+    color: red;
+    font-weight: bold;
+}
+
+
 .customer-login-area {
     margin-bottom: 50px;
     margin-top: 110px;
@@ -4825,10 +4835,11 @@ span.legend {
 }
 
 .form-fields {
-    border-bottom: none;
+    /* border-bottom: none; */
+    /* border-bottom: 1px solid #d3d3d3;
     border-left: 1px solid #d3d3d3;
     border-right: 1px solid #d3d3d3;
-    border-top: 1px solid #d3d3d3;
+    border-top: 1px solid #d3d3d3; */
     float: left;
     padding: 20px 25px;
     width: 100%;
@@ -4844,7 +4855,7 @@ span.legend {
 
 .form-fields label {
     font-family: Montserrat, Arial, Helvetica, sans-serif;
-    margin: 0 0 5px;
+    margin: 10px 0 0px;
     color: #000000;
     font-weight: 400;
 }
@@ -4873,13 +4884,13 @@ span.legend {
 
 .customer-register .form-action,
 .customer-login .form-action {
-    background: #e0e0e0;
+    /* background: #e0e0e0; 
     border-bottom: 1px solid #d3d3d3;
     border-left: 1px solid #d3d3d3;
-    border-right: 1px solid #d3d3d3;
+    border-right: 1px solid #d3d3d3; */
     border-top: none;
     float: left;
-    padding: 20px 10px 16px;
+    padding: 0px 5px 0px 0px;
     width: 100%;
 }
 

@@ -1,6 +1,6 @@
 <?php
-require('connection.inc.php');
-require('functions.inc.php');
+require('connection.php');
+require('functions.php');
 require('add_to_cart.inc.php');
 
 $pid=get_safe_value($con,$_POST['pid']);

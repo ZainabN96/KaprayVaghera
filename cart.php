@@ -101,125 +101,74 @@ require('add_to_cart.php');
 
   <!-- breadcrumbs area end -->
   <!-- cart + summary -->
-  <div class="cart-area-start">
+
+   <div class="cart-area-start">
     <section class="my-5">
       <div class="container">
         <div class="row">
           <!-- cart -->
-        <div class="col-lg-9" style="color: black;"   >
-          <h5 class="card-title mb-4 fw-bold">Your shopping cart</h5>
+          <div class="col-lg-9" style="color: black;">
+            <h5 class="card-title mb-4 fw-bold">Your shopping cart</h5>
             <div class="card border shadow-0">
               <div class="m-4">
                 <div class="row gy-3 mb-4">
-                  <div class="col-lg-5">
-                    <div class="me-lg-5">
-                      <div class="d-flex">
-                        <img src="img/products/422890794_434002837_product9.jpeg" class="border rounded me-3"
-                          style="width: 150px; height: 150px;" />
-                        <div class="">
-                          <a href="#" class="nav-link">Winter kurta for lady</a>
-                          <p class="text-muted">Yellow, Kurta</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap ">
-                    <div class="wrapper">
-                      <span class="minus">-</span>
-                      <span class="num">01</span>
-                      <span class="plus">+</span>
-                    </div>
-                    <div class="">
-                      <text class="h6 fw-bold">$1156.00</text> <br />
-                      <small class="text-muted text-nowrap"> $460.00 / per item </small>
-                    </div>
-                  </div>
-                  <div
-                    class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
-                    <div class="float-md-end">
-                      <a href="#!" class="btn btn-light border px-2 icon-hover-danger"><i class="fa fa-heart"></i></a>
-                      <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- 
-            <div class="row gy-3 mb-4">
-              <div class="col-lg-5">
-                <div class="me-lg-5">
-                  <div class="d-flex">
-                    <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/12.webp" class="border rounded me-3" style="width: 120px; height: 120px;" />
-                    <div class="">
-                      <a href="#" class="nav-link">Mens T-shirt Cotton Base</a>
-                      <p class="text-muted">Blue, Medium</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
-                <div class="">
-                  <select style="width: 100px;" class="form-select me-4">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </select>
-                </div>
-                <div class="">
-                  <text class="h6">$44.80</text> <br />
-                  <small class="text-muted text-nowrap"> $12.20 / per item </small>
-                </div>
-              </div>
-              <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
-                <div class="float-md-end">
-                  <a href="#!" class="btn btn-light border px-2 icon-hover-primary"><i class="fas fa-heart fa-lg px-1 text-secondary"></i></a>
-                  <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
-                </div>
-              </div>
-            </div> -->
+                  <!-- PHP Loop for cart items -->
+                  <?php
+                  if (isset($_SESSION['cart'])) {
+                    foreach ($_SESSION['cart'] as $key => $val) {
+                      foreach ($val as $key1 => $val1) {
+                        $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select product_attributes.*,color_master.color,size_master.size from product_attributes 
+                                left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
+                                left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
+                                where product_attributes.id='$key1'"));
 
-                <div class="row gy-3">
-                  <div class="col-lg-5">
-                    <div class="me-lg-5">
-                      <div class="d-flex">
-                        <img src="img/products/247519152_image-540x660.jpg" class="border rounded me-3"
-                          style="width: 120px; height: 150px;" />
-                        <div class="">
-                          <a href="#" class="nav-link">Embroidered Suit </a>
-                          <p class="text-muted">Kurta, Blue</p>
+                        $productArr = get_product($con, '', '', $key, '', '', '', '', $key1);
+                        $pname = $productArr[0]['name'];
+                        $mrp = $productArr[0]['mrp'];
+                        $price = $productArr[0]['price'];
+                        $image = $productArr[0]['image'];
+                        $qty = $val1['qty'];
+                  ?>
+                        <div class="col-lg-5">
+                          <div class="me-lg-5">
+                            <div class="d-flex">
+                              <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $image ?>" class="border rounded me-3" style="width: 150px; height: 150px;" />
+                              <div class="">
+                                <a href="#" class="nav-link"><?php echo $pname ?></a>
+                                <p class="text-muted"><?php
+                                                      if (isset($resAttr['color']) && $resAttr['color'] != '') {
+                                                        echo "<br/>" . $resAttr['color'] . '';
+                                                      }
+                                                      if (isset($resAttr['size']) && $resAttr['size'] != '') {
+                                                        echo "<br/>" . $resAttr['size'] . '';
+                                                      }
+                                                      ?></p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
-                    <div class="wrapper">
-                      <span class="minus">-</span>
-                      <span class="num">01</span>
-                      <span class="plus">+</span>
-                    </div>
-                    <div class="">
-                      <text class="h6 fw-bold">$1156.00</text> <br />
-                      <small class="text-muted text-nowrap"> $460.00 / per item </small>
-                    </div>
-                  </div>
-                  <div
-                    class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
-                    <div class="float-md-end">
-                      <a href="#!" class="btn btn-light border px-2  icon-hover-danger"><i class="fa fa-heart"></i></a>
-
-                      <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
-                    </div>
-                  </div>
+                        <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                          <div class="wrapper">
+                            <span class="minus">-</span>
+                            <span class="num"><?php echo $qty ?></span>
+                            <span class="plus">+</span>
+                          </div>
+                          <div class="">
+                            <text class="h6 fw-bold">$<?php echo $price ?></text> <br />
+                            <small class="text-muted text-nowrap"> $<?php echo $price ?> / per item </small>
+                          </div>
+                        </div>
+                        <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                          <div class="float-md-end">
+                            <a href="#!" class="btn btn-light border px-2 icon-hover-danger"><i class="fa fa-heart"></i></a>
+                            <a href="javascript:void(0)" class="btn btn-light border text-danger icon-hover-danger" onclick="manage_cart_update('<?php echo $key ?>','remove','<?php echo $resAttr['size_id'] ?>','<?php echo $resAttr['color_id'] ?>')"> Remove</a>
+                          </div>
+                        </div>
                 </div>
-              </div>
-              <!-- 
-          <div class="border-top pt-4 mx-4 mb-4">
-            <p><i class="fas fa-truck text-muted fa-lg"></i> Free Delivery within 1-2 weeks</p>
-            <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip
-            </p>
-          </div> -->
+              <?php }
+                    }
+                  } ?>
+              <!-- End of PHP Loop -->
             </div>
           </div>
           <!-- cart -->
@@ -228,11 +177,11 @@ require('add_to_cart.php');
             <div class="card mb-3 border shadow-0">
               <div class="card-body">
                 <form>
-                  <div class="form-group" style="color: black;" >
+                  <div class="form-group" style="color: black;">
                     <label class="form-label fw-bold">APPLY DISCOUNT CODE</label>
                     <div class="input-group">
                       <input type="text" class="form-control border" name="" placeholder="Enter discount code" />
-                                    </div>
+                    </div>
                     <button class="btn btn-success border w-100 m-2">Apply</button>
                   </div>
                 </form>
