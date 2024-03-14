@@ -234,7 +234,7 @@
                                 <?php 
                                 if(isset($_SESSION['USER_LOGIN'])){
                                     ?>
-                                    <li><a href="login.php">Log out</a></li>
+                                    <li><a href="logout.php">Log out</a></li>
                                 <?php
                                 }
                                 

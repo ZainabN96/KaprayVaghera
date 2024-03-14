@@ -4318,7 +4318,30 @@ pointer-events: none;
     display: inline-block;
     padding: 6px 6px;
     margin-bottom: 0;
-   
+        margin-left: 66px;
+        width: 80%;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.bttnn {
+    display: inline-block;
+    padding: 6px 6px;
+    margin-bottom: 0;
         margin-left: 66px;
         width: 80%;
     font-size: 15px;
@@ -4821,9 +4844,16 @@ span.legend {
 
 .field_error{
     color: red;
-    font-weight: bold;
+    font-weight: 400;
+    font-size: 15px;
 }
 
+.field_success {
+    color: rgb(9 161 38);
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: 15px;
+}
 
 .customer-login-area {
     margin-bottom: 50px;
@@ -4846,7 +4876,29 @@ span.legend {
 }
 
 .form-fields h2 {
-    border-bottom: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;.btn {
+    display: inline-block;
+    padding: 6px 6px;
+    margin-bottom: 0;
+    margin-left: 61px;
+    width: 80%;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
     font-size: 18px;
     margin: 0 0 15px;
     padding: 0 0 5px;
