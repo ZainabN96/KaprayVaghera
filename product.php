@@ -107,7 +107,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									alt="big-1">
 							</a>
 						</div>
-						<?php if (isset ($multipleImages[0])) { ?>
+						<!-- <?php if (isset ($multipleImages[0])) { ?>
 							<div class="single-zoom-thumb">
 								<ul class="nav" id="gallery_01">
 									<?php
@@ -125,7 +125,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 
 								</ul>
 							</div>
-						<?php } ?>
+						<?php } ?> -->
 					</div>
 				</div>
 				<div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40">
@@ -404,7 +404,8 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 												<textarea class="form-control" cols="50" id="new-review" name="review"
 													placeholder="Enter your review here..." rows="5"></textarea>
 												<div class="text-right mt10">
-													<button class="btn btn-success" type="submit"
+													<button class="btn btn-success mt-3" type="submit" style ="position: absolute;
+		left: 26%"
 														name="review_submit">Submit</button>
 												</div>
 											</form>
@@ -425,10 +426,10 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 
 
 	<script>
-		function showMultipleImage(im) {
-			jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
-			jQuery('.imageZoom').imgZoom();
-		}
+		// function showMultipleImage(im) {
+		// 	jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
+		// 	jQuery('.imageZoom').imgZoom();
+		// }
 		let is_color = '<?php echo $is_color ?>';
 		let is_size = '<?php echo $is_size ?>';
 		let pid = '<?php echo $product_id ?>';
