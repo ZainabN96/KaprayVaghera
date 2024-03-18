@@ -13,9 +13,9 @@
 	<!-- account-details Area Start -->
 
 	<div class="customer-login-area">
-		<div class="container mt-5">
-			<div class="row mt-5">
-				<div class="col-lg-6 col-md-6 col-12">
+		<div class="container mt-5 mb-5">
+			<div class="row mt-5 mb-5">
+				<div class="col-lg-12 col-md-12 col-12 mb-5">
 					<div class="customer-login my-account">
 						<form id="login-form" method="post">
 							<div class="form-fields">
@@ -35,13 +35,15 @@
 							<div class="form-action">
 							<p class="lost_password"> <a href="#" style="padding-right: 115px;">Lost your password?</a></p>
 									
-							<div class="row col-md-6">
-								<button type="button" class="btn btn-primary btn-lg "
-									onclick="user_login()">Login</button>
-							</div>	
+							
 						
 							</div>
-										
+								
+							<div class="row col-12 col-lg-6 col-md-6">
+								<button type="button " class="btn btn-primary mt-3" style ="position: absolute;
+		top: 76%; left: 26%"
+									onclick="user_login()">Login</button>
+							</div>	
 						</form>
 					</div>
 				</div>
@@ -49,8 +51,9 @@
 					<p class="form-messege field_error"></p>
 				</div>
 				<div>
-				<div class="row col-md-6 col-sm-6 col-12">
-								<button type="button" class="btn btn-secondary btn-lg btn-block" data-bs-toggle="modal" data-bs-target="#loginModal"> Create An Account </button>
+				<div class="row col-12 col-lg-6 col-md-6">
+								<button type="button" class="btn btn-secondary" style ="position: absolute;
+		top: 88%; left: 26%" data-bs-toggle="modal" data-bs-target="#loginModal"> Create An Account </button>
 								</div>	
 								<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered" role="document">
@@ -98,8 +101,9 @@
 															<span class="field_error" id="password_error"></span>
 														</div>
 
-														<div class="contact-btn" style="padding-right: 75px;" >
-															<button type="button" class="btn btn-primary btn-lg btn-block" onclick="user_register()" id="btn_register">Register</button>
+														<div class="contact-btn" >
+															<button type="button" class="btn btn-primary" style ="position: absolute;
+		left: 25%" onclick="user_register()" id="btn_register">Register</button>
 														</div>
 													</form>
 													<div class="form-output register_msg">

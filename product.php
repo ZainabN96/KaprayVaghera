@@ -73,7 +73,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 <body class="s-prodct">
 	<!-- header area start -->
 	<?php include 'includes/navbar2.php' ?>
-		<!-- header area end -->
+	<!-- header area end -->
 	<!-- breadcrumbs area start -->
 	<!-- <div class="breadcrumbs" style="margin-top: 150px!important;">
 			<div class="container">
@@ -310,9 +310,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 			</div>
 		</div>
 	</div>
-	</div>
-	</div>
-	</div>
+	
 
 	<input type="hidden" id="cid" />
 	<input type="hidden" id="sid" />
@@ -406,7 +404,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 												<textarea class="form-control" cols="50" id="new-review" name="review"
 													placeholder="Enter your review here..." rows="5"></textarea>
 												<div class="text-right mt10">
-													<button class="btn btn-success btn-lg" type="submit"
+													<button class="btn btn-success" type="submit"
 														name="review_submit">Submit</button>
 												</div>
 											</form>
@@ -424,17 +422,17 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 		</div>
 	</section>
 
-	
-		
-			<script>
-			function showMultipleImage(im){
-				jQuery('#img-tab-1').html("<img src='"+im+"' data-origin='"+im+"'/>");
-				jQuery('.imageZoom').imgZoom();
-			}
-			let is_color='<?php echo $is_color?>';
-			let is_size='<?php echo $is_size?>';
-			let pid='<?php echo $product_id?>';
-			</script>			
+
+
+	<script>
+		function showMultipleImage(im) {
+			jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
+			jQuery('.imageZoom').imgZoom();
+		}
+		let is_color = '<?php echo $is_color ?>';
+		let is_size = '<?php echo $is_size ?>';
+		let pid = '<?php echo $product_id ?>';
+	</script>
 
 
 

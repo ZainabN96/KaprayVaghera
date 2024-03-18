@@ -15,7 +15,7 @@
   <div class="cart-main-area pt-100 mt-5 bg__white">
             <div class="container mt-5">
                 <div class="row mt-5">
-                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 mt-5">
+                    <div class="col-md-12 col-sm-12 col-xs-12 mt-5">
                         <form action="#">               
                             <div class="table-content table-responsive mt-5">
                                 <table>
