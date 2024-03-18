@@ -11,219 +11,92 @@
   <!-- header area start -->
   <?php include 'includes/navBar2.php' ?>
 
-  <!-- breadcrumbs area end -->
-  <!-- cart + summary -->
+  <!-- cart-main-area start -->
+  <div class="cart-main-area pt-100 mt-5 bg__white">
+            <div class="container mt-5">
+                <div class="row mt-5">
+                    <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 mt-5">
+                        <form action="#">               
+                            <div class="table-content table-responsive mt-5">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail">products</th>
+                                            <th class="product-name">name of products</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-subtotal">Total</th>
+                                            <th class="product-remove">Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+										<?php
+										if(isset($_SESSION['cart'])){
+											foreach($_SESSION['cart'] as $key=>$val){
+												
+											foreach($val as $key1=>$val1)	{
 
-   <div class="cart-area-start">
-    <section class="my-5">
-      <div class="container">
-        <div class="row">
-          <!-- cart -->
-          <div class="col-lg-9" style="color: black;">
-            <h5 class="card-title mb-4 fw-bold">Your shopping cart</h5>
-            <div class="card border shadow-0">
-              <div class="m-4">
-                <div class="row gy-3 mb-4">
-                  <!-- PHP Loop for cart items -->
-                  <?php
-                  if (isset($_SESSION['cart'])) {
-                    foreach ($_SESSION['cart'] as $key => $val) {
-                      foreach ($val as $key1 => $val1) {
-                        $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select product_attributes.*,color_master.color,size_master.size from product_attributes 
-                                left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
-                                left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
-                                where product_attributes.id='$key1'"));
 
-                        $productArr = get_product($con, '', '', $key, '', '', '', '', $key1);
-                        $pname = $productArr[0]['name'];
-                        $mrp = $productArr[0]['mrp'];
-                        $price = $productArr[0]['price'];
-                        $image = $productArr[0]['image'];
-                        $qty = $val1['qty'];
-                  ?>
-                        <div class="col-lg-5">
-                          <div class="me-lg-5">
-                            <div class="d-flex">
-                              <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $image ?>" class="border rounded me-3" style="width: 150px; height: 150px;" />
-                              <div class="">
-                                <a href="#" class="nav-link"><?php echo $pname ?></a>
-                                <p class="text-muted"><?php
-                                                      if (isset($resAttr['color']) && $resAttr['color'] != '') {
-                                                        echo "<br/>" . $resAttr['color'] . '';
-                                                      }
-                                                      if (isset($resAttr['size']) && $resAttr['size'] != '') {
-                                                        echo "<br/>" . $resAttr['size'] . '';
-                                                      }
-                                                      ?></p>
-                              </div>
+$resAttr=mysqli_fetch_assoc(mysqli_query($con,"select product_attributes.*,color_master.color,size_master.size from product_attributes 
+	left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
+	left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
+	where product_attributes.id='$key1'"));
+
+												
+											$productArr=get_product($con,'','',$key,'','','','',$key1);
+											$pname=$productArr[0]['name'];
+											// $mrp=$productArr[0]['mrp'];
+											$price=$productArr[0]['price'];
+											$image=$productArr[0]['image'];
+											$qty=$val1['qty'];
+											?>
+											<tr>
+												<td class="product-thumbnail"><a href="#"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$image?>"  /></a></td>
+												<td class="product-name"><a href="#"><?php echo $pname?></a>
+<?php
+if(isset($resAttr['color']) && $resAttr['color']!=''){
+	echo "<br/>" ,"Color: ".$resAttr['color'].''; 
+}
+if(isset($resAttr['size']) && $resAttr['size']!=''){
+	echo "<br/>", "Size: ".$resAttr['size'].''; 
+}
+?>				
+					<!-- <ul  class="pro__prize">
+														<li class="old__prize"><?php echo $mrp?></li>
+														<li><?php echo $price?></li>
+													</ul> -->
+												</td>
+												<td class="product-price"><span class="amount"><?php echo $price?></span></td>
+												<td class="product-quantity"><input type="number" id="<?php echo $key?>qty" value="<?php echo $qty?>" />
+												<br/><a href="javascript:void(0)" onclick="manage_cart_update('<?php echo $key?>','update','<?php echo $resAttr['size_id']?>','<?php echo $resAttr['color_id']?>')">update</a>
+												</td>
+												<td class="product-subtotal"><?php echo $qty*$price?></td>
+												<td class="product-remove"><a href="javascript:void(0)" onclick="manage_cart_update('<?php echo $key?>','remove','<?php echo $resAttr['size_id']?>','<?php echo $resAttr['color_id']?>')"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+											</tr>
+										<?php } } } ?>
+                                    </tbody>
+                                </table>
                             </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
-                          <div class="wrapper">
-                            <span class="minus">-</span>
-                            <span class="num"><?php echo $qty ?></span>
-                            <span class="plus">+</span>
-                          </div>
-                          <div class="">
-                            <text class="h6 fw-bold">$<?php echo $price ?></text> <br />
-                            <small class="text-muted text-nowrap"> $<?php echo $price ?> / per item </small>
-                          </div>
-                        </div>
-                        <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
-                          <div class="float-md-end">
-                            <a href="#!" class="btn btn-light border px-2 icon-hover-danger"><i class="fa fa-heart"></i></a>
-                            <a href="javascript:void(0)" class="btn btn-light border text-danger icon-hover-danger" onclick="manage_cart_update('<?php echo $key ?>','remove','<?php echo $resAttr['size_id'] ?>','<?php echo $resAttr['color_id'] ?>')"> Remove</a>
-                          </div>
-                        </div>
-                </div>
-              <?php }
-                    }
-                  } ?>
-              <!-- End of PHP Loop -->
-            </div>
-          </div>
-          <!-- cart -->
-          <!-- summary -->
-          <div class="col-lg-3">
-            <div class="card mb-3 border shadow-0">
-              <div class="card-body">
-                <form>
-                  <div class="form-group" style="color: black;">
-                    <label class="form-label fw-bold">APPLY DISCOUNT CODE</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control border" name="" placeholder="Enter discount code" />
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="buttons-cart--inner">
+                                        <div class="buttons-cart">
+                                            <a href="<?php echo SITE_PATH?>index.php">Continue Shopping</a>
+                                        </div>
+                                        <div class="buttons-cart checkout--btn">
+                                            <a href="<?php echo SITE_PATH?>checkout.php">checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form> 
                     </div>
-                    <button class="btn btn-success border w-100 m-2">Apply</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="card shadow-0 border">
-              <div class="card-body">
-                <div class="d-flex justify-content-between">
-                  <p class="mb-2">Subtotal:</p>
-                  <p class="mb-2">$329.00</p>
                 </div>
-                <!-- <div class="d-flex justify-content-between">
-              <p class="mb-2">Discount:</p>
-              <p class="mb-2 text-success">-$60.00</p>
-             </div> -->
-                <!-- <div class="d-flex justify-content-between">
-              <p class="mb-2">TAX:</p>
-              <p class="mb-2">$14.00</p>
-             </div> -->
-                <hr />
-                <div class="d-flex justify-content-between" style="color: black;">
-                  <p class="mb-2">Order Total:</p>
-                  <p class="mb-2 fw-bold">$329.00</p>
-                </div>
-                <div class="mt-3">
-                  <a href="checkout.php" class="btn btn-process w-100 shadow-0 mb-2">PROCEED TO CHECKOUT </a>
-                  <a href="index.php" class="btn btn-light w-100 border mt-2"> CONTINUE SHOPPING </a>
-                </div>
-              </div>
             </div>
-          </div>
-          <!-- summary -->
         </div>
-      </div>
-    </section>
-    <!-- cart + summary -->
-    <section>
-  </div>
-
-  <!-- <div class="container my-5">
-    <header class="mb-4">
-      <h3>Recommended items</h3>
-    </header>
-
-    <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card px-4 border shadow-0 mb-4 mb-lg-0">
-          <div class="mask px-2" style="height: 50px;">
-            <div class="d-flex justify-content-between">
-              <h6><span class="badge bg-danger pt-1 mt-3 ms-2">New</span></h6>
-              <a href="#"><i class="fa fa-heart text-danger fa-lg float-end pt-3 m-2"></i></a>
-            </div>
-          </div>
-          <a href="#" class="">
-            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/7.webp" class="card-img-top rounded-2" />
-          </a>
-          <div class="card-body d-flex flex-column pt-3 border-top">
-            <a href="#" class="nav-link">Gaming Headset with Mic</a>
-            <div class="price-wrap mb-2">
-              <strong class="">$18.95</strong>
-              <del class="">$24.99</del>
-            </div>
-            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card px-4 border shadow-0 mb-4 mb-lg-0">
-          <div class="mask px-2" style="height: 50px;">
-            <a href="#"><i class="fa fa-heart text-danger fa-lg float-end pt-3 m-2"></i></a>
-          </div>
-          <a href="#" class="">
-            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/5.webp" class="card-img-top rounded-2" />
-          </a>
-          <div class="card-body d-flex flex-column pt-3 border-top">
-            <a href="#" class="nav-link">Apple Watch Series 1 Sport </a>
-            <div class="price-wrap mb-2">
-              <strong class="">$120.00</strong>
-            </div>
-            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card px-4 border shadow-0">
-          <div class="mask px-2" style="height: 50px;">
-            <a href="#"><i class="fa fa-heart text-danger fa-lg float-end pt-3 m-2"></i></a>
-          </div>
-          <a href="#" class="">
-            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/9.webp" class="card-img-top rounded-2" />
-          </a>
-          <div class="card-body d-flex flex-column pt-3 border-top">
-            <a href="#" class="nav-link">Men's Denim Jeans Shorts</a>
-            <div class="price-wrap mb-2">
-              <strong class="">$80.50</strong>
-            </div>
-            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="card px-4 border shadow-0">
-          <div class="mask px-2" style="height: 50px;">
-            <a href="#"><i class="fa fa-heart text-danger fa-lg float-end pt-3 m-2"></i></a>
-          </div>
-          <a href="#" class="">
-            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/10.webp" class="card-img-top rounded-2" />
-          </a>
-          <div class="card-body d-flex flex-column pt-3 border-top">
-            <a href="#" class="nav-link">Mens T-shirt Cotton Base Layer Slim fit </a>
-            <div class="price-wrap mb-2">
-              <strong class="">$13.90</strong>
-            </div>
-            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-              <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-  <!-- Recommended -->
-
+        <input type="hidden" id="sid">
+		<input type="hidden" id="cid">
+		
 
 
 

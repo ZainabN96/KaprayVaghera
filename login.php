@@ -87,7 +87,7 @@
 														<div class="single-contact-form">
 															<div class="contact-box name mb-5">
 															<label for="mobile">Mobile <span class="required">*</span></label>
-																<input type="text" name="mobile" id="mobile"  style="width:100%">															</div>
+																<input type="text" name="mobile" maxlength="11" id="mobile"  style="width:100%">															</div>
 															<!-- <span class="field_error" id="mobile_error"></span>  -->
 														</div>
 														<div class="single-contact-form">

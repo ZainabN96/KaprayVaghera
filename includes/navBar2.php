@@ -16,7 +16,7 @@
 							<nav>
 								<ul class="d-flex align-items-right justify-content-right">
 									
-									<li class="expand about" href=""><a >Shop</a>
+									<li class="expand" href=""><a >Shop</a>
 										<div class="restrain mega-menu megamenu1">
 											<div class="">
 											<?php 
@@ -129,12 +129,12 @@
 					<div class="col-lg-3 nopadding-left">
 						<div class="top-detail">
 							<!-- language division start -->
-							<div class="disflow" >
+							<div class="disflow" style=" color: black !important ;height: 60; width:25.19 " >
 							<?php 
 								if(isset($_SESSION['USER_LOGIN'])){
 							?>
 								<div class="expand lang-all disflow">
-									<span><?php echo $_SESSION['USER_NAME']?></span>
+								<span>  Hi <?php echo $_SESSION['USER_NAME']?></span>
 									<!-- <a href="#"><img src="img/country/en.gif" width="18" height="12" alt="">English</a>
 									<ul class="restrain language">
 										<li><a href="#"><img src="img/country/it.gif"  width="18" height="12" alt="">italiano</a></li>
@@ -146,58 +146,31 @@
 								<?php
 								}
 								?>
-								<div class="expand lang-all disflow">
+								<!-- <div class="expand lang-all disflow">
 									<a href="#" style="color:black">$ USD</a>
 									<ul class="restrain language">
 										<li><a href="#">€ Eur</a></li>
 										<li><a href="#">$ USD</a></li>
 										<li><a href="#">£ GBP</a></li>
 									</ul>
-								</div>
+								</div> -->
 							</div>
 							<!-- language division end -->
 							<!-- addcart top start -->
-							<div class="disflow" >
-								<div class="circle-shopping expand">
-									<div class="shopping-carts text-end">
-										<div class="cart-toggler">
-											<a href="#"><i class="icon-bag" style="color:black"></i></a>
-											<a href="#"><span class="cart-quantity">2</span></a>
-										</div>
-										<div class="restrain small-cart-content">
-											<ul class="cart-list">
-												<li>
-													<a class="sm-cart-product" href="product-details.html">
-														<img  width="50" height="66" src="img/products/sm-products/cart1.webp" alt="">
-													</a>
-													<div class="small-cart-detail">
-														<a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
-														<a href="#" class="edit-btn"><img  width="11" height="11" src="img/btn_edit.gif" alt="Edit Button" /></a>
-														<a class="small-cart-name" href="product-details.html">Voluptas nulla</a>
-														<span class="quantitys"><strong>1</strong>x<span>$75.00</span></span>
-													</div>
-												</li>
-												<li>
-													<a class="sm-cart-product" href="product-details.html">
-														<img  width="50" height="66" src="img/products/sm-products/cart2.webp" alt="">
-													</a>
-													<div class="small-cart-detail">
-														<a class="remove" href="#"><i class="fa fa-times-circle"></i></a>
-														<a href="#" class="edit-btn"><img  width="11" height="11" src="img/btn_edit.gif" alt="Edit Button" /></a>
-														<a class="small-cart-name" href="product-details.html">Donec ac tempus</a>
-														<span class="quantitys"><strong>1</strong>x<span>$75.00</span></span>
-													</div>
-												</li>
-											</ul>
-											<p class="total">Subtotal: <span class="amount">$155.00</span></p>
-											<p class="buttons">
-												<a href="checkout.php" class="button">Checkout</a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="disflow" >
+							<div class="disflow" style="height: 60; width:25.19">
+                        <div class="circle-shopping expand">
+                            <div class="shopping-carts text-end">
+                                <div class="cart-toggler">
+                                    
+                                    <a href="cart.php"><i class="icon-bag"></i></a>
+                                        <a href="cart.php"><span class="cart-quantity"><?php echo $totalProduct?></span></a>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+
+							<div class="disflow" style="height: 60; width:25.19">
 								<a href="#" id="contactUsBtn" class="whatsapp-icon">
 									<i class="fa fa-whatsapp whatsapp-icon-custom-size" style="color:black"></i>
 								</a>
@@ -205,7 +178,7 @@
 
 							<!-- addcart top start -->
 							<!-- search divition start -->
-							<div class="disflow" >
+							<div class="disflow" style="height: 60; width:25.19">
 								<div class="header-search expand">
 									<div class="search-icon fa fa-search" style="color:black"></div>
 									<div class="product-search restrain">
@@ -223,9 +196,9 @@
 								</div>
 							</div>
 							<!-- search divition end -->
-							<div class="disflow">
+							<div class="disflow" style="height: 60; width:25.19">
 								<div class="expand dropps-menu">
-									<a href="#"><i class="fa fa-align-right fa-lg" style="color:black"></i></a>
+									<a href="#"><i class="fa fa-align-right fa-lg" style="color:black !important"></i></a>
 									<ul class="restrain language">
 										<li><a href="login.php">My Account</a></li>
 										<li><a href="wishlist.php">My Wishlist</a></li>
@@ -235,7 +208,7 @@
 										<?php 
 										if(isset($_SESSION['USER_LOGIN'])){
 											?>
-											<li><a href="login.php">Log out</a></li>
+											<li><a href="logout.php">Log out</a></li>
 										<?php
 										}
 										
