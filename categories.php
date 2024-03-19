@@ -3,6 +3,28 @@ require('connection.php');
 require('functions.php');
 require('add_to_cart.php');
 
+$wishlist_count=0;
+$cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
+$cat_arr=array();
+while($row=mysqli_fetch_assoc($cat_res)){
+	$cat_arr[]=$row;	
+}
+
+$obj=new add_to_cart();
+$totalProduct=$obj->totalProduct();
+
+if(isset($_SESSION['USER_LOGIN'])){
+	$uid=$_SESSION['USER_ID'];
+	
+	if(isset($_GET['wishlist_id'])){
+		$wid=get_safe_value($con,$_GET['wishlist_id']);
+		mysqli_query($con,"delete from wishlist where id='$wid' and user_id='$uid'");
+	}
+
+	$wishlist_count=mysqli_num_rows(mysqli_query($con,"select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
+	
+}
+
 if (!isset($_GET['id']) && $_GET['id'] != '') {
 	?>
 	<script>

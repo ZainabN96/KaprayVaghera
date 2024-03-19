@@ -169,7 +169,19 @@
                         </div>
                     </div>
 
-                    
+                    <div class="disflow" style="height: 60; width:25.19">
+                        <div class="circle-shopping expand">
+                            <div class="shopping-carts text-end">
+                                <div class="cart-toggler">
+                                    
+                                    <a href="wishlist.php"><i class="fa fa-heart"></i></a>
+                                        <a href="cart.php"><span class="heart-quantity"><?php echo $totalProduct?></span></a>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                   
                     <div class="disflow" style="height: 60; width:25.19">
                         <a href="#" id="contactUsBtn" class="whatsapp-icon">
                             <i class="fa fa-whatsapp whatsapp-icon-custom-size "></i>

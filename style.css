@@ -316,7 +316,7 @@ body {
 .whatsapp-icon-custom-size {
     font-size: 24px; /* Adjust the size as needed */
     color: white;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .header-5 {
@@ -684,7 +684,7 @@ a.sm-cart-product {
 
 .compare-button i {
     display: inline-block;
-    margin: 0 5px;
+    margin: 0 10px;
     width: 40px;
     height: 35px;
     text-align: center;
@@ -696,6 +696,21 @@ a.sm-cart-product {
 }
 
 span.cart-quantity {
+    background: #03a5e9;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    line-height: 15px;
+    position: absolute;
+    text-align: center;
+    top: -6px;
+    color: #fff;
+    left: 16px;
+    font-size: 10px;
+}
+
+span.heart-quantity {
+    /* background: #e90303; */
     background: #03a5e9;
     height: 15px;
     width: 15px;
@@ -812,7 +827,7 @@ button{
 .search-icon.fa.fa-search {
     font-size: 18px;
     color: white;
-    padding: 30px 0 30px 15px;
+    padding: 20px 0 20px 5px;
 }
 
 .header-search.expand {
@@ -884,10 +899,11 @@ button{
 /*  2.6  dropdown menu 
 /*----------------------------------------*/
 .dropps-menu {
-    padding-left: 15px;
-    position: relative;
-    padding-bottom: 30px;
-}
+   
+        padding-left: 8px;
+        position: relative;
+        padding-bottom: 30px;
+    }
 
 .dropps-menu .language {
     right: 0;
@@ -2774,7 +2790,7 @@ span.old-price {
 /*  17. Shop page area
 /*----------------------------------------*/
 .category-banner {
-    background: url(img/banner/cat-banner-1.webp) right center no-repeat;
+background: url(img/banner/cat-banner-1.webp) right center no-repeat; 
     background-size: cover;
     min-height: 270px;
     position: relative;
