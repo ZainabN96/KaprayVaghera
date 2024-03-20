@@ -513,21 +513,6 @@ function sort_product_drop(cat_id,site_path){
 	window.location.href=site_path+"categories.php?id="+cat_id+"&sort="+sort_product_id;
 }
 
-function wishlist_manage(pid,type){
-	jQuery.ajax({
-		url:'wishlist_manage.php',
-		type:'post',
-		data:'pid='+pid+'&type='+type,
-		success:function(result){
-			result=result.trim();
-			if(result=='not_login'){
-				window.location.href='login.php';
-			}else{
-				jQuery('.htc__wishlist').html(result);
-			}
-		}	
-	});	
-}
 
 // jQuery('.imageZoom').imgZoom();
 
@@ -558,7 +543,7 @@ function showQty(){
 	let cid=jQuery('#cid').val();
 	if(cid=='' && is_color>0){
 		jQuery('#cart_attr_msg').html('Please select color');
-		console.log("quantity is hsownn");
+	
 	}else{
 		let sid=jQuery('#size_attr').val();
 		

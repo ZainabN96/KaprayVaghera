@@ -131,7 +131,7 @@
                 //sentInvoice($con,$order_id);
                 ?>
                 <script>
-                    window.location.href='thank_you.php';
+                    window.location.href='thankyou.php';
                 </script>
                 <?php
             }	
@@ -272,7 +272,9 @@ if(mysqli_num_rows($lastOrderDetailsRes)>0){
 												</div>
 											</div>
 										</div>
+                                        <div class=" col-lg-6 col-md-6">
 										 <input type="submit" name="submit" class="btn btn-primary btn-lg"/>
+                                        </div>
 									</form>
                                 </div>
                             </div>
@@ -328,8 +330,7 @@ $qty=$val1['qty'];
                             </div>
 							
 							<div class="ordre-details__total bilinfo">
-                                <input type="textbox" id="coupon_str" class="coupon_style mr5"/> <input type="button" name="submit" class="btn
-                                btn-lg btn-info coupon_style" value="Apply Coupon" onclick="set_coupon()"/>
+                                <input type="textbox" id="coupon_str" class="coupon_style mr5"/> <input type="button" name="submit"  class="btn btn-primary btn-lg" value="Apply Coupon" onclick="set_coupon()"/>
 								
                             </div>
 							<div id="coupon_result"></div>

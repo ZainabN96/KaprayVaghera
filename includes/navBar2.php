@@ -163,7 +163,7 @@
                                 <div class="cart-toggler">
                                     
                                     <a href="cart.php"><i class="icon-bag"></i></a>
-                                        <a href="cart.php"><span class="cart-quantity"><?php echo $totalProduct?></span></a>
+                                        <a href="cart.php"><span class=" htc__qua cart-quantity"><?php echo $totalProduct?></span></a>
                                 </div>
                               
                             </div>
@@ -176,7 +176,7 @@
                                 <div class="cart-toggler">
                                     
                                     <a href="wishlist.php"><i class="fa fa-heart" style="color:black"></i></a>
-                                        <a href="cart.php"><span class="heart-quantity"><?php echo $totalProduct?></span></a>
+                                        <a href="wishlist.php"><span class=" htc__wishlist heart-quantity"><?php echo $wishlist_count?></span></a>
                                 </div>
                               
                             </div>
