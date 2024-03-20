@@ -4,6 +4,30 @@ require('connection.php');
 require('functions.php');
 require('add_to_cart.php');
 
+
+$wishlist_count=0;
+$cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
+$cat_arr=array();
+while($row=mysqli_fetch_assoc($cat_res)){
+	$cat_arr[]=$row;	
+}
+
+$obj=new add_to_cart();
+$totalProduct=$obj->totalProduct();
+
+if(isset($_SESSION['USER_LOGIN'])){
+	$uid=$_SESSION['USER_ID'];
+	
+	if(isset($_GET['wishlist_id'])){
+		$wid=get_safe_value($con,$_GET['wishlist_id']);
+		mysqli_query($con,"delete from wishlist where id='$wid' and user_id='$uid'");
+	}
+
+	$wishlist_count=mysqli_num_rows(mysqli_query($con,"select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
+	
+}
+
+
 if(!isset($_SESSION['USER_LOGIN'])){
 	?>
 	<script>
@@ -17,117 +41,161 @@ $res=mysqli_query($con,"select product.name,product.image,product_attributes.pri
 ?>
 
 
+
+
 <!DOCTYPE html>
 <html class="no-js" lang="">
-	
-    <?php
-		$title='Home | Kapray Vaghera';
-		include 'includes/header.php'; 
-	?>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Wishlist | Kapray Vaghera</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/iconbg.ico">
+
+    <!-- Fonts
+        ============================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- CSS  -->
+
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+ <!-- Style CSS
+        ============================================ -->
+	<!-- <link rel="stylesheet" href="css/style.min.css"> -->
+
+	<!-- Style min CSS
+        ============================================ -->
+		<link rel="stylesheet" href="css/style.mins.css">
+
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+
+    <!-- owl.theme CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/owl.theme.css">
+
+    <!-- owl.transitions CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/owl.transitions.css">
+
+    <!-- font-awesome.min CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- font-icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="fonts/font-icon.css">
+
+    <!-- jquery-ui CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- mobile menu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/normalize.css">
+
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Latest compiled and minified CSS -->
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+        integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
 <body>
 
     <!-- header area start -->
     <?php include 'includes/navBar2.php' ?>
 		<!-- wishlist-area-start -->
-		<main class="main">
-			
-			<!-- End PageHeader -->
-			<div class="page-content pt-10 pb-10 ">
-				<div class="container">
-					<table class="shop-table wishlist-table mb-4">
-						<thead>
-							<tr>
-								<th class="product-name"><span>Product</span></th>
-								<th></th>
-								<th class="product-price "><span>Price</span></th>
-								<th class="product-stock-status"><span>Stock status</span></th>
-								<th class="product-add-to-cart"></th>
-								<th class="product-remove text-center"></th>
-							</tr>
-						</thead>
-						<tbody class="wishlist-items-wrapper">
-						<?php
+		
+		<div class="cart-main-area ptb--100 mt-5 bg__white">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12 mt-5">
+                        <form action="#">               
+                            <div class="table-content table-responsive mt-5">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail">products</th>
+                                            <th class="product-name">name of products</th>
+                                            <th class="product-name">Remove</th>
+											<th class="product-name"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+										<?php
 										while($row=mysqli_fetch_assoc($res)){
 										?>
 											<tr>
-												<td class="product-thumbnail"><a href="#"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"  /></a></td>
+												<td class="product-thumbnail"><a href="#"><img  src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>" /></a></td>
 												<td class="product-name"><a href="#"><?php echo $row['name']?></a>
-													
+													<ul  class="pro__prize">
+														<li class="old__prize"><?php echo $row['mrp']?></li>
+														<li><?php echo $row['price']?></li>
+													</ul>
 												</td>
-
-												<td class="product-price">
-									<span class="amount"><?php echo $row['price']?></span>
-								</td>
 												
-												<td class="product-remove"><a href="wishlist.php?wishlist_id=<?php echo $row['id']?>"><i class="bi bi-x-lg"></i></a></td>
-												<td class="product-add-to-cart"><a href="javascript:void(0)" onclick="manage_cart('<?php echo $row['pid']?>','add')">Add to Cart</a></td>
+												<td class="product-remove"><a href="wishlist.php?wishlist_id=<?php echo $row['id']?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+												<td class="product-remove"><a href="javascript:void(0)" style="font-weight: bold;" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to
+								cart</a></td>
 											</tr>
 											<?php } ?>
-							<tr>
-							<!-- <tr>
-								<td class="product-thumbnail">
-									<a href="product-simple.html">
-										<figure>
-											<img src="img/products/856920809_247519152_image-540x660.jpg" width="100" height="100"
-												alt="product">
-										</figure>
-									</a>
-								</td>
-								<td class="product-name">
-									<a href="product-simple.html">Sed diam nonummy nibh</a>
-								</td>
-								<td class="product-price">
-									<span class="amount">$84.00</span>
-								</td>
-								<td class="product-stock-status">
-									<span class="wishlist-in-stock">In Stock</span>
-								</td>
-								<td class="product-add-to-cart">
-									<a href="#" class="btn-product btn-cart"><span>Add to Cart</span></a>
-								</td>
-								<td class="product-remove">
-									<div>
-										<a href="#" class="remove" title="Remove this product">
-										<i class="bi bi-x-lg"></i></a>
-									</div>
-								</td>
-							</tr> -->
-							<!-- <tr>
-								<td class="product-thumbnail">
-									<a href="product-simple.html">
-										<figure>
-											<img src="img/products/434002837_product9.jpeg" width="100" height="100"
-												alt="product">
-										</figure>
-									</a>
-								</td>
-								<td class="product-name">
-									<a href="product-simple.html">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet consectetur</a>
-								</td>
-								<td class="product-price">
-									<span class="amount">$84.00</span>
-								</td>
-								<td class="product-stock-status">
-									<span class="wishlist-out-stock">Out of Stock</span>
-								</td>
-								<td class="product-add-to-cart">
-									<a href="#" class="btn-product btn-cart btn-disabled not-allowed"><span>Add to Cart</span></a>
-									
-								</td>
-								<td class="product-remove">
-									<div>
-										<a href="#" class="remove" title="Remove this product">
-										<i class="bi bi-x-lg"></i></a>
-									</div>
-								</td>
-							</tr> -->
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</main>
-		<!-- End Main -->
-
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="buttons-cart--inner">
+                                        <div class="buttons-cart">
+                                            <a href="<?php echo SITE_PATH?>">Continue Shopping</a>
+                                        </div>
+                                        <div class="buttons-cart checkout--btn">
+                                            <a href="<?php echo SITE_PATH?>checkout.php">checkout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+		<input type="hidden" id="qty" value="1"/>
 		 <!-- FOOTER START -->
 		 <?php include 'includes/footer.php'; ?>
     <!-- FOOTER END -->

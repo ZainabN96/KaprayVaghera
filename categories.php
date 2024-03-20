@@ -274,12 +274,10 @@ if ($cat_id > 0) {
 																		<div class="action-buttons">
 																			<div class="add-to-links">
 																				<div class="add-to-wishlist">
-																					<a href="#" title="Add to Wishlist"><i
-																							class="fa fa-heart"></i></a>
+																				<a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id']?>','add')"><i class="fa fa-heart"></i></a>
 																				</div>
 																				<div class="compare-button">
-																					<a href="#" title="Add to Cart"><i
-																							class="icon-bag"></i></a>
+																				<a href="product.php?id=<?php echo $list['id']?>" ><i class="icon-bag"></i></a>
 																				</div>
 																			</div>
 																			<!-- <div class="quickviewbtn">

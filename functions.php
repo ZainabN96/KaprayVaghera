@@ -658,7 +658,7 @@ function sentInvoice($con,$order_id){
 	</html>';
 	
 	include('smtp/PHPMailerAutoload.php');
-	$mail=new PHPMailer(true);
+	// $mail=new PHPMailer(true);
 	$mail->isSMTP();
 	$mail->Host="smtp.gmail.com";
 	$mail->Port=587;
@@ -677,9 +677,9 @@ function sentInvoice($con,$order_id){
 		'allow_self_signed'=>false
 	));
 	if($mail->send()){
-		//echo "Please check your email id for password";
+		
 	}else{
-		//echo "Error occur";
+		
 	}
 }
 

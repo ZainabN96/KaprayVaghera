@@ -277,7 +277,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 
 						<div id="is_cart_box_show" class="<?php echo $is_cart_box_show ?>">
 
-							<a class="btn btn-primary mt-2 mb-2" href="javascript:void(0)"
+							<a class="btn btn-primary mt-5 mb-2" href="javascript:void(0)"
 								onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to
 								cart</a>
 
