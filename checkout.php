@@ -315,7 +315,7 @@ $qty=$val1['qty'];
                                         <span class="price"><?php echo $price*$qty?></span>
                                     </div>
                                     <div class="single-item__remove">
-                                        <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key?>','remove')"><i class="icon-trash icons"></i></a>
+                                        <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key?>','remove')"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </div>
 								<?php } } ?>

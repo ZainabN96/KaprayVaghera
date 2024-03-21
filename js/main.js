@@ -238,15 +238,7 @@
 		adaptiveHeight: false
 	});
 
-	document.addEventListener("DOMContentLoaded", function () {
-		var phoneNumber = '+923264577208';
-	  
-		$('#contactUsBtn').on('click', function (e) {
-	e.preventDefault();
-		  var whatsappLink = 'https://api.whatsapp.com/send?phone=' + encodeURIComponent(phoneNumber);
-		  window.open(whatsappLink, '_blank');
-		  });
-		});
+	
 
 		// document.addEventListener('DOMContentLoaded', function() {
         //     const leftScroll = document.querySelector('.left-scroll');
@@ -410,6 +402,19 @@ function user_register(){
 	}
 	
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+	var phoneNumber = '+923264577208';
+  
+	$('#contactUsBtn').on('click', function (e) {
+e.preventDefault();
+	  var whatsappLink = 'https://api.whatsapp.com/send?phone=' + encodeURIComponent(phoneNumber);
+	  window.open(whatsappLink, '_blank');
+	  });
+	});
+
+
+
 
 function user_login(){
 	jQuery('.field_error').html('');
@@ -583,6 +588,56 @@ function getAttrDetails(pid){
 		}
 	});
 }
+
+/*---------------------------------------------------
+    17. Accordion
+---------------------------------------------------*/
+
+function emeAccordion(){
+	$('.accordion__title')
+	  .siblings('.accordion__title').removeClass('active')
+	  .first().addClass('active');
+	$('.accordion__body')
+	  .siblings('.accordion__body').slideUp()
+	  .first().slideDown();
+	$('.accordion').on('click', '.accordion__title', function(){
+	  $(this).addClass('active').siblings('.accordion__title').removeClass('active');
+	  $(this).next('.accordion__body').slideDown().siblings('.accordion__body').slideUp();
+	});
+	};
+emeAccordion();
+
+
+/*---------------------------------------------------
+18. Ship to another
+---------------------------------------------------*/
+
+function shipToAnother(){
+	var trigger = $('.ship-to-another-trigger'),
+	  container = $('.ship-to-another-content');
+	trigger.on('click', function(e){
+	  e.preventDefault();
+	  container.slideToggle();
+	});
+};
+shipToAnother();
+
+
+
+/*---------------------------------------------------
+19. Payment credit card
+---------------------------------------------------*/
+
+function paymentCreditCard(){
+	var trigger = $('.paymentinfo-credit-trigger'),
+	container = $('.paymentinfo-credit-content');
+	trigger.on('click', function(e){
+	e.preventDefault();
+	container.slideToggle();
+});
+};
+paymentCreditCard();
+
 
 
 

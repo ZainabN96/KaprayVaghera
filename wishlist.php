@@ -38,6 +38,7 @@ if(!isset($_SESSION['USER_LOGIN'])){
 $uid=$_SESSION['USER_ID'];
 
 $res=mysqli_query($con,"select product.name,product.image,product_attributes.price,product_attributes.mrp,product.id as pid,wishlist.id from product,wishlist,product_attributes where wishlist.product_id=product.id and wishlist.user_id='$uid' and product_attributes.product_id=product.id group by product_attributes.product_id");
+
 ?>
 
 
@@ -170,7 +171,7 @@ $res=mysqli_query($con,"select product.name,product.image,product_attributes.pri
 												</td>
 												
 												<td class="product-remove"><a href="wishlist.php?wishlist_id=<?php echo $row['id']?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-												<td class="product-remove"><a href="javascript:void(0)" style="font-weight: bold;" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to
+												<td class="product-remove"><a href="javascript:void(0)" style="font-weight: bold;" onclick="manage_cart('<?php echo $row['id'] ?>','add')">Add to
 								cart</a></td>
 											</tr>
 											<?php } ?>
@@ -195,7 +196,18 @@ $res=mysqli_query($con,"select product.name,product.image,product_attributes.pri
             </div>
         </div>
         
+
 		<input type="hidden" id="qty" value="1"/>
+
+       <script>
+		// function showMultipleImage(im) {
+		// 	jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
+		// 	jQuery('.imageZoom').imgZoom();
+		// }
+		let is_color = '<?php echo $is_color ?>';
+		let is_size = '<?php echo $is_size ?>';
+		let pid = '<?php echo $product_id ?>';
+	</script>
 		 <!-- FOOTER START -->
 		 <?php include 'includes/footer.php'; ?>
     <!-- FOOTER END -->

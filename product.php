@@ -280,7 +280,6 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 							<a class="btn btn-primary mt-5 mb-2" href="javascript:void(0)"
 								onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to
 								cart</a>
-
 						</div>
 
 

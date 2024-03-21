@@ -113,6 +113,10 @@
         <!-- responsive CSS ============================================ -->          
         <link rel="stylesheet" href="css/responsive.css">
 
+
+		<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+	
+
 		<!-- Latest compiled and minified CSS -->
 
 

@@ -32,8 +32,6 @@ if($qty>$pending_qty && $type!='remove'){
 	die();
 }
 
-
-
 $obj=new add_to_cart();
 
 if($type=='add'){

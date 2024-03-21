@@ -3648,15 +3648,16 @@ article.blog-post-wrapper.item-post .player {
     font-family: "Poppins";
     cursor: pointer;
 }
-.accordion .accordion__title:before{
-    content: "\f278";
+.accordion .accordion__title:before {
+    content: "\f278"; /* Default icon */
     font-family: 'Material-Design-Iconic-Font';
     display: inline-block;
     padding-right: 10px;
     transition: all 0.3s ease-in-out 0s;
 }
-.accordion .accordion__title.active:before{
-    content: "\f273";
+
+.accordion .accordion__title.active:before {
+    content: "\f273"; /* Icon when accordion is active */
 }
 .accordion .accordion__body{
     padding-top: 20px;
@@ -4849,7 +4850,7 @@ a.shipping-calculator-button:hover{
     color: #444;
 }
 .wishlist-table table .product-add-to-cart > a {
-    background: #252525 none repeat scroll 0 0;
+    background: #03a5e9 none repeat scroll 0 0;
     color: #fff;
     display: block;
     font-weight: 700;
@@ -4858,7 +4859,7 @@ a.shipping-calculator-button:hover{
     width: 260px;
 }
 .wishlist-table table .product-add-to-cart > a:hover{
-    background: #c43b68;
+    background: #026bbe;
     color: #fff;
 }
 .wishlist-table table .product-add-to-cart {

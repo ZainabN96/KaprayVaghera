@@ -14,7 +14,7 @@
    <div class="ht__bradcaump__area" >
             <div class="ht__bradcaump__wrap"  style="height: 150px;">
                 <div class="container">
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-xs-12">
                             <div class="bradcaump__inner">
                                 <nav class="bradcaump-inner">
@@ -24,7 +24,7 @@
                                 </nav>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -83,4 +83,9 @@
         </div>
         
         						
-<?php require('footer.php')?>        
+		 <!-- FOOTER START -->
+		 <?php include 'includes/footer.php'; ?>
+    <!-- FOOTER END -->
+
+    <!-- JS -->
+    <?php include 'includes/jsfiles.php'; ?>

@@ -73,6 +73,9 @@
 	<!-- mobile menu CSS
 	============================================ -->
 	<link rel="stylesheet" href="css/meanmenu.min.css">
+
+	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+	
 	
 	<!-- normalize CSS
 	============================================ -->        
