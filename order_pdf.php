@@ -73,9 +73,9 @@ $html='<div class="wishlist-table table-responsive">
       $html.='</tbody>
    </table>
 </div>';
-$mpdf=new \Mpdf\Mpdf();
-$mpdf->WriteHTML($css,1);
-$mpdf->WriteHTML($html,2);
-$file=time().'.pdf';
-$mpdf->Output($file,'D');
+// $mpdf=new \Mpdf\Mpdf();
+// $mpdf->WriteHTML($css,1);
+// $mpdf->WriteHTML($html,2);
+// $file=time().'.pdf';
+// $mpdf->Output($file,'D');
 ?>

@@ -213,7 +213,7 @@
 								<div class="expand dropps-menu">
 									<a href="#"><i class="fa fa-align-right fa-lg" style="color:black !important"></i></a>
 									<ul class="restrain language">
-										<li><a href="login.php">My Account</a></li>
+										<li><a href="profile.php">My Account</a></li>
 										<li><a href="wishlist.php">My Wishlist</a></li>
 										<li><a href="cart.php">My Cart</a></li>
 										<li><a href="checkout.php">Checkout</a></li>
@@ -227,7 +227,7 @@
 										
 										else{
 										?>
-										<li><a href="loginandregister.php">Log In</a></li>
+										<li><a href="login.php">Log In</a></li>
 										<?php
 										}
 										?>
