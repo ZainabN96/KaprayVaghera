@@ -41,7 +41,7 @@
 								
 							<div class="row col-12 col-lg-6 col-md-6">
 								<button type="button " class="btn btn-primary mt-3" style ="position: absolute;
-		top: 76%; left: 26%"
+		top: 71%; left: 26%"
 									onclick="user_login()">Login</button>
 							</div>	
 						</form>
@@ -53,7 +53,7 @@
 				<div>
 				<div class="row col-12 col-lg-6 col-md-6">
 								<button type="button" class="btn btn-secondary" style ="position: absolute;
-		top: 88%; left: 26%" data-bs-toggle="modal" data-bs-target="#loginModal"> Create An Account </button>
+		top: 79%; left: 26%" data-bs-toggle="modal" data-bs-target="#loginModal"> Create An Account </button>
 								</div>	
 								<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered" role="document">

@@ -1,31 +1,31 @@
 <?php
-require('connection.php');
-require('functions.php');
-require('add_to_cart.php');
+require ('connection.php');
+require ('functions.php');
+require ('add_to_cart.php');
 
-$wishlist_count=0;
-$cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
-$cat_arr=array();
-while($row=mysqli_fetch_assoc($cat_res)){
-	$cat_arr[]=$row;	
+$wishlist_count = 0;
+$cat_res = mysqli_query($con, "select * from categories where status=1 order by categories asc");
+$cat_arr = array();
+while ($row = mysqli_fetch_assoc($cat_res)) {
+	$cat_arr[] = $row;
 }
 
-$obj=new add_to_cart();
-$totalProduct=$obj->totalProduct();
+$obj = new add_to_cart();
+$totalProduct = $obj->totalProduct();
 
-if(isset($_SESSION['USER_LOGIN'])){
-	$uid=$_SESSION['USER_ID'];
-	
-	if(isset($_GET['wishlist_id'])){
-		$wid=get_safe_value($con,$_GET['wishlist_id']);
-		mysqli_query($con,"delete from wishlist where id='$wid' and user_id='$uid'");
+if (isset ($_SESSION['USER_LOGIN'])) {
+	$uid = $_SESSION['USER_ID'];
+
+	if (isset ($_GET['wishlist_id'])) {
+		$wid = get_safe_value($con, $_GET['wishlist_id']);
+		mysqli_query($con, "delete from wishlist where id='$wid' and user_id='$uid'");
 	}
 
-	$wishlist_count=mysqli_num_rows(mysqli_query($con,"select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
-	
+	$wishlist_count = mysqli_num_rows(mysqli_query($con, "select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
+
 }
 
-if (!isset($_GET['id']) && $_GET['id'] != '') {
+if (!isset ($_GET['id']) && $_GET['id'] != '') {
 	?>
 	<script>
 		window.location.href = 'index.php';
@@ -35,43 +35,45 @@ if (!isset($_GET['id']) && $_GET['id'] != '') {
 
 $cat_id = mysqli_real_escape_string($con, $_GET['id']);
 
-$sub_categories = '';
-if (isset($_GET['sub_categories'])) {
-	$sub_categories = mysqli_real_escape_string($con, $_GET['sub_categories']);
-}
-$price_high_selected = "";
-$price_low_selected = "";
-$new_selected = "";
-$old_selected = "";
-$sort_order = "";
-if (isset($_GET['sort'])) {
-	$sort = mysqli_real_escape_string($con, $_GET['sort']);
-	if ($sort == "price_high") {
-		$sort_order = " order by product.price desc ";
-		$price_high_selected = "selected";
-	}
-	if ($sort == "price_low") {
-		$sort_order = " order by product.price asc ";
-		$price_low_selected = "selected";
-	}
-	if ($sort == "new") {
-		$sort_order = " order by product.id desc ";
-		$new_selected = "selected";
-	}
-	if ($sort == "old") {
-		$sort_order = " order by product.id asc ";
-		$old_selected = "selected";
-	}
-}
+// $sub_categories = '';
+// if (isset($_GET['sub_categories'])) {
+// 	$sub_categories = mysqli_real_escape_string($con, $_GET['sub_categories']);
+// }
+// $price_high_selected = "";
+// $price_low_selected = "";
+// $new_selected = "";
+// $old_selected = "";
+// $sort_order = "";
+// if (isset($_GET['sort'])) {
+// 	$sort = mysqli_real_escape_string($con, $_GET['sort']);
+// 	if ($sort == "price_high") {
+// 		$sort_order = " order by product.price desc ";
+// 		$price_high_selected = "selected";
+// 	}
+// 	if ($sort == "price_low") {
+// 		$sort_order = " order by product.price asc ";
+// 		$price_low_selected = "selected";
+// 	}
+// 	if ($sort == "new") {
+// 		$sort_order = " order by product.id desc ";
+// 		$new_selected = "selected";
+// 	}
+// 	if ($sort == "old") {
+// 		$sort_order = " order by product.id asc ";
+// 		$old_selected = "selected";
+// 	}
+// }
 
 if ($cat_id > 0) {
-	$get_product = get_product($con, '', $cat_id, '', '', $sort_order, '', $sub_categories);
+	$get_product = get_product($con, '', $cat_id, '', '', );
 } else {
-	?>
-	<script>
-		window.location.href = 'index.php';
-	</script>
-	<?php
+	   ?>
+
+<script>
+			window.location.href = 'index.php';
+		</script>
+
+<?php
 }
 
 ?>
@@ -103,6 +105,9 @@ if ($cat_id > 0) {
 		============================================ -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		
+
 	<!-- owl.carousel CSS
 		============================================ -->
 	<link rel="stylesheet" href="css/owl.carousel.css">
@@ -127,6 +132,7 @@ if ($cat_id > 0) {
 		============================================ -->
 	<link rel="stylesheet" href="css/jquery-ui.css">
 
+	
 	<!-- animate CSS
 		============================================ -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -151,12 +157,13 @@ if ($cat_id > 0) {
 		============================================ -->
 	<link rel="stylesheet" href="css/responsive.css">
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+		integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
 
 
 	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
+
 <body class="shop">
 	<!-- header area start -->
 	<?php include 'includes/navBar2.php' ?>
@@ -201,13 +208,11 @@ if ($cat_id > 0) {
 								<form class="tree-most" method="get">
 									<div class="orderby-wrapper">
 										<label>Sort By</label>
-										<select name="orderby" class="orderby">
-											<option value="" selected="selected">Default sorting</option>
-											<option value="old">Sort by popularity</option>
-											<!-- <option value="rating">Sort by average rating</option> -->
-											<option value="new">Sort by newness</option>
-											<option value="price_low">Sort by price: low to high</option>
-											<option value="price_high">Sort by price: high to low</option>
+										<select name="sort" id="sort" class="form-control form-control-sm">
+											<option selected="">Sort By Default </option>
+
+											<option value="l2h">Price low to high</option>
+											<option value="h2l">Price high to low</option>
 										</select>
 									</div>
 								</form>
@@ -247,10 +252,11 @@ if ($cat_id > 0) {
 											<?php
 											foreach ($get_product as $list) {
 												?>
+
 												<!-- single-product start -->
 
 												<div class="row">
-													<div class="col-md-4 col-12">
+													<div class="col-md-4 col-12 product-list ">
 														<div class="two-product">
 															<!-- single-product start -->
 															<div class="single-product">
@@ -274,10 +280,14 @@ if ($cat_id > 0) {
 																		<div class="action-buttons">
 																			<div class="add-to-links">
 																				<div class="add-to-wishlist">
-																				<a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id']?>','add')"><i class="fa fa-heart"></i></a>
+																					<a href="javascript:void(0)"
+																						onclick="wishlist_manage('<?php echo $list['id'] ?>','add')"><i
+																							class="fa fa-heart"></i></a>
 																				</div>
 																				<div class="compare-button">
-																				<a href="product.php?id=<?php echo $list['id']?>" ><i class="icon-bag"></i></a>
+																					<a
+																						href="product.php?id=<?php echo $list['id'] ?>"><i
+																							class="icon-bag"></i></a>
 																				</div>
 																			</div>
 																			<!-- <div class="quickviewbtn">
@@ -288,7 +298,7 @@ if ($cat_id > 0) {
 																	</div>
 																	<div class="price-box">
 																		<span class="new-price">
-																			<?php echo  $list['price'] ?>
+																			<?php echo $list['price'] ?>
 																		</span>
 																	</div>
 
@@ -305,21 +315,21 @@ if ($cat_id > 0) {
 																</div>
 															</div>
 														</div>
-	<!-- single-product end -->
+														<!-- single-product end -->
 													</div>
 												</div>
-										
-												
-												<?php } ?>
+
+
+											<?php } ?>
 
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-				
-												<!-- single-product start -->
-												<!-- <div class="product-list-wrapper">
+
+						<!-- single-product start -->
+						<!-- <div class="product-list-wrapper">
 										<div class="single-product">
 											<div class="row">
 												<div class="col-md-4 col-12">
@@ -368,9 +378,9 @@ if ($cat_id > 0) {
 											</div>	 							
 										</div>
 									</div> -->
-												<!-- single-product end -->
-												<!-- single-product start -->
-												<!-- <div class="product-list-wrapper">
+						<!-- single-product end -->
+						<!-- single-product start -->
+						<!-- <div class="product-list-wrapper">
 										<div class="single-product">
 											<div class="row">
 												<div class="col-md-4 col-12">
@@ -419,38 +429,38 @@ if ($cat_id > 0) {
 											</div>	 							
 										</div>
 									</div> -->
-												<!-- single-product end -->
-											</div>
-										</div>
-										<!-- shop toolbar start -->
-										<div class="shop-content-bottom mb-5 mb-lg-0">
-											<div class="shop-toolbar btn-tlbr">
-												<div class="col-auto text-center">
-													<div class="pages">
-														<label>Page:</label>
-														<ul class="d-inline-flex">
-															<li class="current">1</li>
-															<li><a href="#">2</a></li>
-															<li><a href="#" class="next i-next" title="Next"><i
-																		class="fa fa-arrow-right"></i></a></li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- shop toolbar end -->
-									</div>
-								<?php } else {
-						echo "No Product Found";
-					} ?>
+						<!-- single-product end -->
+					</div>
+				</div>
+				<!-- shop toolbar start -->
+				<div class="shop-content-bottom mb-5 mb-lg-0">
+					<div class="shop-toolbar btn-tlbr">
+						<div class="col-auto text-center">
+							<div class="pages">
+								<label>Page:</label>
+								<ul class="d-inline-flex">
+									<li class="current">1</li>
+									<li><a href="#">2</a></li>
+									<li><a href="#" class="next i-next" title="Next"><i class="fa fa-arrow-right"></i></a>
+									</li>
+								</ul>
 							</div>
-							<!-- right sidebar end -->
 						</div>
 					</div>
 				</div>
-				<!-- shop-with-sidebar end -->
-				<!-- Brand Logo Area Start -->
-				<!-- <div class="brand-area">
+				<!-- shop toolbar end -->
+			</div>
+		<?php } else {
+						echo "No Product Found";
+					} ?>
+	</div>
+	<!-- right sidebar end -->
+	</div>
+	</div>
+	</div>
+	<!-- shop-with-sidebar end -->
+	<!-- Brand Logo Area Start -->
+	<!-- <div class="brand-area">
 			<div class="container">
 				<div class="row">
 					<div class="brand-carousel owl-carousel owl-theme">
@@ -466,14 +476,45 @@ if ($cat_id > 0) {
 				</div>
 			</div>
 		</div> -->
-				<!-- Brand Logo Area End -->
+	<!-- Brand Logo Area End -->
+	<script>
+    function asc() {
+        var gridItems = jQuery(".product-list");
+        gridItems.sort(function(a, b) {
+            return parseFloat(jQuery(a).find(".new-price").text()) - parseFloat(jQuery(b).find(".new-price").text());
+        });
+        gridItems.appendTo('.shop-product-tab');
+    }
 
-				<!-- FOOTER START -->
-				<?php include 'includes/footer.php'; ?>
-				<!-- FOOTER END -->
+    function des() {
+        var gridItems = jQuery(".product-list");
+        gridItems.sort(function(a, b) {
+            return parseFloat(jQuery(b).find(".new-price").text()) - parseFloat(jQuery(a).find(".new-price").text());
+        });
+        gridItems.appendTo('.shop-product-tab');
+    }
 
-				<!-- JS -->
-				<?php include 'includes/jsfiles.php'; ?>
+    jQuery(document).ready(function() {
+        // Initial sorting
+        asc(); // Default to ascending order
+        jQuery("#sort").change(function() {
+            var sorting = jQuery(this).val();
+            if (sorting === "l2h") {
+                asc();
+            } else if (sorting === "h2l") {
+                des();
+            }
+        });
+    });
+</script>
+
+	<!-- FOOTER START -->
+	<?php include 'includes/footer.php'; ?>
+	<!-- FOOTER END -->
+
+	<!-- JS -->
+	<?php include 'includes/jsfiles.php'; ?>
+
 
 </body>
 
