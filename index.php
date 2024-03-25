@@ -95,7 +95,7 @@
 									</div>
 								</div>
 								<div class="price-box">
-									<span class="new-price"><?php echo $list['price']?></span>
+									<span class="new-price">PKR <?php echo $list['price']?></span>
 								</div>
 							</div>
 							<div class="product-content">
@@ -214,7 +214,7 @@
 										</div>
 									</div>
 									<div class="price-box">
-										<span class="new-price">$<?php echo $list['price']?></span>
+										<span class="new-price">PKR <?php echo $list['price']?></span>
 									</div>
 								</div>
 								<div class="product-content">

@@ -264,7 +264,7 @@ if(mysqli_num_rows($lastOrderDetailsRes)>0){
 										<div class="accordion__body">
 											<div class="paymentinfo">
 												<div class="single-method">
-													Cash On Delivery <input type="radio" name="payment_type" value="COD" required/>
+													 <input type="radio" name="payment_type" value="COD" required/>  Cash On Delivery
 													
 												</div>
 												<div class="single-method">
@@ -296,7 +296,8 @@ if(mysqli_num_rows($lastOrderDetailsRes)>0){
 $resAttr=mysqli_fetch_assoc(mysqli_query($con,"select product_attributes.*,color_master.color,size_master.size from product_attributes 
 	left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
 	left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
-	where product_attributes.id='$key1'"));						
+	where product_attributes.id='$key1'"));	
+    					
 $productArr=get_product($con,'','',$key,'','','','',$key1);
 $pname=$productArr[0]['name'];
 $mrp=$productArr[0]['mrp'];
@@ -314,8 +315,8 @@ $qty=$val1['qty'];
                                         <a href="#"><?php echo $pname?> * <?php echo $qty?></a>
                                         <span class="price"><?php echo $price*$qty?></span>
                                     </div>
-                                    <div class="single-item__remove">
-                                        <a href="javascript:void(0)" onclick="manage_cart('<?php echo $key?>','remove')"><i class="fa fa-trash"></i></a>
+                                    <div class="single-item__remove ">
+                                        <a href="javascript:void(0)" onclick="manage_cart_update('<?php echo $key?>','remove','<?php echo $resAttr['size_id']?>','<?php echo $resAttr['color_id']?>')"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
 								<?php } } ?>
@@ -339,6 +340,7 @@ $qty=$val1['qty'];
                 </div>
             </div>
         </div>
+        
         <script>
 			function set_coupon(){
 				var coupon_str=jQuery('#coupon_str').val();
@@ -372,6 +374,7 @@ if(isset($_SESSION['COUPON_ID'])){
 	unset($_SESSION['COUPON_VALUE']);
 }
 ?>  
+		
     <!-- FOOTER START -->
     <?php include 'includes/footer.php'; ?>
     <!-- FOOTER END -->

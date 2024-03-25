@@ -210,9 +210,9 @@ if ($cat_id > 0) {
 										<label>Sort By</label>
 										<select name="sort" id="sort" class="form-control form-control-sm">
 											<option selected="">Sort By Default </option>
-
-											<option value="l2h">Price low to high</option>
 											<option value="h2l">Price high to low</option>
+											<option value="l2h">Price low to high</option>
+											
 										</select>
 									</div>
 								</form>
