@@ -14,41 +14,41 @@
                 <div class="mainmenu">
                     <nav>
                         <ul class="d-flex align-items-right justify-content-right">
-                            
-                            <li class="expand" href=""><a >Shop</a>
+
+                            <li class="expand" href=""><a>Shop</a>
                                 <div class="restrain mega-menu megamenu1">
                                     <div class="">
-                                    <?php 
-                                
-                                        foreach($cat_arr as $list){
+                                        <?php
+
+                                        foreach ($cat_arr as $list) {
                                             ?>
                                             <div class="col-12">
                                                 <span>
-                                                    
-                                                        <!-- <a class="mega-menu-title" > -->
-                                                        <!-- <?php echo $list['categories']?> -->
-                                                        <!-- </a>  -->
+
+                                                    <!-- <a class="mega-menu-title" > -->
+                                                    <!-- <?php echo $list['categories'] ?> -->
+                                                    <!-- </a>  -->
                                                     <?php echo '<a class="mega-menu-title" href="' . strtolower($list['categories']) . '.php">' . $list['categories'] . '</a>'; ?>
-                                                
+
                                                     <?php
-                                                    
-                                                        $cat_id=$list['id'];
-                                                        $sub_cat_res=mysqli_query($con,"select * from sub_categories where status='1' and categories_id='$cat_id'");
-                                                        if(mysqli_num_rows($sub_cat_res)>0){
-                                                            while($sub_cat_rows=mysqli_fetch_assoc($sub_cat_res)){
-                                                                echo '<a href="categories.php?id='.$list['id'].'&sub_categories='.$sub_cat_rows['id'].'">'.$sub_cat_rows['sub_categories'].'</a>';
-                                                            }
-                                                        } 
+
+                                                    $cat_id = $list['id'];
+                                                    $sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
+                                                    if (mysqli_num_rows($sub_cat_res) > 0) {
+                                                        while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
+                                                            echo '<a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a>';
+                                                        }
+                                                    }
                                                     ?>
-                                                        <!-- <a href="">Shalwar</a>
+                                                    <!-- <a href="">Shalwar</a>
                                                         <a>Trousers</a>											 -->
                                                 </span>
                                             </div>
-                                            <?php	
+                                        <?php
                                         }
-                                    ?>
+                                        ?>
                                     </div>
-                                
+
                                     <div class="">
                                         <span class="block-last">
                                             <img class="img-fluid" src="img/brown kurta.webp" alt="" />
@@ -59,7 +59,7 @@
                             <li><a href="about-us.php">About Us</a></li>
                         </ul>
                     </nav>
-                </div> 
+                </div>
                 <!-- mobile menu start -->
                 <div class="row">
                     <div class="col-sm-12 mobile-menu-area">
@@ -67,33 +67,35 @@
                             <span class="mobile-menu-title">Menu</span>
                             <nav>
                                 <ul>
-                                    
+
                                     <li>
                                         <a href="shop-grid.html">Shop</a>
                                         <ul>
-                                            <?php 
-                                                foreach($cat_arr as $list){
-                                                    ?>
-                                                    <li><a href=""><?php echo $list['categories']?> </a>
+                                            <?php
+                                            foreach ($cat_arr as $list) {
+                                                ?>
+                                                <li><a href="">
+                                                        <?php echo $list['categories'] ?>
+                                                    </a>
                                                     <?php
-                                                        $cat_id=$list['id'];
-                                                        $sub_cat_res=mysqli_query($con,"select * from sub_categories where status='1' and categories_id='$cat_id'");
-                                                        if(mysqli_num_rows($sub_cat_res)>0){
+                                                    $cat_id = $list['id'];
+                                                    $sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
+                                                    if (mysqli_num_rows($sub_cat_res) > 0) {
                                                         ?>
-                                                            <ul>
+                                                        <ul>
                                                             <?php
-                                                                while($sub_cat_rows=mysqli_fetch_assoc($sub_cat_res)){
-                                                                    echo '<li><a href="categories.php?id='.$list['id'].'&sub_categories='.$sub_cat_rows['id'].'">'.$sub_cat_rows['sub_categories'].'</a></li>';
-                                                                }
+                                                            while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
+                                                                echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
+                                                            }
                                                             ?>
-                                                            </ul>
-                                                            <?php
-                                                        } 
+                                                        </ul>
+                                                        <?php
+                                                    }
                                                     ?>
-                                                    
-                                                    </li>
-                                                <?php	
-                                                }
+
+                                                </li>
+                                            <?php
+                                            }
                                             ?>
                                             <!-- <li><a href="shop-grid.html"></a>
                                             <ul>
@@ -110,7 +112,7 @@
                                                     
                                                 </ul>
                                             </li> -->
-                                        
+
                                         </ul>
                                     </li>
                                     <li><a href="about-us.php">About Us</a></li>
@@ -118,7 +120,7 @@
                                     <li><a href="contact-us.html">Contact Us</a></li> -->
                                 </ul>
                             </nav>
-                        </div>						
+                        </div>
                     </div>
                 </div>
                 <!-- mobile menu end -->
@@ -129,20 +131,22 @@
                 <div class="top-detail">
                     <!-- language division start -->
                     <div class="disflow" style=" color: white ;height: 60; width:25.19 ">
-                    <?php 
-                        if(isset($_SESSION['USER_LOGIN'])){
-                    ?>
-                        <div class="expand lang-all disflow">
-                            <span>  Hi <?php echo $_SESSION['USER_NAME']?></span>
-                            <!-- <a href="#"><img src="img/country/en.gif" width="18" height="12" alt="">English</a>
+                        <?php
+                        if (isset($_SESSION['USER_LOGIN'])) {
+                            ?>
+                            <div class="expand lang-all disflow">
+                                <span> Hi
+                                    <?php echo $_SESSION['USER_NAME'] ?>
+                                </span>
+                                <!-- <a href="#"><img src="img/country/en.gif" width="18" height="12" alt="">English</a>
                             <ul class="restrain language">
                                 <li><a href="#"><img src="img/country/it.gif"  width="18" height="12" alt="">italiano</a></li>
                                 <li><a href="#"><img src="img/country/nl_nl.gif"  width="18" height="12" alt="">Nederlands</a></li>
                                 <li><a href="#"><img src="img/country/de_de.gif"  width="18" height="12" alt="">Deutsch</a></li>
                                 <li><a href="#"><img src="img/country/en.gif"  width="18" height="12" alt="">English</a></li>
                             </ul> -->
-                        </div>
-                        <?php
+                            </div>
+                            <?php
                         }
                         ?>
                         <!-- <div class="expand lang-all disflow">
@@ -160,11 +164,13 @@
                         <div class="circle-shopping expand">
                             <div class="shopping-carts text-end">
                                 <div class="cart-toggler">
-                                    
+
                                     <a href="cart.php"><i class="icon-bag"></i></a>
-                                        <a href="cart.php"><span class=" htc__qua cart-quantity"><?php echo $totalProduct?></span></a>
+                                    <a href="cart.php"><span class=" htc__qua cart-quantity">
+                                            <?php echo $totalProduct ?>
+                                        </span></a>
                                 </div>
-                              
+
                             </div>
                         </div>
                     </div>
@@ -173,15 +179,17 @@
                         <div class="circle-shopping expand">
                             <div class="shopping-carts text-end">
                                 <div class="cart-toggler">
-                                    
+
                                     <a href="wishlist.php"><i class="fa fa-heart"></i></a>
-                                        <a href="wishlist.php"><span class=" htc__wishlist heart-quantity"><?php echo $wishlist_count?></span></a>
+                                    <a href="wishlist.php"><span class=" htc__wishlist heart-quantity">
+                                            <?php echo $wishlist_count ?>
+                                        </span></a>
                                 </div>
-                              
+
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="disflow" style="height: 60; width:25.19">
                         <a href="#" id="contactUsBtn" class="whatsapp-icon">
                             <i class="fa fa-whatsapp whatsapp-icon-custom-size "></i>
@@ -195,11 +203,13 @@
                             <div class="search-icon fa fa-search"></div>
                             <div class="product-search restrain">
                                 <div class="container nopadding-right">
-                                    <form action="https://htmldemo.net/lavoro/lavoro/index.php" id="searchform" method="get">
+                                    <form action="search.php" id="searchform" method="get">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" maxlength="128" placeholder="Search product...">
+                                            <input type="text" class="form-control" maxlength="128"
+                                                placeholder="Search product..." name="str">
                                             <span class="input-group-btn">
-                                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                                <button type="submit" class="btn btn-default"><i
+                                                        class="fa fa-search"></i></button>
                                             </span>
                                         </div>
                                     </form>
@@ -217,17 +227,15 @@
                                 <li><a href="cart.php">My Cart</a></li>
                                 <li><a href="checkout.php">Checkout</a></li>
                                 <li><a href="#">Testimonial</a></li>
-                                <?php 
-                                if(isset($_SESSION['USER_LOGIN'])){
+                                <?php
+                                if (isset($_SESSION['USER_LOGIN'])) {
                                     ?>
                                     <li><a href="logout.php">Log out</a></li>
-                                <?php
-                                }
-                                
-                                else{
-                                ?>
-                                <li><a href="login.php">Log In</a></li>
-                                <?php
+                                    <?php
+                                } else {
+                                    ?>
+                                    <li><a href="login.php">Log In</a></li>
+                                    <?php
                                 }
                                 ?>
                             </ul>

@@ -218,27 +218,29 @@ if(isset($_SESSION['USER_LOGIN'])){
 
 							<!-- addcart top start -->
 							<!-- search divition start -->
-							<div class="disflow" style="height: 100; width:25.19">
-								<div class="header-search expand">
-									<div class="search-icon fa fa-search" style="color:black"></div>
-									<div class="product-search restrain">
-										<div class="container nopadding-right">
-											<form action="https://htmldemo.net/lavoro/lavoro/index.php" id="searchform" method="get">
-												<div class="input-group">
-													<input type="text" class="form-control" maxlength="128" placeholder="Search product...">
-													<span class="input-group-btn">
-														<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-													</span>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
+							<div class="disflow" style="height: 60; width:25.19">
+                        <div class="header-search expand">
+                            <div class="search-icon fa fa-search " style="color:black!important"></div>
+                            <div class="product-search restrain">
+                                <div class="container nopadding-right">
+                                    <form action="search.php" id="searchform" method="get">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" maxlength="128"
+                                                placeholder="Search product..." name="str">
+                                            <span class="input-group-btn">
+                                                <button type="submit" class="btn btn-default"><i
+                                                        class="fa fa-search"></i></button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 							<!-- search divition end -->
 							<div class="disflow" style="height: 60; width:25.19">
 								<div class="expand dropps-menu">
-									<a href="#"><i class="fa fa-align-right fa-lg" style="color:black !important"></i></a>
+									<a href="#"><i class="fa fa-align-right fa-lg" style="color:black!important"></i></a>
 									<ul class="restrain language">
 										<li><a href="profile.php">My Account</a></li>
 										<li><a href="wishlist.php">My Wishlist</a></li>

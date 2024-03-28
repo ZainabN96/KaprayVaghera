@@ -28,9 +28,9 @@
 					<div class="slider-progress"></div>
 					<div class="slider-content t-lfl lft-pr s-tb slider-1">
 						<div class="title-container s-tb-c title-compress">
-							<h3 class="title2 low-f" >Collection 2022</h3>
-							<h4 class="title2" >FALL-WINTER</h4>
-							<a class="btn-title" href="#">View collection</a>
+							<h3 class="title2 low-f" >Collection 2024</h3>
+							<h4 class="title2" >SPRING-SUMMER</h4>
+							<a class="btn-title" href="#hotselling">View collection</a>
 						</div>
 					</div>	
 				</div>
@@ -40,9 +40,9 @@
 					<div class="slider-progress"></div>
 					<div class="slider-content t-cn s-tb slider-2">
 						<div class="title-container s-tb-c">
-							<h3 class="title2" >Collection 2022</h3>
-							<h4 class="title2" >FALL-WINTER</h4>
-							<a class="btn-title" href="#">View collection</a>
+							<h3 class="title2" >Collection 2024</h3>
+							<h4 class="title2" >SPRING-SUMMER</h4>
+							<a class="btn-title" href="#newarrival">View collection</a>
 						</div>
 					</div>	
 				</div>
@@ -51,7 +51,7 @@
 		</div>
         <!-- end home slider -->
 		<!-- New Arrival section start -->
-		<div class="our-product-area">
+		<div class="our-product-area" id="newarrival" >
 			<div class="container">
 				<!-- area title start -->
 				<div class="area-title">
@@ -177,7 +177,7 @@
 		</div>	
 		<!-- New Arrival section end -->
 		<!-- Hot Selling section start -->
-		<div class="our-product-area">
+		<div class="our-product-area" id="hotselling" >
 			<div class="container">
 				<!-- area title start -->
 				<div class="area-title">

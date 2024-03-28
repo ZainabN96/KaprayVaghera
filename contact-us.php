@@ -322,6 +322,9 @@
 	  <?php include 'includes/footer.php'; ?>
     <!-- FOOTER END -->
 
+     <!-- JS -->
+     <?php include 'includes/jsfiles.php';?>
+
 </body>
 
 <!-- Mirrored from htmldemo.net/lavoro/lavoro/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:30:18 GMT -->

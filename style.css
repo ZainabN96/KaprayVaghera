@@ -850,7 +850,8 @@ button{
     outline: none;
     box-shadow: none;
     color: #8a8a8a;
-    padding: 20px 20px;
+    padding: 15px 20px;
+    width: 200px; /* Adjusted width */
     /* margin-top: 20px; */
 }
 
@@ -858,6 +859,8 @@ button{
     background: #3f3f3f;
     color: #fff;
     border: 0px;
+    padding: 15px 20px; /* Adjusted padding for height */
+    /* width: 60px; */ /* Uncomment this line if you want to adjust button width */
 }
 
 .header-search .btn-default:active:focus {
@@ -881,11 +884,11 @@ button{
 }
 
 .header-search button.btn.btn-default i {
-    width: 120px;
-    line-height: 80px;
+    width: 100px;
+    line-height: 40px;
     border-radius: 0;
     color: #fff;
-    font-size: 36px;
+    font-size: 25px;
     transition: .3s;
 }
 
@@ -895,6 +898,106 @@ button{
     border-color: #03a5e9;
     transition: .3s;
 }
+
+
+/*  2.5.2  NEW SEARCH CSS
+/*----------------------------------------*/
+
+
+/* .search__box__show__hide .search__area {
+    transform: translateY(0px);
+    transition: all 300ms ease 0s;
+}
+.search__area {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 10px;
+    left: 0px;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    transform: translateY(-200%);
+    z-index: 2147483647;
+    background: none 0px 0px repeat scroll rgb(207, 207, 205);
+    transition: all 300ms ease 0s;
+}
+
+.search__area .search__inner {
+    position: relative;
+}
+
+.search__area .search__inner form {
+    position: relative;
+    text-align: center;
+    margin: 4em 0px;
+    padding: 0px 40px 0px 0px;
+}
+
+.search__area .search__inner form input[type="text"] {
+    color: rgb(51, 51, 51);
+    font-size: 25px;
+    font-weight: 300;
+    height: 60px;
+    line-height: 60px;
+    text-align: left;
+    background: none 0px 0px repeat scroll rgb(255, 255, 255);
+    border-width: medium;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    padding: 0px 70px 0px 20px;
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+}
+input, select, textarea {
+    transition: all 0.5s ease-out 0s;
+}
+
+.search__area .search__inner form button {
+    cursor: pointer;
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+    right: 40px;
+    top: 0px;
+    width: 60px;
+    background: none 0px 0px repeat scroll transparent;
+    border-width: 0px;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 0px;
+    transition: all 0.3s ease 0s;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.search__area .search__inner .search__close__btn {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 21px;
+    line-height: 58px;
+}
+.search__area .search__inner .search__close__btn {
+    display: block;
+    line-height: 58px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.search__area .search__inner .search__close__btn {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 21px;
+    line-height: 58px;
+} */
+
+
+
 
 /*  2.6  dropdown menu 
 /*----------------------------------------*/
@@ -912,7 +1015,7 @@ button{
 
 
 .lang-all>a:hover,
-.search-icon.fa.fa-search:hover {
+.search-icon.fa.fa-search :hover {
     color: #03a5e9;
     transition: .3s
 }
@@ -2645,7 +2748,7 @@ span.old-price {
 .home-seven .mainmenu ul li a,
 .home-seven .lang-all>a,
 .home-seven .cart-toggler i,
-.home-seven .search-icon.fa.fa-search,
+.home-seven .search-icon.fa.fa-search ,
 .home-seven .dropps-menu a {
     color: #fff;
 }
@@ -4561,8 +4664,8 @@ textarea {
 }
 .contact-box.name {
     display: flex;
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 .contact-box.name input {
     margin: 0 20px;
@@ -5570,8 +5673,8 @@ pointer-events: none;
 
         display: inline-block;
         padding: 9px 9px;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 10px;
+        margin-bottom: 5px;
         width: 54%;
         font-size: 16px;
         font-weight: 500;
@@ -5591,6 +5694,38 @@ pointer-events: none;
         border-radius: 4px;
     
 }
+
+.loginbtn {
+
+    display: inline-block;
+    padding: 9px 9px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 54%;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+
+
+
+}
+
+.loginbtn .btn-secondary{
+    --bs-btn-color:#fff;--bs-btn-bg:#6c757d;--bs-btn-border-color:#6c757d;--bs-btn-hover-color:#fff;--bs-btn-hover-bg:#5c636a;--bs-btn-hover-border-color:#565e64;--bs-btn-focus-shadow-rgb:130,138,145;--bs-btn-active-color:#fff;--bs-btn-active-bg:#565e64;--bs-btn-active-border-color:#51585e;--bs-btn-active-shadow:inset 0 3px 5px rgba(0, 0, 0, 0.125);--bs-btn-disabled-color:#fff;--bs-btn-disabled-bg:#6c757d;--bs-btn-disabled-border-color:#6c757d}
 
 .bttnn {
     display: inline-block;
@@ -6731,4 +6866,64 @@ a:active {
 		font-size: 1.25rem;
 	}
 	
+}
+
+.ht__cat__thumb a img {
+    width: 100%;
+}
+
+/*---------------------------
+  End Section Title
+----------------------------*/
+
+
+.cat__hover__inner::before {
+    background: rgba(0, 0, 0, 0) url("images/others/shape/4.png") repeat scroll 0 0 / cover ;
+    bottom: 0;
+    content: "";
+    height: 160px;
+    left: 0;
+    position: absolute;
+    width: 5px;
+    z-index: 2;
+}
+
+.category {
+    position: relative;
+    margin-top: 40px;
+}
+.fr__hover__info {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.fr__product__inner {
+    padding-top: 23px;
+    text-align: center;
+}
+.fr__product__inner h4 a {
+    color: #444;
+    font-family: Old Standard TT;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: capitalize;
+    transition: all 0.3s ease 0s;
+}
+.fr__product__inner h4 a:hover{
+    color: #c43b68;
+}
+.fr__pro__prize {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+}
+.fr__pro__prize li {
+    color: #313131;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 5px;
+}
+.fr__pro__prize li.old__prize {
+    color: #888888;
 }
