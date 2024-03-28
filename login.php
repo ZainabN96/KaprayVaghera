@@ -39,10 +39,10 @@
 						
 							</div>
 								
-							<div class="row col-12 col-lg-6 col-md-6">
-								<button type="button " class="btn btn-primary mt-3" style ="position: absolute;
-		top: 71%; left: 26%"
+							<div class="row col-lg-4 col-md-8 col-sm-12 col-xs-12">
+								<button type="button " class="btn btn-primary mt-3"
 									onclick="user_login()">Login</button>
+									<button type="button" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#loginModal"> Create An Account </button>
 							</div>	
 						</form>
 					</div>
@@ -51,10 +51,7 @@
 					<p class="form-messege field_error"></p>
 				</div>
 				<div>
-				<div class="row col-12 col-lg-6 col-md-6">
-								<button type="button" class="btn btn-secondary" style ="position: absolute;
-		top: 79%; left: 26%" data-bs-toggle="modal" data-bs-target="#loginModal"> Create An Account </button>
-								</div>	
+			
 								<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-dialog-centered" role="document">
 										<div class="modal-content">
@@ -74,36 +71,36 @@
 												<div class="d-flex flex-column mr-5 ml-5">
 													<form id="register-form" method="post">
 														<div class="single-contact-form">
-															<div class="contact-box name mb-5">
-															<label for="name">Name <span class="required">*</span></label>
+															<div class="contact-box name mb-3">
+															<label for="name">Name<span class="required">*</span></label>
 																<input type="text" name="name" id="name" style="width:100%">
 															</div>
 															<span class="field_error" id="name_error"></span>
 														</div>
 														<div class="single-contact-form">
-															<div class="contact-box name mb-5">
-															<label for="email">Email <span class="required">*</span></label>
+															<div class="contact-box name mb-3">
+															<label for="email">Email<span class="required">*</span></label>
 																<input type="text" name="email" id="email" style="width:100%">
 															</div>
 															<span class="field_error" id="email_error"></span>
 														</div>
 														<div class="single-contact-form">
-															<div class="contact-box name mb-5">
-															<label for="mobile">Mobile <span class="required">*</span></label>
+															<div class="contact-box name mb-3">
+															<label for="mobile">Mobile<span class="required">*</span></label>
 																<input type="text" name="mobile" maxlength="11" id="mobile"  style="width:100%">															</div>
-															<!-- <span class="field_error" id="mobile_error"></span>  -->
+															 <span class="field_error" id="mobile_error"></span>  
 														</div>
 														<div class="single-contact-form">
 															<div class="contact-box name mb-3">
-															<label for="password"> Password <span class="required">*</span></label>
+															<label for="password"> Password<span class="required">*</span></label>
 																<input type="password" name="password" id="password" style="width:100%">
 															</div>
 															<span class="field_error" id="password_error"></span>
 														</div>
 
 														<div class="contact-btn" >
-															<button type="button" class="btn btn-primary" style ="position: absolute;
-		left: 25%" onclick="user_register()" id="btn_register">Register</button>
+															<button type="button" class="btn btn-primary align-center"
+		 onclick="user_register()" id="btn_register">Register</button>
 														</div>
 													</form>
 													<div class="form-output register_msg">
@@ -146,6 +143,9 @@
 			</div>
 		</div>
 	</div>
+
+	
+
 	<!-- account-details Area end -->
 	<!-- FOOTER START -->
 	<!-- FOOTER START -->
