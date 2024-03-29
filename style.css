@@ -3675,7 +3675,7 @@ article.blog-post-wrapper.item-post .player {
 
 
   
-.coupon_style{width: 100%;height: 50px;}
+.coupon_style{width: 100%;height: 45px;}
 .mr5{margin-right:5px;}
 
 #coupon_result{
@@ -5678,7 +5678,7 @@ pointer-events: none;
         width: 54%;
         font-size: 16px;
         font-weight: 500;
-        line-height: 1.42857143;
+        line-height: 1.82857143;
         text-align: center;
         white-space: nowrap;
         vertical-align: middle;
