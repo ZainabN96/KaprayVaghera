@@ -25,10 +25,12 @@
                                             <div class="col-12">
                                                 <span>
 
-                                                    <!-- <a class="mega-menu-title" > -->
-                                                    <!-- <?php echo $list['categories'] ?> -->
-                                                    <!-- </a>  -->
-                                                    <?php echo '<a class="mega-menu-title" href="' . strtolower($list['categories']) . '.php">' . $list['categories'] . '</a>'; ?>
+
+
+                                                    <a class="mega-menu-title"
+                                                        href="categories.php?id=<?php echo $list['id'] ?>">
+                                                        <?php echo $list['categories'] ?>
+                                                    </a>
 
                                                     <?php
 
@@ -44,7 +46,7 @@
                                                         <a>Trousers</a>											 -->
                                                 </span>
                                             </div>
-                                        <?php
+                                            <?php
                                         }
                                         ?>
                                     </div>
@@ -94,7 +96,7 @@
                                                     ?>
 
                                                 </li>
-                                            <?php
+                                                <?php
                                             }
                                             ?>
                                             <!-- <li><a href="shop-grid.html"></a>

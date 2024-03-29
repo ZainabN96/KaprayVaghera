@@ -3,6 +3,14 @@ require ('connection.php');
 require ('functions.php');
 require ('add_to_cart.php');
 
+if (!isset($_GET['id']) && $_GET['id'] != '') {
+	?>
+	<script>
+		window.location.href = 'index.php';
+	</script>
+	<?php
+}
+
 $wishlist_count = 0;
 $cat_res = mysqli_query($con, "select * from categories where status=1 order by categories asc");
 $cat_arr = array();
@@ -13,10 +21,10 @@ while ($row = mysqli_fetch_assoc($cat_res)) {
 $obj = new add_to_cart();
 $totalProduct = $obj->totalProduct();
 
-if (isset ($_SESSION['USER_LOGIN'])) {
+if (isset($_SESSION['USER_LOGIN'])) {
 	$uid = $_SESSION['USER_ID'];
 
-	if (isset ($_GET['wishlist_id'])) {
+	if (isset($_GET['wishlist_id'])) {
 		$wid = get_safe_value($con, $_GET['wishlist_id']);
 		mysqli_query($con, "delete from wishlist where id='$wid' and user_id='$uid'");
 	}
@@ -25,20 +33,14 @@ if (isset ($_SESSION['USER_LOGIN'])) {
 
 }
 
-if (!isset ($_GET['id']) && $_GET['id'] != '') {
-	?>
-	<script>
-		window.location.href = 'index.php';
-	</script>
-	<?php
-}
+
 
 $cat_id = mysqli_real_escape_string($con, $_GET['id']);
 
-// $sub_categories = '';
-// if (isset($_GET['sub_categories'])) {
-// 	$sub_categories = mysqli_real_escape_string($con, $_GET['sub_categories']);
-// }
+$sub_categories = '';
+if (isset($_GET['sub_categories'])) {
+	$sub_categories = mysqli_real_escape_string($con, $_GET['sub_categories']);
+}
 // $price_high_selected = "";
 // $price_low_selected = "";
 // $new_selected = "";
@@ -67,13 +69,13 @@ $cat_id = mysqli_real_escape_string($con, $_GET['id']);
 if ($cat_id > 0) {
 	$get_product = get_product($con, '', $cat_id, '', '', );
 } else {
-	   ?>
+	?>
 
-<script>
-			window.location.href = 'index.php';
-		</script>
+	<script>
+		window.location.href = 'index.php';
+	</script>
 
-<?php
+	<?php
 }
 
 ?>
@@ -106,7 +108,7 @@ if ($cat_id > 0) {
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		
+
 
 	<!-- owl.carousel CSS
 		============================================ -->
@@ -132,7 +134,7 @@ if ($cat_id > 0) {
 		============================================ -->
 	<link rel="stylesheet" href="css/jquery-ui.css">
 
-	
+
 	<!-- animate CSS
 		============================================ -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -212,7 +214,7 @@ if ($cat_id > 0) {
 											<option selected="">Sort By Default </option>
 											<option value="h2l">Price high to low</option>
 											<option value="l2h">Price low to high</option>
-											
+
 										</select>
 									</div>
 								</form>
@@ -478,35 +480,35 @@ if ($cat_id > 0) {
 		</div> -->
 	<!-- Brand Logo Area End -->
 	<script>
-    function asc() {
-        var gridItems = jQuery(".product-list");
-        gridItems.sort(function(a, b) {
-            return parseFloat(jQuery(a).find(".new-price").text()) - parseFloat(jQuery(b).find(".new-price").text());
-        });
-        gridItems.appendTo('.shop-product-tab');
-    }
+		function asc() {
+			var gridItems = jQuery(".product-list");
+			gridItems.sort(function (a, b) {
+				return parseFloat(jQuery(a).find(".new-price").text()) - parseFloat(jQuery(b).find(".new-price").text());
+			});
+			gridItems.appendTo('.shop-product-tab');
+		}
 
-    function des() {
-        var gridItems = jQuery(".product-list");
-        gridItems.sort(function(a, b) {
-            return parseFloat(jQuery(b).find(".new-price").text()) - parseFloat(jQuery(a).find(".new-price").text());
-        });
-        gridItems.appendTo('.shop-product-tab');
-    }
+		function des() {
+			var gridItems = jQuery(".product-list");
+			gridItems.sort(function (a, b) {
+				return parseFloat(jQuery(b).find(".new-price").text()) - parseFloat(jQuery(a).find(".new-price").text());
+			});
+			gridItems.appendTo('.shop-product-tab');
+		}
 
-    jQuery(document).ready(function() {
-        // Initial sorting
-        asc(); // Default to ascending order
-        jQuery("#sort").change(function() {
-            var sorting = jQuery(this).val();
-            if (sorting === "l2h") {
-                asc();
-            } else if (sorting === "h2l") {
-                des();
-            }
-        });
-    });
-</script>
+		jQuery(document).ready(function () {
+			// Initial sorting
+			asc(); // Default to ascending order
+			jQuery("#sort").change(function () {
+				var sorting = jQuery(this).val();
+				if (sorting === "l2h") {
+					asc();
+				} else if (sorting === "h2l") {
+					des();
+				}
+			});
+		});
+	</script>
 
 	<!-- FOOTER START -->
 	<?php include 'includes/footer.php'; ?>
