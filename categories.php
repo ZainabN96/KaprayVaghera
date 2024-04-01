@@ -11,6 +11,27 @@ if (!isset($_GET['id']) && $_GET['id'] != '') {
 	<?php
 }
 
+$cat_id = mysqli_real_escape_string($con, $_GET['id']);
+
+$sub_categories = '';
+if (isset($_GET['sub_categories'])) {
+	$sub_categories = mysqli_real_escape_string($con, $_GET['sub_categories']);
+}
+
+if ($cat_id > 0) {
+	$get_product = get_product($con, '', $cat_id, '', '', '', '', $sub_categories);
+} else {
+	?>
+
+	<script>
+		window.location.href = 'index.php';
+	</script>
+	<?php
+}
+
+// TOP FILE NECCESSARY CODE LINES
+
+
 $wishlist_count = 0;
 $cat_res = mysqli_query($con, "select * from categories where status=1 order by categories asc");
 $cat_arr = array();
@@ -31,51 +52,6 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 	$wishlist_count = mysqli_num_rows(mysqli_query($con, "select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
 
-}
-
-
-
-$cat_id = mysqli_real_escape_string($con, $_GET['id']);
-
-$sub_categories = '';
-if (isset($_GET['sub_categories'])) {
-	$sub_categories = mysqli_real_escape_string($con, $_GET['sub_categories']);
-}
-// $price_high_selected = "";
-// $price_low_selected = "";
-// $new_selected = "";
-// $old_selected = "";
-// $sort_order = "";
-// if (isset($_GET['sort'])) {
-// 	$sort = mysqli_real_escape_string($con, $_GET['sort']);
-// 	if ($sort == "price_high") {
-// 		$sort_order = " order by product.price desc ";
-// 		$price_high_selected = "selected";
-// 	}
-// 	if ($sort == "price_low") {
-// 		$sort_order = " order by product.price asc ";
-// 		$price_low_selected = "selected";
-// 	}
-// 	if ($sort == "new") {
-// 		$sort_order = " order by product.id desc ";
-// 		$new_selected = "selected";
-// 	}
-// 	if ($sort == "old") {
-// 		$sort_order = " order by product.id asc ";
-// 		$old_selected = "selected";
-// 	}
-// }
-
-if ($cat_id > 0) {
-	$get_product = get_product($con, '', $cat_id, '', '', );
-} else {
-	?>
-
-	<script>
-		window.location.href = 'index.php';
-	</script>
-
-	<?php
 }
 
 ?>
@@ -172,9 +148,9 @@ if ($cat_id > 0) {
 	<!-- header area end -->
 	<!-- category-banner area start -->
 	<div class="category-banner">
-		<div class="cat-heading">
+		<!-- <div class="cat-heading">
 			<span>Women</span>
-		</div>
+		</div> -->
 	</div>
 	<!-- category-banner area end -->
 	<!-- breadcrumbs area start -->
@@ -183,13 +159,13 @@ if ($cat_id > 0) {
 			<div class="row">
 				<div class="col-12">
 					<div class="container-inner">
-						<ul>
+						<!-- <ul>
 							<li class="home">
 								<a href="index.html">Home</a>
 								<span><i class="fa fa-angle-right"></i></span>
 							</li>
 							<li class="category3"><span>Shop List</span></li>
-						</ul>
+						</ul> -->
 					</div>
 				</div>
 			</div>

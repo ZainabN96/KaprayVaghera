@@ -52,17 +52,18 @@ if (isset($_SESSION['USER_LOGIN'])) {
 											?>
 											<div class="col-12">
 												<span>
+													<a class="mega-menu-title"
+														href="categories.php?id=<?php echo $list['id'] ?>">
+														<?php echo $list['categories'] ?>
+													</a>
 
-													<!-- <a class="mega-menu-title" > -->
-													<!-- <?php echo $list['categories'] ?> -->
-													<!-- </a>  -->
-													<?php echo '<a class="mega-menu-title" href="' . strtolower($list['categories']) . '.php">' . $list['categories'] . '</a>'; ?>
 
 													<?php
-
 													$cat_id = $list['id'];
 													$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
 													if (mysqli_num_rows($sub_cat_res) > 0) {
+														?>
+														<?php
 														while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
 															echo '<a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a>';
 														}
@@ -102,9 +103,10 @@ if (isset($_SESSION['USER_LOGIN'])) {
 											<?php
 											foreach ($cat_arr as $list) {
 												?>
-												<li><a href="">
+												<li><a href="categories.php?id=<?php echo $list['id'] ?>">
 														<?php echo $list['categories'] ?>
 													</a>
+
 													<?php
 													$cat_id = $list['id'];
 													$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
