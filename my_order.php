@@ -57,7 +57,7 @@
                                             <tr>
 												<td class="product-add-to-cart"><a href="my_order_details.php?id=<?php echo $row['id']?>"> <?php echo $row['id']?></a>
 												<br/>
-												<a href="order_pdf.php?id=<?php echo $row['id']?>"> PDF</a>
+												<!-- <a href="order_pdf.php?id=<?php echo $row['id']?>"> PDF</a> -->
 												</td>
                                                 <td class="product-name"><?php echo $row['added_on']?></td>
                                                 <td class="product-name">

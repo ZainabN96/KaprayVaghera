@@ -150,7 +150,8 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									</div>
 								</div>
 								<div class="product-desc">
-									<p>
+									<h1>Product Details:</h1>
+									<p><span>Product Name:</span>
 										<?php echo $get_product['0']['short_desc'] ?>
 									</p>
 								</div>
@@ -262,9 +263,9 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									<div id="cart_attr_msg"></div>
 
 									<div class="sin__desc align--left">
-										<p><span>Categories:</span></p>
+										<p><span>Category:</span></p>
 										<ul class="pro__cat__list">
-											<li><a href="#">
+											<li><a>
 													<?php echo $get_product['0']['categories'] ?>
 												</a></li>
 										</ul>
@@ -410,7 +411,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 										</div>
 									</div>
 								<?php } else {
-									echo "<span class='submit_review_hint'>Please <a href='login.php'>login</a> to submit your review</span>";
+									echo "<span class='submit_review'>Please <a href='login.php' >Login</a> to submit your review</span>";
 								}
 								?>
 							</div>

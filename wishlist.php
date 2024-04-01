@@ -1,43 +1,42 @@
-
 <?php
-require('connection.php');
-require('functions.php');
-require('add_to_cart.php');
+require ('connection.php');
+require ('functions.php');
+require ('add_to_cart.php');
 
 
-$wishlist_count=0;
-$cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
-$cat_arr=array();
-while($row=mysqli_fetch_assoc($cat_res)){
-	$cat_arr[]=$row;	
+$wishlist_count = 0;
+$cat_res = mysqli_query($con, "select * from categories where status=1 order by categories asc");
+$cat_arr = array();
+while ($row = mysqli_fetch_assoc($cat_res)) {
+    $cat_arr[] = $row;
 }
 
-$obj=new add_to_cart();
-$totalProduct=$obj->totalProduct();
+$obj = new add_to_cart();
+$totalProduct = $obj->totalProduct();
 
-if(isset($_SESSION['USER_LOGIN'])){
-	$uid=$_SESSION['USER_ID'];
-	
-	if(isset($_GET['wishlist_id'])){
-		$wid=get_safe_value($con,$_GET['wishlist_id']);
-		mysqli_query($con,"delete from wishlist where id='$wid' and user_id='$uid'");
-	}
+if (isset($_SESSION['USER_LOGIN'])) {
+    $uid = $_SESSION['USER_ID'];
 
-	$wishlist_count=mysqli_num_rows(mysqli_query($con,"select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
-	
+    if (isset($_GET['wishlist_id'])) {
+        $wid = get_safe_value($con, $_GET['wishlist_id']);
+        mysqli_query($con, "delete from wishlist where id='$wid' and user_id='$uid'");
+    }
+
+    $wishlist_count = mysqli_num_rows(mysqli_query($con, "select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
+
 }
 
 
-if(!isset($_SESSION['USER_LOGIN'])){
-	?>
-	<script>
-	window.location.href='index.php';
-	</script>
-	<?php
+if (!isset($_SESSION['USER_LOGIN'])) {
+    ?>
+    <script>
+        window.location.href = 'index.php';
+    </script>
+    <?php
 }
-$uid=$_SESSION['USER_ID'];
+$uid = $_SESSION['USER_ID'];
 
-$res=mysqli_query($con,"select product.name,product.image,product_attributes.price,product_attributes.mrp,product.id as pid,wishlist.id from product,wishlist,product_attributes where wishlist.product_id=product.id and wishlist.user_id='$uid' and product_attributes.product_id=product.id group by product_attributes.product_id");
+$res = mysqli_query($con, "select product.name,product.image,product_attributes.price,product_attributes.mrp,product.id as pid,wishlist.id from product,wishlist,product_attributes where wishlist.product_id=product.id and wishlist.user_id='$uid' and product_attributes.product_id=product.id group by product_attributes.product_id");
 
 ?>
 
@@ -72,13 +71,13 @@ $res=mysqli_query($con,"select product.name,product.image,product_attributes.pri
         ============================================ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
- <!-- Style CSS
+    <!-- Style CSS
         ============================================ -->
-	<!-- <link rel="stylesheet" href="css/style.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/style.min.css"> -->
 
-	<!-- Style min CSS
+    <!-- Style min CSS
         ============================================ -->
-		<link rel="stylesheet" href="css/style.mins.css">
+    <link rel="stylesheet" href="css/style.mins.css">
 
     <!-- owl.carousel CSS
         ============================================ -->
@@ -136,80 +135,92 @@ $res=mysqli_query($con,"select product.name,product.image,product_attributes.pri
 
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
+
 <body>
 
     <!-- header area start -->
     <?php include 'includes/navBar2.php' ?>
-		<!-- wishlist-area-start -->
-		
-		<div class="cart-main-area ptb--100 mt-5 bg__white">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12 mt-5">
-                        <form action="#">               
-                            <div class="table-content table-responsive mt-5">
-                                <table>
-                                    <thead>
+    <!-- wishlist-area-start -->
+
+    <div class="cart-main-area ptb--100 mt-5 bg__white">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 mt-5">
+                    <form action="#">
+                        <div class="table-content table-responsive mt-5">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product-thumbnail">products</th>
+                                        <th class="product-name">name of products</th>
+                                        <th class="product-name">Remove</th>
+                                        <th class="product-name"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    while ($row = mysqli_fetch_assoc($res)) {
+                                        ?>
                                         <tr>
-                                            <th class="product-thumbnail">products</th>
-                                            <th class="product-name">name of products</th>
-                                            <th class="product-name">Remove</th>
-											<th class="product-name"></th>
+                                            <td class="product-thumbnail"><a href="#"><img
+                                                        src="<?php echo PRODUCT_IMAGE_SITE_PATH . $row['image'] ?>" /></a></td>
+                                            <td class="product-name"><a href="#">
+                                                    <?php echo $row['name'] ?>
+                                                </a>
+                                                <ul class="pro__prize">
+                                                    <li class="old__prize">
+                                                        <?php echo $row['mrp'] ?>
+                                                    </li>
+                                                    <li>
+                                                        <?php echo $row['price'] ?>
+                                                    </li>
+                                                </ul>
+                                            </td>
+
+                                            <td class="product-remove"><a
+                                                    href="wishlist.php?wishlist_id=<?php echo $row['id'] ?>"><i
+                                                        class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                            <td class="product-remove"><a href="javascript:void(0)"
+                                                    style="font-weight: bold;"
+                                                    onclick="manage_cart('<?php echo $row['id'] ?>','add')">Add to
+                                                    cart</a></td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-										<?php
-										while($row=mysqli_fetch_assoc($res)){
-										?>
-											<tr>
-												<td class="product-thumbnail"><a href="#"><img  src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>" /></a></td>
-												<td class="product-name"><a href="#"><?php echo $row['name']?></a>
-													<ul  class="pro__prize">
-														<li class="old__prize"><?php echo $row['mrp']?></li>
-														<li><?php echo $row['price']?></li>
-													</ul>
-												</td>
-												
-												<td class="product-remove"><a href="wishlist.php?wishlist_id=<?php echo $row['id']?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-												<td class="product-remove"><a href="javascript:void(0)" style="font-weight: bold;" onclick="manage_cart('<?php echo $row['id'] ?>','add')">Add to
-								cart</a></td>
-											</tr>
-											<?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                    <div class="buttons-cart--inner">
-                                        <div class="buttons-cart">
-                                            <a href="<?php echo SITE_PATH?>">Continue Shopping</a>
-                                        </div>
-                                        <div class="buttons-cart checkout--btn">
-                                            <a href="<?php echo SITE_PATH?>checkout.php">checkout</a>
-                                        </div>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="buttons-cart--inner">
+                                    <div class="buttons-cart">
+                                        <a href="<?php echo SITE_PATH ?>index.php">Continue Shopping</a>
+                                    </div>
+                                    <div class="buttons-cart checkout--btn">
+                                        <a href="<?php echo SITE_PATH ?>checkout.php">checkout</a>
                                     </div>
                                 </div>
                             </div>
-                        </form> 
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        
+    </div>
 
-		<input type="hidden" id="qty" value="1"/>
 
-       <script>
-		// function showMultipleImage(im) {
-		// 	jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
-		// 	jQuery('.imageZoom').imgZoom();
-		// }
-		let is_color = '<?php echo $is_color ?>';
-		let is_size = '<?php echo $is_size ?>';
-		let pid = '<?php echo $product_id ?>';
-	</script>
-		 <!-- FOOTER START -->
-		 <?php include 'includes/footer.php'; ?>
+    <input type="hidden" id="qty" value="1" />
+
+    <script>
+        // function showMultipleImage(im) {
+        // 	jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
+        // 	jQuery('.imageZoom').imgZoom();
+        // }
+        let is_color = '<?php echo $is_color ?>';
+        let is_size = '<?php echo $is_size ?>';
+        let pid = '<?php echo $product_id ?>';
+    </script>
+    <!-- FOOTER START -->
+    <?php include 'includes/footer.php'; ?>
     <!-- FOOTER END -->
 
     <!-- JS -->

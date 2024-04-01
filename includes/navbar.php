@@ -21,21 +21,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 }
 
-
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <header class="header-5 short-stor">
     <div class="container-fluid">
         <div class="row">
@@ -266,7 +252,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
                                 <li><a href="wishlist.php">My Wishlist</a></li>
                                 <li><a href="cart.php">My Cart</a></li>
                                 <li><a href="checkout.php">Checkout</a></li>
-                                <li><a href="#">Testimonial</a></li>
+                                <li><a href="my_order.php">My Orders</a></li>
                                 <?php
                                 if (isset($_SESSION['USER_LOGIN'])) {
                                     ?>

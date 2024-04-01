@@ -40,7 +40,9 @@ include 'includes/header.php';
 
 							</div>
 
-							<div class="row col-lg-4 col-md-8 col-sm-12 col-xs-12">
+							<div class="login-btn row col-lg-6 col-md-8 col-sm-12 col-xs-12" style="position: relative; 
+
+left: 300px;">
 								<button type="button " class="btn btn-primary mt-3"
 									onclick="user_login()">Login</button>
 								<button type="button" class="btn btn-secondary" data-bs-toggle="modal"
@@ -54,7 +56,7 @@ include 'includes/header.php';
 				</div>
 				<div>
 
-					<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+					<div class="modal fade" id="loginModal" style="z-index: 10000;" tabindex="-1" role="dialog"
 						aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
@@ -97,7 +99,7 @@ include 'includes/header.php';
 											</div>
 											<div class="single-contact-form">
 												<div class="contact-box name mb-3">
-													<label for="password"> Password<span
+													<label for="password">Password<span
 															class="required">*</span></label>
 													<input type="password" name="password" id="password"
 														style="width:100%">
