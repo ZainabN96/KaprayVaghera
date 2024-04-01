@@ -324,7 +324,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 						<li role="presentation" class="description active"><a href="#description" role="tab"
 								data-bs-toggle="tab">description</a></li>
 						<li role="presentation" class="review"><a href="#review" role="tab" data-bs-toggle="tab"
-								class="active show" aria-selected="true">review</a></li>
+								aria-selected="true">review</a></li>
 					</ul>
 					<!-- End List And Grid View -->
 				</div>
@@ -334,14 +334,14 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 				<div class="col-xs-12">
 					<div class="ht__pro__details__content">
 						<!-- Start Single Content -->
-						<div role="tabpanel mt-5" id="description" class="pro__single__content tab-pane fade in active">
+						<div role="tabpanel mt-5" id="description" class="pro__single__content tab-pane active">
 							<div class="pro__tab__content__inner">
 								<?php echo $get_product['0']['description'] ?>
 							</div>
 						</div>
 						<!-- End Single Content -->
 
-						<div role="tabpanel mt-5" id="review" class="pro__single__content tab-pane fade active show">
+						<div role="tabpanel mt-5" id="review" class="pro__single__content tab-pane fade">
 							<div class="pro__tab__content__inner">
 								<?php
 								if (mysqli_num_rows($product_review_res) > 0) {
@@ -433,6 +433,49 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 		let pid = '<?php echo $product_id ?>';
 	</script>
 
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const descriptionTab = document.querySelector('.description');
+			const reviewTab = document.querySelector('.review');
+			const descriptionContent = document.getElementById('description');
+			const reviewContent = document.getElementById('review');
+
+			// Function to show description tab and hide review tab
+			function showDescription() {
+				descriptionTab.classList.add('active');
+				reviewTab.classList.remove('active');
+				descriptionContent.classList.add('active');
+				reviewContent.classList.remove('active');
+			}
+
+			// Function to show review tab and hide description tab
+			function showReview() {
+				reviewTab.classList.add('active');
+				descriptionTab.classList.remove('active');
+				reviewContent.classList.add('active');
+				descriptionContent.classList.remove('active');
+			}
+
+			// Show description by default or based on URL hash
+			if (window.location.hash === '#review') {
+				showReview();
+			} else {
+				showDescription();
+			}
+
+			// Add event listener to description tab
+			descriptionTab.addEventListener('click', function (event) {
+				event.preventDefault();
+				showDescription();
+			});
+
+			// Add event listener to review tab
+			reviewTab.addEventListener('click', function (event) {
+				event.preventDefault();
+				showReview();
+			});
+		});
+	</script>
 
 
 	<!-- product-details Area end -->

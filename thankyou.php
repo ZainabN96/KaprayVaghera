@@ -23,16 +23,16 @@ include 'includes/header.php';
   <div class="thankyou-wrap ptb--100 mt-5">
     <div class="container mt-5">
 
-    <div class="row mt-5">
-      <h1 class="site-header__title " data-lead-id="site-header-title">THANK YOU!</h1>
+      <div class="row mt-5">
+        <h1 class="site-header__title " data-lead-id="site-header-title">THANK YOU!</h1>
 
-      <div class="main-content">
-        <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-        <p class="main-content__body" data-lead-id="main-content-body">Thank you for shopping with us. It means a
-          lot to us, just like you do! We hope our product will meet your expectations.</p>
+        <div class="main-content">
+          <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
+          <p class="main-content__body" data-lead-id="main-content-body">Thank you for shopping with us. We hope our
+            product will meet your expectations.</p>
           <!-- <p class="main-content__body" data-lead-id="main-content-body">Check your Order Status <a style="color:#03a5e9;" href="my_order.php">here</a></p> -->
+        </div>
       </div>
-    </div>
     </div>
   </div>
 
