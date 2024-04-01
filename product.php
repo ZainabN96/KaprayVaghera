@@ -6,7 +6,7 @@
 ob_start();
 $title = 'Product-Details | Kapray Vaghera';
 include 'includes/header.php';
-if (isset ($_GET['id'])) {
+if (isset($_GET['id'])) {
 	$product_id = mysqli_real_escape_string($con, $_GET['id']);
 	if ($product_id > 0) {
 		$get_product = get_product($con, '', '', $product_id);
@@ -55,7 +55,7 @@ if (isset ($_GET['id'])) {
 	<?php
 }
 
-if (isset ($_POST['review_submit'])) {
+if (isset($_POST['review_submit'])) {
 	$rating = get_safe_value($con, $_POST['rating']);
 	$review = get_safe_value($con, $_POST['review']);
 
@@ -107,7 +107,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									alt="big-1">
 							</a>
 						</div>
-						<!-- <?php if (isset ($multipleImages[0])) { ?>
+						<!-- <?php if (isset($multipleImages[0])) { ?>
 							<div class="single-zoom-thumb">
 								<ul class="nav" id="gallery_01">
 									<?php
@@ -144,7 +144,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 											<a href="#"><i class="fa fa-star"></i></a>
 										</div> -->
 									<div class="price-boxes">
-										<span class="new-price">$
+										<span class="new-price">PKR
 											<?php echo $get_product['0']['price'] ?>
 										</span>
 									</div>
@@ -309,7 +309,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 			</div>
 		</div>
 	</div>
-	
+
 
 	<input type="hidden" id="cid" />
 	<input type="hidden" id="sid" />
@@ -387,7 +387,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 
 								<h3 class="review_heading">Enter your review</h3><br />
 								<?php
-								if (isset ($_SESSION['USER_LOGIN'])) {
+								if (isset($_SESSION['USER_LOGIN'])) {
 									?>
 									<div class="row" id="post-review-box" style=>
 										<div class="col-md-12">
@@ -403,9 +403,8 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 												<textarea class="form-control" cols="50" id="new-review" name="review"
 													placeholder="Enter your review here..." rows="5"></textarea>
 												<div class="text-right mt10">
-													<button class="btn btn-success mt-3" type="submit" style ="position: absolute;
-		left: 26%"
-														name="review_submit">Submit</button>
+													<button class="btn btn-success mt-3" type="submit" style="position: absolute;
+		left: 26%" name="review_submit">Submit</button>
 												</div>
 											</form>
 										</div>
