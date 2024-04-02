@@ -248,11 +248,16 @@ if (isset($_SESSION['USER_LOGIN'])) {
                         <div class="expand dropps-menu">
                             <a href="#"><i class="fa fa-align-right fa-lg"></i></a>
                             <ul class="restrain language">
-                                <li><a href="profile.php">My Account</a></li>
+                            <?php
+                            if (isset($_SESSION['USER_LOGIN'])) {
+                                    ?>
+                                    <li><a href="profile.php">My Account</a></li>
+                                    <?php
+                                }?>
+                                
                                 <li><a href="wishlist.php">My Wishlist</a></li>
                                 <li><a href="cart.php">My Cart</a></li>
                                 <li><a href="checkout.php">Checkout</a></li>
-                                <li><a href="my_order.php">My Orders</a></li>
                                 <?php
                                 if (isset($_SESSION['USER_LOGIN'])) {
                                     ?>
@@ -260,6 +265,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
                                     <?php
                                 } else {
                                     ?>
+                                    <li><a href="my_order.php">My Orders</a></li>
                                     <li><a href="login.php">Log In</a></li>
                                     <?php
                                 }
