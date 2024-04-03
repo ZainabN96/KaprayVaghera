@@ -142,7 +142,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 
-<body class="shop">
+<body>
 	<!-- header area start -->
 	<?php include 'includes/navBar2.php' ?>
 	<!-- header area end -->
@@ -207,274 +207,139 @@ if (isset($_SESSION['USER_LOGIN'])) {
 									per page
 								</div>
 							</div>
-							<!-- <div class="col-auto">
-									<div class="view-mode">
-										<label>View on</label>
-										<ul class="nav">
-											<li class="nav-item"><button class="nav-link" data-bs-target="#shop-grid-tab" data-bs-toggle="tab"><i class="fa fa-th"></i></button></li>
-											<li class="nav-item "><button class="nav-link active" data-bs-target="#shop-list-tab" data-bs-toggle="tab" ><i class="fa fa-th-list"></i></button></li>
-										</ul>
-									</div>
-								</div> -->
+
 						</div>
 					</div>
 					<!-- shop toolbar end -->
-					<?php if (count($get_product) > 0) { ?>
-						<!-- product-row start -->
-						<div class="tab-content">
-							<!-- list view -->
-							<div class="tab-pane fade show active" id="shop-grid-tab">
-								<div class="row">
-									<div class="col-12">
-										<div class="shop-product-tab">
-											<?php
-											foreach ($get_product as $list) {
-												?>
+				</div>
+			</div>
+		</div>
+	</div>
 
-												<!-- single-product start -->
+	<section class="htc__product__grid bg__white ptb--100">
+		<div class="container category-list">
+			<div class="row">
+				<?php if (count($get_product) > 0) { ?>
 
-												<div class="row">
-													<div class="col-md-4 col-12 product-list ">
-														<div class="two-product">
-															<!-- single-product start -->
-															<div class="single-product">
-																<div class="product-img">
-																	<a href="#">
-																		<img class="primary-image img-fluid"
-																			src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>"
-																			alt="" />
-																		<img class="secondary-image img-fluid"
-																			src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>"
-																			alt="" />
-																	</a>
+					<!-- Loop through products -->
+					<?php foreach (array_chunk($get_product, 4) as $chunk) { ?>
 
-																	<div class="action-zoom">
-																		<div class="add-to-cart">
-																			<a href="#" title="Quick View"><i
-																					class="fa fa-search-plus"></i></a>
-																		</div>
-																	</div>
-																	<div class="actions">
-																		<div class="action-buttons">
-																			<div class="add-to-links">
-																				<div class="add-to-wishlist">
-																					<a href="javascript:void(0)"
-																						onclick="wishlist_manage('<?php echo $list['id'] ?>','add')"><i
-																							class="fa fa-heart"></i></a>
-																				</div>
-																				<div class="compare-button">
-																					<a
-																						href="product.php?id=<?php echo $list['id'] ?>"><i
-																							class="icon-bag"></i></a>
-																				</div>
-																			</div>
-																			<!-- <div class="quickviewbtn">
+						<!-- Start Product View -->
+						<div class="row products-category">
+
+							<?php
+							foreach ($chunk as $list) { ?>
+
+								<div class="col-md-4 product-list">
+
+									<!-- Start Single Category -->
+
+									<div class="category">
+
+										<!-- single-product start -->
+										<div class="single-product">
+											<div class="product-img">
+												<a href="#">
+													<img class="primary-image img-fluid"
+														src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
+													<img class="secondary-image img-fluid"
+														src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
+												</a>
+
+												<div class="action-zoom">
+													<div class="add-to-cart">
+														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+													</div>
+												</div>
+												<div class="actions">
+													<div class="action-buttons">
+														<div class="add-to-links">
+															<div class="add-to-wishlist">
+																<a href="javascript:void(0)"
+																	onclick="wishlist_manage('<?php echo $list['id'] ?>','add')"><i
+																		class="fa fa-heart"></i></a>
+															</div>
+															<div class="compare-button">
+																<a href="product.php?id=<?php echo $list['id'] ?>"><i
+																		class="icon-bag"></i></a>
+															</div>
+														</div>
+														<!-- <div class="quickviewbtn">
 																				<a href="#" title="Add to Compare"><i
 																						class="fa fa-retweet"></i></a>
 																			</div> -->
-																		</div>
-																	</div>
-																	<div class="price-box">
-																		<span class="new-price">
-																			<?php echo $list['price'] ?>
-																		</span>
-																	</div>
-
-																</div>
-																<div class="product-content">
-																	<h2 class="product-name"><a href="#">
-																			<?php echo $list['name'] ?>
-																		</a></h2>
-																	<div class="product-desc">
-																		<p>
-																			<?php echo $list['short_desc'] ?>
-																		</p>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<!-- single-product end -->
 													</div>
 												</div>
+												<div class="price-box">
+													<span class="new-price">
+														<?php echo $list['price'] ?>
+													</span>
+												</div>
 
-
-											<?php } ?>
-
+											</div>
+											<div class="product-content">
+												<h2 class="product-name"><a href="#">
+														<?php echo $list['name'] ?>
+													</a></h2>
+												<div class="product-desc">
+													<p>
+														<?php echo $list['short_desc'] ?>
+													</p>
+												</div>
+											</div>
 										</div>
 									</div>
+									<!-- single-product end -->
 								</div>
-							</div>
-						</div>
 
-						<!-- single-product start -->
-						<!-- <div class="product-list-wrapper">
-										<div class="single-product">
-											<div class="row">
-												<div class="col-md-4 col-12">
-													<div class="product-img">
-														<a href="#">
-															<img width="540" height="660" class="primary-image" src="img/products/product-4.webp" alt="" />
-															<img width="540" height="660" class="secondary-image" src="img/products/product-2.webp" alt="" />
-														</a>
-													</div>									
-												</div>
-												<div class="col-md-8 col-12">
-													<div class="product-content">
-														<h2 class="product-name"><a href="#">Consequences</a></h2>
-														<div class="rating-price">	
-															<div class="pro-rating">
-																<a href="#"><i class="fa fa-star"></i></a>
-																<a href="#"><i class="fa fa-star"></i></a>
-																<a href="#"><i class="fa fa-star"></i></a>
-																<a href="#"><i class="fa fa-star"></i></a>
-																<a href="#"><i class="fa fa-star"></i></a>
-															</div>
-															<div class="price-boxes">
-																<span class="new-price">$220.00</span>
-															</div>
-														</div>
-														<div class="product-desc">
-															<p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva</p>
-														</div>
-														<div class="actions-e">
-															<div class="action-buttons">
-																<div class="add-to-cart">
-																	<a href="#">Add to cart</a>
-																</div>
-																<div class="add-to-links">
-																	<div class="add-to-wishlist">
-																		<a href="#" data-toggle="tooltip" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-																	</div>
-																	<div class="compare-button">
-																		<a href="#" data-toggle="tooltip" title="" data-original-title="Compare"><i class="fa fa-refresh"></i></a>
-																	</div>									
-																</div>
-															</div>
-														</div>
-													</div>									
-												</div>
-											</div>	 							
-										</div>
-									</div> -->
-						<!-- single-product end -->
-						<!-- single-product start -->
-						<!-- <div class="product-list-wrapper">
-										<div class="single-product">
-											<div class="row">
-												<div class="col-md-4 col-12">
-													<div class="product-img">
-														<a href="#">
-															<img width="540" height="660" class="primary-image" src="img/products/product-1.webp" alt="" />
-															<img width="540" height="660" class="secondary-image" src="img/products/product-1.webp" alt="" />
-														</a>
-													</div>									
-												</div>
-												<div class="col-md-8 col-12">
-													<div class="product-content">
-														<h2 class="product-name"><a href="#">Proin lectus ipsum</a></h2>
-														<div class="rating-price">	
-															<div class="pro-rating">
-																<a href="#"><i class="fa fa-star"></i></a>
-																<a href="#"><i class="fa fa-star"></i></a>
-																<a href="#"><i class="fa fa-star"></i></a>
-																<a href="#"><i class="fa fa-star"></i></a>
-																<a href="#"><i class="fa fa-star"></i></a>
-															</div>
-															<div class="price-boxes">
-																<span class="new-price">$230.00</span>
-															</div>
-														</div>
-														<div class="product-desc">
-															<p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Viva</p>
-														</div>
-														<div class="actions-e">
-															<div class="action-buttons">
-																<div class="add-to-cart">
-																	<a href="#">Add to cart</a>
-																</div>
-																<div class="add-to-links">
-																	<div class="add-to-wishlist">
-																		<a href="#" data-toggle="tooltip" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-																	</div>
-																	<div class="compare-button">
-																		<a href="#" data-toggle="tooltip" title="" data-original-title="Compare"><i class="fa fa-refresh"></i></a>
-																	</div>									
-																</div>
-															</div>
-														</div>
-													</div>									
-												</div>
-											</div>	 							
-										</div>
-									</div> -->
-						<!-- single-product end -->
-					</div>
-				</div>
-				<!-- shop toolbar start -->
-				<div class="shop-content-bottom mb-5 mb-lg-0">
-					<div class="shop-toolbar btn-tlbr">
-						<div class="col-auto text-center">
-							<div class="pages">
-								<label>Page:</label>
-								<ul class="d-inline-flex">
-									<li class="current">1</li>
-									<li><a href="#">2</a></li>
-									<li><a href="#" class="next i-next" title="Next"><i class="fa fa-arrow-right"></i></a>
-									</li>
-								</ul>
-							</div>
+
+
+							<?php } ?>
+
+
 						</div>
-					</div>
-				</div>
-				<!-- shop toolbar end -->
+					<?php } ?>
+
+
+
+				<?php } else {
+					echo "No Product Found";
+				} ?>
+
+
+				<!-- right sidebar end -->
 			</div>
-		<?php } else {
-						echo "No Product Found";
-					} ?>
-	</div>
-	<!-- right sidebar end -->
-	</div>
-	</div>
-	</div>
-	<!-- shop-with-sidebar end -->
-	<!-- Brand Logo Area Start -->
-	<!-- <div class="brand-area">
-			<div class="container">
-				<div class="row">
-					<div class="brand-carousel owl-carousel owl-theme">
-						<div class="brand-item"><a href="#"><img  width="225" height="103" src="img/brand/bg1-brand.webp" alt="" /></a></div>
-						<div class="brand-item"><a href="#"><img  width="225" height="103" src="img/brand/bg2-brand.webp" alt="" /></a></div>
-						<div class="brand-item"><a href="#"><img  width="225" height="103" src="img/brand/bg3-brand.webp" alt="" /></a></div>
-						<div class="brand-item"><a href="#"><img  width="225" height="103" src="img/brand/bg4-brand.webp" alt="" /></a></div>
-						<div class="brand-item"><a href="#"><img  width="225" height="103" src="img/brand/bg5-brand.webp" alt="" /></a></div>
-						<div class="brand-item"><a href="#"><img  width="225" height="103" src="img/brand/bg2-brand.webp" alt="" /></a></div>
-						<div class="brand-item"><a href="#"><img  width="225" height="103" src="img/brand/bg3-brand.webp" alt="" /></a></div>
-						<div class="brand-item"><a href="#"><img  width="225" height="103" src="img/brand/bg4-brand.webp" alt="" /></a></div>
-					</div>
-				</div>
-			</div>
-		</div> -->
+		</div>
+	</section>
+
 	<!-- Brand Logo Area End -->
 	<script>
-		function asc() {
-			var gridItems = jQuery(".product-list");
-			gridItems.sort(function (a, b) {
-				return parseFloat(jQuery(a).find(".new-price").text()) - parseFloat(jQuery(b).find(".new-price").text());
-			});
-			gridItems.appendTo('.shop-product-tab');
-		}
-
-		function des() {
-			var gridItems = jQuery(".product-list");
-			gridItems.sort(function (a, b) {
-				return parseFloat(jQuery(b).find(".new-price").text()) - parseFloat(jQuery(a).find(".new-price").text());
-			});
-			gridItems.appendTo('.shop-product-tab');
-		}
-
 		jQuery(document).ready(function () {
+			function asc() {
+				var container = jQuery(".category-list .products-category");
+				var products = container.children('.product-list').get();
+				products.sort(function (a, b) {
+					return parseFloat(jQuery(a).find(".new-price").text()) - parseFloat(jQuery(b).find(".new-price").text());
+				});
+				jQuery.each(products, function (index, product) {
+					container.append(product);
+				});
+			}
+			function des() {
+				var container = jQuery(".category-list .products-category");
+				var products = container.children('.product-list').get();
+				products.sort(function (a, b) {
+					return parseFloat(jQuery(b).find(".new-price").text()) - parseFloat(jQuery(a).find(".new-price").text());
+				});
+				jQuery.each(products, function (index, product) {
+					container.append(product);
+				});
+			}
+
 			// Initial sorting
 			asc(); // Default to ascending order
+
+			// Event listener for sort change
 			jQuery("#sort").change(function () {
 				var sorting = jQuery(this).val();
 				if (sorting === "l2h") {
@@ -496,6 +361,6 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 </body>
 
-<!-- Mirrored from htmldemo.net/lavoro/lavoro/shop-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:30:16 GMT -->
+
 
 </html>
