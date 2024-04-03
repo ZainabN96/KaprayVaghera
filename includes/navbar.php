@@ -261,11 +261,11 @@ if (isset($_SESSION['USER_LOGIN'])) {
                                 <?php
                                 if (isset($_SESSION['USER_LOGIN'])) {
                                     ?>
+                                    <li><a href="my_order.php">My Orders</a></li>
                                     <li><a href="logout.php">Log out</a></li>
                                     <?php
                                 } else {
                                     ?>
-                                    <li><a href="my_order.php">My Orders</a></li>
                                     <li><a href="login.php">Log In</a></li>
                                     <?php
                                 }
