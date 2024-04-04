@@ -128,8 +128,8 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 						<?php } ?> -->
 					</div>
 				</div>
-				<div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40">
-					<div class="product-list-wrapper mt-5">
+				<div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40  mt-5">
+					<div class=" product-list-wrapper mt-5">
 						<div class="single-product mt-5">
 							<div class="product-content mt-5">
 								<h2 class="product-name mt-5"><a href="#">

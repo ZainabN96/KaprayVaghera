@@ -155,22 +155,25 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	<div class="category-banner">
 		<div class="cat-heading">
 			<?php
-				if (!isset($_GET['sub_categories'])) {
-					while ($row = mysqli_fetch_assoc($get_cat_name)) {
-						?>
-						<span><?php echo ($row['categories']); ?></span>
-						<?php
-					}
+			if (!isset($_GET['sub_categories'])) {
+				while ($row = mysqli_fetch_assoc($get_cat_name)) {
+					?>
+					<span>
+						<?php echo ($row['categories']); ?>
+					</span>
+					<?php
 				}
-				else{
-					while ($row = mysqli_fetch_assoc($get_sub_cat_name)) {
-						?>
-						<span><?php echo ($row['sub_categories']); ?></span>
-						<?php
-					}
+			} else {
+				while ($row = mysqli_fetch_assoc($get_sub_cat_name)) {
+					?>
+					<span>
+						<?php echo ($row['sub_categories']); ?>
+					</span>
+					<?php
 				}
+			}
 			?>
-			
+
 		</div>
 	</div>
 	<!-- category-banner area end -->
@@ -240,10 +243,10 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	<section class="htc__product__grid bg__white ptb--100">
 		<div class="container category-list">
 			<div class="row">
-				<?php if (count($get_product) > 0) { 
+				<?php if (count($get_product) > 0) {
 					//prx($get_product);
 					?>
-					
+
 
 					<!-- Loop through products -->
 					<?php foreach (array_chunk($get_product, 4) as $chunk) { ?>
@@ -264,15 +267,16 @@ if (isset($_SESSION['USER_LOGIN'])) {
 										<div class="single-product">
 											<div class="product-img">
 												<a href="#">
-													<img class="primary-image img-fluid"
+													<img class="primary-image" style="width: 360px; height: 400px;"
 														src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
-													<img class="secondary-image img-fluid"
+													<img class="secondary-image " style="width: 360px; height: 400px;"
 														src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
 												</a>
 
 												<div class="action-zoom">
 													<div class="add-to-cart">
-														<a href="#" title="Quick View"><i class="fa fa-search-plus"></i></a>
+														<a href="product.php?id=<?php echo $list['id'] ?>"><i
+																class="fa fa-search-plus"></i></a>
 													</div>
 												</div>
 												<div class="actions">
