@@ -1,6 +1,6 @@
-<footer class="mt-5"> 
-<!-- banner footer area start -->
-<!-- <div class="banner-footer" style="background-color: white;">
+<footer class="mt-5">
+	<!-- banner footer area start -->
+	<!-- <div class="banner-footer" style="background-color: white;">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-2 col-md-2 col-3 nopadding">
@@ -48,7 +48,7 @@
 		</div>
 	</div>
 </div> -->
-<!-- banner footer area end -->
+	<!-- banner footer area end -->
 	<!-- top footer area start -->
 	<div class="top-footer-area">
 		<div class="container">
@@ -62,11 +62,11 @@
 							<!-- <p class="footer-des">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adm.</p>
 							<a href="#" class="read-more">Read more</a> -->
 							<ul>
-							<li><a href="about-us.php">About Us</a></li>
-							<li><a href="contact-us.php">Contact Us</a></li>
-								<li><a href="#">Shipping Information</a></li>
-								<li><a href="#">Return & Exchange</a></li>
-								
+								<li><a href="about-us.php">About Us</a></li>
+								<li><a href="contact-us.php">Contact Us</a></li>
+								<li><a href="shipping_info.php">Shipping Information</a></li>
+								<li><a href="return_exchange.php">Return & Exchange</a></li>
+
 							</ul>
 						</div>
 					</div>
@@ -79,8 +79,8 @@
 						<div class="cakewalk-footer-content">
 							<ul>
 								<li><a href="about-us.php">Track Your Order</a></li>
-							
-								<li><a href="#">Return & Exchange</a></li>
+
+								<li><a href="return_exchange.php">Return & Exchange</a></li>
 								<li><a href="#">Privacy Policy</a></li>
 								<li><a href="#">Terms & Condition</a></li>
 								<li><a href="#">Payment Informartion</a></li>
@@ -98,7 +98,7 @@
 							<ul>
 								<li><a href="#">Size Guide</a></li>
 								<li><a href="#">Size Chart</a></li>
-							
+
 							</ul>
 						</div>
 					</div>
@@ -112,8 +112,6 @@
 							<ul>
 								<li><a href="contact-us.php">Contact Us</a></li>
 								<li><a href="#">Privacy Policy</a></li>
-							
-								<li><a href="#">Rate & Exchange</a></li>
 								<li><a href="#">FAQ</a></li>
 							</ul>
 						</div>
@@ -126,20 +124,25 @@
 						</div>
 						<div class="cakewalk-footer-content social-footer">
 							<ul>
-								<li><a href="https://www.facebook.com/KaprayV" class="facebook" ><i class="bi bi-facebook"></i><span class="ps-3 text-light"> Facebook </span></a></li>
-								<li><a href="https://www.instagram.com/kaprayvaghera?igshid=OGQ5ZDc2ODk2ZA%3D%3D" class="instagram"><i class="bi bi-instagram"></i><span class="ps-3 text-light"> Instagram </a></span></li>
-								<li><a href="https://twitter.com/"  class="twitter"><i class="bi bi-twitter-x"></i><span class="ps-3 text-light"> Twitter </a></span></li>
-								
+								<li><a href="https://www.facebook.com/KaprayV" class="facebook"><i
+											class="bi bi-facebook"></i><span class="ps-3 text-light"> Facebook
+										</span></a></li>
+								<li><a href="https://www.instagram.com/kaprayvaghera?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+										class="instagram"><i class="bi bi-instagram"></i><span class="ps-3 text-light">
+											Instagram </a></span></li>
+								<li><a href="https://twitter.com/" class="twitter"><i class="bi bi-twitter-x"></i><span
+											class="ps-3 text-light"> Twitter </a></span></li>
+
 								<!-- <li><a href="https://youtube.com/" class="tiktok"><i class="bi bi-tiktok"></i><span class="ps-3 text-light"> Youtube </a></span></li> -->
-								
+
 							</ul>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 	<!-- top footer area end -->
 	<!-- info footer start -->
 	<div class="info-footer">
@@ -198,11 +201,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-12">
-					<address>2022 &copy; <strong> Kapray Vaghera	 </strong> Made with by <a href="https://www.hcc-me.com/hcc-technology-foundation/" target="_blank"><strong>HCC Technology Foundation</strong></a></address>
+					<address>2022 &copy; <strong> Kapray Vaghera </strong> Made with by <a
+							href="https://www.hcc-me.com/hcc-technology-foundation/" target="_blank"><strong>HCC
+								Technology Foundation</strong></a></address>
 				</div>
 				<div class="col-lg-6 col-12">
 					<div class="footer-payment pull-right">
-						<a href="#"><img  width="295" height="25" src="img/payment.webp" alt="" /></a>
+						<a href="#"><img width="295" height="25" src="img/payment.webp" alt="" /></a>
 					</div>
 				</div>
 			</div>
@@ -210,4 +215,3 @@
 	</div>
 	<!-- footer address area end -->
 </footer>
-		

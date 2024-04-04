@@ -1,21 +1,21 @@
 <?php
-require('connection.php');
-require('functions.php');
-require('add_to_cart.php');
+require ('connection.php');
+require ('functions.php');
+require ('add_to_cart.php');
 
-if(!isset($_SESSION['USER_LOGIN'])){
-	?>
-	<script>
-	window.location.href='index.php';
-	</script>
-	<?php
+if (!isset($_SESSION['USER_LOGIN'])) {
+    ?>
+    <script>
+        window.location.href = 'index.php';
+    </script>
+    <?php
 }
-$order_id=get_safe_value($con,$_GET['id']);
+$order_id = get_safe_value($con, $_GET['id']);
 
-$coupon_details=mysqli_fetch_assoc(mysqli_query($con,"select coupon_value from `order` where id='$order_id'"));
-$coupon_value=$coupon_details['coupon_value'];
-if($coupon_value==''){
-	$coupon_value=0;	
+$coupon_details = mysqli_fetch_assoc(mysqli_query($con, "select coupon_value from `order` where id='$order_id'"));
+$coupon_value = $coupon_details['coupon_value'];
+if ($coupon_value == '') {
+    $coupon_value = 0;
 }
 ?>
 
@@ -47,13 +47,13 @@ if($coupon_value==''){
         ============================================ -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
- <!-- Style CSS
+    <!-- Style CSS
         ============================================ -->
-	<!-- <link rel="stylesheet" href="css/style.min.css"> -->
+    <!-- <link rel="stylesheet" href="css/style.min.css"> -->
 
-	<!-- Style min CSS
+    <!-- Style min CSS
         ============================================ -->
-		<link rel="stylesheet" href="css/style.mins.css">
+    <link rel="stylesheet" href="css/style.mins.css">
 
     <!-- owl.carousel CSS
         ============================================ -->
@@ -111,12 +111,13 @@ if($coupon_value==''){
 
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
+
 <body>
 
     <!-- header area start -->
     <?php include 'includes/navBar2.php' ?>
-		<!-- wishlist-area-start -->
-<!-- <div class="ht__bradcaump__area">
+    <!-- wishlist-area-start -->
+    <!-- <div class="ht__bradcaump__area">
             <div class="ht__bradcaump__wrap"  style="height: 150px;">
                 <div class="container">
                     <div class="row">
@@ -133,74 +134,87 @@ if($coupon_value==''){
                 </div>
             </div>
         </div> -->
-        <!-- End Bradcaump area -->
-        <!-- cart-main-area start -->
-        <div class="wishlist-area ptb--100 bg__white mt-5">
-            <div class="container mt-5">
-                <div class="row mt-5">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="wishlist-content mt-5">
-                            <form action="#">
-                                <div class="wishlist-table table-responsive">
-                                    <table>
-                                        <thead>
+    <!-- End Bradcaump area -->
+    <!-- cart-main-area start -->
+    <div class="wishlist-area ptb--100 bg__white mt-5">
+
+        <div class="container mt-5">
+            <div class="row mt-5">
+                <div class="col-md-12 col-sm-12 col-xs-12 mt-5">
+                    <div class="wishlist-content mt-5">
+                        <form action="#">
+                            <div class="wishlist-table table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-thumbnail">Product Name</th>
+                                            <th class="product-thumbnail">Product Image</th>
+                                            <th class="product-name">Qty</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product-price">Total Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $uid = $_SESSION['USER_ID'];
+                                        $res = mysqli_query($con, "select distinct(order_detail.id) ,order_detail.*,product.name,product.image from order_detail,product ,`order` where order_detail.order_id='$order_id' and `order`.user_id='$uid' and order_detail.product_id=product.id");
+                                        $total_price = 0;
+                                        while ($row = mysqli_fetch_assoc($res)) {
+                                            $total_price = $total_price + ($row['qty'] * $row['price']);
+                                            ?>
                                             <tr>
-                                                <th class="product-thumbnail">Product Name</th>
-												<th class="product-thumbnail">Product Image</th>
-                                                <th class="product-name">Qty</th>
-                                                <th class="product-price">Price</th>
-                                                <th class="product-price">Total Price</th>
+                                                <td class="product-name">
+                                                    <?php echo $row['name'] ?>
+                                                </td>
+                                                <td class="product-name"> <img
+                                                        src="<?php echo PRODUCT_IMAGE_SITE_PATH . $row['image'] ?>"></td>
+                                                <td class="product-name">
+                                                    <?php echo $row['qty'] ?>
+                                                </td>
+                                                <td class="product-name">
+                                                    <?php echo $row['price'] ?>
+                                                </td>
+                                                <td class="product-name">
+                                                    <?php echo $row['qty'] * $row['price'] ?>
+                                                </td>
+
                                             </tr>
-                                        </thead>
-                                        <tbody>
-											<?php
-											$uid=$_SESSION['USER_ID'];
-											$res=mysqli_query($con,"select distinct(order_detail.id) ,order_detail.*,product.name,product.image from order_detail,product ,`order` where order_detail.order_id='$order_id' and `order`.user_id='$uid' and order_detail.product_id=product.id");
-											$total_price=0;
-											while($row=mysqli_fetch_assoc($res)){
-											$total_price=$total_price+($row['qty']*$row['price']);
-											?>
+                                        <?php }
+                                        if ($coupon_value != '') {
+                                            ?>
                                             <tr>
-												<td class="product-name"><?php echo $row['name']?></td>
-                                                <td class="product-name"> <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"></td>
-												<td class="product-name"><?php echo $row['qty']?></td>
-												<td class="product-name"><?php echo $row['price']?></td>
-												<td class="product-name"><?php echo $row['qty']*$row['price']?></td>
-                                                
+                                                <td colspan="3"></td>
+                                                <td class="product-name">Coupon Value</td>
+                                                <td class="product-name">
+                                                    <?php echo $coupon_value ?>
+                                                </td>
+
                                             </tr>
-                                            <?php } 
-											if($coupon_value!=''){
-											?>
-											<tr>
-												<td colspan="3"></td>
-												<td class="product-name">Coupon Value</td>
-												<td class="product-name"><?php echo $coupon_value?></td>
-                                                
-                                            </tr>
-											<?php } ?>
-											<tr>
-												<td colspan="3"></td>
-												<td class="product-name">Total Price</td>
-												<td class="product-name">
-												<?php 
-												echo $total_price-$coupon_value;
-												?></td>
-                                                
-                                            </tr>
-                                        </tbody>
-                                        
-                                    </table>
-                                </div>  
-                            </form>
-                        </div>
+                                        <?php } ?>
+                                        <tr>
+                                            <td colspan="3"></td>
+                                            <td class="product-name">Total Price</td>
+                                            <td class="product-name">
+                                                <?php
+                                                echo $total_price - $coupon_value;
+                                                ?>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        
-        						
- <!-- FOOTER START -->
- <?php include 'includes/footer.php'; ?>
+    </div>
+
+
+    <!-- FOOTER START -->
+    <?php include 'includes/footer.php'; ?>
     <!-- FOOTER END -->
 
     <!-- JS -->
@@ -211,4 +225,4 @@ if($coupon_value==''){
 
 <!-- Mirrored from htmldemo.net/lavoro/lavoro/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:30:18 GMT -->
 
-</html>       
+</html>
