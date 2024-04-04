@@ -28,6 +28,12 @@ if ($cat_id > 0) {
 	</script>
 	<?php
 }
+//pr($cat_id);
+$get_cat_name = mysqli_query($con, "select * from categories where id = $cat_id ");
+$cat_arr_name = array();
+$get_sub_cat_name = mysqli_query($con, "select * from sub_categories where id = $sub_categories ");
+$Sub_cat_arr_name = array();
+//prx($get_cat_name[3]);
 
 // TOP FILE NECCESSARY CODE LINES
 
@@ -38,7 +44,6 @@ $cat_arr = array();
 while ($row = mysqli_fetch_assoc($cat_res)) {
 	$cat_arr[] = $row;
 }
-
 $obj = new add_to_cart();
 $totalProduct = $obj->totalProduct();
 
@@ -148,9 +153,25 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	<!-- header area end -->
 	<!-- category-banner area start -->
 	<div class="category-banner">
-		<!-- <div class="cat-heading">
-			<span>Women</span>
-		</div> -->
+		<div class="cat-heading">
+			<?php
+				if (!isset($_GET['sub_categories'])) {
+					while ($row = mysqli_fetch_assoc($get_cat_name)) {
+						?>
+						<span><?php echo ($row['categories']); ?></span>
+						<?php
+					}
+				}
+				else{
+					while ($row = mysqli_fetch_assoc($get_sub_cat_name)) {
+						?>
+						<span><?php echo ($row['sub_categories']); ?></span>
+						<?php
+					}
+				}
+			?>
+			
+		</div>
 	</div>
 	<!-- category-banner area end -->
 	<!-- breadcrumbs area start -->
@@ -219,7 +240,10 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	<section class="htc__product__grid bg__white ptb--100">
 		<div class="container category-list">
 			<div class="row">
-				<?php if (count($get_product) > 0) { ?>
+				<?php if (count($get_product) > 0) { 
+					//prx($get_product);
+					?>
+					
 
 					<!-- Loop through products -->
 					<?php foreach (array_chunk($get_product, 4) as $chunk) { ?>
