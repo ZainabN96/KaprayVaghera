@@ -94,68 +94,41 @@ if (isset($_SESSION['USER_LOGIN'])) {
 					<div class="col-sm-12 mobile-menu-area">
 						<div class="mobile-menu hidden-md d-lg-none" id="mob-menu">
 							<span class="mobile-menu-title">Menu</span>
-							<nav>
-								<ul>
-
-									<li>
-										<a href="shop-grid.html">Shop</a>
-										<ul>
-											<?php
-											foreach ($cat_arr as $list) {
-												?>
-												<li><a href="categories.php?id=<?php echo $list['id'] ?>">
-														<?php echo $list['categories'] ?>
-													</a>
-
-													<?php
-													$cat_id = $list['id'];
-													$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
-													if (mysqli_num_rows($sub_cat_res) > 0) {
-														?>
-														<ul>
-															<?php
-															while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
-																echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
-															}
-															?>
-														</ul>
-														<?php
-													}
-													?>
-
-												</li>
+							<a href="javascript:void(0);" class="openNav">
+								<i class="fa fa-bars" style="color: white;"></i>
+							</a>
+							<!-- Categories Menu -->
+							<div class="categories-menu">
+								<ul class="categories-list">
+									<?php foreach ($cat_arr as $list) { ?>
+										<li class="menu-item-has-children">
+											<a href="javascript:void(0);" class="expand-cat">
+												<?php echo $list['categories']; ?>
+												<i class="fa fa-plus"></i>
+											</a>
+											<ul class="sub-menu">
 												<?php
-											}
-											?>
-											<!-- <li><a href="shop-grid.html"></a>
-													<ul>
-															<li><a href="shop-grid.html">Shalwar</a></li>
-															<li><a href="shop-grid.html">Trousers</a></li>
-														
-														</ul>
-													</li>
-													<li><a class="mega-menu-title" href="shop-grid.html">  </a>
-														<ul>
-															<li><a href="shop-grid.html">Short Shirts</a></li>
-															<li><a href="shop-grid.html">Full Suit</a></li>
-															<li><a href="shop-grid.html">Kameez</a></li>
-															
-														</ul>
-													</li> -->
-
-										</ul>
-									</li>
-									<li><a href="about-us.php">About Us</a></li>
-									<!-- <li><a href="about-us.php">About Us</a></li>
-											<li><a href="contact-us.html">Contact Us</a></li> -->
+												$cat_id = $list['id'];
+												$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
+												if (mysqli_num_rows($sub_cat_res) > 0) {
+													while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
+														echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
+													}
+												}
+												?>
+											</ul>
+										</li>
+									<?php } ?>
 								</ul>
-							</nav>
+							</div>
 						</div>
 					</div>
 				</div>
 				<!-- mobile menu end -->
 			</div>
+
 			<!-- mainmenu area end -->
+
 			<!-- top details area start -->
 			<div class="col-lg-3 nopadding-left">
 				<div class="top-detail">
@@ -252,17 +225,17 @@ if (isset($_SESSION['USER_LOGIN'])) {
 						<div class="expand dropps-menu">
 							<a href="#"><i class="fa fa-align-right fa-lg" style="color:black!important"></i></a>
 							<ul class="restrain language">
-							<?php
-							if (isset($_SESSION['USER_LOGIN'])) {
+								<?php
+								if (isset($_SESSION['USER_LOGIN'])) {
+									?>
+									<li><a href="profile.php">My Account</a></li>
+									<?php
+								}
 								?>
-								<li><a href="profile.php">My Account</a></li>
-							<?php
-							}
-							?>
 								<li><a href="wishlist.php">My Wishlist</a></li>
 								<li><a href="cart.php">My Cart</a></li>
 								<li><a href="checkout.php">Checkout</a></li>
-								
+
 								<?php
 								if (isset($_SESSION['USER_LOGIN'])) {
 									?>
@@ -285,3 +258,22 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	</div>
 </header>
 <!-- header area end -->
+
+
+<script>
+	// Ensure the DOM content is fully loaded before adding event listeners
+	document.addEventListener('DOMContentLoaded', function () {
+		// Toggle mobile navigation
+		document.querySelector('.openNav').addEventListener('click', function () {
+			document.getElementById("mob-menu").classList.toggle("show");
+			document.querySelector('.categories-menu').classList.toggle("show");
+		});
+
+		// Toggle category dropdown
+		document.querySelectorAll('.expand-cat').forEach(item => {
+			item.addEventListener('click', function () {
+				this.parentNode.querySelector('.sub-menu').classList.toggle('show');
+			});
+		});
+	});
+</script>

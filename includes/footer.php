@@ -78,12 +78,12 @@
 						</div>
 						<div class="cakewalk-footer-content">
 							<ul>
-								<li><a href="about-us.php">Track Your Order</a></li>
+								<li><a href="track_order.php">Track Your Order</a></li>
 
 								<li><a href="return_exchange.php">Return & Exchange</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Terms & Condition</a></li>
-								<li><a href="#">Payment Informartion</a></li>
+								<li><a href="privacy_policy.php">Privacy Policy</a></li>
+								<li><a href="terms_conditions.php ">Terms & Condition</a></li>
+								<li><a href="payment_information.php">Payment Informartion</a></li>
 
 							</ul>
 						</div>
@@ -111,8 +111,8 @@
 						<div class="cakewalk-footer-content">
 							<ul>
 								<li><a href="contact-us.php">Contact Us</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">FAQ</a></li>
+								<li><a href="privacy_policy.php">Privacy Policy</a></li>
+								<li><a href="faq.php">FAQ</a></li>
 							</ul>
 						</div>
 					</div>
@@ -124,14 +124,16 @@
 						</div>
 						<div class="cakewalk-footer-content social-footer">
 							<ul>
-								<li><a href="https://www.facebook.com/KaprayV" class="facebook"><i
+								<li><a href="https://www.facebook.com/KaprayV" target="_blank" class="facebook"><i
 											class="bi bi-facebook"></i><span class="ps-3 text-light"> Facebook
 										</span></a></li>
 								<li><a href="https://www.instagram.com/kaprayvaghera?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
-										class="instagram"><i class="bi bi-instagram"></i><span class="ps-3 text-light">
+										target="_blank" class="instagram"><i class="bi bi-instagram"></i><span
+											class="ps-3 text-light">
 											Instagram </a></span></li>
-								<li><a href="https://twitter.com/" class="twitter"><i class="bi bi-twitter-x"></i><span
-											class="ps-3 text-light"> Twitter </a></span></li>
+								<li><a href="https://twitter.com/" target="_blank" class="twitter"><i
+											class="bi bi-twitter-x"></i><span class="ps-3 text-light"> Twitter
+									</a></span></li>
 
 								<!-- <li><a href="https://youtube.com/" class="tiktok"><i class="bi bi-tiktok"></i><span class="ps-3 text-light"> Youtube </a></span></li> -->
 
@@ -188,7 +190,7 @@
 						</div>
 						<div class="infof-content">
 							<h3>Openning Hour</h3>
-							<p>Sat - Thu : 9:00 am - 22:00 pm</p>
+							<p>Mon - Sun : 9:00 am - 11:00 pm</p>
 						</div>
 					</div>
 				</div>
