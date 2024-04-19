@@ -81,13 +81,13 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
               <?php } ?>
 
                <li class="menu-item-has-children dropdown">
-                     <?php 
-                if($_SESSION['ADMIN_ROLE']==1){
-                  echo '<a href="order_master_vendor.php" ><i class="bi bi-cart4"></i> Order Master</a>';
-                }else{
-                  echo '<a href="order_master.php" ><i class="bi bi-cart4"></i> Order Master</a>';
-                }
-                ?>
+                  <?php 
+                     if($_SESSION['ADMIN_ROLE']==1){
+                        echo '<a href="order_master_vendor.php" ><i class="bi bi-cart4"></i> Order Master</a>';
+                     }else{
+                        echo '<a href="order_master.php" ><i class="bi bi-cart4"></i> Order Master</a>';
+                     }
+                  ?>
                   </li>
                </ul>
             </div>
@@ -105,13 +105,135 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                </div>
             </div>
             <div class="top-right">
-               <div class="header-menu">
-                  <div class="user-area dropdown float-right">
-                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome <?php echo $_SESSION['ADMIN_USERNAME']?></a>
+                <div class="header-menu">
+                    <div class="header-left">
+                        <div class="dropdown for-notification">
+                           <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-bell"></i>
+                              <span id="notification-count" class="count bg-danger">0</span>
+                           </button>
+                           <div class="dropdown-menu" aria-labelledby="notification">
+                              <p class="red">You have <span id="notification-message">0</span> Notification</p>
+                              
+                              <div class="notification-menu" id="notification-menu"></div>
+                              <!-- <a class="dropdown-item media" href="#">
+                                 <i class="fa fa-check"></i>
+                                 <p>Server #1 overloaded.</p>
+                              </a>
+                              <a class="dropdown-item media" href="#">
+                                 <i class="fa fa-info"></i>
+                                 <p>Server #2 overloaded.</p>
+                              </a>
+                              <a class="dropdown-item media" href="#">
+                                 <i class="fa fa-warning"></i>
+                                 <p>Server #3 overloaded.</p>
+                              </a> -->
+                           </div>
+                        </div>
+
+                        <!-- <div class="dropdown for-notification">
+                           <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-bell"></i>
+                              <span id="notification-count" class="count bg-danger">0</span>
+                           </button>
+                           <div class="dropdown-menu" aria-labelledby="notification" id="notification-menu">
+                              <p class="red">You have <span id="notification-message">0</span> Notifications</p>
+                           </div>
+                        </div> -->
+
+
+                        <!-- message -->
+                        <!-- <div class="dropdown for-message">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-envelope"></i>
+                                <span class="count bg-primary">4</span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="message">
+                                <p class="red">You have 4 Mails</p>
+                                <a class="dropdown-item media" href="#">
+                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/1.jpg"></span>
+                                    <div class="message media-body">
+                                        <span class="name float-left">Jonathan Smith</span>
+                                        <span class="time float-right">Just now</span>
+                                        <p>Hello, this is an example msg</p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item media" href="#">
+                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/2.jpg"></span>
+                                    <div class="message media-body">
+                                        <span class="name float-left">Jack Sanders</span>
+                                        <span class="time float-right">5 minutes ago</span>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item media" href="#">
+                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/3.jpg"></span>
+                                    <div class="message media-body">
+                                        <span class="name float-left">Cheryl Wheeler</span>
+                                        <span class="time float-right">10 minutes ago</span>
+                                        <p>Hello, this is an example msg</p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item media" href="#">
+                                    <span class="photo media-left"><img alt="avatar" src="images/avatar/4.jpg"></span>
+                                    <div class="message media-body">
+                                        <span class="name float-left">Rachel Santos</span>
+                                        <span class="time float-right">15 minutes ago</span>
+                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <div class="user-area dropdown float-right">
+                     <a href="#" class="dropdown-toggle welcome-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mt-3"> Welcome <?php echo $_SESSION['ADMIN_USERNAME']?>
+                     </a>
                      <div class="user-menu dropdown-menu">
                         <a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i>Logout</a>
                      </div>
-                  </div>
                </div>
-            </div>
+            </div>    
          </header>
+         <script src="assets/js/vendor/jquery-2.1.4.min.js" type="text/javascript"></script>
+
+         <script>
+            function fetchNotifications() {
+               //debugger;
+               $.ajax({
+                     url: 'fetch_notifications.php', 
+                     type: 'GET',
+                     dataType: 'json',
+                     success: function(response) {
+                        debugger;
+                        $('#notification-count').text(response.count);
+                        $('#notification-message').text(response.count);
+
+                        // Update notification list
+                        $('#notification-menu').empty();
+                        if (response.notifications.length > 0) {
+                           debugger;
+                           $.each(response.notifications, function(index, notification) {
+                              debugger;
+                                 $('#notification-menu').append('<a class="dropdown-item media" href="#">' +
+                                    '<i class="fa ' + notification.icon + '"></i>' +
+                                    '<p>' + notification.message + '</p>' +
+                                    '</a>');
+                           });
+                        } else {
+                           $('#notification-menu').append('<p>No notifications found.</p>');
+                        }
+                     },
+                     error: function(xhr, status, error) {
+                        console.error('Error fetching notifications:', error);
+                     }
+               });
+            }
+
+            // Initial fetch of notifications
+            fetchNotifications();
+
+            // Refresh notifications every 2-3 seconds
+            //setInterval(fetchNotifications, 2000)
+         </script>

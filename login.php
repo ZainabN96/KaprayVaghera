@@ -33,16 +33,11 @@ include 'includes/header.php';
 								</div>
 							</div>
 							<div class="form-action">
-								<p class="lost_password"> <a href="forgot_password.php"
-										style="padding-right: 115px;">Lost your password?</a></p>
-
-
+								<p class="lost_password"> <a href="forgot_password.php" style="padding-right: 115px;">Lost your password?</a></p>
 
 							</div>
 
-							<div class="login-btn row col-lg-6 col-md-8 col-sm-12 col-xs-12" style="position: relative; 
-
-left: 300px;">
+							<div class="login-btn row col-lg-6 col-md-8 col-sm-12 col-xs-12" style="position: relative; left: 300px;">
 								<button type="button " class="btn btn-primary mt-3"
 									onclick="user_login()">Login</button>
 								<button type="button" class="btn btn-secondary" data-bs-toggle="modal"

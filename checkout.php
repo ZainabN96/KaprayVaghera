@@ -75,6 +75,9 @@ if (isset($_POST['submit'])) {
 
         }
     }
+   
+    mysqli_query($con, "INSERT INTO notifications (user_id, message, status) VALUES ('$user_id', 'New order #$order_id has been placed', 'unread')");
+
 
 
     if ($payment_type == 'instamojo') {
