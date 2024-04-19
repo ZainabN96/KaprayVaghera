@@ -437,8 +437,8 @@ e.preventDefault();
 					if(result=='wrong'){
 						jQuery('.login_msg p').html('Please enter valid login details');
 					}
-					if(result=='valid'){
-						window.location.href=window.location.href;
+					if(result==='valid'){
+						window.location.href='index.php';
 					}
 				}	
 			});
