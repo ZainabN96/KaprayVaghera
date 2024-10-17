@@ -7,15 +7,21 @@ ob_start();
 $title = 'Product-Details | Kapray Vaghera';
 include 'includes/header.php';
 if (isset($_GET['id'])) {
+	
 	$product_id = mysqli_real_escape_string($con, $_GET['id']);
-	if ($product_id > 0) {
-		$get_product = get_product($con, '', '', $product_id);
-	} else {
-		?>
-		<script>
-			window.location.href = 'index.php';
-		</script>
-		<?php
+    
+    if ($product_id > 0) {
+        $get_product = get_product($con, '', '', $product_id);
+        
+        if (!$get_product) {
+            echo "<script>alert('Product not found');</script>";
+            ?>
+            <script>
+                window.location.href = 'index.php';
+            </script>
+            <?php
+            exit();
+        }
 	}
 
 	$resMultipleImages = mysqli_query($con, "select product_images from product_images where product_id='$product_id'");

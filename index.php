@@ -68,9 +68,9 @@ include 'includes/header.php';
 					<div class="col-lg-3 col-md-4 col-sm-6">
 						<div class="single-product slider-item">
 							<div class="product-img">
-								<a href="#">
+								<a href="product.php?id=<?php echo $list['id'] ?>">
 									<img class="primary-image" style="width: 450px; height: 350px;"
-										src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
+										src="<?php echo PRODUCT_IMAGE_SITE_PATH.$list['image'] ?>" alt="" />
 									<img class="secondary-image" style="width: 450px; height: 350px;"
 										src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
 								</a>
@@ -213,7 +213,7 @@ include 'includes/header.php';
 											src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
 									</a>
 									<div class="action-zoom">
-										<div class="add-to-cart">
+										<div class="add-to-cart">y
 											<a href="product.php?id=<?php echo $list['id'] ?>"><i
 													class="fa fa-search-plus"></i></a>
 										</div>

@@ -29,7 +29,7 @@ if(isset($_GET['type']) && $_GET['type']!=''){
 	}
 }
 
-$sql="select product.*,categories.categories from product,categories where product.categories_id=categories.id $condition order by product.id desc";
+$sql="select product.*, categories.categories from product,categories where product.categories_id=categories.id $condition order by product.id desc";
 $res=mysqli_query($con,$sql);
 ?>
 <div class="content pb-0">
