@@ -31,68 +31,64 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
    </head>
    <body>
-      <aside id="left-panel" class="left-panel">
-         <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
-               <ul class="nav navbar-nav mb-4">
-                  <li class="menu-title">Menu</li>
-                  
-              <li class="menu-item-has-children dropdown">
-                     <a href="product.php" ><i class="bi bi-box-seam"> </i> Product Master</a>
-                  </li>
-             
-              <?php if($_SESSION['ADMIN_ROLE']!=1){?>
-                <li class="menu-item-has-children dropdown">
-                     <a href="categories.php" ><i class="bi bi-menu-button-wide"></i> Categories Master</a>
-                  </li>
-              <li class="menu-item-has-children dropdown">
-                     <a href="sub_categories.php" ><i class="bi bi-menu-app"></i> Sub Categories Master</a>
-                  </li>
-                    <li class="menu-item-has-children dropdown">
-                     <a href="color.php" ><i class="bi bi-palette"></i> Color Master</a>
-                  </li>
-              <li class="menu-item-has-children dropdown">
-                     <a href="size.php" ><i class="bi bi-textarea-resize"></i> Size Master</a>
-                  </li>
-                   <li class="menu-item-has-children dropdown">
-                     <a href="coupon_master.php" ><i class="bi bi-coin"></i> Coupon Master</a>
-                  </li>
-                   <li class="menu-item-has-children dropdown">
-                     <a href="banner.php" ><i class="bi bi-columns-gap"></i> Banner</a>
-                  </li>
-              <li class="menu-item-has-children dropdown">
-                     <a href="product_review.php" ><i class="bi bi-star"></i> Product Review</a>
-                  </li>
-            
-             
-               <li class="menu-item-has-children dropdown">
-                     <a href="vendor_management.php" ><i class="bi bi-person"></i> Admin Management</a>
-                  </li>
-             
-                  
-              <li class="menu-item-has-children dropdown">
-                     <a href="users.php" ><i class="bi bi-people"></i> User Master</a>
-                  </li>
-             
-              <li class="menu-item-has-children dropdown">
-                     <a href="contact_us.php" ><i class="bi bi-phone"></i> Contact</a>
-                  </li>
-               
-              <?php } ?>
+   <aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav mb-4">
+                <li class="menu-title">Menu</li>
 
-               <li class="menu-item-has-children dropdown">
-                  <?php 
-                     if($_SESSION['ADMIN_ROLE']==1){
-                        echo '<a href="order_master_vendor.php" ><i class="bi bi-cart4"></i> Order Master</a>';
-                     }else{
-                        echo '<a href="order_master.php" ><i class="bi bi-cart4"></i> Order Master</a>';
-                     }
-                  ?>
-                  </li>
-               </ul>
-            </div>
-         </nav>
-      </aside>
+                <!-- Admin Role Menu Items -->
+                <?php if($_SESSION['ADMIN_ROLE'] == "Admin"){ ?>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="vendor_management.php"><i class="bi bi-person"></i> Admin Management</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="users.php"><i class="bi bi-people"></i> User Master</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="contact_us.php"><i class="bi bi-phone"></i> Contact</a>
+                    </li>
+                <?php } ?>
+
+                <!-- Product Team Role Menu Items -->
+                <?php if($_SESSION['ADMIN_ROLE'] == "Admin" || $_SESSION['ADMIN_ROLE'] == "Product Team"){ ?>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="product.php"><i class="bi bi-box-seam"></i> Product Master</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="categories.php"><i class="bi bi-menu-button-wide"></i> Categories Master</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="sub_categories.php"><i class="bi bi-menu-app"></i> Sub Categories Master</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="color.php"><i class="bi bi-palette"></i> Color Master</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="size.php"><i class="bi bi-textarea-resize"></i> Size Master</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="coupon_master.php"><i class="bi bi-coin"></i> Coupon Master</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="banner.php"><i class="bi bi-columns-gap"></i> Banner</a>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="product_review.php"><i class="bi bi-star"></i> Product Review</a>
+                    </li>
+                <?php } ?>
+
+                <!-- Order Team and Admin Role Menu Items -->
+                <?php if($_SESSION['ADMIN_ROLE'] == "Admin" || $_SESSION['ADMIN_ROLE'] == "Order Team"){ ?>
+                    <li class="menu-item-has-children dropdown">
+                     <a href="order_master.php"><i class="bi bi-cart4"></i> Order Master</a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </nav>
+</aside>
+
       <div id="right-panel" class="right-panel">
          <header id="header" class="header">
             <div class="top-left">
