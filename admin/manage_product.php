@@ -168,12 +168,12 @@ if(isset($_POST['submit'])){
 				if($_FILES['product_images']['name'][$key]!=''){
 					if(isset($_POST['product_images_id'][$key])){
 						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
-						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
+						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
 						// imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
 						mysqli_query($con,"update product_images set product_images='$image' where id='".$_POST['product_images_id'][$key]."'");
 					}else{
 						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
-						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
+						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
 						// imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
 						mysqli_query($con,"insert into product_images(product_id,product_images) values('$id','$image')");
 					}
@@ -186,8 +186,8 @@ if(isset($_POST['submit'])){
 				foreach($_FILES['product_images']['name'] as $key=>$val){
 					if($_FILES['product_images']['name'][$key]!=''){
 						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
-						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
-						imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
+						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
+						imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
 						mysqli_query($con,"insert into product_images(product_id,product_images) values('$id','$image')");
 					}
 				}

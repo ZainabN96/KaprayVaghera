@@ -20,9 +20,9 @@ include 'includes/header.php';
 				<!-- <img width="1575" height="950" src="img/slider/home-5/slider5-1.webp" alt="" title="#slider-direction-1"  /> -->
 
 
-				<img width="1575" height="950" src="img/slider/home-5/image-1575x950 (1).jpg" alt=""
+				<img width="1575" height="950" src="img/slider/slider2.jpg" alt=""
 					title="#slider-direction-1" />
-				<img width="1575" height="950" src="img/slider/home-5/image-1575x950 (6).jpg" alt=""
+				<img width="1575" height="950" src="img/slider/slider1.jpg" alt=""
 					title="#slider-direction-2" />
 			</div>
 			<!-- direction 1 -->
