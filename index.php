@@ -31,7 +31,7 @@ include 'includes/header.php';
 				<div class="slider-content t-lfl lft-pr s-tb slider-1">
 					<div class="title-container s-tb-c title-compress">
 						<h3 class="title2 low-f">Collection 2024</h3>
-						<h4 class="title2">SPRING-SUMMER</h4>
+						<h4 class="title2">FALL-WINTER</h4>
 						<a class="btn-title" href="#hotselling">View collection</a>
 					</div>
 				</div>
