@@ -50,9 +50,9 @@ $res=mysqli_query($con,$sql);
 							   <th width="10%">Categories</th>
 							   <th width="30%">Name</th>
 							   <th width="10%">Image</th>
-							   <th width="10%">MRP</th>
+							   <!-- <th width="10%">MRP</th>
 							   <th width="7%">Price</th>
-							   <th width="7%">Qty</th>
+							   <th width="7%">Qty</th> -->
 							   <th width="26%" class="text-left pl-5">Action</th>
 							</tr>
 						 </thead>
@@ -63,19 +63,19 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <td class="serial"><?php echo $i?></td>
 							   <td><?php echo $row['categories']?></td>
-							   <td><?php echo $row['name']?></td>
+							   <td><a href="product-detail.php"><?php echo $row['name']?></a></td>
 							   <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></td>
-							   <td><?php echo $row['mrp']?></td>
+							   <!-- <td><?php echo $row['mrp']?></td>
 							   <td><?php echo $row['price']?></td>
-							   <td><?php echo $row['qty']?><br/>
-							   <?php
+							   <td><?php echo $row['qty']?><br> -->
+							   <!-- <?php
 							   $productSoldQtyByProductId=productSoldQtyByProductId($con,$row['id']);
 							   $pneding_qty=$row['qty']-$productSoldQtyByProductId;
 							   
 							   ?>
 							   Pending Qty <?php echo $pneding_qty?>
 							   
-							   </td>
+							   </td> -->
 							   <td>
 								<?php
 								if($row['status']==1){
