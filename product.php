@@ -7,21 +7,21 @@ ob_start();
 $title = 'Product-Details | Kapray Vaghera';
 include 'includes/header.php';
 if (isset($_GET['id'])) {
-	
+
 	$product_id = mysqli_real_escape_string($con, $_GET['id']);
-    
-    if ($product_id > 0) {
-        $get_product = get_product($con, '', '', $product_id);
-        
-        if (!$get_product) {
-            echo "<script>alert('Product not found');</script>";
-            ?>
-            <script>
-                window.location.href = 'index.php';
-            </script>
-            <?php
-            exit();
-        }
+
+	if ($product_id > 0) {
+		$get_product = get_product($con, '', '', $product_id);
+
+		if (!$get_product) {
+			echo "<script>alert('Product not found');</script>";
+?>
+			<script>
+				window.location.href = 'index.php';
+			</script>
+	<?php
+			exit();
+		}
 	}
 
 	$resMultipleImages = mysqli_query($con, "select product_images from product_images where product_id='$product_id'");
@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
 	<script>
 		window.location.href = 'index.php';
 	</script>
-	<?php
+<?php
 }
 
 if (isset($_POST['review_submit'])) {
@@ -113,12 +113,12 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									alt="big-1">
 							</a>
 						</div>
-						<!-- <?php if (isset($multipleImages[0])) { ?>
+						<?php if (isset($multipleImages[0])) { ?>
 							<div class="single-zoom-thumb">
 								<ul class="nav" id="gallery_01">
 									<?php
 									foreach ($multipleImages as $list) {
-										?>
+									?>
 										<li class="">
 											<a href="#" class="elevatezoom-gallery"
 												data-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
@@ -131,7 +131,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 
 								</ul>
 							</div>
-						<?php } ?> -->
+						<?php } ?>
 					</div>
 				</div>
 				<div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40  mt-5">
@@ -168,7 +168,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									$is_cart_box_show = "hide";
 									if ($is_color == 0 && $is_size == 0) {
 										$is_cart_box_show = "";
-										?>
+									?>
 
 										<div class="sin__desc">
 											<?php
@@ -192,6 +192,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 											</p>
 										</div>
 									<?php } ?>
+									
 									<!-- 										
 										<div class="actions-e">
 											<div class="action-buttons-single">
@@ -213,7 +214,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 											</div>
 										</div> -->
 
-									<?php if ($is_color > 0) { ?>
+									<!-- <?php if ($is_color > 0) { ?>
 										<div class="sin__desc align--left">
 											<p><span>Color:</span></p>
 											<ul class="pro__color">
@@ -226,7 +227,23 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 											</ul>
 										</div>
 									<?php } ?>
+									<br> -->
+									<?php if ($is_color > 0) { ?>
+										<div class="sin__desc align--left">
+											<p><span>Color:</span></p>
+											<ul class="pro__color">
+												<?php
+												foreach ($colorArr as $key => $val) {
+													echo "<li style='background:" . htmlspecialchars($val[0]) . " none repeat scroll 0 0'>
+                        <a href='javascript:void(0)' onclick=\"loadAttr('" . htmlspecialchars($key) . "', '" . htmlspecialchars($get_product[0]['id']) . "', 'color')\">" . htmlspecialchars($val[0]) . "</a>
+                      </li>";
+												}
+												?>
+											</ul>
+										</div>
+									<?php } ?>
 									<br>
+
 									<?php if ($is_size > 0) { ?>
 										<div class="sin__desc align--left">
 											<p><span>Size:</span></p>
@@ -253,7 +270,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									<div class="sin__desc align--left hide <?php echo $isQtyHide ?>" id="cart_qty">
 										<?php
 										if ($cart_show != '') {
-											?>
+										?>
 											<p><span>Qty:</span>
 												<select id="qty" class="select__size">
 													<?php
@@ -275,6 +292,10 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 													<?php echo $get_product['0']['categories'] ?>
 												</a></li>
 										</ul>
+									</div>
+									<br>
+									<div>
+										<img src="img/sizechart.jpeg" alt="">
 									</div>
 								</div>
 
@@ -354,7 +375,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 								if (mysqli_num_rows($product_review_res) > 0) {
 
 									while ($product_review_row = mysqli_fetch_assoc($product_review_res)) {
-										?>
+								?>
 
 										<article class="row">
 											<div class="col-md-12 col-sm-12">
@@ -385,7 +406,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 												</div>
 											</div>
 										</article>
-									<?php }
+								<?php }
 								} else {
 									echo "<h3 class='submit_review_hint'>No review added</h3><br/>";
 								}
@@ -395,7 +416,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 								<h3 class="review_heading">Enter your review</h3><br />
 								<?php
 								if (isset($_SESSION['USER_LOGIN'])) {
-									?>
+								?>
 									<div class="row" id="post-review-box" style=>
 										<div class="col-md-12">
 											<form action="" method="post">
@@ -441,7 +462,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 	</script>
 
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
+		document.addEventListener('DOMContentLoaded', function() {
 			const descriptionTab = document.querySelector('.description');
 			const reviewTab = document.querySelector('.review');
 			const descriptionContent = document.getElementById('description');
@@ -471,13 +492,13 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 			}
 
 			// Add event listener to description tab
-			descriptionTab.addEventListener('click', function (event) {
+			descriptionTab.addEventListener('click', function(event) {
 				event.preventDefault();
 				showDescription();
 			});
 
 			// Add event listener to review tab
-			reviewTab.addEventListener('click', function (event) {
+			reviewTab.addEventListener('click', function(event) {
 				event.preventDefault();
 				showReview();
 			});
