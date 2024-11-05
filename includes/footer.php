@@ -97,7 +97,7 @@
 						<div class="cakewalk-footer-content">
 							<ul>
 								<li><a href="#">Size Guide</a></li>
-								<li><a href="#">Size Chart</a></li>
+								<li><a href="sizechart.php">Size Chart</a></li>
 
 							</ul>
 						</div>

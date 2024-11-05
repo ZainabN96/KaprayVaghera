@@ -192,7 +192,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 											</p>
 										</div>
 									<?php } ?>
-									
+
 									<!-- 										
 										<div class="actions-e">
 											<div class="action-buttons-single">
@@ -294,9 +294,11 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 										</ul>
 									</div>
 									<br>
-									<div>
-										<img src="img/sizechart.jpeg" alt="">
-									</div>
+									<!-- <div>
+										<a href="sizechart.php">
+											<img src="img/sizechart.jpeg" alt="Size Chart">
+										</a>
+									</div> -->
 								</div>
 
 							</div>
@@ -354,8 +356,14 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 						<li role="presentation" class="review"><a href="#review" role="tab" data-bs-toggle="tab"
 								aria-selected="true">review</a></li>
 					</ul>
+
 					<!-- End List And Grid View -->
 				</div>
+			</div>
+			<div>
+				<a href="sizechart.php">
+					<img src="img/sizechart.jpeg" alt="Size Chart">
+				</a>
 			</div>
 			<!-- Tab panes -->
 			<div class="row">
@@ -437,6 +445,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 											</form>
 										</div>
 									</div>
+
 								<?php } else {
 									echo "<span class='submit_review'>Please <a href='login.php' >Login</a> to submit your review</span>";
 								}
