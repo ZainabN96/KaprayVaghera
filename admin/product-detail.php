@@ -86,11 +86,11 @@ $product_review_res = mysqli_query($con, "SELECT users.name, product_review.id, 
                         <h4 class="box-title">Product Details </h4>
                     </div>
                     <div class="card-body card-block">
-                        <div class="product-details-area mt-5">
-                            <div class="container mt-5">
-                                <div class="row mt-5">
-                                    <div class="col-md-5 col-12 mt-5">
-                                        <div class="zoomWrapper mt-5">
+                        <div class="product-details-area">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-5 col-12 ">
+                                        <div class="zoomWrapper">
                                             <div id="img-1" class="zoomWrapper single-zoom">
                                                 <a href="#">
                                                     <img id="zoom1" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['image']; ?>"
@@ -117,7 +117,7 @@ $product_review_res = mysqli_query($con, "SELECT users.name, product_review.id, 
                                             <?php } ?>
                                         </div>
                                     </div>
-                                    <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40 mt-5">
+                                    <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40">
                                         <div class="product-content mt-5">
                                             <h2 class="product-name mt-5">
                                                 <?php echo htmlspecialchars($get_product['name']); ?>
