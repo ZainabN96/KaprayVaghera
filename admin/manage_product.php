@@ -3,7 +3,7 @@ require('top.inc.php');
 
 $condition='';
 $condition1='';
-if($_SESSION['ADMIN_ROLE']==1){
+if($_SESSION['ADMIN_ROLE']==== "Admin" || $_SESSION['ADMIN_ROLE'] == "Product Team"){
 	$condition=" and product.added_by='".$_SESSION['ADMIN_ID']."'";
 	$condition1=" and added_by='".$_SESSION['ADMIN_ID']."'";
 }

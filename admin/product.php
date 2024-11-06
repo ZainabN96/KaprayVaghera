@@ -63,7 +63,7 @@ $res=mysqli_query($con,$sql);
 							<tr>
 							   <td class="serial"><?php echo $i?></td>
 							   <td><?php echo $row['categories']?></td>
-							   <td><a href="product-detail.php"><?php echo $row['name']?></a></td>
+							   <td><a href="product-detail.php?id=<?php echo $row['id']?>"><?php echo $row['name']?></a></td>
 							   <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></td>
 							   <!-- <td><?php echo $row['mrp']?></td>
 							   <td><?php echo $row['price']?></td>
