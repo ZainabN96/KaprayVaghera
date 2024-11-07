@@ -190,13 +190,21 @@ if ($coupon_value == '') {
                                                 </td>
 
                                             </tr>
+                                            <tr>
+                                                <td colspan="3"></td>
+                                                <td class="product-name">Delivery Charges</td>
+                                                <td class="product-name">
+                                                    <?php echo $delivery_charges ?>
+                                                </td>
+
+                                            </tr>
                                         <?php } ?>
                                         <tr>
                                             <td colspan="3"></td>
                                             <td class="product-name">Total Price</td>
                                             <td class="product-name">
                                                 <?php
-                                                echo $total_price - $coupon_value;
+                                                echo $total_price - $coupon_value + $delivery_charges;
                                                 ?>
                                             </td>
 

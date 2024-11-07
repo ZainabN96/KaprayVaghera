@@ -118,129 +118,6 @@ if (isset($_POST['submit'])) {
 
 }
 
-
-// if (isset($_POST['submit'])) {
-
-//     $address = get_safe_value($con, $_POST['address']);
-//     $city = get_safe_value($con, $_POST['city']);
-//     $pincode = get_safe_value($con, $_POST['pincode']);
-//     $payment_type = get_safe_value($con, $_POST['payment_type']);
-//     $user_id = $_SESSION['USER_ID'];
-
-//     foreach ($_SESSION['cart'] as $key => $val) {
-//         foreach ($val as $key1 => $val1) {
-//             $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select price from product_attributes where id='$key1'"));
-//             $price = $resAttr['price'];
-//             $qty = $val1['qty'];
-//             $cart_total = $cart_total + ($price * $qty);
-
-//         }
-//     }
-//     $total_price = $cart_total;
-//     $payment_status = 'pending';
-//     if ($payment_type == 'cod') {
-//         $payment_status = 'success';
-//     }
-//     $order_status = '1';
-//     $added_on = date('Y-m-d h:i:s');
-
-//     $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
-
-//     if (isset($_SESSION['COUPON_ID'])) {
-//         $coupon_id = $_SESSION['COUPON_ID'];
-//         $coupon_code = $_SESSION['COUPON_CODE'];
-//         $coupon_value = $_SESSION['COUPON_VALUE'];
-//         $total_price = $total_price - $coupon_value;
-//         unset($_SESSION['COUPON_ID']);
-//         unset($_SESSION['COUPON_CODE']);
-//         unset($_SESSION['COUPON_VALUE']);
-//     } else {
-//         $coupon_id = '';
-//         $coupon_code = '';
-//         $coupon_value = '';
-//     }
-
-//     mysqli_query($con, "insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,txnid,coupon_id,coupon_code,coupon_value) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$txnid','$coupon_id','$coupon_code','$coupon_value')");
-
-//     $order_id = mysqli_insert_id($con);
-
-//     foreach ($_SESSION['cart'] as $key => $val) {
-
-//         foreach ($val as $key1 => $val1) {
-//             $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select price from product_attributes where id='$key1'"));
-//             $price = $resAttr['price'];
-//             $qty = $val1['qty'];
-
-//             mysqli_query($con, "insert into `order_detail`(order_id,product_id,product_attr_id,qty,price) values('$order_id','$key','$key1','$qty','$price')");
-
-//         }
-//     }
-   
-//     mysqli_query($con, "INSERT INTO notifications (user_id, message, status) VALUES ('$user_id', 'New order #$order_id has been placed', 'unread')");
-
-
-
-//     if ($payment_type == 'instamojo') {
-
-//         $userArr = mysqli_fetch_assoc(mysqli_query($con, "select * from users where id='$user_id'"));
-
-//         $ch = curl_init();
-//         curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
-//         curl_setopt($ch, CURLOPT_HEADER, FALSE);
-//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-//         curl_setopt(
-//             $ch,
-//             CURLOPT_HTTPHEADER,
-//             array("X-Api-Key:" . INSTAMOJO_KEY, "X-Auth-Token:" . INSTAMOJO_TOKEN)
-//         );
-
-//         $payload = array(
-//             'purpose' => 'Buy Product',
-//             'amount' => $total_price,
-//             'phone' => $userArr['mobile'],
-//             'buyer_name' => $userArr['name'],
-//             'redirect_url' => INSTAMOJO_REDIRECT,
-//             'send_email' => false,
-//             'send_sms' => false,
-//             'email' => $userArr['email'],
-//             'allow_repeated_payments' => false
-//         );
-//         curl_setopt($ch, CURLOPT_POST, true);
-//         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
-//         $response = curl_exec($ch);
-//         curl_close($ch);
-//         $response = json_decode($response);
-//         if (isset($response->payment_request->id)) {
-//             unset($_SESSION['cart']);
-//             $_SESSION['TID'] = $response->payment_request->id;
-//             mysqli_query($con, "update `order` set txnid='" . $response->payment_request->id . "' where id='" . $order_id . "'");
-//             ?>
-//             <script>
-//                 window.location.href = '<?php echo $response->payment_request->longurl ?>';
-//             </script>
-//             <?php
-//         } else {
-//             if (isset($response->message)) {
-//                 $errMsg .= "<div class='instamojo_error'>";
-//                 foreach ($response->message as $key => $val) {
-//                     $errMsg .= strtoupper($key) . ' : ' . $val[0] . '<br/>';
-//                 }
-//                 $errMsg .= "</div>";
-//             } else {
-//                 echo "Something went wrong";
-//             }
-//         }
-//     } else {
-//         //sentInvoice($con,$order_id);
-//         ?>
-//         <script>
-//             window.location.href = 'thankyou.php';
-//         </script>
-//         <?php
-//     }
-
-// }
 ?>
 
 <body>
@@ -352,13 +229,7 @@ if (isset($_POST['submit'])) {
                                         <div class="bilinfo">
 
                                             <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="single-input">
-                                                        <input type="text" name="address" placeholder="Street Address"
-                                                            required value="<?php echo $address ?>">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
+                                            <div class="col-md-12">
                                                     <div class="single-input">
                                                         <select name="city" id="city" onchange="updateDeliveryCharges()" required>
                                                         <option value="">Select City</option>
@@ -418,7 +289,14 @@ if (isset($_POST['submit'])) {
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <input type="text" name="address" placeholder="Street Address"
+                                                            required value="<?php echo $address ?>">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
                                                     <div class="single-input">
                                                         <input type="text" name="pincode" placeholder="Post code/ zip"
                                                             required value="<?php echo $pincode ?>">
@@ -434,7 +312,7 @@ if (isset($_POST['submit'])) {
                                     <div class="accordion__body">
                                         <div class="paymentinfo">
                                             <div class="single-method">
-                                                <input type="radio" name="payment_type" value="COD" required selected /> Cash On
+                                                <input type="radio" name="payment_type" value="COD" required checked /> Cash On
                                                 Delivery
 
                                             </div>
@@ -506,10 +384,10 @@ if (isset($_POST['submit'])) {
                         <span class="price" id="delivery_charges">0</span>
                     </div>
 
-                        <!-- <div class="ordre-details__total" id="coupon_box">
+                        <div class="ordre-details__total" id="coupon_box">
                                 <h5>Coupon Value</h5>
                                 <span class="price" id="coupon_price"></span>
-                            </div> -->
+                            </div>
                         <div class="ordre-details__total">
                             <h5>Order total </h5>
                             <span class="price" id="order_total_price">
@@ -551,30 +429,15 @@ if (isset($_POST['submit'])) {
                     deliveryCharges = 200;
                     break;
                 default:
-                    deliveryCharges = 250; // Default charge for other cities
+                    deliveryCharges = 250; 
                     break;
             }
 
             // Display the calculated delivery charges to the user
-            document.getElementById('delivery_charges_display').textContent = deliveryCharges;
+            document.getElementById('delivery_charges').textContent = deliveryCharges;
         }
-                // let originalCartTotal = <?php echo $cart_total; ?>;
-        // let deliveryCharges = 0;
-
-        // function updateDeliveryCharges() {
-        //     const city = document.getElementById("city").value;
-        //     const orderTotalPrice = document.getElementById("order_total_price");
-
-        //     if (city === "Lahore") {
-        //         deliveryCharges = 0;
-        //     } else {
-        //         deliveryCharges = 200; // Set the delivery charge for other cities, e.g., 100
-        //     }
-
-        //     const updatedTotal = originalCartTotal + deliveryCharges;
-        //     orderTotalPrice.innerText = updatedTotal;
-        // }
-
+        //let originalCartTotal = <?php echo $cart_total; ?>;
+        
         function set_coupon() {
             var coupon_str = jQuery('#coupon_str').val();
             if (coupon_str != '') {
