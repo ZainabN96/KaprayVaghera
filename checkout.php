@@ -21,36 +21,54 @@ $city = '';
 $pincode = '';
 
 if (isset($_POST['submit'])) {
+
     $address = get_safe_value($con, $_POST['address']);
     $city = get_safe_value($con, $_POST['city']);
     $pincode = get_safe_value($con, $_POST['pincode']);
     $payment_type = get_safe_value($con, $_POST['payment_type']);
     $user_id = $_SESSION['USER_ID'];
 
+    // Calculate cart total
+    $cart_total = 0;
     foreach ($_SESSION['cart'] as $key => $val) {
         foreach ($val as $key1 => $val1) {
             $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select price from product_attributes where id='$key1'"));
             $price = $resAttr['price'];
             $qty = $val1['qty'];
-            $cart_total = $cart_total + ($price * $qty);
-
+            $cart_total += ($price * $qty);
         }
     }
-    $total_price = $cart_total;
-    $payment_status = 'pending';
-    if ($payment_type == 'cod') {
-        $payment_status = 'success';
+
+    // Set delivery charges based on city distance from Lahore
+    $delivery_charges = 0;
+    switch ($city) {
+        case 'Lahore':
+            $delivery_charges = 0; // Free delivery for Lahore
+            break;
+        case 'Karachi':
+            $delivery_charges = 400;
+            break;
+        case 'Islamabad':
+            $delivery_charges = 300;
+            break;
+        case 'Faisalabad':
+            $delivery_charges = 200;
+            break;
+        // Add more cities and charges based on distance
+        default:
+            $delivery_charges = 250; // Default charge for other cities
+            break;
     }
-    $order_status = '1';
-    $added_on = date('Y-m-d h:i:s');
 
-    $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
+    // Calculate total price including delivery charges
+    $total_price = $cart_total + $delivery_charges;
 
+    // Apply coupon if available
     if (isset($_SESSION['COUPON_ID'])) {
         $coupon_id = $_SESSION['COUPON_ID'];
         $coupon_code = $_SESSION['COUPON_CODE'];
         $coupon_value = $_SESSION['COUPON_VALUE'];
-        $total_price = $total_price - $coupon_value;
+        $total_price -= $coupon_value; // Subtract coupon value from total price
         unset($_SESSION['COUPON_ID']);
         unset($_SESSION['COUPON_CODE']);
         unset($_SESSION['COUPON_VALUE']);
@@ -60,79 +78,37 @@ if (isset($_POST['submit'])) {
         $coupon_value = '';
     }
 
-    mysqli_query($con, "insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,txnid,coupon_id,coupon_code,coupon_value) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$txnid','$coupon_id','$coupon_code','$coupon_value')");
+    // Set order details
+    $payment_status = 'pending';
+    if ($payment_type == 'cod') {
+        $payment_status = 'success';
+    }
+    $order_status = '1';
+    $added_on = date('Y-m-d h:i:s');
+    $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
+
+    // Insert order into database with delivery charges
+    mysqli_query($con, "insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,txnid,coupon_id,coupon_code,coupon_value,delivery_charges) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$txnid','$coupon_id','$coupon_code','$coupon_value', '$delivery_charges')");
 
     $order_id = mysqli_insert_id($con);
 
+    // Insert each product in the order detail table
     foreach ($_SESSION['cart'] as $key => $val) {
-
         foreach ($val as $key1 => $val1) {
             $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select price from product_attributes where id='$key1'"));
             $price = $resAttr['price'];
             $qty = $val1['qty'];
-
             mysqli_query($con, "insert into `order_detail`(order_id,product_id,product_attr_id,qty,price) values('$order_id','$key','$key1','$qty','$price')");
-
         }
     }
-   
+
+    // Add notification for the order
     mysqli_query($con, "INSERT INTO notifications (user_id, message, status) VALUES ('$user_id', 'New order #$order_id has been placed', 'unread')");
 
-
-
+    // Handle payment gateway redirection
     if ($payment_type == 'instamojo') {
-
-        $userArr = mysqli_fetch_assoc(mysqli_query($con, "select * from users where id='$user_id'"));
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
-        curl_setopt($ch, CURLOPT_HEADER, FALSE);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-        curl_setopt(
-            $ch,
-            CURLOPT_HTTPHEADER,
-            array("X-Api-Key:" . INSTAMOJO_KEY, "X-Auth-Token:" . INSTAMOJO_TOKEN)
-        );
-
-        $payload = array(
-            'purpose' => 'Buy Product',
-            'amount' => $total_price,
-            'phone' => $userArr['mobile'],
-            'buyer_name' => $userArr['name'],
-            'redirect_url' => INSTAMOJO_REDIRECT,
-            'send_email' => false,
-            'send_sms' => false,
-            'email' => $userArr['email'],
-            'allow_repeated_payments' => false
-        );
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
-        $response = curl_exec($ch);
-        curl_close($ch);
-        $response = json_decode($response);
-        if (isset($response->payment_request->id)) {
-            unset($_SESSION['cart']);
-            $_SESSION['TID'] = $response->payment_request->id;
-            mysqli_query($con, "update `order` set txnid='" . $response->payment_request->id . "' where id='" . $order_id . "'");
-            ?>
-            <script>
-                window.location.href = '<?php echo $response->payment_request->longurl ?>';
-            </script>
-            <?php
-        } else {
-            if (isset($response->message)) {
-                $errMsg .= "<div class='instamojo_error'>";
-                foreach ($response->message as $key => $val) {
-                    $errMsg .= strtoupper($key) . ' : ' . $val[0] . '<br/>';
-                }
-                $errMsg .= "</div>";
-            } else {
-                echo "Something went wrong";
-            }
-        }
+        // Code for instamojo payment gateway
     } else {
-        //sentInvoice($con,$order_id);
         ?>
         <script>
             window.location.href = 'thankyou.php';
@@ -141,6 +117,130 @@ if (isset($_POST['submit'])) {
     }
 
 }
+
+
+// if (isset($_POST['submit'])) {
+
+//     $address = get_safe_value($con, $_POST['address']);
+//     $city = get_safe_value($con, $_POST['city']);
+//     $pincode = get_safe_value($con, $_POST['pincode']);
+//     $payment_type = get_safe_value($con, $_POST['payment_type']);
+//     $user_id = $_SESSION['USER_ID'];
+
+//     foreach ($_SESSION['cart'] as $key => $val) {
+//         foreach ($val as $key1 => $val1) {
+//             $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select price from product_attributes where id='$key1'"));
+//             $price = $resAttr['price'];
+//             $qty = $val1['qty'];
+//             $cart_total = $cart_total + ($price * $qty);
+
+//         }
+//     }
+//     $total_price = $cart_total;
+//     $payment_status = 'pending';
+//     if ($payment_type == 'cod') {
+//         $payment_status = 'success';
+//     }
+//     $order_status = '1';
+//     $added_on = date('Y-m-d h:i:s');
+
+//     $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
+
+//     if (isset($_SESSION['COUPON_ID'])) {
+//         $coupon_id = $_SESSION['COUPON_ID'];
+//         $coupon_code = $_SESSION['COUPON_CODE'];
+//         $coupon_value = $_SESSION['COUPON_VALUE'];
+//         $total_price = $total_price - $coupon_value;
+//         unset($_SESSION['COUPON_ID']);
+//         unset($_SESSION['COUPON_CODE']);
+//         unset($_SESSION['COUPON_VALUE']);
+//     } else {
+//         $coupon_id = '';
+//         $coupon_code = '';
+//         $coupon_value = '';
+//     }
+
+//     mysqli_query($con, "insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,txnid,coupon_id,coupon_code,coupon_value) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$txnid','$coupon_id','$coupon_code','$coupon_value')");
+
+//     $order_id = mysqli_insert_id($con);
+
+//     foreach ($_SESSION['cart'] as $key => $val) {
+
+//         foreach ($val as $key1 => $val1) {
+//             $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select price from product_attributes where id='$key1'"));
+//             $price = $resAttr['price'];
+//             $qty = $val1['qty'];
+
+//             mysqli_query($con, "insert into `order_detail`(order_id,product_id,product_attr_id,qty,price) values('$order_id','$key','$key1','$qty','$price')");
+
+//         }
+//     }
+   
+//     mysqli_query($con, "INSERT INTO notifications (user_id, message, status) VALUES ('$user_id', 'New order #$order_id has been placed', 'unread')");
+
+
+
+//     if ($payment_type == 'instamojo') {
+
+//         $userArr = mysqli_fetch_assoc(mysqli_query($con, "select * from users where id='$user_id'"));
+
+//         $ch = curl_init();
+//         curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
+//         curl_setopt($ch, CURLOPT_HEADER, FALSE);
+//         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+//         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+//         curl_setopt(
+//             $ch,
+//             CURLOPT_HTTPHEADER,
+//             array("X-Api-Key:" . INSTAMOJO_KEY, "X-Auth-Token:" . INSTAMOJO_TOKEN)
+//         );
+
+//         $payload = array(
+//             'purpose' => 'Buy Product',
+//             'amount' => $total_price,
+//             'phone' => $userArr['mobile'],
+//             'buyer_name' => $userArr['name'],
+//             'redirect_url' => INSTAMOJO_REDIRECT,
+//             'send_email' => false,
+//             'send_sms' => false,
+//             'email' => $userArr['email'],
+//             'allow_repeated_payments' => false
+//         );
+//         curl_setopt($ch, CURLOPT_POST, true);
+//         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
+//         $response = curl_exec($ch);
+//         curl_close($ch);
+//         $response = json_decode($response);
+//         if (isset($response->payment_request->id)) {
+//             unset($_SESSION['cart']);
+//             $_SESSION['TID'] = $response->payment_request->id;
+//             mysqli_query($con, "update `order` set txnid='" . $response->payment_request->id . "' where id='" . $order_id . "'");
+//             ?>
+//             <script>
+//                 window.location.href = '<?php echo $response->payment_request->longurl ?>';
+//             </script>
+//             <?php
+//         } else {
+//             if (isset($response->message)) {
+//                 $errMsg .= "<div class='instamojo_error'>";
+//                 foreach ($response->message as $key => $val) {
+//                     $errMsg .= strtoupper($key) . ' : ' . $val[0] . '<br/>';
+//                 }
+//                 $errMsg .= "</div>";
+//             } else {
+//                 echo "Something went wrong";
+//             }
+//         }
+//     } else {
+//         //sentInvoice($con,$order_id);
+//         ?>
+//         <script>
+//             window.location.href = 'thankyou.php';
+//         </script>
+//         <?php
+//     }
+
+// }
 ?>
 
 <body>
@@ -260,8 +360,62 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="single-input">
-                                                        <input type="text" name="city" placeholder="City/State" required
-                                                            value="<?php echo $city ?>">
+                                                        <select name="city" id="city" onchange="updateDeliveryCharges()" required>
+                                                        <option value="">Select City</option>
+                                                            <option value="Abbottabad">Abbottabad</option>
+                                                            <option value="Bahawalpur">Bahawalpur</option>
+                                                            <option value="Charsadda">Charsadda</option>
+                                                            <option value="Chiniot">Chiniot</option>
+                                                            <option value="Daska">Daska</option>
+                                                            <option value="Dera Ghazi Khan">Dera Ghazi Khan</option>
+                                                            <option value="Dera Ismail Khan">Dera Ismail Khan</option>
+                                                            <option value="Faisalabad">Faisalabad</option>
+                                                            <option value="Ghotki">Ghotki</option>
+                                                            <option value="Gujranwala">Gujranwala</option>
+                                                            <option value="Gujrat">Gujrat</option>
+                                                            <option value="Hafizabad">Hafizabad</option>
+                                                            <option value="Islamabad">Islamabad</option>
+                                                            <option value="Jacobabad">Jacobabad</option>
+                                                            <option value="Jhang">Jhang</option>
+                                                            <option value="Kamalia">Kamalia</option>
+                                                            <option value="Karachi">Karachi</option>
+                                                            <option value="Kasur">Kasur</option>
+                                                            <option value="Khanewal">Khanewal</option>
+                                                            <option value="Khuzdar">Khuzdar</option>
+                                                            <option value="Kohat">Kohat</option>
+                                                            <option value="Kot Adu">Kot Adu</option>
+                                                            <option value="Lahore">Lahore</option>
+                                                            <option value="Larkana">Larkana</option>
+                                                            <option value="Lodhran">Lodhran</option>
+                                                            <option value="Mandi Bahauddin">Mandi Bahauddin</option>
+                                                            <option value="Mansehra">Mansehra</option>
+                                                            <option value="Mardan">Mardan</option>
+                                                            <option value="Matiari">Matiari</option>
+                                                            <option value="Mingora">Mingora</option>
+                                                            <option value="Mirpur Khas">Mirpur Khas</option>
+                                                            <option value="Multan">Multan</option>
+                                                            <option value="Muzaffargarh">Muzaffargarh</option>
+                                                            <option value="Nawabshah">Nawabshah</option>
+                                                            <option value="Nowshera">Nowshera</option>
+                                                            <option value="Okara">Okara</option>
+                                                            <option value="Pakpattan">Pakpattan</option>
+                                                            <option value="Peshawar">Peshawar</option>
+                                                            <option value="Quetta">Quetta</option>
+                                                            <option value="Rahim Yar Khan">Rahim Yar Khan</option>
+                                                            <option value="Rawalpindi">Rawalpindi</option>
+                                                            <option value="Sahiwal">Sahiwal</option>
+                                                            <option value="Sargodha">Sargodha</option>
+                                                            <option value="Sheikhupura">Sheikhupura</option>
+                                                            <option value="Shikarpur">Shikarpur</option>
+                                                            <option value="Sialkot">Sialkot</option>
+                                                            <option value="Sukkur">Sukkur</option>
+                                                            <option value="Swabi">Swabi</option>
+                                                            <option value="Tando Allahyar">Tando Allahyar</option>
+                                                            <option value="Turbat">Turbat</option>
+                                                            <option value="Umerkot">Umerkot</option>
+                                                            <option value="Vihari">Vihari</option>
+                                                            <option value="Wah Cantt">Wah Cantt</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
@@ -280,7 +434,7 @@ if (isset($_POST['submit'])) {
                                     <div class="accordion__body">
                                         <div class="paymentinfo">
                                             <div class="single-method">
-                                                <input type="radio" name="payment_type" value="COD" required /> Cash On
+                                                <input type="radio" name="payment_type" value="COD" required selected /> Cash On
                                                 Delivery
 
                                             </div>
@@ -311,9 +465,9 @@ if (isset($_POST['submit'])) {
                                 foreach ($val as $key1 => $val1) {
 
                                     $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select product_attributes.*,color_master.color,size_master.size from product_attributes 
-	left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
-	left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
-	where product_attributes.id='$key1'"));
+                                        left join color_master on product_attributes.color_id=color_master.id and color_master.status=1 
+                                        left join size_master on product_attributes.size_id=size_master.id and size_master.status=1
+                                        where product_attributes.id='$key1'"));
 
                                     $productArr = get_product($con, '', '', $key, '', '', '', '', $key1);
                                     $pname = $productArr[0]['name'];
@@ -346,6 +500,12 @@ if (isset($_POST['submit'])) {
                                 <?php }
                             } ?>
                         </div>
+                        <!-- Display Delivery Charges -->
+                    <div class="ordre-details__total" id="delivery_charges_display">
+                        <h5>Delivery Charges</h5>
+                        <span class="price" id="delivery_charges">0</span>
+                    </div>
+
                         <!-- <div class="ordre-details__total" id="coupon_box">
                                 <h5>Coupon Value</h5>
                                 <span class="price" id="coupon_price"></span>
@@ -372,6 +532,49 @@ if (isset($_POST['submit'])) {
     </div>
 
     <script>
+        function updateDeliveryCharges() {
+            var city = document.getElementById('city').value;
+            var deliveryCharges = 0;
+
+            // Set delivery charges based on city
+            switch (city) {
+                case 'Lahore':
+                    deliveryCharges = 0; 
+                    break;
+                case 'Karachi':
+                    deliveryCharges = 400;
+                    break;
+                case 'Islamabad':
+                    deliveryCharges = 300;
+                    break;
+                case 'Faisalabad':
+                    deliveryCharges = 200;
+                    break;
+                default:
+                    deliveryCharges = 250; // Default charge for other cities
+                    break;
+            }
+
+            // Display the calculated delivery charges to the user
+            document.getElementById('delivery_charges_display').textContent = deliveryCharges;
+        }
+                // let originalCartTotal = <?php echo $cart_total; ?>;
+        // let deliveryCharges = 0;
+
+        // function updateDeliveryCharges() {
+        //     const city = document.getElementById("city").value;
+        //     const orderTotalPrice = document.getElementById("order_total_price");
+
+        //     if (city === "Lahore") {
+        //         deliveryCharges = 0;
+        //     } else {
+        //         deliveryCharges = 200; // Set the delivery charge for other cities, e.g., 100
+        //     }
+
+        //     const updatedTotal = originalCartTotal + deliveryCharges;
+        //     orderTotalPrice.innerText = updatedTotal;
+        // }
+
         function set_coupon() {
             var coupon_str = jQuery('#coupon_str').val();
             if (coupon_str != '') {
@@ -414,7 +617,4 @@ if (isset($_POST['submit'])) {
 
 
 </body>
-
-<!-- Mirrored from htmldemo.net/lavoro/lavoro/cart.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:30:18 GMT -->
-
 </html>

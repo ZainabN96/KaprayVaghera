@@ -70,9 +70,9 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                     <li class="menu-item-has-children dropdown">
                         <a href="coupon_master.php"><i class="bi bi-coin"></i> Coupon Master</a>
                     </li>
-                    <li class="menu-item-has-children dropdown">
+                    <!-- <li class="menu-item-has-children dropdown">
                         <a href="banner.php"><i class="bi bi-columns-gap"></i> Banner</a>
-                    </li>
+                    </li> -->
                     <li class="menu-item-has-children dropdown">
                         <a href="product_review.php"><i class="bi bi-star"></i> Product Review</a>
                     </li>
@@ -81,7 +81,7 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                 <!-- Order Team and Admin Role Menu Items -->
                 <?php if($_SESSION['ADMIN_ROLE'] == "Admin" || $_SESSION['ADMIN_ROLE'] == "Order Team"){ ?>
                     <li class="menu-item-has-children dropdown">
-                     <a href="order_master.php"><i class="bi bi-cart4"></i> Order Master</a>
+                      <a href="order_master.php"><i class="bi bi-cart4"></i> Order Master</a>
                     </li>
                 <?php } ?>
             </ul>
@@ -196,7 +196,7 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
 
          <script>
             function fetchNotifications() {
-               //debugger;
+               debugger;
                $.ajax({
                      url: 'fetch_notifications.php', 
                      type: 'GET',
