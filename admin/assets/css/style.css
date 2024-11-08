@@ -450,9 +450,9 @@ p:focus {
 
 a,
 button {
-    text-decoration: none;
+    text-decoration: underline;
     outline: none!important;
-    color: #000000;
+    color: #062b91;
     -webkit-transition: all .25s ease;
     transition: all .25s ease
 }
@@ -460,7 +460,7 @@ button {
 a:hover,
 a:focus {
     text-decoration: none;
-    color: #000
+    color: #FF0000;
 }
 
 h1,
@@ -494,7 +494,8 @@ button:focus {
 }
 
 img {
-    max-width: 100%
+    max-width: 100%;
+    padding:2px;
 }
 
 .modal-header {

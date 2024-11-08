@@ -3,7 +3,7 @@ require('top.inc.php');
 
 $condition='';
 $condition1='';
-if($_SESSION['ADMIN_ROLE']==== "Admin" || $_SESSION['ADMIN_ROLE'] == "Product Team"){
+if($_SESSION['ADMIN_ROLE']=== "Admin" || $_SESSION['ADMIN_ROLE'] == "Product Team"){
 	$condition=" and product.added_by='".$_SESSION['ADMIN_ID']."'";
 	$condition1=" and added_by='".$_SESSION['ADMIN_ID']."'";
 }
@@ -83,10 +83,11 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 			$jj++;
 		}		
 		
-	}else{
-		header('location:product.php');
-		die();
 	}
+	// else{
+	// 	header('location:product.php');
+	// 	die();
+	// }
 }
 
 if(isset($_POST['submit'])){

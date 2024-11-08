@@ -1,13 +1,24 @@
 <?php
 require('top.inc.php');
+
 if (isset($_GET['id'])) {
     $product_id = mysqli_real_escape_string($con, $_GET['id']);
 
     if ($product_id > 0) {
+        // Fetch product details
         $get_product_query = mysqli_query($con, "SELECT * FROM product WHERE id='$product_id'");
-        
+
         if (mysqli_num_rows($get_product_query) > 0) {
             $get_product = mysqli_fetch_assoc($get_product_query); // Fetch the product data
+
+            // Fetch product price from the product_prices table
+            $get_price_query = mysqli_query($con, "SELECT price FROM product_attributes WHERE product_id='$product_id'");
+            if (mysqli_num_rows($get_price_query) > 0) {
+                $price_data = mysqli_fetch_assoc($get_price_query);
+                $product_price = $price_data['price']; // Assign the price from product_prices table
+            } else {
+                $product_price = "Price not available"; // Handle if price is not found
+            }
         } else {
             echo "<script>alert('Product not found'); window.location.href = 'index.php';</script>";
             exit();
@@ -17,6 +28,7 @@ if (isset($_GET['id'])) {
         exit();
     }
 
+    // Fetch multiple images and attributes as before...
     $resMultipleImages = mysqli_query($con, "SELECT product_images FROM product_images WHERE product_id='$product_id'");
     $multipleImages = [];
     if (mysqli_num_rows($resMultipleImages) > 0) {
@@ -53,10 +65,6 @@ if (isset($_GET['id'])) {
 
     $is_size = !empty($sizeArr1) ? count(array_filter($sizeArr1)) : 0;
     $is_color = !empty($colorArr1) ? count(array_filter($colorArr1)) : 0;
-
-} else {
-    header('Location: index.php');
-    exit();
 }
 
 if (isset($_POST['review_submit'])) {
@@ -67,6 +75,17 @@ if (isset($_POST['review_submit'])) {
                         VALUES('$product_id', '" . $_SESSION['USER_ID'] . "', '$rating', '$review', '1', '$added_on')");
     header('location:product.php?id=' . $product_id);
     exit();
+}
+$get_product_query = mysqli_query($con, "
+    SELECT product.*, categories.categories
+    FROM product 
+    LEFT JOIN categories ON product.categories_id = categories.id 
+    WHERE product.id='$product_id'
+");
+
+if (mysqli_num_rows($get_product_query) > 0) {
+    $get_product = mysqli_fetch_assoc($get_product_query);
+    $product_category = isset($get_product['categories']) ? $get_product['categories'] : 'N/A';
 }
 
 $product_review_res = mysqli_query($con, "SELECT users.name, product_review.id, product_review.rating, product_review.review, product_review.added_on 
@@ -98,6 +117,7 @@ $product_review_res = mysqli_query($con, "SELECT users.name, product_review.id, 
                                                         alt="Product Image">
                                                 </a>
                                             </div>
+                                            <br>
                                             <?php if (!empty($multipleImages)) { ?>
                                                 <div class="single-zoom-thumb">
                                                     <ul class="nav" id="gallery_01">
@@ -122,15 +142,52 @@ $product_review_res = mysqli_query($con, "SELECT users.name, product_review.id, 
                                             <h2 class="product-name mt-5">
                                                 <?php echo htmlspecialchars($get_product['name']); ?>
                                             </h2>
-                                            <div class="price-boxes">
-                                                <span class="new-price">PKR <?php echo htmlspecialchars($get_product['price']); ?></span>
+                                            <br>
+
+                                            <!-- <div class="price-boxes">
+                                                <span class="new-price">PKR <?php echo htmlspecialchars($product_price); ?></span>
                                             </div>
+                                            <div class="color-boxes">
+                                                <span class="new-color"><?php echo htmlspecialchars($color); ?></span>
+                                            </div> -->
+                                            <div class="price-boxes">
+                                                <span class="new-price">PKR <?php echo htmlspecialchars($product_price); ?></span>
+                                            </div>
+                                           
+
                                             <div class="product-desc">
                                                 <h1>Product Details:</h1>
-                                                <p><span>Product Name:</span> <?php echo htmlspecialchars($get_product['short_desc']); ?></p>
+                                                <p><span>Product Name:</span> <?php echo htmlspecialchars($get_product['name']); ?></p>
                                             </div>
-                                            <p><span>Category:</span> <?php echo htmlspecialchars($get_product['categories']); ?></p>
-                                            <!-- Add other product details here as needed -->
+                                            <p><span>Category:</span> <?php echo isset($get_product['categories']) ? htmlspecialchars($get_product['categories']) : 'N/A'; ?></p>
+                                            <div class="color-boxes">
+                                                <span class="new-color">
+                                                    <?php
+                                                    if (!empty($colorArr1)) {
+                                                        echo "Available Colors: ";
+                                                        foreach ($colorArr1 as $color) {
+                                                            echo htmlspecialchars($color) . " ";
+                                                        }
+                                                    } else {
+                                                        echo "No colors available";
+                                                    }
+                                                    ?>
+                                                </span>
+                                            </div>
+                                            <div class="size-boxes">
+                                                <span class="new-size">
+                                                    <?php
+                                                    if (!empty($sizeArr1)) {
+                                                        echo "Available size: ";
+                                                        foreach ($sizeArr1 as $size) {
+                                                            echo htmlspecialchars($size) . " ";
+                                                        }
+                                                    } else {
+                                                        // echo "No colors available";
+                                                    }
+                                                    ?>
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

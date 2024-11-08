@@ -19,6 +19,7 @@ $errMsg = "";
 $address = '';
 $city = '';
 $pincode = '';
+$delivery_charges = '';
 
 if (isset($_POST['submit'])) {
 
@@ -35,7 +36,7 @@ if (isset($_POST['submit'])) {
             $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select price from product_attributes where id='$key1'"));
             $price = $resAttr['price'];
             $qty = $val1['qty'];
-            $cart_total += ($price * $qty);
+            $cart_total += ($price * $qty + $delivery_charges);
         }
     }
 
@@ -354,7 +355,7 @@ if (isset($_POST['submit'])) {
                                     $image = $productArr[0]['image'];
                                     $qty = $val1['qty'];
 
-                                    $cart_total = $cart_total + ($price * $qty);
+                                    $cart_total = $cart_total + (($price * $qty));
                                     ?>
                                     <div class="single-item">
                                         <div class="single-item__thumb">
