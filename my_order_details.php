@@ -1,23 +1,26 @@
 <?php
-require ('connection.php');
-require ('functions.php');
-require ('add_to_cart.php');
+require('connection.php');
+require('functions.php');
+require('add_to_cart.php');
 
 if (!isset($_SESSION['USER_LOGIN'])) {
-    ?>
+?>
     <script>
         window.location.href = 'index.php';
     </script>
-    <?php
+<?php
 }
 $order_id = get_safe_value($con, $_GET['id']);
 
 $coupon_details = mysqli_fetch_assoc(mysqli_query($con, "select coupon_value from `order` where id='$order_id'"));
-$coupon_value = $coupon_details['coupon_value'];
-if ($coupon_value == '') {
-    $coupon_value = 0;
-}
+$coupon_value = $coupon_details['coupon_value'] ?? 0;
+
+// Define or fetch delivery charges
+$delivery_charge_query = mysqli_query($con, "SELECT delivery_charges FROM `order` WHERE id='$order_id'");
+$delivery_charge_result = mysqli_fetch_assoc($delivery_charge_query);
+$delivery_charges = (int) ($delivery_charge_result['delivery_charges'] ?? 0); // Use 0 if no value is found
 ?>
+
 
 <!DOCTYPE html>
 <html class="no-js" lang="">
@@ -161,7 +164,7 @@ if ($coupon_value == '') {
                                         $total_price = 0;
                                         while ($row = mysqli_fetch_assoc($res)) {
                                             $total_price = $total_price + ($row['qty'] * $row['price']);
-                                            ?>
+                                        ?>
                                             <tr>
                                                 <td class="product-name">
                                                     <?php echo $row['name'] ?>
@@ -181,7 +184,7 @@ if ($coupon_value == '') {
                                             </tr>
                                         <?php }
                                         if ($coupon_value != '') {
-                                            ?>
+                                        ?>
                                             <tr>
                                                 <td colspan="3"></td>
                                                 <td class="product-name">Coupon Value</td>
@@ -194,9 +197,8 @@ if ($coupon_value == '') {
                                                 <td colspan="3"></td>
                                                 <td class="product-name">Delivery Charges</td>
                                                 <td class="product-name">
-                                                    <?php echo $delivery_charges ?>
+                                                    <?php echo $delivery_charges; ?>
                                                 </td>
-
                                             </tr>
                                         <?php } ?>
                                         <tr>
@@ -204,10 +206,9 @@ if ($coupon_value == '') {
                                             <td class="product-name">Total Price</td>
                                             <td class="product-name">
                                                 <?php
-                                                echo $total_price - $coupon_value + $delivery_charges;
+                                                echo $total_price - $coupon_value + $delivery_charges; // All variables are now numeric
                                                 ?>
                                             </td>
-
                                         </tr>
                                     </tbody>
 

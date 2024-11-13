@@ -6,7 +6,7 @@ $title = 'Checkout | Kapray Vaghera';
 include 'includes/header.php';
 
 if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
-    ?>
+?>
     <script>
         window.location.href = 'index.php';
     </script>
@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
         case 'Faisalabad':
             $delivery_charges = 200;
             break;
-        // Add more cities and charges based on distance
+            // Add more cities and charges based on distance
         default:
             $delivery_charges = 250; // Default charge for other cities
             break;
@@ -65,18 +65,35 @@ if (isset($_POST['submit'])) {
     $total_price = $cart_total + $delivery_charges;
 
     // Apply coupon if available
-    if (isset($_SESSION['COUPON_ID'])) {
-        $coupon_id = $_SESSION['COUPON_ID'];
-        $coupon_code = $_SESSION['COUPON_CODE'];
-        $coupon_value = $_SESSION['COUPON_VALUE'];
-        $total_price -= $coupon_value; // Subtract coupon value from total price
-        unset($_SESSION['COUPON_ID']);
-        unset($_SESSION['COUPON_CODE']);
-        unset($_SESSION['COUPON_VALUE']);
-    } else {
-        $coupon_id = '';
-        $coupon_code = '';
-        $coupon_value = '';
+    if (isset($_POST['coupon_str'])) {
+        $coupon_code = get_safe_value($con, $_POST['coupon_str']);
+        $res = mysqli_query($con, "SELECT * FROM coupons WHERE code='$coupon_code' AND status='1'");
+
+        if (mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            $is_error = 'no';
+            $coupon_value = $row['value'];
+            $_SESSION['COUPON_ID'] = $row['id'];
+            $_SESSION['COUPON_CODE'] = $coupon_code;
+            $_SESSION['COUPON_VALUE'] = $coupon_value;
+            $total_price = $_SESSION['ORDER_TOTAL'] - $coupon_value;
+
+            $response = [
+                'is_error' => $is_error,
+                'dd' => 'Discount Applied: ' . $coupon_value,
+                'result' => $total_price
+            ];
+        } else {
+            $is_error = 'yes';
+            $response = [
+                'is_error' => $is_error,
+                'dd' => 'Invalid Coupon Code',
+                'result' => $_SESSION['ORDER_TOTAL']
+            ];
+        }
+
+        echo json_encode($response);
+        die;
     }
 
     // Set order details
@@ -110,13 +127,12 @@ if (isset($_POST['submit'])) {
     if ($payment_type == 'instamojo') {
         // Code for instamojo payment gateway
     } else {
-        ?>
+    ?>
         <script>
             window.location.href = 'thankyou.php';
         </script>
-        <?php
+<?php
     }
-
 }
 
 ?>
@@ -140,7 +156,7 @@ if (isset($_POST['submit'])) {
                                 $accordion_class = 'accordion__title';
                                 if (!isset($_SESSION['USER_LOGIN'])) {
                                     $accordion_class = 'accordion__hide';
-                                    ?>
+                                ?>
                                     <div class="accordion__title">
                                         Checkout Method
                                     </div>
@@ -219,7 +235,6 @@ if (isset($_POST['submit'])) {
                                         $city = $lastOrderDetailsRow['city'];
                                         $pincode = $lastOrderDetailsRow['pincode'];
                                     }
-
                                 }
                                 ?>
                                 <div class="<?php echo $accordion_class ?>">
@@ -230,10 +245,10 @@ if (isset($_POST['submit'])) {
                                         <div class="bilinfo">
 
                                             <div class="row">
-                                            <div class="col-md-12">
+                                                <div class="col-md-12">
                                                     <div class="single-input">
                                                         <select name="city" id="city" onchange="updateDeliveryCharges()" required>
-                                                        <option value="">Select City</option>
+                                                            <option value="">Select City</option>
                                                             <option value="Abbottabad">Abbottabad</option>
                                                             <option value="Bahawalpur">Bahawalpur</option>
                                                             <option value="Charsadda">Charsadda</option>
@@ -296,7 +311,7 @@ if (isset($_POST['submit'])) {
                                                             required value="<?php echo $address ?>">
                                                     </div>
                                                 </div>
-                                                
+
                                                 <div class="col-md-12">
                                                     <div class="single-input">
                                                         <input type="text" name="pincode" placeholder="Post code/ zip"
@@ -338,9 +353,9 @@ if (isset($_POST['submit'])) {
                             $cart_total = 0;
                             foreach ($_SESSION['cart'] as $key => $val) {
                                 //$productArr=get_product($con,'','',$key);
-                            
+
                                 //prx($productArr);
-                            
+
                                 foreach ($val as $key1 => $val1) {
 
                                     $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select product_attributes.*,color_master.color,size_master.size from product_attributes 
@@ -356,7 +371,7 @@ if (isset($_POST['submit'])) {
                                     $qty = $val1['qty'];
 
                                     $cart_total = $cart_total + (($price * $qty));
-                                    ?>
+                            ?>
                                     <div class="single-item">
                                         <div class="single-item__thumb">
                                             <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $image ?>" />
@@ -376,24 +391,22 @@ if (isset($_POST['submit'])) {
                                                     class="fa fa-trash" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
-                                <?php }
+                            <?php }
                             } ?>
                         </div>
                         <!-- Display Delivery Charges -->
-                    <div class="ordre-details__total" id="delivery_charges_display">
-                        <h5>Delivery Charges</h5>
-                        <span class="price" id="delivery_charges">0</span>
-                    </div>
+                        <div class="ordre-details__total" id="delivery_charges_display">
+                            <h5>Delivery Charges</h5>
+                            <span class="price" id="delivery_charges">0</span>
+                        </div>
 
                         <div class="ordre-details__total" id="coupon_box">
-                                <h5>Coupon Value</h5>
-                                <span class="price" id="coupon_price"></span>
-                            </div>
+                            <h5>Coupon Value</h5>
+                            <span class="price" id="coupon_price"></span>
+                        </div>
                         <div class="ordre-details__total">
                             <h5>Order total </h5>
                             <span class="price" id="order_total_price">
-
-                                <?php echo $cart_total ?>
                             </span>
                         </div>
 
@@ -411,14 +424,22 @@ if (isset($_POST['submit'])) {
     </div>
 
     <script>
+        let originalCartTotal = <?php echo $cart_total; ?>;
+
+        function updateOrderTotal() {
+            var dc = parseFloat(document.getElementById('delivery_charges').textContent) || 0;
+            var coupon = parseFloat(document.getElementById('coupon_price').textContent) || 0;
+            var total = originalCartTotal + dc - coupon;
+            document.getElementById('order_total_price').textContent = total.toFixed(2);
+        }
+
         function updateDeliveryCharges() {
             var city = document.getElementById('city').value;
             var deliveryCharges = 0;
 
-            // Set delivery charges based on city
             switch (city) {
                 case 'Lahore':
-                    deliveryCharges = 0; 
+                    deliveryCharges = 0;
                     break;
                 case 'Karachi':
                     deliveryCharges = 400;
@@ -430,47 +451,42 @@ if (isset($_POST['submit'])) {
                     deliveryCharges = 200;
                     break;
                 default:
-                    deliveryCharges = 250; 
+                    deliveryCharges = 250;
                     break;
             }
 
-            // Display the calculated delivery charges to the user
             document.getElementById('delivery_charges').textContent = deliveryCharges;
+            updateOrderTotal();
         }
-        //let originalCartTotal = <?php echo $cart_total; ?>;
-        
+
         function set_coupon() {
             var coupon_str = jQuery('#coupon_str').val();
-            if (coupon_str != '') {
-                jQuery('#coupon_result').html('');
-                jQuery.ajax({
-                    url: 'set_coupon.php',
-                    type: 'post',
-                    data: 'coupon_str=' + coupon_str,
-                    success: function (result) {
-                        var data = jQuery.parseJSON(result);
-                        if (data.is_error == 'yes') {
-                            jQuery('#coupon_box').hide();
-                            jQuery('#coupon_result').html(data.dd);
-                            jQuery('#order_total_price').html(data.result);
-                        }
-                        if (data.is_error == 'no') {
-                            jQuery('#coupon_box').show();
-                            jQuery('#coupon_price').html(data.dd);
-                            jQuery('#order_total_price').html(data.result);
-                        }
-                    }
-                });
+            if (coupon_str == '') {
+                alert('Please enter a coupon code');
+                return;
             }
+
+            jQuery('#coupon_result').html('');
+            jQuery.ajax({
+                url: 'set_coupon.php',
+                type: 'post',
+                data: 'coupon_str=' + coupon_str,
+                success: function(result) {
+                    console.log(result); // Debug raw response
+                    var data = jQuery.parseJSON(result);
+
+                    if (data.is_error == 'yes') {
+                        jQuery('#coupon_box').hide();
+                        jQuery('#coupon_result').html(data.dd);
+                    } else {
+                        jQuery('#coupon_box').show();
+                        jQuery('#coupon_price').html(data.dd);
+                        jQuery('#order_total_price').html(data.result);
+                    }
+                }
+            });
         }
     </script>
-    <?php
-    if (isset($_SESSION['COUPON_ID'])) {
-        unset($_SESSION['COUPON_ID']);
-        unset($_SESSION['COUPON_CODE']);
-        unset($_SESSION['COUPON_VALUE']);
-    }
-    ?>
 
     <!-- FOOTER START -->
     <?php include 'includes/footer.php'; ?>
@@ -481,4 +497,5 @@ if (isset($_POST['submit'])) {
 
 
 </body>
+
 </html>
