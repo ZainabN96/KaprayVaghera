@@ -212,10 +212,14 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                            debugger;
                            $.each(response.notifications, function(index, notification) {
                               debugger;
-                                 $('#notification-menu').append('<a class="dropdown-item media" href="#">' +
+                              if (notification.message && notification.message.includes("New order")) {
+                                const orderNumberMatch = notification.message.match(/#(\d+)/);
+                                const orderNumber = orderNumberMatch ? orderNumberMatch[1] : null;
+                                    $('#notification-menu').append('<a class="dropdown-item media" href="order_master_detail.php?id=' + orderNumber + '">' +
                                     '<i class="fa ' + notification.icon + '"></i>' +
                                     '<p>' + notification.message + '</p>' +
                                     '</a>');
+                                }
                            });
                         } else {
                            $('#notification-menu').append('<p>No notifications found.</p>');

@@ -406,7 +406,7 @@ function user_register(){
 
 
 document.addEventListener("DOMContentLoaded", function () {
-	var phoneNumber = '+923264577208';
+	var phoneNumber = '+923136414263';
   
 	$('#contactUsBtn').on('click', function (e) {
 e.preventDefault();

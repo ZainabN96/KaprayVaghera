@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
                         <div class="map-contacts--2">
-                            <div id="googleMap"></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d13603.812130803182!2d74.3398965!3d31.5254499!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDMxJzIzLjYiTiA3NMKwMjAnMjQuMiJF!5e0!3m2!1sen!2s!4v1731558270652!5m2!1sen!2s" width="650" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
@@ -47,7 +47,7 @@
                             </div>
                             <div class="address__details">
                                 <h2 class="ct__title">our address</h2>
-                                <p>Main Market Rd, Gulberg 2, Lahore, Punjab </p>
+                                <p>2-C Zahoor Elahi Rd, Block C Gulberg 2, near KIMS and Green Halls </p>
                             </div>
                         </div>
 
@@ -68,7 +68,7 @@
                             </div>
                             <div class="address__details">
                                 <h2 class="ct__title">Phone Number</h2>
-                                <p>123-6586-587456</p>
+                                <p>03136414263</p>
                             </div>
                         </div>
                     </div>      

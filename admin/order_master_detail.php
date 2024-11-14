@@ -68,12 +68,14 @@ if(isset($_POST['update_order_status'])){
 								</thead>
 								<tbody>
 									<?php
-									$res=mysqli_query($con,"select distinct(order_detail.id) ,order_detail.*,product.name,product.image,`order`.address,`order`.city,`order`.pincode from order_detail,product ,`order` where order_detail.order_id='$order_id' and  order_detail.product_id=product.id GROUP by order_detail.id");
+									$res=mysqli_query($con,"select distinct(order_detail.id) ,order_detail.*,product.name,product.image,`order`.address,`order`.city,`order`.pincode, `order`.delivery_charges from order_detail,product ,`order` where order_detail.order_id='$order_id' and  order_detail.product_id=product.id GROUP by order_detail.id");
 									$total_price=0;
 									while($row=mysqli_fetch_assoc($res)){
-									
 									$userInfo=mysqli_fetch_assoc(mysqli_query($con,"select * from `order` where id='$order_id'"));
-									
+									$query = "SELECT delivery_charges FROM `order`WHERE id = '$order_id'";
+									$result = mysqli_query($con, $query);
+									$rows = mysqli_fetch_assoc($result);
+									//prx($rows);
 									$address=$userInfo['address'];
 									$city=$userInfo['city'];
 									$pincode=$userInfo['pincode'];
@@ -101,11 +103,42 @@ if(isset($_POST['update_order_status'])){
 										
 									</tr>
 									<?php } ?>
+									<?php
+									
+										if (isset($rows['delivery_charges']) && $rows['delivery_charges'] != '' && $rows['delivery_charges'] != 0) {
+											// If delivery_charges exists and is not empty
+											?>
+											<tr>
+												<td colspan="3"></td>
+												<td class="product-name">Delivery Charges</td>
+												<td class="product-name">
+													<?php 
+													echo $rows['delivery_charges'];
+													?>
+												</td>
+											</tr>
+											<?php
+										} else {
+											// If delivery_charges is missing or empty, default to 0
+											?>
+											<tr>
+												<td colspan="3"></td>
+												<td class="product-name">Delivery Charges</td>
+												<td class="product-name">
+													<?php 
+													echo 0;
+													?>
+												</td>
+											</tr>
+											<?php
+										}
+										?>
+
 									<tr>
 										<td colspan="3"></td>
 										<td class="product-name">Total Price</td>
 										<td class="product-name"><?php 
-												echo $total_price-$coupon_value;
+												echo $total_price+$rows['delivery_charges']-$coupon_value ;
 												?></td>
 										
 									</tr>

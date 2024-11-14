@@ -157,7 +157,8 @@
 						</div>
 						<div class="infof-content">
 							<h3>Our Address</h3>
-							<p>25 Main Market Rd, Gulberg 2, Lahore, Punjab</p>
+							<p>2-C Zahoor Elahi Rd, Block C Gulberg 2, near KIMS and Green Halls
+							</p>
 						</div>
 					</div>
 				</div>
@@ -168,7 +169,7 @@
 						</div>
 						<div class="infof-content">
 							<h3>Phone Support</h3>
-							<p>0123456789</p>
+							<p>03136414263</p>
 						</div>
 					</div>
 				</div>
@@ -179,7 +180,7 @@
 						</div>
 						<div class="infof-content">
 							<h3>Email Support</h3>
-							<p>demo@example.com</p>
+							<p>customercare@kvonline.shop</p>
 						</div>
 					</div>
 				</div>
@@ -207,11 +208,11 @@
 							href="https://www.hcc-me.com/hcc-technology-foundation/" target="_blank"><strong>HCC
 								Technology Foundation</strong></a></address>
 				</div>
-				<div class="col-lg-6 col-12">
+				<!-- <div class="col-lg-6 col-12">
 					<div class="footer-payment pull-right">
 						<a href="#"><img width="295" height="25" src="img/payment.webp" alt="" /></a>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>

@@ -50,7 +50,7 @@
 		  </div>
 	   </div>
        <?php
-       if($_SESSION['ADMIN_ROLE']==1){
+       if($_SESSION['ADMIN_ROLE']== 'Admin' && $_SESSION['ADMIN_ROLE']== 'Product Team'){
         ?>
         <!-- Widgets  -->
         <div class="row">
