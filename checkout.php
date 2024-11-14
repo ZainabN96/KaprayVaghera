@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
             $resAttr = mysqli_fetch_assoc(mysqli_query($con, "select price from product_attributes where id='$key1'"));
             $price = $resAttr['price'];
             $qty = $val1['qty'];
-            $cart_total += ($price * $qty + $delivery_charges);
+            // $cart_total += ($price * $qty + $delivery_charges);
         }
     }
 
@@ -410,13 +410,13 @@ if (isset($_POST['submit'])) {
                             </span>
                         </div>
 
-                        <div class="ordre-details__total bilinfo">
+                        <!-- <div class="ordre-details__total bilinfo">
                             <input type="textbox" id="coupon_str" class="coupon_style mr5" /> <input type="button"
                                 name="submit" class="btn btn-primary btn-lg" value="Apply Coupon"
                                 onclick="set_coupon()" />
 
                         </div>
-                        <div id="coupon_result"></div>
+                        <div id="coupon_result"></div> -->
                     </div>
                 </div>
             </div>
@@ -427,16 +427,20 @@ if (isset($_POST['submit'])) {
         let originalCartTotal = <?php echo $cart_total; ?>;
 
         function updateOrderTotal() {
-            var dc = parseFloat(document.getElementById('delivery_charges').textContent) || 0;
-            var coupon = parseFloat(document.getElementById('coupon_price').textContent) || 0;
-            var total = originalCartTotal + dc - coupon;
+            // Retrieve delivery charges and coupon discount
+            let dc = parseFloat(document.getElementById('delivery_charges').textContent) || 0;
+            let coupon = parseFloat(document.getElementById('coupon_price').textContent) || 0;
+
+            // Calculate the total and update the DOM
+            let total = originalCartTotal + dc - coupon;
             document.getElementById('order_total_price').textContent = total.toFixed(2);
         }
 
         function updateDeliveryCharges() {
-            var city = document.getElementById('city').value;
-            var deliveryCharges = 0;
+            let city = document.getElementById('city').value;
+            let deliveryCharges = 0;
 
+            // Set delivery charges based on city
             switch (city) {
                 case 'Lahore':
                     deliveryCharges = 0;
@@ -455,38 +459,49 @@ if (isset($_POST['submit'])) {
                     break;
             }
 
+            // Update delivery charges and recalculate order total
             document.getElementById('delivery_charges').textContent = deliveryCharges;
             updateOrderTotal();
         }
 
         function set_coupon() {
-            var coupon_str = jQuery('#coupon_str').val();
-            if (coupon_str == '') {
+            let coupon_str = jQuery('#coupon_str').val(); // Get coupon code from input
+            if (coupon_str === '') {
                 alert('Please enter a coupon code');
                 return;
             }
 
-            jQuery('#coupon_result').html('');
-            jQuery.ajax({
+            jQuery('#coupon_result').html(''); // Clear previous results
+            $.ajax({
                 url: 'set_coupon.php',
-                type: 'post',
-                data: 'coupon_str=' + coupon_str,
-                success: function(result) {
-                    console.log(result); // Debug raw response
-                    var data = jQuery.parseJSON(result);
-
-                    if (data.is_error == 'yes') {
-                        jQuery('#coupon_box').hide();
-                        jQuery('#coupon_result').html(data.dd);
-                    } else {
-                        jQuery('#coupon_box').show();
-                        jQuery('#coupon_price').html(data.dd);
-                        jQuery('#order_total_price').html(data.result);
+                method: 'POST',
+                data: {
+                    coupon_str: coupon_str
+                },
+                success: function(response) {
+                    try {
+                        // Parse the response and handle results
+                        const data = JSON.parse(response);
+                        if (data.is_error === 'no') {
+                            document.getElementById('coupon_price').textContent = data.result; // Update coupon price
+                            jQuery('#coupon_result').html(data.dd); // Display success message
+                            updateOrderTotal(); // Recalculate total
+                        } else {
+                            jQuery('#coupon_result').html(data.dd); // Display error message
+                        }
+                    } catch (e) {
+                        console.error('Invalid JSON response:', response);
+                        jQuery('#coupon_result').html('An error occurred. Please try again.');
                     }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', error);
+                    jQuery('#coupon_result').html('An error occurred while applying the coupon.');
                 }
             });
         }
     </script>
+
 
     <!-- FOOTER START -->
     <?php include 'includes/footer.php'; ?>
