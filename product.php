@@ -119,14 +119,14 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									<?php
 									foreach ($multipleImages as $list) {
 									?>
-										<li class="">
+										<li>
 											<a href="#" class="elevatezoom-gallery"
 												data-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
-												data-zoom-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"><img
-													width="70" height="70"
-													src="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
-													alt="zo-th-4"></a>
+												data-zoom-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>">
+												<img src="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>" alt="Thumbnail">
+											</a>
 										</li>
+
 									<?php } ?>
 
 								</ul>
@@ -233,15 +233,36 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 											<p><span>Color:</span></p>
 											<ul class="pro__color">
 												<?php
+												$defaultColor = ''; // Variable to hold the default color key
 												foreach ($colorArr as $key => $val) {
-													echo "<li style='background:" . htmlspecialchars($val[0]) . " none repeat scroll 0 0'>
-                        <a href='javascript:void(0)' onclick=\"loadAttr('" . htmlspecialchars($key) . "', '" . htmlspecialchars($get_product[0]['id']) . "', 'color')\">" . htmlspecialchars($val[0]) . "</a>
-                      </li>";
+													// Set the first color as default
+													if ($defaultColor === '') {
+														$defaultColor = $key;
+													}
+
+													// Highlight the default color
+													$selectedClass = $key === $defaultColor ? 'selected-color' : '';
+
+													echo "<li class='$selectedClass' style='background:" . htmlspecialchars($val[0]) . " none repeat scroll 0 0'>
+                    <a href='javascript:void(0)' onclick=\"loadAttr('" . htmlspecialchars($key) . "', '" . htmlspecialchars($get_product[0]['id']) . "', 'color')\">" . htmlspecialchars($val[0]) . "</a>
+                </li>";
 												}
 												?>
 											</ul>
 										</div>
+
+										<!-- Inline script to auto-select the default color -->
+										<script>
+											document.addEventListener('DOMContentLoaded', function() {
+												const defaultColorKey = '<?php echo htmlspecialchars($defaultColor); ?>';
+												const productId = '<?php echo htmlspecialchars($get_product[0]['id']); ?>';
+
+												// Auto-load attributes for the default color
+												loadAttr(defaultColorKey, productId, 'color');
+											});
+										</script>
 									<?php } ?>
+
 									<br>
 
 									<?php if ($is_size > 0) { ?>
@@ -360,11 +381,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 					<!-- End List And Grid View -->
 				</div>
 			</div>
-			<div>
-				<a href="sizechart.php">
-					<img src="img/sizechart.jpeg" alt="Size Chart">
-				</a>
-			</div>
+
 			<!-- Tab panes -->
 			<div class="row">
 				<div class="col-xs-12">
@@ -454,6 +471,11 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 						</div>
 					</div>
 				</div>
+				<div>
+					<a href="sizechart.php">
+						<img src="img/sizechart.jpeg" alt="Size Chart">
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -461,14 +483,32 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 
 
 	<script>
-		// function showMultipleImage(im) {
-		// 	jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
-		// 	jQuery('.imageZoom').imgZoom();
-		// }
-		let is_color = '<?php echo $is_color ?>';
-		let is_size = '<?php echo $is_size ?>';
-		let pid = '<?php echo $product_id ?>';
+		$(document).ready(function() {
+			// Initialize zoom for the main image
+			$('#zoom1').elevateZoom({
+				zoomType: "lens",
+				lensShape: "round",
+				lensSize: 200,
+				scrollZoom: true
+			});
+
+			// Update zoom when a thumbnail is clicked
+			$('.elevatezoom-gallery').on('click', function(e) {
+				e.preventDefault();
+
+				const newImage = $(this).data('image');
+				const newZoomImage = $(this).data('zoom-image');
+
+				$('#zoom1').attr('src', newImage).data('zoom-image', newZoomImage).elevateZoom({
+					zoomType: "lens",
+					lensShape: "round",
+					lensSize: 200,
+					scrollZoom: true
+				});
+			});
+		});
 	</script>
+
 
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
@@ -528,5 +568,11 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 </body>
 
 <!-- Mirrored from htmldemo.net/lavoro/lavoro/product-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:30:22 GMT -->
+<!-- jQuery (required for ElevateZoom) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- ElevateZoom Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.js"></script>
+
 
 </html>
