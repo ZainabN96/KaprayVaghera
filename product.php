@@ -116,19 +116,19 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 						<?php if (isset($multipleImages[0])) { ?>
 							<div class="single-zoom-thumb">
 								<ul class="nav" id="gallery_01">
-								<?php
+									<?php
 									foreach ($multipleImages as $list) {
 									?>
 										<li class="">
 											<a href="#" class="elevatezoom-gallery"
 												data-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
-												data-zoom-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"><img
-													width="70" height="70"
+												data-zoom-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>">
+												<img width="70" height="70"
 													src="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
-													alt="zo-th-4"></a>
+													alt="zo-th-4">
+											</a>
 										</li>
 									<?php } ?>
-
 								</ul>
 							</div>
 						<?php } ?>
@@ -536,7 +536,43 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 			});
 		});
 	</script>
+	<!-- Include jQuery and ElevateZoom JS -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.rawgit.com/elevateweb/elevatezoom/master/jquery.elevatezoom.min.js"></script>
 
+	<script>
+		$(document).ready(function() {
+			// Initialize ElevateZoom on the main image
+			$("#zoom1").elevateZoom({
+				zoomType: "inner", // Inner zoom effect
+				cursor: "crosshair", // Crosshair cursor
+				gallery: "gallery_01", // Thumbnail gallery ID
+				galleryActiveClass: "active", // Active thumbnail class
+				responsive: true // Make responsive
+			});
+
+			// Change the zoom image when a thumbnail is clicked
+			$(".elevatezoom-gallery").on("click", function(e) {
+				e.preventDefault(); // Prevent default anchor behavior
+				var newImage = $(this).data("image");
+				var newZoomImage = $(this).data("zoom-image");
+
+				// Update the main image source
+				$("#zoom1").attr("src", newImage);
+				$("#zoom1").data("zoom-image", newZoomImage);
+
+				// Reinitialize ElevateZoom with the new image
+				$('.zoomContainer').remove(); // Remove the old zoom container
+				$("#zoom1").elevateZoom({
+					zoomType: "inner",
+					cursor: "crosshair",
+					gallery: "gallery_01",
+					galleryActiveClass: "active",
+					responsive: true
+				});
+			});
+		});
+	</script>
 
 	<!-- product-details Area end -->
 
@@ -551,11 +587,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 </body>
 
 <!-- Mirrored from htmldemo.net/lavoro/lavoro/product-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:30:22 GMT -->
-<!-- jQuery (required for ElevateZoom) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- ElevateZoom Script -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/3.0.8/jquery.elevatezoom.min.js"></script>
 
 
 </html>
