@@ -116,17 +116,17 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 						<?php if (isset($multipleImages[0])) { ?>
 							<div class="single-zoom-thumb">
 								<ul class="nav" id="gallery_01">
-									<?php
+								<?php
 									foreach ($multipleImages as $list) {
 									?>
-										<li>
+										<li class="">
 											<a href="#" class="elevatezoom-gallery"
 												data-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
-												data-zoom-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>">
-												<img src="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>" alt="Thumbnail">
-											</a>
+												data-zoom-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"><img
+													width="70" height="70"
+													src="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
+													alt="zo-th-4"></a>
 										</li>
-
 									<?php } ?>
 
 								</ul>
@@ -483,30 +483,13 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 
 
 	<script>
-		$(document).ready(function() {
-			// Initialize zoom for the main image
-			$('#zoom1').elevateZoom({
-				zoomType: "lens",
-				lensShape: "round",
-				lensSize: 200,
-				scrollZoom: true
-			});
-
-			// Update zoom when a thumbnail is clicked
-			$('.elevatezoom-gallery').on('click', function(e) {
-				e.preventDefault();
-
-				const newImage = $(this).data('image');
-				const newZoomImage = $(this).data('zoom-image');
-
-				$('#zoom1').attr('src', newImage).data('zoom-image', newZoomImage).elevateZoom({
-					zoomType: "lens",
-					lensShape: "round",
-					lensSize: 200,
-					scrollZoom: true
-				});
-			});
-		});
+		// function showMultipleImage(im) {
+		// 	jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
+		// 	jQuery('.imageZoom').imgZoom();
+		// }
+		let is_color = '<?php echo $is_color ?>';
+		let is_size = '<?php echo $is_size ?>';
+		let pid = '<?php echo $product_id ?>';
 	</script>
 
 

@@ -123,7 +123,7 @@ $product_review_res = mysqli_query($con, "SELECT users.name, product_review.id, 
                                                     <ul class="nav" id="gallery_01">
                                                         <?php foreach ($multipleImages as $image) { ?>
                                                             <li>
-                                                                <a href="#" class="elevatezoom-gallery"
+                                                                <a href="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $image; ?>" class="elevatezoom-gallery"
                                                                     data-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $image; ?>"
                                                                     data-zoom-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $image; ?>">
                                                                     <img width="70" height="70"
@@ -153,7 +153,7 @@ $product_review_res = mysqli_query($con, "SELECT users.name, product_review.id, 
                                             <div class="price-boxes">
                                                 <span class="new-price">PKR <?php echo htmlspecialchars($product_price); ?></span>
                                             </div>
-                                           
+
 
                                             <div class="product-desc">
                                                 <h1>Product Details:</h1>
@@ -199,5 +199,19 @@ $product_review_res = mysqli_query($con, "SELECT users.name, product_review.id, 
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.rawgit.com/elevateweb/elevatezoom/master/jquery.elevatezoom.min.js"></script>
 
+<script>
+    // Initialize elevateZoom on the main product image
+    $(document).ready(function() {
+        $('#zoom1').elevateZoom({
+            zoomType: "inner", // "inner" for zoom effect within the image area
+            cursor: "crosshair", // Change cursor to crosshair
+            gallery: "gallery_01", // Link gallery to this image
+            galleryActiveClass: "active", // Active class for gallery item
+            responsive: true // Make zoom responsive for mobile
+        });
+    });
+</script>
 <?php require('footer.inc.php'); ?>
