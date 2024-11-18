@@ -127,6 +127,7 @@ if (isset($_POST['submit'])) {
     if ($payment_type == 'instamojo') {
         // Code for instamojo payment gateway
     } else {
+        unset($_SESSION['cart']);
     ?>
         <script>
             window.location.href = 'thankyou.php';
@@ -168,14 +169,14 @@ if (isset($_POST['submit'])) {
                                                         <form id="login-form" method="post">
                                                             <h5 class="checkout-method__title">Login</h5>
                                                             <div class="single-input">
-                                                                <input type="text" name="login_email" id="login_email"
+                                                                <input type="text" class="form-control" name="login_email" id="login_email"
                                                                     placeholder="Your Email*" style="width:100%">
                                                                 <span class="field_error" id="login_email_error"></span>
                                                             </div>
 
                                                             <div class="single-input">
                                                                 <input type="password" name="login_password"
-                                                                    id="login_password" placeholder="Your Password*"
+                                                                    id="login_password" class="form-control" placeholder="Your Password*"
                                                                     style="width:100%">
                                                                 <span class="field_error" id="login_password_error"></span>
                                                             </div>
@@ -196,23 +197,23 @@ if (isset($_POST['submit'])) {
                                                         <form action="#">
                                                             <h5 class="checkout-method__title">Register</h5>
                                                             <div class="single-input">
-                                                                <input type="text" name="name" id="name"
+                                                                <input type="text" class="form-control" name="name" id="name"
                                                                     placeholder="Your Name*" style="width:100%">
                                                                 <span class="field_error" id="name_error"></span>
                                                             </div>
                                                             <div class="single-input">
-                                                                <input type="text" name="email" id="email"
+                                                                <input type="text" class="form-control" name="email" id="email"
                                                                     placeholder="Your Email*" style="width:100%">
                                                                 <span class="field_error" id="email_error"></span>
                                                             </div>
 
                                                             <div class="single-input">
-                                                                <input type="text" name="mobile" id="mobile"
+                                                                <input type="text" class="form-control" name="mobile" id="mobile"
                                                                     placeholder="Your Mobile*" style="width:100%">
                                                                 <span class="field_error" id="mobile_error"></span>
                                                             </div>
                                                             <div class="single-input">
-                                                                <input type="password" name="password" id="password"
+                                                                <input type="password" class="form-control" name="password" id="password"
                                                                     placeholder="Your Password*" style="width:100%">
                                                                 <span class="field_error" id="password_error"></span>
                                                             </div>
@@ -247,7 +248,10 @@ if (isset($_POST['submit'])) {
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="single-input">
-                                                        <select name="city" id="city" onchange="updateDeliveryCharges()" required>
+                                                    <label class="form-check-label" for="city">
+                                                        City
+                                                    </label>
+                                                        <select class="form-control" name="city" id="city" onchange="updateDeliveryCharges()" required>
                                                             <option value="">Select City</option>
                                                             <option value="Abbottabad">Abbottabad</option>
                                                             <option value="Bahawalpur">Bahawalpur</option>
@@ -307,14 +311,20 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="single-input">
-                                                        <input type="text" name="address" placeholder="Street Address"
+                                                    <label class="form-check-label" for="address">
+                                                        Address: 
+                                                    </label>
+                                                        <input type="text" class="form-control" name="address" id="address" placeholder="Street Address"
                                                             required value="<?php echo $address ?>">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <div class="single-input">
-                                                        <input type="text" name="pincode" placeholder="Post code/ zip"
+                                                    <label class="form-check-label" for="zip">
+                                                        Zip Code
+                                                    </label>
+                                                        <input type="text" class="form-control" name="pincode" id="zip" placeholder="Post code/ zip"
                                                             required value="<?php echo $pincode ?>">
                                                     </div>
                                                 </div>
@@ -328,7 +338,7 @@ if (isset($_POST['submit'])) {
                                     <div class="accordion__body">
                                         <div class="paymentinfo">
                                             <div class="single-method">
-                                                <input type="radio" name="payment_type" value="COD" required checked /> Cash On
+                                                <input type="radio" class="form-check-input" name="payment_type" value="COD" required checked /> Cash On
                                                 Delivery
 
                                             </div>
@@ -464,6 +474,43 @@ if (isset($_POST['submit'])) {
             updateOrderTotal();
         }
 
+        // function set_coupon() {
+        //     let coupon_str = jQuery('#coupon_str').val(); // Get coupon code from input
+        //     if (coupon_str === '') {
+        //         alert('Please enter a coupon code');
+        //         return;
+        //     }
+
+        //     jQuery('#coupon_result').html(''); // Clear previous results
+        //     $.ajax({
+        //         url: 'set_coupon.php',
+        //         method: 'POST',
+        //         data: {
+        //             coupon_str: coupon_str
+        //         },
+        //         success: function(response) {
+        //             try {
+        //                 // Parse the response and handle results
+        //                 const data = JSON.parse(response);
+        //                 if (data.is_error === 'no') {
+        //                     document.getElementById('coupon_price').textContent = data.result; // Update coupon price
+        //                     jQuery('#coupon_result').html(data.dd); // Display success message
+        //                     updateOrderTotal(); // Recalculate total
+        //                 } else {
+        //                     jQuery('#coupon_result').html(data.dd); // Display error message
+        //                 }
+        //             } catch (e) {
+        //                 console.error('Invalid JSON response:', response);
+        //                 jQuery('#coupon_result').html('An error occurred. Please try again.');
+        //             }
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.error('AJAX Error:', error);
+        //             jQuery('#coupon_result').html('An error occurred while applying the coupon.');
+        //         }
+        //     });
+        // }
+
         function set_coupon() {
             let coupon_str = jQuery('#coupon_str').val(); // Get coupon code from input
             if (coupon_str === '') {
@@ -471,27 +518,26 @@ if (isset($_POST['submit'])) {
                 return;
             }
 
-            jQuery('#coupon_result').html(''); // Clear previous results
+            jQuery('#coupon_result').html(''); // Clear previous messages
             $.ajax({
                 url: 'set_coupon.php',
                 method: 'POST',
-                data: {
-                    coupon_str: coupon_str
-                },
+                data: { coupon_str: coupon_str },
                 success: function(response) {
                     try {
-                        // Parse the response and handle results
                         const data = JSON.parse(response);
                         if (data.is_error === 'no') {
-                            document.getElementById('coupon_price').textContent = data.result; // Update coupon price
-                            jQuery('#coupon_result').html(data.dd); // Display success message
-                            updateOrderTotal(); // Recalculate total
+                            // Update discount and new total
+                            document.getElementById('coupon_price').textContent = `₹${data.result}`;
+                            jQuery('#coupon_result').html(data.dd); // Success message
+                            updateOrderTotal(data.result); // Update order total if needed
                         } else {
-                            jQuery('#coupon_result').html(data.dd); // Display error message
+                            // Show error message
+                            jQuery('#coupon_result').html(data.dd);
                         }
                     } catch (e) {
                         console.error('Invalid JSON response:', response);
-                        jQuery('#coupon_result').html('An error occurred. Please try again.');
+                        jQuery('#coupon_result').html('An unexpected error occurred.');
                     }
                 },
                 error: function(xhr, status, error) {
@@ -500,6 +546,7 @@ if (isset($_POST['submit'])) {
                 }
             });
         }
+
     </script>
 
 
