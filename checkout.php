@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
             $coupon_value = $row['value'];
             $_SESSION['COUPON_ID'] = $row['id'];
             $_SESSION['COUPON_CODE'] = $coupon_code;
-            $_SESSION['COUPON_VALUE'] = $coupon_value;
+            // $_SESSION['COUPON_VALUE'] = $coupon_value;
             $total_price = $_SESSION['ORDER_TOTAL'] - $coupon_value;
 
             $response = [
@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
     $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
 
     // Insert order into database with delivery charges
-    mysqli_query($con, "insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,txnid,coupon_id,coupon_code,coupon_value,delivery_charges) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$txnid','$coupon_id','$coupon_code','$coupon_value', '$delivery_charges')");
+    mysqli_query($con, "insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,txnid,delivery_charges) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$txnid','$delivery_charges')");
 
     $order_id = mysqli_insert_id($con);
 
