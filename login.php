@@ -22,12 +22,12 @@ include 'includes/header.php';
 								<h2 style="color:#026bbe;">Login</h2>
 								<div class="form-row form-row-wide">
 									<label for="username">Email address <span class="required">*</span></label>
-									<input type="text" name="login_email" id="login_email" style="width:100%">
+									<input type="text" class="form-control" name="login_email" id="login_email" style="width:100%">
 									<span class="field_error" id="login_email_error"></span>
 								</div>
 								<div class="form-row form-row-wide">
 									<label for="password">Password <span class="required">*</span></label>
-									<input type="password" name="login_password" id="login_password">
+									<input type="password" class="form-control" name="login_password" id="login_password">
 
 									<span class="field_error" id="login_password_error"></span>
 								</div>
@@ -73,21 +73,21 @@ include 'includes/header.php';
 											<div class="single-contact-form">
 												<div class="contact-box name mb-3">
 													<label for="name">Name<span class="required">*</span></label>
-													<input type="text" name="name" id="name" style="width:100%">
+													<input type="text" class="form-control" name="name" id="name" style="width:100%">
 												</div>
 												<span class="field_error" id="name_error"></span>
 											</div>
 											<div class="single-contact-form">
 												<div class="contact-box name mb-3">
 													<label for="email">Email<span class="required">*</span></label>
-													<input type="text" name="email" id="email" style="width:100%">
+													<input type="text" class="form-control" name="email" id="email" style="width:100%">
 												</div>
 												<span class="field_error" id="email_error"></span>
 											</div>
 											<div class="single-contact-form">
 												<div class="contact-box name mb-3">
 													<label for="mobile">Mobile<span class="required">*</span></label>
-													<input type="text" name="mobile" maxlength="11" id="mobile"
+													<input type="text" class="form-control" name="mobile" maxlength="11" id="mobile"
 														style="width:100%">
 												</div>
 												<span class="field_error" id="mobile_error"></span>
@@ -96,7 +96,7 @@ include 'includes/header.php';
 												<div class="contact-box name mb-3">
 													<label for="password">Password<span
 															class="required">*</span></label>
-													<input type="password" name="password" id="password"
+													<input type="password" class="form-control" name="password" id="password"
 														style="width:100%">
 												</div>
 												<span class="field_error" id="password_error"></span>
