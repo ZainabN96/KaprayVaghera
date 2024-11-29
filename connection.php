@@ -2,6 +2,11 @@
 session_start();
 $con=mysqli_connect("localhost","root","","ecom");
 define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'/KAPRAYVAGHERA/');
+
+//Live Crenditals
+// $con=mysqli_connect("localhost","customercare","a9EJau~yEUqb","ecom");
+// define('SERVER_PATH',$_SERVER['DOCUMENT_ROOT'].'https://kvonline.shop/');
+
 define('SITE_PATH','');
 
 define('INSTAMOJO_REDIRECT',SITE_PATH.'payment_complete.php');
