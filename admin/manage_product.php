@@ -369,7 +369,7 @@ if(isset($_POST['submit'])){
 										<input type="file" name="image" class="form-control" <?php echo  $image_required?>>
 										<?php
 										if($image!=''){
-echo "<a target='_blank' href='".PRODUCT_IMAGE_SITE_PATH.$image."'><img width='150px' src='".PRODUCT_IMAGE_SITE_PATH.$image."'/></a>";
+											echo "<a target='_blank' href='".PRODUCT_IMAGE_SITE_PATH.$image."'><img width='150px' src='".PRODUCT_IMAGE_SITE_PATH.$image."'/></a>";
 										}
 										?>
 									  </div>
@@ -382,12 +382,12 @@ echo "<a target='_blank' href='".PRODUCT_IMAGE_SITE_PATH.$image."'><img width='1
 									 
 									 <?php
 									 if(isset($multipleImageArr[0])){
-foreach($multipleImageArr as $list){
-	echo '<div class="col-lg-6" style="margin-top:20px;" id="add_image_box_'.$list['id'].'"><label for="categories" class=" form-control-label">Image</label><input type="file" name="product_images[]" class="form-control" ><a href="manage_product.php?id='.$id.'&pi='.$list['id'].'" style="color:white;"><button type="button" class="btn btn-lg btn-danger btn-block"><span id="payment-button-amount"><a href="manage_product.php?id='.$id.'&pi='.$list['id'].'" style="color:white;">Remove</span></button></a>';
-	echo "<a target='_blank' href='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list['product_images']."'><img width='150px' src='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list['product_images']."'/></a>";
-	echo '<input type="hidden" name="product_images_id[]" value="'.$list['id'].'"/></div>';
-	
-}										 
+										foreach($multipleImageArr as $list){
+											echo '<div class="col-lg-6" style="margin-top:20px;" id="add_image_box_'.$list['id'].'"><label for="categories" class=" form-control-label">Image</label><input type="file" name="product_images[]" class="form-control" ><a href="manage_product.php?id='.$id.'&pi='.$list['id'].'" style="color:white;"><button type="button" class="btn btn-lg btn-danger btn-block"><span id="payment-button-amount"><a href="manage_product.php?id='.$id.'&pi='.$list['id'].'" style="color:white;">Remove</span></button></a>';
+											echo "<a target='_blank' href='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list['product_images']."'><img width='150px' src='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list['product_images']."'/></a>";
+											echo '<input type="hidden" name="product_images_id[]" value="'.$list['id'].'"/></div>';
+											
+										}										 
 									 }
 									 ?>
 									 
