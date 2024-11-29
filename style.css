@@ -311,7 +311,7 @@ body {
 /*----------------------------------------*/
 
 .whatsapp-icon-custom-size {
-  font-size: 24px; /* Adjust the size as needed */
+  font-size: 32px; /* Adjust the size as needed */
   color: white;
   margin-left: 15px;
 }
@@ -353,7 +353,7 @@ body {
 
 .mainmenu ul li {
   display: inline-block;
-  /* position: relative; */
+  position: relative;
   margin-right: 15px;
 }
 
@@ -876,7 +876,7 @@ a.sm-cart-product {
 }
 
 .cart-toggler i {
-  font-size: 18px;
+  font-size: 25px;
   color: #3f3f3f;
   display: block;
   padding-bottom: 33px;
@@ -892,7 +892,7 @@ a.sm-cart-product {
   font-size: 18px;
   color: #3f3f3f;
   cursor: pointer;
-  background: #fff;
+  /* background: #fff; */
 }
 
 span.cart-quantity {
@@ -903,9 +903,9 @@ span.cart-quantity {
   line-height: 15px;
   position: absolute;
   text-align: center;
-  top: -6px;
+  top: 0;
   color: #fff;
-  left: 16px;
+  left: 22px;
   font-size: 10px;
 }
 
@@ -1056,10 +1056,9 @@ button {
 }
 
 .header-search .btn-default {
-  background: #3f3f3f;
+  /* background: #3f3f3f; */
   color: #fff;
   border: 0px;
-  padding: 15px 20px; /* Adjusted padding for height */
   /* width: 60px; */ /* Uncomment this line if you want to adjust button width */
 }
 
@@ -1084,18 +1083,18 @@ button {
 }
 
 .header-search button.btn.btn-default i {
-  width: 100px;
-  line-height: 40px;
+  /* width: 100px;
+  line-height: 40px; */
   border-radius: 0;
-  color: #fff;
+  color: #000000;
   font-size: 25px;
   transition: 0.3s;
 }
 
 .header-search button.btn.btn-default i:hover {
-  background: #03a5e9;
+  background: #9eabb1;
   color: #fff;
-  border-color: #03a5e9;
+  border-color: #9eabb1;
   transition: 0.3s;
 }
 
@@ -1299,36 +1298,44 @@ input, button, select, textarea {
   margin: 0;
   font-weight: 700;
   font-size: 18px;
-  color: #03a5e9;
-  background: #fff;
-  padding: 0 20px;
+  color: #000000;
+  /* background: #fff; */
+  /* padding: 0 20px; */
   display: inline-block;
   letter-spacing: 4px;
   position: relative;
   z-index: 1;
+  border-bottom: 1px solid #ddd;
 }
 
-.area-title:before {
+/* .area-title:before {
   content: "";
   width: 32px;
   height: 32px;
   position: absolute;
   background: url(img/title-top.webp) no-repeat center center;
-  position: absolute;
   left: 0;
   right: 0;
   margin: 0 auto;
   top: -20px;
-}
-
-.area-title:after {
+  color: #03a5e9;
+} */
+/* .line::before {
   content: "";
   width: 100%;
   border-top: 1px dashed #3f3f3f;
   position: absolute;
   left: 0;
   top: 50%;
-}
+} */
+/* .area-title:after {
+  content: "";
+  width: 100%;
+  border-top: 1px dashed #3f3f3f;
+  position: absolute;
+  left: 0;
+  top: 50%;
+} */
 
 .features-tab .nav-tabs {
   border-bottom: 0 none;
@@ -1479,7 +1486,7 @@ input, button, select, textarea {
 .add-to-wishlist a i,
 .compare-button a i,
 .quickviewbtn a i {
-  background: #fff;
+  /* background: #fff; */
   color: red;
   font-size: 14px;
   height: 35px;
@@ -1489,13 +1496,15 @@ input, button, select, textarea {
 }
 
 .add-to-wishlist a i {
-  background: #fff;
+  /* background: #fff; */
   color: red;
+  font-size: 30px;
 }
 
 .compare-button a i {
-  background: #fff;
+  /* background: #fff; */
   color: #03a5e9;
+  font-size: 30px;
 }
 
 .quickviewbtn {
@@ -1504,17 +1513,17 @@ input, button, select, textarea {
 
 .action-buttons a:hover i,
 .add-to-cart a:hover {
-  background: #3f3f3f;
+  /* background: #3f3f3f; */
   color: #fff;
 }
 
 .compare-button a i:hover {
-  background: #03a5e9;
+  /* background: #03a5e9; */
   color: #fff;
 }
 
 .add-to-wishlist a i:hover {
-  background: red;
+  /* background: red; */
   color: #fff;
 }
 
@@ -2924,7 +2933,7 @@ span.old-price {
   left: 0;
   margin: 0 auto;
   max-width: 100%;
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   top: 0;
   z-index: 9999;
@@ -2942,7 +2951,7 @@ span.old-price {
 }
 
 .home-five .cart-toggler i {
-  color: #fff;
+  color: #000000;
 }
 
 .home-five .search-icon.fa.fa-search {
@@ -2953,6 +2962,7 @@ span.old-price {
 }
 
 .home-five .dropps-menu a {
+  /* font-size: 23px; */
   color: #fff;
 }
 

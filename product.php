@@ -5,7 +5,7 @@
 <?php
 ob_start();
 $title = 'Product-Details | Kapray Vaghera';
-include 'includes/header.php';
+include 'includes/header2.php';
 if (isset($_GET['id'])) {
 
 	$product_id = mysqli_real_escape_string($con, $_GET['id']);

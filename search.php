@@ -3,17 +3,17 @@
 
 <?php
 $title = 'Search | Kapray Vaghera';
-include 'includes/header.php';
+include 'includes/header2.php';
 
 $str = mysqli_real_escape_string($con, $_GET['str']);
 if ($str != '') {
     $get_product = get_product($con, '', '', '', $str);
 } else {
-    ?>
+?>
     <script>
         window.location.href = 'index.php';
     </script>
-    <?php
+<?php
 }
 ?>
 
@@ -61,12 +61,6 @@ if ($str != '') {
                                         <img class="secondary-image" width="540" height="660"
                                             src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
                                     </a>
-                                    <div class="action-zoom">
-                                        <div class="add-to-cart">
-                                            <a href="product.php?id=<?php echo $list['id'] ?>"><i
-                                                    class="fa fa-search-plus"></i></a>
-                                        </div>
-                                    </div>
                                     <div class="actions">
                                         <div class="action-buttons">
                                             <div class="add-to-links">
@@ -99,11 +93,11 @@ if ($str != '') {
                             </div>
                         </div>
                     <?php } ?>
-                    <?php } else {
-    echo '<h2 style="font-size: 18px; color: red; font-weight: bold; text-align: center;">Product Not Found.</h2> <br> 
+                <?php } else {
+                    echo '<h2 style="font-size: 18px; color: red; font-weight: bold; text-align: center;">Product Not Found.</h2> <br> 
   <p style="font-size: 15px; color: grey; text-align: center;">  Your search returned no results.</p>
     ';
-} ?>
+                } ?>
 
             </div>
         </div>

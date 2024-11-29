@@ -157,7 +157,7 @@
 						</div>
 						<div class="infof-content">
 							<h3>Our Address</h3>
-							<p>2-C Zahoor Elahi Rd, Block C Gulberg 2, near KIMS and Green Halls
+							<!-- <p>2-C Zahoor Elahi Rd, Block C Gulberg 2, near KIMS and Green Halls -->
 							</p>
 						</div>
 					</div>
@@ -204,7 +204,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-12">
-					<address>2022 &copy; <strong> Kapray Vaghera </strong> Made with by <a
+					<address><?php echo date('Y'); ?> &copy; <strong> Kapray Vaghera </strong> Made with by <a
 							href="https://www.hcc-me.com/hcc-technology-foundation/" target="_blank"><strong>HCC
 								Technology Foundation</strong></a></address>
 				</div>

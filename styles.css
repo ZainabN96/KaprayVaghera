@@ -1,0 +1,90 @@
+/* Reset dropdown to be hidden initially */
+ul.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 200px;
+}
+
+/* Dropdown items */
+ul.dropdown li {
+  padding: 10px;
+  white-space: nowrap;
+  /* Prevent text wrapping */
+}
+
+ul.dropdown li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+/* Hover effect on dropdown items */
+ul.dropdown li a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Show dropdown on hover */
+li.drop:hover > ul.dropdown {
+  display: block;
+}
+
+/* Ensure the parent category menu is positioned relative */
+li.drop {
+  position: relative;
+}
+
+/* Optional: Style the parent category links */
+li.drop > a {
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+li.drop > a:hover {
+  color: #007bff;
+  /* Optional: Change color on hover */
+}
+
+.nav-links {
+  text-align: center;
+  /* padding: 10px 0; */
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+/* Toggle visibility of mobile menu */
+.mobile-menu.show {
+    display: block;
+}
+
+.categories-menu {
+    display: none; /* Default is hidden */
+}
+
+.categories-menu.show {
+    display: block; /* Show menu when toggle button is clicked */
+}
+
+/* Sub-menu toggle for mobile */
+.sub-menu {
+    display: none; /* Default is hidden */
+}
+
+.sub-menu.show {
+    display: block; /* Show sub-menu when expanded */
+}

@@ -1,14 +1,17 @@
 <?php
-require ('connection.php');
-require ('functions.php');
-require ('add_to_cart.php');
+// require('connection.php');
+// require('functions.php');
+// require('add_to_cart.php');
 
-if (!isset($_GET['id']) && $_GET['id'] != '') {
-	?>
+include 'includes/header2.php';
+
+if (!isset($_GET['id']) || $_GET['id'] == '') {
+?>
 	<script>
 		window.location.href = 'index.php';
 	</script>
-	<?php
+<?php
+	exit;
 }
 
 $cat_id = mysqli_real_escape_string($con, $_GET['id']);
@@ -21,12 +24,12 @@ if (isset($_GET['sub_categories'])) {
 if ($cat_id > 0) {
 	$get_product = get_product($con, '', $cat_id, '', '', '', '', $sub_categories);
 } else {
-	?>
+?>
 
 	<script>
 		window.location.href = 'index.php';
 	</script>
-	<?php
+<?php
 }
 //pr($cat_id);
 $get_cat_name = mysqli_query($con, "select * from categories where id = $cat_id ");
@@ -56,7 +59,6 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	}
 
 	$wishlist_count = mysqli_num_rows(mysqli_query($con, "select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
-
 }
 
 ?>
@@ -157,19 +159,19 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			<?php
 			if (!isset($_GET['sub_categories'])) {
 				while ($row = mysqli_fetch_assoc($get_cat_name)) {
-					?>
+			?>
 					<span>
 						<?php echo ($row['categories']); ?>
 					</span>
-					<?php
+				<?php
 				}
 			} else {
 				while ($row = mysqli_fetch_assoc($get_sub_cat_name)) {
-					?>
+				?>
 					<span>
 						<?php echo ($row['sub_categories']); ?>
 					</span>
-					<?php
+			<?php
 				}
 			}
 			?>
@@ -245,7 +247,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			<div class="row">
 				<?php if (count($get_product) > 0) {
 					//prx($get_product);
-					?>
+				?>
 
 
 					<!-- Loop through products -->
@@ -272,13 +274,6 @@ if (isset($_SESSION['USER_LOGIN'])) {
 													<img class="secondary-image " style="width: 360px; height: 400px;"
 														src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
 												</a>
-
-												<div class="action-zoom">
-													<div class="add-to-cart">
-														<a href="product.php?id=<?php echo $list['id'] ?>"><i
-																class="fa fa-search-plus"></i></a>
-													</div>
-												</div>
 												<div class="actions">
 													<div class="action-buttons">
 														<div class="add-to-links">
@@ -342,24 +337,25 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 	<!-- Brand Logo Area End -->
 	<script>
-		jQuery(document).ready(function () {
+		jQuery(document).ready(function() {
 			function asc() {
 				var container = jQuery(".category-list .products-category");
 				var products = container.children('.product-list').get();
-				products.sort(function (a, b) {
+				products.sort(function(a, b) {
 					return parseFloat(jQuery(a).find(".new-price").text()) - parseFloat(jQuery(b).find(".new-price").text());
 				});
-				jQuery.each(products, function (index, product) {
+				jQuery.each(products, function(index, product) {
 					container.append(product);
 				});
 			}
+
 			function des() {
 				var container = jQuery(".category-list .products-category");
 				var products = container.children('.product-list').get();
-				products.sort(function (a, b) {
+				products.sort(function(a, b) {
 					return parseFloat(jQuery(b).find(".new-price").text()) - parseFloat(jQuery(a).find(".new-price").text());
 				});
-				jQuery.each(products, function (index, product) {
+				jQuery.each(products, function(index, product) {
 					container.append(product);
 				});
 			}
@@ -368,7 +364,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			asc(); // Default to ascending order
 
 			// Event listener for sort change
-			jQuery("#sort").change(function () {
+			jQuery("#sort").change(function() {
 				var sorting = jQuery(this).val();
 				if (sorting === "l2h") {
 					asc();
