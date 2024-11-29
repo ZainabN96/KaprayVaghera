@@ -1,8 +1,8 @@
 <?php
-require ('connection.php');
-require ('functions.php');
-require ('add_to_cart.php');
-
+// require ('connection.php');
+// require ('functions.php');
+// require ('add_to_cart.php');
+include 'includes/header2.php';
 
 $wishlist_count = 0;
 $cat_res = mysqli_query($con, "select * from categories where status=1 order by categories asc");
@@ -23,16 +23,15 @@ if (isset($_SESSION['USER_LOGIN'])) {
     }
 
     $wishlist_count = mysqli_num_rows(mysqli_query($con, "select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
-
 }
 
 
 if (!isset($_SESSION['USER_LOGIN'])) {
-    ?>
+?>
     <script>
         window.location.href = 'index.php';
     </script>
-    <?php
+<?php
 }
 $uid = $_SESSION['USER_ID'];
 
@@ -160,7 +159,7 @@ $res = mysqli_query($con, "select product.name,product.image,product_attributes.
                                 <tbody>
                                     <?php
                                     while ($row = mysqli_fetch_assoc($res)) {
-                                        ?>
+                                    ?>
                                         <tr>
                                             <td class="product-thumbnail"><a href="#"><img
                                                         src="<?php echo PRODUCT_IMAGE_SITE_PATH . $row['image'] ?>" /></a></td>

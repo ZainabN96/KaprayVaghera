@@ -68,6 +68,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
                             <a href="javascript:void(0);" class="openNav">
                                 <i class="fa fa-bars" style="color: white;"></i>
                             </a>
+                            <!-- Categories Menu -->
                             <div class="categories-menu">
                                 <ul class="categories-list">
                                     <?php foreach ($cat_arr as $list) { ?>
@@ -79,7 +80,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
                                             <ul class="sub-menu">
                                                 <?php
                                                 $cat_id = $list['id'];
-                                                $sub_cat_res = mysqli_query($con, "SELECT * FROM sub_categories WHERE status='1' AND categories_id='$cat_id'");
+                                                $sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
                                                 if (mysqli_num_rows($sub_cat_res) > 0) {
                                                     while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
                                                         echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
@@ -92,7 +93,6 @@ if (isset($_SESSION['USER_LOGIN'])) {
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <!-- mobile menu end -->
@@ -115,42 +115,17 @@ if (isset($_SESSION['USER_LOGIN'])) {
         });
     });
 
-    // Ensure the DOM content is fully loaded before adding event listeners
-    // document.addEventListener('DOMContentLoaded', function() {
-
-    //     document.querySelector('.openNav').addEventListener('click', function() {
-    //         document.getElementById("mob-menu").classList.toggle("show");
-    //         document.querySelector('.categories-menu').classList.toggle("show");
-    //     });
-
-
-    //     document.querySelectorAll('.expand-cat').forEach(item => {
-    //         item.addEventListener('click', function() {
-    //             this.parentNode.querySelector('.sub-menu').classList.toggle('show');
-    //         });
-    //     });
-    // });
     document.addEventListener('DOMContentLoaded', function() {
-        // Toggle mobile navigation menu
-        const openNav = document.querySelector('.openNav');
-        const mobileMenu = document.getElementById("mob-menu");
-        const categoriesMenu = document.querySelector('.categories-menu');
+        // Toggle mobile navigation
+        document.querySelector('.openNav').addEventListener('click', function() {
+            document.getElementById("mob-menu").classList.toggle("show");
+            document.querySelector('.categories-menu').classList.toggle("show");
+        });
 
-        if (openNav && mobileMenu && categoriesMenu) {
-            openNav.addEventListener('click', function() {
-                mobileMenu.classList.toggle("show");
-                categoriesMenu.classList.toggle("show");
-            });
-        }
-
-        // Toggle sub-menu dropdown in mobile navigation
-        document.querySelectorAll('.expand-cat').forEach(function(expandLink) {
-            expandLink.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent the default link action
-                const subMenu = this.nextElementSibling; // Select the sibling sub-menu
-                if (subMenu) {
-                    subMenu.classList.toggle('show');
-                }
+        // Toggle category dropdown
+        document.querySelectorAll('.expand-cat').forEach(item => {
+            item.addEventListener('click', function() {
+                this.parentNode.querySelector('.sub-menu').classList.toggle('show');
             });
         });
     });

@@ -5,7 +5,7 @@
 <?php
 ob_start();
 $title = 'Size Chart | Kapray Vaghera';
-include 'includes/header.php';
+include 'includes/header2.php';
 ?>
 
 <body class="s-prodct">
@@ -94,16 +94,16 @@ include 'includes/header.php';
                 </div>
             </section>
         </div>
-    
-        
-    <!-- FOOTER START -->
-    <?php include 'includes/footer.php'; ?>
-    <!-- FOOTER END -->
 
-    <!-- JS -->
-    <?php include 'includes/jsfiles.php';
-    ob_flush();
-    ?>
+
+        <!-- FOOTER START -->
+        <?php include 'includes/footer.php'; ?>
+        <!-- FOOTER END -->
+
+        <!-- JS -->
+        <?php include 'includes/jsfiles.php';
+        ob_flush();
+        ?>
 </body>
 
 </html>

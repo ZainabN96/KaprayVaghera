@@ -3,14 +3,14 @@
 
 <?php
 $title = 'Checkout | Kapray Vaghera';
-include 'includes/header.php';
+include 'includes/header2.php';
 
-if (!isset ($_SESSION['USER_LOGIN'])) {
-    ?>
+if (!isset($_SESSION['USER_LOGIN'])) {
+?>
     <script>
         window.location.href = 'index.php';
     </script>
-    <?php
+<?php
 }
 ?>
 <!-- Start Bradcaump area -->
@@ -157,7 +157,7 @@ if (!isset ($_SESSION['USER_LOGIN'])) {
                     url: 'update_profile.php',
                     type: 'post',
                     data: 'name=' + name,
-                    success: function (result) {
+                    success: function(result) {
                         jQuery('#name_error').html(result);
                         jQuery('#btn_submit').html('Update');
                         jQuery('#btn_submit').attr('disabled', false);
@@ -175,10 +175,12 @@ if (!isset ($_SESSION['USER_LOGIN'])) {
             if (current_password == '') {
                 jQuery('#current_password_error').html('Please enter password');
                 is_error = 'yes';
-            } if (new_password == '') {
+            }
+            if (new_password == '') {
                 jQuery('#new_password_error').html('Please enter password');
                 is_error = 'yes';
-            } if (confirm_new_password == '') {
+            }
+            if (confirm_new_password == '') {
                 jQuery('#confirm_new_password_error').html('Please enter password');
                 is_error = 'yes';
             }
@@ -195,7 +197,7 @@ if (!isset ($_SESSION['USER_LOGIN'])) {
                     url: 'update_password.php',
                     type: 'post',
                     data: 'current_password=' + current_password + '&new_password=' + new_password,
-                    success: function (result) {
+                    success: function(result) {
                         jQuery('#current_password_error').html(result);
                         jQuery('#btn_update_password').html('Update');
                         jQuery('#btn_update_password').attr('disabled', false);

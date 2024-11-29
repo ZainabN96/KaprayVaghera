@@ -3,7 +3,7 @@
 
 <?php
 $title = 'Checkout | Kapray Vaghera';
-include 'includes/header.php';
+include 'includes/header2.php';
 
 if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
 ?>

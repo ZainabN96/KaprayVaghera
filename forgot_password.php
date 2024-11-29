@@ -3,13 +3,13 @@
 
 <?php
 $title = 'Forgot Password | Kapray Vaghera';
-include 'includes/header.php';
+include 'includes/header2.php';
 if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
-    ?>
+?>
     <script>
         window.location.href = 'my_order.php';
     </script>
-    <?php
+<?php
 }
 
 ?>
@@ -92,7 +92,7 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
                     url: 'forgot_password_submit.php',
                     type: 'post',
                     data: 'email=' + email,
-                    success: function (result) {
+                    success: function(result) {
                         jQuery('#email').val('');
                         jQuery('#email_error').html(result);
                         jQuery('#btn_submit').html('Submit');
