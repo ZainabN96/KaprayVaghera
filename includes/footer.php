@@ -150,19 +150,19 @@
 	<div class="info-footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-4">
+				<!-- <div class="col-lg-3 col-md-4">
 					<div class="info-fcontainer">
 						<div class="infof-icon">
 							<i class="fa fa-map-marker"></i>
 						</div>
 						<div class="infof-content">
 							<h3>Our Address</h3>
-							<!-- <p>2-C Zahoor Elahi Rd, Block C Gulberg 2, near KIMS and Green Halls -->
+							<p>2-C Zahoor Elahi Rd, Block C Gulberg 2, near KIMS and Green Halls
 							</p>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-3 col-md-4">
+				</div> -->
+				<div class="col-lg-4 col-md-4">
 					<div class="info-fcontainer">
 						<div class="infof-icon">
 							<i class="fa fa-phone"></i>
@@ -173,7 +173,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-4">
+				<div class="col-lg-4 col-md-4">
 					<div class="info-fcontainer">
 						<div class="infof-icon">
 							<i class="fa fa-envelope"></i>
@@ -184,14 +184,14 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 d-lg-block d-none">
+				<div class="col-lg-4 d-lg-block d-none">
 					<div class="info-fcontainer">
 						<div class="infof-icon">
 							<i class="fa fa-clock-o"></i>
 						</div>
 						<div class="infof-content">
 							<h3>Openning Hour</h3>
-							<p>Mon - Sun : 9:00 am - 11:00 pm</p>
+							<p>Mon - Sun : 12:00 PM - 08:00 PM</p>
 						</div>
 					</div>
 				</div>
