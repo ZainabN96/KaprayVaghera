@@ -23,6 +23,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 ?>
 
+<link rel="stylesheet" href="styles.css">
 
 <!-- header area start -->
 <header class="header-5 short-stor">
@@ -168,6 +169,81 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			<!-- top details area end -->
 		</div>
 	</div>
+
+</header>
+
+<header class="header-5 short-stor ">
+	<div class="container-fluid ">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="mainmenu about">
+					<nav class="nav-links">
+						<ul class="main__menu">
+							<?php foreach ($cat_arr as $list) { ?>
+								<li class="drop">
+									<a href="categories.php?id=<?php echo $list['id']; ?>">
+										<?php echo $list['categories']; ?>
+									</a>
+									<ul class="dropdown">
+										<?php
+										$cat_id = $list['id'];
+										$sub_cat_res = mysqli_query($con, "SELECT * FROM sub_categories WHERE status=1 AND categories_id='$cat_id'");
+										if (mysqli_num_rows($sub_cat_res) > 0) {
+											while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
+												echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
+											}
+										} else {
+											echo '<li>No subcategories available</li>'; // Optional fallback
+										}
+										?>
+									</ul>
+								</li>
+							<?php } ?>
+							<li><a href="about-us.php">About Us</a></li>
+						</ul>
+					</nav>
+
+
+				</div>
+				<!-- mobile menu start -->
+				<div class="row">
+					<div class="col-sm-12 mobile-menu-area">
+						<div class="mobile-menu hidden-md d-lg-none" id="mob-menu">
+							<span class="mobile-menu-title">Menu</span>
+							<a href="javascript:void(0);" class="openNav">
+								<i class="fa fa-bars" style="color: white;"></i>
+							</a>
+							<!-- Categories Menu -->
+							<div class="categories-menu">
+								<ul class="categories-list">
+									<?php foreach ($cat_arr as $list) { ?>
+										<li class="menu-item-has-children">
+											<a href="javascript:void(0);" class="expand-cat">
+												<?php echo $list['categories']; ?>
+												<i class="fa fa-plus"></i>
+											</a>
+											<ul class="sub-menu">
+												<?php
+												$cat_id = $list['id'];
+												$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
+												if (mysqli_num_rows($sub_cat_res) > 0) {
+													while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
+														echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
+													}
+												}
+												?>
+											</ul>
+										</li>
+									<?php } ?>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- mobile menu end -->
+			</div>
+		</div>
+	</div>
 </header>
 <!-- header area end -->
 
@@ -185,6 +261,18 @@ if (isset($_SESSION['USER_LOGIN'])) {
 		document.querySelectorAll('.expand-cat').forEach(item => {
 			item.addEventListener('click', function() {
 				this.parentNode.querySelector('.sub-menu').classList.toggle('show');
+			});
+		});
+	});
+
+
+	document.addEventListener('DOMContentLoaded', function() {
+		// Add toggle behavior for dropdowns in mobile view
+		document.querySelectorAll('li.drop > a').forEach(function(categoryLink) {
+			categoryLink.addEventListener('click', function(e) {
+				e.preventDefault(); // Prevent the link from navigating
+				const parent = this.parentElement; // Get the parent <li>
+				parent.classList.toggle('open'); // Toggle the "open" class
 			});
 		});
 	});

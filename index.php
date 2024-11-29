@@ -12,7 +12,6 @@ include 'includes/header2.php';
 
 	<!-- header area start -->
 	<?php include 'includes/navbar2.php' ?>
-	<?php include 'includes/navbar.php' ?>
 	<!-- header area end -->
 
 	<!-- start home slider -->
