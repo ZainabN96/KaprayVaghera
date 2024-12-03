@@ -33,6 +33,16 @@
     } else {
         $user_count = 'N/A';
     }
+
+    $query = "SELECT COUNT(*) AS admin_count FROM admin_users";
+    $result = mysqli_query($con, $query);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        $admin_count = $row['admin_count'];
+    } else {
+        $admin_count = 'N/A';
+    }
 ?>
 
 <div class="content pb-0">
@@ -103,6 +113,23 @@
                                 <div class="text-left dib">
                                     <div class="stat-text"><span class="count"><?php echo $user_count; ?></span></div>
                                     <div class="stat-heading">Clients</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-five">
+                            <div class="stat-icon dib flat-color-4">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="text-left dib">
+                                    <div class="stat-text"><span class="count"><?php echo $admin_count; ?></span></div>
+                                    <div class="stat-heading">Admins</div>
                                 </div>
                             </div>
                         </div>
