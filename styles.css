@@ -69,22 +69,32 @@ li.drop > a:hover {
 }
 /* Toggle visibility of mobile menu */
 .mobile-menu.show {
-    display: block;
+  display: block;
 }
 
 .categories-menu {
-    display: none; /* Default is hidden */
+  display: none; /* Default is hidden */
 }
 
 .categories-menu.show {
-    display: block; /* Show menu when toggle button is clicked */
+  display: block; /* Show menu when toggle button is clicked */
 }
 
 /* Sub-menu toggle for mobile */
 .sub-menu {
-    display: none; /* Default is hidden */
+  display: none; /* Default is hidden */
 }
 
 .sub-menu.show {
-    display: block; /* Show sub-menu when expanded */
+  display: block; /* Show sub-menu when expanded */
+}
+@media (min-width: 440px) and (max-width: 767px) {
+  .sreach {
+    max-width: 350px;
+  }
+}
+@media only screen and (min-width: 280px) and (max-width: 440px) {
+  .sreach {
+    max-width: 260px;
+  }
 }

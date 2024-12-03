@@ -47,7 +47,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 							<div class="container nopadding-right"> -->
 						<form action="search.php" id="searchform" method="get">
 							<div class="input-group">
-								<input type="text" class="form-control relative" style="width: 606px; border-radius:39px; padding:25px; "
+								<input type="text" class="sreach form-control relative" style="width: 606px; border-radius:39px; padding:25px; "
 									placeholder="Search product..." name="str">
 								<span class="input-group-btn absolute" style="top: -5px;; right:60px;">
 									<button type="submit" class="btn btn-default"><i
