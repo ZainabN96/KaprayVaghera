@@ -10,10 +10,10 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
 ?>
 <!doctype html>
 <html class="no-js" lang="">
-   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
    <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
       <title>Dashboard Page</title>
       <!-- Favicon
 		============================================ -->
@@ -202,7 +202,7 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                      type: 'GET',
                      dataType: 'json',
                      success: function(response) {
-                        debugger;
+                        //debugger;
                         $('#notification-count').text(response.count);
                         $('#notification-message').text(response.count);
 
