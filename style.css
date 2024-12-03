@@ -342,7 +342,7 @@ body {
 /*  2.1  mainmenu area
 /*----------------------------------------*/
 .mainmenu {
-  margin-top: 6px;
+  margin-top: 0px;
 }
 
 .mainmenu ul {
@@ -386,7 +386,7 @@ body {
 } */
 
 .mainmenu ul li a {
-  padding: 24px 15px 27px;
+  padding: 5px 15px 5px;
   display: block;
   line-height: 32px;
   text-decoration: none;

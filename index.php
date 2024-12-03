@@ -18,9 +18,7 @@ include 'includes/header2.php';
 	<div class="slider-area an-1 hm-1 clr">
 		<!-- slider -->
 		<div class="bend niceties preview-2">
-			<div id="ensign-nivoslider" class="slides" style="height: 500px; width:full;">
-				<!-- <img width="1575" height="950" src="img/slider/home-5/slider5-1.webp" alt="" title="#slider-direction-1"  /> -->
-
+			<div id="ensign-nivoslider" class="slides" >
 				<div class="carousel-item">
 					<img class="d-block mx-auto img-fluid" alt="Image 1"
 						src="img/slider/slider2.jpg" alt=""
@@ -45,16 +43,6 @@ include 'includes/header2.php';
 			</div>
 
 			<!-- direction 2 -->
-			<!-- <div id="slider-direction-2" class="slider-direction">
-				<div class="slider-progress"></div>
-				<div class="slider-content t-cn s-tb slider-2">
-					<div class="title-container s-tb-c">
-						<h3 class="title2">Collection 2024</h3>
-						<h4 class="title2">SPRING-SUMMER</h4>
-						<a class="btn-title" href="#newarrival">View collection</a>
-					</div>
-				</div>
-			</div> -->
 			<div id="slider-direction-2" class="slider-direction">
 				<div class="slider-progress"></div>
 				<div class="slider-content t-lfl lft-pr s-tb  slider-2">

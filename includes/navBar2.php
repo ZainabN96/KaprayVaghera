@@ -33,13 +33,14 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			<div class="col-lg-3 text-center">
 
 				<div class="top-logo">
-					<a href="index.php"><img width="100" height="80" src="img/newlogoo.png" alt="" /></a>
+					<a href="index.php">
+						<img width="80" height="50" src="img/newlogoo.png" alt="" /></a>
 				</div>
 			</div>
 			<!-- logo end -->
 			<!-- mainmenu area start -->
 			<div class="col-lg-6 text-center pt-5">
-				<div class="disflow" style="height: 60; width:25.19">
+				<div class="disflow" >
 					<div class="header-search expand">
 						<!-- <div class="search-icon fa fa-search " style="color:black!important"></div> -->
 						<!-- <div class="product-search restrain">
