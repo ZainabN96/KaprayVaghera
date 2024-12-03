@@ -151,7 +151,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 <body>
 	<!-- header area start -->
-	<?php include 'includes/navBar2.php' ?>
+	<?php include 'includes/navbar2.php' ?>
 	<!-- header area end -->
 	<!-- category-banner area start -->
 	<div class="category-banner">
