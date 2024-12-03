@@ -40,7 +40,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			<!-- logo end -->
 			<!-- mainmenu area start -->
 			<div class="col-lg-6 text-center pt-5">
-				<div class="disflow" >
+				<div class="disflow">
 					<div class="header-search expand">
 						<!-- <div class="search-icon fa fa-search " style="color:black!important"></div> -->
 						<!-- <div class="product-search restrain">
@@ -72,9 +72,10 @@ if (isset($_SESSION['USER_LOGIN'])) {
 						if (isset($_SESSION['USER_LOGIN'])) {
 						?>
 							<div class="expand lang-all disflow">
-								<span> Hi
-									<?php echo $_SESSION['USER_NAME'] ?>
-								</span>
+								<a href="logout.php"><span> Hi
+										<?php echo $_SESSION['USER_NAME'] ?>
+									</span>
+								</a>
 								<!-- <a href="#"><img src="img/country/en.gif" width="18" height="12" alt="">English</a>
 									<ul class="restrain language">
 										<li><a href="#"><img src="img/country/it.gif"  width="18" height="12" alt="">italiano</a></li>

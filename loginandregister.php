@@ -89,7 +89,11 @@ include 'includes/header2.php';
 		</div>
 	</div>
 	<!-- account-details Area end -->
-	<!-- FOOTER START -->
+	<?php include 'includes/footer.php'; ?>
+	<!-- FOOTER END -->
+
+	<!-- JS -->
+	<?php include 'includes/jsfiles.php'; ?>
 
 </body>
 

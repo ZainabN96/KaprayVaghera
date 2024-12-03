@@ -41,7 +41,7 @@ include 'includes/header2.php';
 								<button type="button " class="btn btn-primary mt-3"
 									onclick="user_login()">Login</button>
 								<button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-									data-bs-target="#loginModal"> Create An Account </button>
+									data-bs-target="#loginModal"><a href="loginandregister.php" style="color:white;"> Create An Account</a> </button>
 							</div>
 						</form>
 					</div>
