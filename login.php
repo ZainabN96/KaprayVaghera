@@ -37,7 +37,7 @@ include 'includes/header2.php';
 
 							</div>
 
-							<div class="login-btn row col-lg-6 col-md-8 col-sm-12 col-xs-12" style="position: relative; left: 300px;">
+							<div class="login-btn row col-lg-12 col-md-12 col-sm-12 col-xs-12" style="position: relative; width:100%; left:18px;">
 								<button type="button " class="btn btn-primary mt-3"
 									onclick="user_login()">Login</button>
 								<button type="button" class="btn btn-secondary" data-bs-toggle="modal"
