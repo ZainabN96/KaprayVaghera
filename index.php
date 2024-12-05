@@ -9,16 +9,19 @@ include 'includes/header2.php';
 
 
 <body class="home-five">
-
+	<div class="marquee-container">
+		<span class="marquee-text">Delivery service available only in Lahore! Order now and experience fast , reliable service and Free Delivery.</span>
+	</div>
+	<!-- <marquee class="delivery">Delivery service is now available for just Lahore.</marquee> -->
 	<!-- header area start -->
 	<?php include 'includes/navbar2.php' ?>
 	<!-- header area end -->
-
+	<!-- <marquee>A Computer Science portal</marquee> -->
 	<!-- start home slider -->
 	<div class="slider-area an-1 hm-1 clr">
 		<!-- slider -->
 		<div class="bend niceties preview-2">
-			<div id="ensign-nivoslider" class="slides" >
+			<div id="ensign-nivoslider" class="slides">
 				<div class="carousel-item">
 					<img class="d-block mx-auto img-fluid" alt="Image 1"
 						src="img/slider/slider2.jpg" alt=""
