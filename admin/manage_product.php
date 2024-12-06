@@ -3,9 +3,9 @@ require('top.inc.php');
 
 $condition='';
 $condition1='';
-if($_SESSION['ADMIN_ROLE']=== "Admin" || $_SESSION['ADMIN_ROLE'] == "Product Team"){
+if($_SESSION['ADMIN_ROLE']== "Admin" || $_SESSION['ADMIN_ROLE'] == "Product Team"){
 	$condition=" and product.added_by='".$_SESSION['ADMIN_ID']."'";
-	$condition1=" and added_by='".$_SESSION['ADMIN_ID']."'";
+	//$condition1=" and added_by='".$_SESSION['ADMIN_ID']."'";
 }
 $categories_id='';
 $name='';
@@ -49,9 +49,9 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 		$categories_id=$row['categories_id'];
 		$sub_categories_id=$row['sub_categories_id'];
 		$name=$row['name'];
-		$mrp=$row['mrp'];
-		$price=$row['price'];
-		$qty=$row['qty'];
+		// $mrp=$row['mrp'];
+		// $price=$row['price'];
+		// $qty=$row['qty'];
 		$short_desc=$row['short_desc'];
 		$description=$row['description'];
 		// $meta_title=$row['meta_title'];
@@ -223,7 +223,7 @@ if(isset($_POST['submit'])){
 	}
 }
 ?>
-<div class="content pb-0">
+		<div class="content pb-0">
             <div class="animated fadeIn">
                <div class="row">
                   <div class="col-lg-12">
@@ -428,9 +428,9 @@ if(isset($_POST['submit'])){
                   </div>
                </div>
             </div>
-         </div>
+        </div>
 		 
-		 <script>
+		<script>
 			function get_sub_cat(sub_cat_id){
 				var categories_id=jQuery('#categories_id').val();
 				jQuery.ajax({
@@ -478,7 +478,7 @@ if(isset($_POST['submit'])){
 					}
 				});
 			}
-		 </script>
+		</script>
          
 <?php
 require('footer.inc.php');

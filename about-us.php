@@ -93,10 +93,10 @@ include 'includes/header2.php';
 
 <body>
 	<!-- header area start -->
-	<?php include 'includes/navBar2.php' ?>
+	<?php include 'includes/navbar2.php' ?>
 	<!-- promotion-area start -->
 	<div class="our-product-area">
-		<div class="container mt-5">
+		<div class="container">
 			<div class="heading">
 				<h1><span class="part"> About Us </span> </h1>
 			</div>
