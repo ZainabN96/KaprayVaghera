@@ -13,7 +13,7 @@ include 'includes/header2.php';
 	<!-- account-details Area Start -->
 
 	<div class="customer-login-area">
-		<div class="container mt-5 mb-5">
+		<div class="container">
 			<div class="row mt-5 mb-5">
 				<div class="col-lg-12 col-md-12 col-12 mb-5">
 					<div class="customer-login my-account">

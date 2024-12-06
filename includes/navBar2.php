@@ -24,7 +24,9 @@ if (isset($_SESSION['USER_LOGIN'])) {
 ?>
 
 <link rel="stylesheet" href="styles.css">
-
+<div class="marquee-container">
+		<span class="marquee-text">Delivery service available only in Lahore! Order now and experience fast, reliable service and Free Delivery.</span>
+	</div>
 <!-- header area start -->
 <header class="header-5 short-stor">
 	<div class="container-fluid">
@@ -45,16 +47,15 @@ if (isset($_SESSION['USER_LOGIN'])) {
 						<!-- <div class="search-icon fa fa-search " style="color:black!important"></div> -->
 						<!-- <div class="product-search restrain">
 							<div class="container nopadding-right"> -->
-						<form action="search.php" id="searchform" method="get">
-							<div class="input-group">
-								<input type="text" class="sreach form-control relative" style="width: 606px; border-radius:39px; padding:25px; "
-									placeholder="Search product..." name="str">
-								<span class="input-group-btn absolute" style="top: -5px;; right:60px;">
-									<button type="submit" class="btn btn-default"><i
-											class="fa fa-search"></i></button>
-								</span>
-							</div>
-						</form>
+							<form action="search.php" id="searchform" method="get" class="custom-search-form">
+    <div class="input-group">
+        <input type="text" class="custom-search-input form-control" style="width: 550px; border-radius:39px; padding:25px;" placeholder="Search product..." name="str">
+        <span class="input-group-btn" style="position: absolute; top: 1px; right: 60px;">
+            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+        </span>
+    </div>
+</form>
+
 						<!-- </div>
 						</div> -->
 					</div>

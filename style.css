@@ -347,11 +347,11 @@ body {
   margin-top: 0px;
 }
 
-.mainmenu ul {
+/* .mainmenu ul {
   list-style: none;
   margin-left: -100px;
   padding-top: 0px;
-}
+} */
 
 .mainmenu ul li {
   display: inline-block;
@@ -5997,7 +5997,6 @@ a.proceedbtn {
   display: inline-block;
   padding: 10px 10px;
   margin-top: 10px;
-
   width: 100%;
   font-size: 16px;
   font-weight: 500;
@@ -6544,7 +6543,6 @@ span.legend {
 
 .customer-login-area {
   margin-bottom: 50px;
-  margin-top: 110px;
 }
 
 .my-account {

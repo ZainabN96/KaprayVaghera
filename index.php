@@ -9,9 +9,7 @@ include 'includes/header2.php';
 
 
 <body class="home-five">
-	<div class="marquee-container">
-		<span class="marquee-text">Delivery service available only in Lahore! Order now and experience fast , reliable service and Free Delivery.</span>
-	</div>
+	
 	<!-- <marquee class="delivery">Delivery service is now available for just Lahore.</marquee> -->
 	<!-- header area start -->
 	<?php include 'includes/navbar2.php' ?>
