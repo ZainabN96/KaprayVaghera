@@ -241,17 +241,14 @@ if (isset($_POST['submit'])) {
                                 <div class="<?php echo $accordion_class ?>">
                                     Address Information
                                 </div>
-                                <form method="post">
+                                <form method="post" onsubmit="return validateCity()">
                                     <div class="accordion__body">
                                         <div class="bilinfo">
-
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="single-input">
-                                                    <label class="form-check-label" for="city">
-                                                        City
-                                                    </label>
-                                                        <select class="form-control" name="city" id="city" onchange="updateDeliveryCharges()" required>
+                                                        <label class="form-check-label" for="city">City</label>
+                                                        <select class="form-control" name="city" id="city" required>
                                                             <option value="">Select City</option>
                                                             <option value="Abbottabad">Abbottabad</option>
                                                             <option value="Bahawalpur">Bahawalpur</option>
@@ -311,24 +308,17 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="single-input">
-                                                    <label class="form-check-label" for="address">
-                                                        Address: 
-                                                    </label>
-                                                        <input type="text" class="form-control" name="address" id="address" placeholder="Street Address"
-                                                            required value="<?php echo $address ?>">
+                                                        <label class="form-check-label" for="address">Address:</label>
+                                                        <input type="text" class="form-control" name="address" id="address" placeholder="Street Address" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <div class="single-input">
-                                                    <label class="form-check-label" for="zip">
-                                                        Zip Code
-                                                    </label>
-                                                        <input type="text" class="form-control" name="pincode" id="zip" placeholder="Post code/ zip"
-                                                            required value="<?php echo $pincode ?>">
+                                                        <label class="form-check-label" for="zip">Zip Code</label>
+                                                        <input type="text" class="form-control" name="pincode" id="zip" placeholder="Post code/ zip" required>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
@@ -340,14 +330,10 @@ if (isset($_POST['submit'])) {
                                             <div class="single-method">
                                                 <input type="radio" class="form-check-input" name="payment_type" value="COD" required checked /> Cash On
                                                 Delivery
-
-                                            </div>
-                                            <div class="single-method">
-
                                             </div>
                                         </div>
                                     </div>
-                                    <div class=" col-lg-6 col-md-6">
+                                    <div class="col-lg-6 col-md-6">
                                         <input type="submit" name="submit" class="btn btn-primary btn-lg" />
                                     </div>
                                 </form>
@@ -522,7 +508,9 @@ if (isset($_POST['submit'])) {
             $.ajax({
                 url: 'set_coupon.php',
                 method: 'POST',
-                data: { coupon_str: coupon_str },
+                data: {
+                    coupon_str: coupon_str
+                },
                 success: function(response) {
                     try {
                         const data = JSON.parse(response);
@@ -547,6 +535,14 @@ if (isset($_POST['submit'])) {
             });
         }
 
+        function validateCity() {
+            const city = document.getElementById('city').value;
+            if (city !== 'Lahore') {
+                alert('Delivery is only available in Lahore. Please select Lahore as your city.');
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
     </script>
 
 
