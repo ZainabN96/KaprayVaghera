@@ -9,7 +9,7 @@ include 'includes/header2.php';
 
 
 <body class="home-five">
-	
+
 	<!-- <marquee class="delivery">Delivery service is now available for just Lahore.</marquee> -->
 	<!-- header area start -->
 	<?php include 'includes/navbar2.php' ?>
@@ -52,6 +52,15 @@ include 'includes/header2.php';
 						<h4 class="title2">SPRING-SUMMER</h4>
 						<a class="btn-title" href="#newarrival">View collection</a>
 					</div>
+				</div>
+			</div>
+		</div>
+		<div id="loader-wrapper">
+			<div id="loader">
+				<div class="loader-ellips">
+					<span class="ring"></span>
+					<span class="ring"></span>
+					<span class="ring"></span>
 				</div>
 			</div>
 		</div>
@@ -277,6 +286,17 @@ include 'includes/header2.php';
 			<?php include 'includes/jsfiles.php'; ?>
 
 </body>
+<script>
+	$(window).on('load', function() {
+		$('#loader').delay(100).fadeOut('slow');
+		$('#loader-wrapper').delay(500).fadeOut('slow');
+	});
+
+	var loader = document.getElementById("loader");
+	window.addEventListener("load", function() {
+		loader.style.display = "none";
+	})
+</script>
 
 
 <!--Mirrored from htmldemo.net / lavoro / lavoro / index - 5. html by HTTrack Website Copier / 3. x[XR & CO '2014], Tue, 30 Jan 2024 07:29:40 GMT -->
