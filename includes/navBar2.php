@@ -210,7 +210,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 				</div>
 				<!-- mobile menu start -->
 				<div class="row">
-					<div class="col-sm-12 mobile-menu-area">
+					<div class="col-sm-12 mobile-menu-area" style=" background-color:black;">
 						<div class="mobile-menu hidden-md d-lg-none" id="mob-menu">
 							<span class="mobile-menu-title">Menu</span>
 							<a href="javascript:void(0);" class="openNav">
