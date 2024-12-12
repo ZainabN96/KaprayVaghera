@@ -129,6 +129,9 @@ li.drop > a:hover {
   .sreach {
     max-width: 260px;
   }
+  .abc {
+    height: 234px;
+  }
 }
 #loader-wrapper {
   background-color: #dcdcdc;

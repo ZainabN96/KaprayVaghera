@@ -19,7 +19,7 @@ include 'includes/header2.php';
 	<div class="slider-area an-1 hm-1 clr">
 		<!-- slider -->
 		<div class="bend niceties preview-2">
-			<div id="ensign-nivoslider" class="slides">
+			<div id="ensign-nivoslider" class="slides abc">
 				<div class="carousel-item">
 					<img class="d-block mx-auto img-fluid" alt="Image 1"
 						src="img/slider/slider2.jpg" alt=""
