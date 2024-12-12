@@ -9,7 +9,7 @@ include 'includes/header2.php';
 <body>
 
     <!-- header area start -->
-    <?php include 'includes/navBar2.php' ?>
+    <?php include 'includes/navbar2.php' ?>
 
     <!-- cart-main-area start -->
     <div class="cart-main-area pt-100 mt-5 bg__white">

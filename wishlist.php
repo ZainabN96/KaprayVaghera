@@ -138,7 +138,7 @@ $res = mysqli_query($con, "select product.name,product.image,product_attributes.
 <body>
 
     <!-- header area start -->
-    <?php include 'includes/navBar2.php' ?>
+    <?php include 'includes/navbar2.php' ?>
     <!-- wishlist-area-start -->
 
     <div class="cart-main-area ptb--100 mt-5 bg__white">

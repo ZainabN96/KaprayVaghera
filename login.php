@@ -9,7 +9,7 @@ include 'includes/header2.php';
 <body>
 	<!-- header area start -->
 	<!-- header area start -->
-	<?php include 'includes/navBar2.php' ?>
+	<?php include 'includes/navbar2.php' ?>
 	<!-- account-details Area Start -->
 
 	<div class="customer-login-area">
