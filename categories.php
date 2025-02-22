@@ -22,6 +22,7 @@ if (isset($_GET['sub_categories'])) {
 }
 
 if ($cat_id > 0) {
+
 	$get_product = get_product($con, '', $cat_id, '', '', '', '', $sub_categories);
 } else {
 ?>
@@ -185,13 +186,13 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			<div class="row">
 				<div class="col-12">
 					<div class="container-inner">
-						<!-- <ul>
+						 <ul>
 							<li class="home">
-								<a href="index.html">Home</a>
+								<a href="index.php">Home</a>
 								<span><i class="fa fa-angle-right"></i></span>
 							</li>
-							<li class="category3"><span>Shop List</span></li>
-						</ul> -->
+							<li class="category3"><span>Category</span></li>
+						</ul> 
 					</div>
 				</div>
 			</div>
@@ -384,7 +385,4 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 
 </body>
-
-
-
 </html>

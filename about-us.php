@@ -105,7 +105,7 @@ include 'includes/header2.php';
 					<div class="row">
 						<div class="col-xl-6 col-lg-6">
 							<div class="promotion-img promotion-img-3 "
-								style="background-image:url(img/about/anothercover.jpg)"></div>
+								style="background-image:url(img/about/about1.jpg)"></div>
 						</div>
 						<div class="col-xl-6 col-lg-6 col-md-12 ">
 							<div class="promotion-text promo-2 pb-20">
@@ -154,7 +154,7 @@ include 'includes/header2.php';
 						</div>
 						<div class="col-xl-6 col-lg-6">
 							<div class="promotion-img promotion-img-3"
-								style="background-image:url(img/about/woman.jpg)"></div>
+								style="background-image:url(img/about/aboutus.jpg)"></div>
 						</div>
 					</div>
 				</div>

@@ -25,7 +25,7 @@ function get_safe_value($con,$str){
 }
 
 function get_product($con,$limit='',$cat_id='',$product_id='',$search_str='',$sort_order='',$is_best_seller='',$sub_categories='',$attr_id='',$key1='',){
-	$sql="select product.*,categories.categories,product_attributes.mrp,product_attributes.price,product_attributes.qty from product,categories,product_attributes where product.status=1 and product.id=product_attributes.product_id";
+	$sql="select product.*,categories.categories, sub_categories.sub_categories, product_attributes.mrp,product_attributes.price,product_attributes.qty from product,categories, sub_categories,product_attributes where product.status=1 and product.id=product_attributes.product_id";
 	
 	if($cat_id!=''){
 		$sql.=" and product.categories_id=$cat_id ";
@@ -67,6 +67,48 @@ function get_product($con,$limit='',$cat_id='',$product_id='',$search_str='',$so
 	}
 	return $data;
 }
+
+// function get_product($con,$limit='',$cat_id='',$product_id='',$search_str='',$sort_order='',$is_best_seller='',$sub_categories='',$attr_id='',$key1=''){
+// 	$sql="select product.*, categories.categories, sub_categories.name as sub_category_name, product_attributes.mrp, product_attributes.price, product_attributes.qty FROM product JOIN categories ON product.categories_id = categories.id JOIN product_attributes ON product.id = product_attributes.product_id LEFT JOIN sub_categories ON product.sub_categories_id = sub_categories.id WHERE product.status = 1";
+
+// 	if($cat_id!=''){
+// 		$sql.=" and product.categories_id = $cat_id ";
+// 	}
+// 	if($product_id!=''){
+// 		$sql.=" and product.id = $product_id ";
+// 	}
+// 	if($sub_categories!=''){
+// 		$sql.=" and product.sub_categories_id = $sub_categories ";
+// 	}
+// 	if($is_best_seller!=''){
+// 		$sql.=" and product.best_seller = 1 ";
+// 	}
+// 	if($attr_id>0){
+// 		$sql.=" AND product_attributes.id = $attr_id";
+// 	}
+// 	if($search_str!=''){
+// 		$sql.=" and (product.name LIKE '%$search_str%' OR product.description LIKE '%$search_str%') ";
+// 	}
+
+// 	$sql.=" GROUP BY product.id ";
+
+// 	if($sort_order!=''){
+// 		$sql.=$sort_order;
+// 	}else{
+// 		$sql.=" ORDER BY product.id DESC ";
+// 	}
+// 	if($limit!=''){
+// 		$sql.=" LIMIT $limit";
+// 	}
+
+// 	$res=mysqli_query($con,$sql);
+// 	$data=array();
+// 	while($row=mysqli_fetch_assoc($res)){
+// 		$data[]=$row;
+// 	}
+// 	return $data;
+// }
+
 
 function wishlist_add($con,$uid,$pid){
 	$added_on=date('Y-m-d h:i:s');

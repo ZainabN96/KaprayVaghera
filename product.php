@@ -140,7 +140,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 						<div class="single-product mt-5">
 							<div class="product-content mt-5">
 								<h2 class="product-name mt-5"><a href="#">
-										<?php echo $get_product['0']['name'] ?>
+										<?php echo $get_product['0']['short_desc'] ?>
 									</a></h2>
 								<div class="rating-price">
 									<!-- <div class="pro-rating">
@@ -157,9 +157,9 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									</div>
 								</div>
 								<div class="product-desc">
-									<h1>Product Details:</h1>
-									<p><span>Product Name:</span>
-										<?php echo $get_product['0']['short_desc'] ?>
+									<!-- <h3>Product Details</h3>
+									<p><span>Product Name:</span> -->
+									<?php echo $get_product['0']['name'] ?>
 									</p>
 								</div>
 
@@ -231,7 +231,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									<br> -->
 									<?php if ($is_color > 0) { ?>
 										<div class="sin__desc align--left">
-											<p><span>Color:</span></p>
+											<!-- <p><span>Color:</span></p> -->
 											<ul class="pro__color">
 												<?php
 												$defaultColor = ''; // Variable to hold the default color key
@@ -245,30 +245,20 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 													$selectedClass = $key === $defaultColor ? 'selected-color' : '';
 
 													echo "<li class='$selectedClass' style='background:" . htmlspecialchars($val[0]) . " none repeat scroll 0 0'>
-                    <a href='javascript:void(0)' onclick=\"loadAttr('" . htmlspecialchars($key) . "', '" . htmlspecialchars($get_product[0]['id']) . "', 'color')\">" . htmlspecialchars($val[0]) . "</a>
-                </li>";
+																<a href='javascript:void(0)' onclick=\"loadAttr('" . htmlspecialchars($key) . "', '" . htmlspecialchars($get_product[0]['id']) . "', 'color')\">" . htmlspecialchars($val[0]) . "</a>
+															</li>";
 												}
 												?>
 											</ul>
 										</div>
 
-										<!-- Inline script to auto-select the default color -->
-										<script>
-											document.addEventListener('DOMContentLoaded', function() {
-												const defaultColorKey = '<?php echo htmlspecialchars($defaultColor); ?>';
-												const productId = '<?php echo htmlspecialchars($get_product[0]['id']); ?>';
-
-												// Auto-load attributes for the default color
-												loadAttr(defaultColorKey, productId, 'color');
-											});
-										</script>
 									<?php } ?>
 
 									<br>
 
 									<?php if ($is_size > 0) { ?>
 										<div class="sin__desc align--left">
-											<p><span>Size:</span></p>
+											<!-- <p><span>Size:</span></p> -->
 											<select class="select__size" id="size_attr" onchange="showQty()">
 												<option value="">Size</option>
 												<?php
@@ -308,14 +298,22 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 									<div id="cart_attr_msg"></div>
 
 									<div class="sin__desc align--left">
-										<p><span>Category:</span></p>
+										<!-- <p><span>Category:</span></p> -->
 										<ul class="pro__cat__list">
 											<li><a>
 													<?php echo $get_product['0']['categories'] ?>
 												</a></li>
 										</ul>
 									</div>
-									<br>
+
+									<div class="sin__desc align--left">
+										<!-- <p><span>Description:</span></p> -->
+										<ul class="pro__cat__list">
+											<li><a>
+											<?php echo $get_product['0']['description'] ?>
+												</a></li>
+										</ul>
+									</div>
 									<!-- <div>
 										<a href="sizechart.php">
 											<img src="img/sizechart.jpeg" alt="Size Chart">
@@ -388,11 +386,11 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 				<div class="col-xs-12">
 					<div class="ht__pro__details__content">
 						<!-- Start Single Content -->
-						<div role="tabpanel mt-5" id="description" class="pro__single__content tab-pane active">
+						<!-- <div role="tabpanel mt-5" id="description" class="pro__single__content tab-pane active">
 							<div class="pro__tab__content__inner">
 								<?php echo $get_product['0']['description'] ?>
 							</div>
-						</div>
+						</div> -->
 						<!-- End Single Content -->
 
 						<div role="tabpanel mt-5" id="review" class="pro__single__content tab-pane fade">
@@ -457,8 +455,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 												<textarea class="form-control" cols="50" id="new-review" name="review"
 													placeholder="Enter your review here..." rows="5"></textarea>
 												<div class="text-right mt10">
-													<button class="btn btn-success mt-3" type="submit" style="position: absolute;
-		left: 26%" name="review_submit">Submit</button>
+													<button class="btn btn-success mt-3" type="submit" style="position: absolute;left: 26%" name="review_submit">Submit</button>
 												</div>
 											</form>
 										</div>
@@ -480,10 +477,18 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 			</div>
 		</div>
 	</section>
-
-
+	<!-- Include jQuery and ElevateZoom JS -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.rawgit.com/elevateweb/elevatezoom/master/jquery.elevatezoom.min.js"></script>
 
 	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const defaultColorKey = '<?php echo htmlspecialchars($defaultColor); ?>';
+			const productId = '<?php echo htmlspecialchars($get_product[0]['id']); ?>';
+
+			// Auto-load attributes for the default color
+			loadAttr(defaultColorKey, productId, 'color');
+		});
 		// function showMultipleImage(im) {
 		// 	jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
 		// 	jQuery('.imageZoom').imgZoom();
@@ -491,10 +496,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 		let is_color = '<?php echo $is_color ?>';
 		let is_size = '<?php echo $is_size ?>';
 		let pid = '<?php echo $product_id ?>';
-	</script>
-
-
-	<script>
+	
 		document.addEventListener('DOMContentLoaded', function() {
 			const descriptionTab = document.querySelector('.description');
 			const reviewTab = document.querySelector('.review');
@@ -536,12 +538,6 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 				showReview();
 			});
 		});
-	</script>
-	<!-- Include jQuery and ElevateZoom JS -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.rawgit.com/elevateweb/elevatezoom/master/jquery.elevatezoom.min.js"></script>
-
-	<script>
 		$(document).ready(function() {
 			// Initialize ElevateZoom on the main image
 			$("#zoom1").elevateZoom({
@@ -572,9 +568,9 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 					responsive: true
 				});
 			});
-		});
+		});							
 	</script>
-
+	
 	<!-- product-details Area end -->
 
 	<!-- FOOTER START -->
@@ -586,9 +582,4 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 	ob_flush();
 	?>
 </body>
-
-<!-- Mirrored from htmldemo.net/lavoro/lavoro/product-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jan 2024 07:30:22 GMT -->
-
-
-
 </html>

@@ -36,7 +36,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 				<div class="top-logo">
 					<a href="index.php">
-						<img width="80" height="50" src="img/newlogoo.png" alt="" /></a>
+						<img width="130" height="50" src="img/newlogoo.png" alt="" /></a>
 				</div>
 			</div>
 			<!-- logo end -->
@@ -49,7 +49,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 							<div class="container nopadding-right"> -->
 						<form action="search.php" id="searchform" method="get" class="sreach custom-search-form">
 							<div class="input-group">
-								<input type="text" class="sreach custom-search-input form-control" style="width: 550px; border-radius:39px; padding:25px;" placeholder="Search product..." name="str">
+								<input type="text" class="srearch custom-search-input form-control" style="width: 550px; border-radius:39px; padding:25px;" placeholder="Search product..." name="str">
 								<span class="input-group-btn" style="position: absolute; top: 1px; right: 60px;">
 									<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
 								</span>

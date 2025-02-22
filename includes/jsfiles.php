@@ -48,7 +48,73 @@
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <!-- main js
 		============================================ -->
 <script src="js/main.js"></script>
+
+<script>
+	// $(document).ready(function () {
+	// 	$(".openNav").click(function () {
+	// 		$("#sidebar").addClass("active");
+	// 		$(".sidebar-overlay").addClass("active");
+	// 	});
+
+	// 	$(".closebtn, .sidebar-overlay").click(function () {
+	// 		$("#sidebar").removeClass("active");
+	// 		$(".sidebar-overlay").removeClass("active");
+	// 	});
+	// });
+	// $(document).ready(function () {
+	// 	$(".openNav").click(function () {
+	// 		$("#sidebar").addClass("active");
+	// 		$(".sidebar-overlay").addClass("active");
+	// 	});
+
+	// 	$(".closebtn, .sidebar-overlay").click(function () {
+	// 		$("#sidebar").removeClass("active");
+	// 		$(".sidebar-overlay").removeClass("active");
+	// 	});
+
+	// 	// Expand Category & Toggle +/-
+	// 	$(".expand-cat").click(function () {
+	// 		var subMenu = $(this).next(".sub-menu");
+	// 		var icon = $(this).find("i");
+
+	// 		if (!subMenu.hasClass("show")) {
+	// 			$(".sub-menu").removeClass("show"); // Hide all other dropdowns
+	// 			$(".expand-cat i").removeClass("fa-minus").addClass("fa-plus"); // Reset all icons
+	// 			subMenu.addClass("show"); // Show current dropdown
+	// 			icon.removeClass("fa-plus").addClass("fa-minus"); 
+	// 		} else {
+	// 			subMenu.removeClass("show"); // Hide if already open
+	// 			icon.removeClass("fa-minus").addClass("fa-plus");
+	// 		}
+	// 	});
+	// });
+
+	// Open Sidebar
+	document.querySelector('.openNav').addEventListener('click', function () {
+		document.querySelector('.sidebar').classList.add('active');
+		document.querySelector('.sidebar-overlay').classList.add('active');
+	});
+
+	// Close Sidebar
+	document.querySelector('.closebtn').addEventListener('click', function () {
+		document.querySelector('.sidebar').classList.remove('active');
+		document.querySelector('.sidebar-overlay').classList.remove('active');
+	});
+
+	// Toggle Dropdown
+	document.querySelectorAll('.expand-cat').forEach(item => {
+		item.addEventListener('click', function () {
+			this.nextElementSibling.classList.toggle('show');
+			this.querySelector('i').classList.toggle('fa-plus');
+			this.querySelector('i').classList.toggle('fa-minus');
+		});
+	});
+
+
+
+</script>
