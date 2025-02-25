@@ -1,0 +1,40 @@
+/* Common Animation */
+.icon-animate {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* WhatsApp Icon - Bounce Effect */
+.whatsapp-icon:hover .fa-whatsapp {
+  transform: scale(1.2);
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+/* User Icon - Scale Effect */
+.user:hover {
+  transform: scale(1.2);
+  color: #007bff;
+}
+
+/* Shopping Cart Icon - Rotate Effect */
+.cart-toggler:hover i {
+  transform: scale(1.2);
+}
+
+/* Cart Quantity Badge - Pop Effect */
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}

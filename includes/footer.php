@@ -131,9 +131,6 @@
 										target="_blank" class="instagram"><i class="bi bi-instagram"></i><span
 											class="ps-3 text-light">
 											Instagram </a></span></li>
-								<li><a href="https://twitter.com/" target="_blank" class="twitter"><i
-											class="bi bi-twitter-x"></i><span class="ps-3 text-light"> Twitter
-									</a></span></li>
 
 								<!-- <li><a href="https://youtube.com/" class="tiktok"><i class="bi bi-tiktok"></i><span class="ps-3 text-light"> Youtube </a></span></li> -->
 

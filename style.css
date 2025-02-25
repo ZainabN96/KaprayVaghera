@@ -845,7 +845,8 @@ a.sm-cart-product {
 }
 
 .cart-toggler i {
-  font-size: 25px;
+  margin-left:6px;
+  font-size: 30px;
   color: #3f3f3f;
   display: block;
   padding-bottom: 33px;
@@ -874,7 +875,7 @@ span.cart-quantity {
   text-align: center;
   top: 0;
   color: #fff;
-  left: 22px;
+  left: 35px;
   font-size: 10px;
 }
 
