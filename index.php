@@ -105,10 +105,10 @@ include 'includes/header2.php';
 							</div>
 							<div class="product-content">
 								<h2 class="product-name">
-									<a href="product.php?id=<?php echo $list['id'] ?>"><?php echo $list['name'] ?></a>
+									<a href="product.php?id=<?php echo $list['id'] ?>"><?php echo $list['short_desc']?></a>
 								</h2>
 								<p>
-									<?php echo $list['short_desc'] ?><br>
+									<?php echo $list['name'] ?><br>
 									<span class="new-price">PKR <?php echo $list['price'] ?></span>
 								</p>
 							</div>
@@ -154,10 +154,10 @@ include 'includes/header2.php';
 								</div>
 								<div class="product-content">
 									<h2 class="product-name">
-										<a href="product.php?id=<?php echo $list['id'] ?>"><?php echo $list['name'] ?></a>
+										<a href="product.php?id=<?php echo $list['id'] ?>"><?php echo $list['short_desc']?></a>
 									</h2>
 									<p>
-										<?php echo $list['short_desc'] ?><br>
+										<?php echo $list['name'] ?><br>
 										<span class="new-price">PKR <?php echo $list['price'] ?></span>
 									</p>
 								</div>
