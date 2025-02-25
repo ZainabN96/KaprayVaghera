@@ -221,8 +221,8 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
                                 data-bs-toggle="tab" aria-selected="true">Description</a></li>
                             <li role="presentation" class="care"><a href="#care" role="tab" data-bs-toggle="tab"
                                     aria-selected="true">Care</a></li>
-                            <li role="presentation" class="size"><a href="#size" role="tab"
-                                data-bs-toggle="tab" aria-selected="true">Size Chart</a></li>
+                            <li role="presentation" class="size"><a href="#size" role="tab" data-bs-toggle="tab" 
+                            aria-selected="true"></a></li>
                             <!-- <li role="presentation" class="size"><a href="#size" role="tab" data-bs-toggle="tab"
                                     aria-selected="true">Size Chart</a></li> -->
                         </ul>
@@ -238,6 +238,45 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 							<div class="pro__tab__content__inner">
 								<?php echo $get_product['0']['description'] ?>
 							</div>
+                            <h4>Size Chart</h4>
+                            <div class="table-responsive mt-5">
+                                    <table class="table table-bordered table-striped text-center">
+                                        <thead class="table-primary">
+                                            <tr>
+                                                <th>Size</th>
+                                                <th>Bust </th>
+                                                <th>Waist </th>
+                                                <th>Hips </th>
+                                                <th>Length </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        
+                                            <tr>
+                                                <td>S</td>
+                                                <td>21</td>
+                                                <td>20</td>
+                                                <td>23</td>
+                                                <td>43</td>
+                                            </tr>
+                                            <tr>
+                                                <td>M</td>
+                                                <td>23</td>
+                                                <td>21</td>
+                                                <td>25</td>
+                                                <td>43</td>
+                                            </tr>
+                                            <tr>
+                                                <td>L</td>
+                                                <td>25</td>
+                                                <td>24</td>
+                                                <td>27</td>
+                                                <td>43</td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
 						</div>
 						<!-- End Single Content -->
                         <div role="tabpanel mt-5" id="care" class="pro__single__content tab-pane ">
@@ -248,7 +287,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 						
                         <div role="tabpanel mt-5" id="size" class="pro__single__content tab-pane ">
 							<div class="pro__tab__content__inner">
-                                <!-- <img src="img/sizechart.jpeg" alt="Size Chart"> -->
+                                <img src="img/sizechart.jpeg" alt="Size Chart"> 
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-striped text-center">
                                         <thead class="table-primary">
@@ -371,9 +410,10 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 			// Show description by default or based on URL hash
 			if (window.location.hash === '#care') {
 				showCare();
-			}else if (window.location.hash === '#size') {
-				showSize();
-			} else {
+			} else if(window.location.hash === '#size'){
+                showSize();
+            }
+            else {
 				showDescription();
 			}
 

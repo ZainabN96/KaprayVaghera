@@ -20,44 +20,53 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	$wishlist_count = mysqli_num_rows(mysqli_query($con, "select product.name,product.image,wishlist.id from product,wishlist where wishlist.product_id=product.id and wishlist.user_id='$uid'"));
 }
 
-
 ?>
-
-<link rel="stylesheet" href="styles.css">
 <div class="marquee-container">
-	<span class="marquee-text">Delivery service available only in Lahore! Order now and experience fast, reliable service and Free Delivery.</span>
+	<span class="marquee-text">The delivery will be completed within 6 to 7 days</span>
 </div>
+<!-- <div class="marquee-container">
+	<span class="marquee-text">Delivery service available only in Lahore! Order now and experience fast, reliable service and Free Delivery.</span>
+</div> -->
 <!-- header area start -->
 <header class="header-5 short-stor">
 	<div class="container-fluid">
-		<div class="row">
+		<div class="row align-items-center">
 			<!-- logo start -->
-			<div class="col-lg-3 text-center">
-
-				<div class="top-logo">
-					<a href="index.php">
-						<img width="130" height="50" src="img/newlogoo.png" alt="" /></a>
+			<div class="col-3 d-none d-lg-block d-flex align-items-center">
+				<div class="toggle-logo-container">
+					<div class="top-logo">
+						<a href="index.php">
+							<img width="130" height="50" src="img/newlogoo.png" alt="Logo" />
+						</a>
+					</div>
 				</div>
 			</div>
+			<div class="col-6 d-lg-none d-flex align-items-center">
+				<div class="toggle-logo-container">
+					<button id="toggleSidebar">
+						<i class="fa fa-bars" aria-hidden="true"></i>
+					</button>
+					<div class="top-logo">
+						<a href="index.php">
+							<img src="img/newlogoo.png" alt="Logo" />
+						</a>
+					</div>
+				</div>
+			</div>
+			
 			<!-- logo end -->
 			<!-- mainmenu area start -->
-			<div class="col-lg-6 text-center pt-5">
-				<div class="disflow">
+			<div class="col-lg-6 d-none d-lg-block text-center pt-5">
+				<div class="">
 					<div class="header-search expand">
-						<!-- <div class="search-icon fa fa-search " style="color:black!important"></div> -->
-						<!-- <div class="product-search restrain">
-							<div class="container nopadding-right"> -->
 						<form action="search.php" id="searchform" method="get" class="sreach custom-search-form">
 							<div class="input-group">
-								<input type="text" class="srearch custom-search-input form-control" style="width: 550px; border-radius:39px; padding:25px;" placeholder="Search product..." name="str">
-								<span class="input-group-btn" style="position: absolute; top: 1px; right: 60px;">
+								<input type="text" class="sreach srch custom-search-input form-control" placeholder="FIND YOUR FAVOURITES" name="str">
+								<span class="input-group-btn srchspan" style="">
 									<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
 								</span>
 							</div>
 						</form>
-
-						<!-- </div>
-						</div> -->
 					</div>
 				</div>
 			</div>
@@ -65,37 +74,24 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			<!-- mainmenu area end -->
 
 			<!-- top details area start -->
-			<div class="col-lg-3 pt-5">
+			<div class="col-6 col-lg-3 d-flex justify-content-end align-items-center pt-5">
 				<div class="top-detail">
 					<!-- language division start -->
-					<div class="disflow" style=" color: black !important ;height: 60; width:25.19 ">
+					<div class="disflow text-black" style="height: 60; width:25.19 ">
 						<?php
 						if (isset($_SESSION['USER_LOGIN'])) {
 						?>
 							<div class="expand lang-all disflow">
-								<a href="logout.php"><span> Hi
+								<a href="logout.php">
+									<span> Hi
 										<?php echo $_SESSION['USER_NAME'] ?>
 									</span>
 								</a>
-								<!-- <a href="#"><img src="img/country/en.gif" width="18" height="12" alt="">English</a>
-									<ul class="restrain language">
-										<li><a href="#"><img src="img/country/it.gif"  width="18" height="12" alt="">italiano</a></li>
-										<li><a href="#"><img src="img/country/nl_nl.gif"  width="18" height="12" alt="">Nederlands</a></li>
-										<li><a href="#"><img src="img/country/de_de.gif"  width="18" height="12" alt="">Deutsch</a></li>
-										<li><a href="#"><img src="img/country/en.gif"  width="18" height="12" alt="">English</a></li>
-									</ul> -->
 							</div>
 						<?php
 						}
 						?>
-						<!-- <div class="expand lang-all disflow">
-									<a href="#" style="color:black">$ USD</a>
-									<ul class="restrain language">
-										<li><a href="#">€ Eur</a></li>
-										<li><a href="#">$ USD</a></li>
-										<li><a href="#">£ GBP</a></li>
-									</ul>
-								</div> -->
+						
 					</div>
 					<!-- language division end -->
 					<!-- addcart top start -->
@@ -103,44 +99,44 @@ if (isset($_SESSION['USER_LOGIN'])) {
 						<div class="circle-shopping expand">
 							<div class="shopping-carts text-end">
 								<div class="cart-toggler">
-
 									<a href="cart.php"><i class="icon-bag"></i></a>
-									<a href="cart.php"><span class=" htc__qua cart-quantity">
+									<a href="cart.php">
+										<span class=" htc__qua cart-quantity">
 											<?php echo $totalProduct ?>
-										</span></a>
+										</span>
+									</a>
 								</div>
-
 							</div>
 						</div>
 					</div>
 
-					<div class="disflow" style="height: 60; width:25.19">
+					<!-- <div class="disflow" style="height: 60; width:25.19">
 						<div class="circle-shopping expand">
 							<div class="shopping-carts text-end">
 								<div class="cart-toggler">
 
-									<a href="wishlist.php"><i class="fa fa-heart" style="color:black"></i></a>
+									<a href="wishlist.php"><i class="fa fa-heart text-black"></i></a>
 									<a href="wishlist.php"><span class=" htc__wishlist heart-quantity">
-											<?php echo $wishlist_count ?>
+											<?php// echo $wishlist_count ?>
 										</span></a>
 								</div>
 
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="disflow" style="height: 60; width:25.19">
 						<a href="#" id="contactUsBtn" class="whatsapp-icon">
-							<i class="fa fa-whatsapp whatsapp-icon-custom-size" style="color:black"></i>
+							<i class="fa fa-whatsapp whatsapp-icon-custom-size text-black"></i>
 						</a>
 					</div>
 
 					<!-- addcart top start -->
 					<!-- search divition end -->
 					<div class="disflow" style="height: 60; width:25.19">
-						<!-- <div class="expand dropps-menu"> -->
-						<a href="login.php"><i class="fa fa-user " style="color:black;font-size:29px;padding:0 12px;"></i></a>
-						<!-- <ul class="restrain language">
+						<div class="expand dropps-menu">
+						<a href="#"><i class="fa fa-user text-black user"></i></a>
+						<ul class="restrain language">
 								<?php
 								if (isset($_SESSION['USER_LOGIN'])) {
 								?>
@@ -148,10 +144,9 @@ if (isset($_SESSION['USER_LOGIN'])) {
 								<?php
 								}
 								?>
-								<li><a href="wishlist.php">My Wishlist</a></li>
+								<!-- <li><a href="wishlist.php">My Wishlist</a></li> -->
 								<li><a href="cart.php">My Cart</a></li>
-								<li><a href="checkout.php">Checkout</a></li>
-
+								<!-- <li><a href="checkout.php">Checkout</a></li> -->
 								<?php
 								if (isset($_SESSION['USER_LOGIN'])) {
 								?>
@@ -164,15 +159,33 @@ if (isset($_SESSION['USER_LOGIN'])) {
 								<?php
 								}
 								?>
-							</ul> -->
-						<!-- </div> -->
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 			<!-- top details area end -->
-		</div>
-	</div>
+			
 
+		</div>
+	 <!-- Mobile Search Bar -->
+	    <div class="row d-lg-none mb-5">
+			<div class="col-12">
+				<div class="">
+					<div class="header-search expand">
+						<form action="search.php" id="searchform" method="get" class="sreach custom-search-form">
+							<div class="input-group">
+								<input type="text" class="sreach srch custom-search-input form-control" placeholder="FIND YOUR FAVOURITES" name="str">
+								<span class="input-group-btn srchspan" style="">
+									<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+								</span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+    	</div>
+	</div>
 </header>
 
 <header class="header-5 short-stor ">
@@ -209,20 +222,95 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 				</div>
 				<!-- mobile menu start -->
-				<div class="row">
+				<!-- <div class="sidebar" id="sidebar">
+					<span class="close-btn" id="closeSidebar">✖</span>
+					<div class="my-4">
+						<a href="#" class="btn-default"><i class="fa fa-phone border p-3"></i> </a> | <a href="#" class="btn-default"><i class="fa fa-user-o border p-3" aria-hidden="true"></i>
+						</a>
+					</div>
+					<hr>
+					<ul class="list-unstyled">
+						<li class="d-flex justify-content-between">
+							<a href="javascript:void(0);" class="expand-cat">
+								<?php //echo $list['categories']; ?>
+								<i class="fa fa-plus"></i>
+							</a>
+							<ul class="sub-menu">
+								<?php
+								$cat_id = $list['id'];
+								$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
+								if (mysqli_num_rows($sub_cat_res) > 0) {
+									while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
+										//echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
+									}
+								}
+								?>
+							</ul>
+						</li>
+						<!-- <li class="d-flex justify-content-between"><span>Category 2</span> <span>➕</span></li> 
+						<li class="d-flex justify-content-between"><span>About Us</span></li>
+					</ul>
+				</div> -->
+				<div class="sidebar-overlay"></div>
+
+				<!-- Sidebar (Left Side) -->
+				<div class="sidebar" id="sidebar">
+					<!-- Close Button in a Small White Box -->
+					<div class="sidebar-header">
+						<a href="javascript:void(0);" class="closebtn">
+							<span>&times;</span>
+						</a>
+					</div>
+
+					<!-- Top Icons (Login & Contact) -->
+					<div class="sidebar-top-icons">
+						<a href="login.php" class="icon"><i class="fa fa-user"></i> Login </a>
+						<a href="contact-us.php" class="icon"><i class="fa fa-phone"></i> Contact Us</a>
+						<a href="contact-us.php" class="icon "><i class="fa fa-building-o"></i> Store</a>
+					</div>
+
+					<!-- Line Separator -->
+					<hr>
+					<!-- Categories List -->
+					<ul class="categories-list">
+					<li><a href="index.php" class="expand-cat"> Home</a></li>
+						<?php foreach ($cat_arr as $list) { ?>
+						<li>
+							<a href="javascript:void(0);" class="expand-cat">
+								<?php echo $list['categories']; ?>
+								<i class="fa fa-plus"></i>
+							</a>
+							<ul class="sub-menu">
+								<?php
+									$cat_id = $list['id'];
+									$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
+									if (mysqli_num_rows($sub_cat_res) > 0) {
+										while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
+										echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '" class="expand-cat sub-cat">' . $sub_cat_rows['sub_categories'] . '</a></li>';
+										}
+									}
+								?>
+							</ul>
+						</li>
+						<?php } ?>
+						<li><a href="about-us.php" class="expand-cat"> About Us</a><i class="fa fa-qaq"></i></li>
+					</ul>
+				</div>
+
+				<!-- <div class="row">
 					<div class="col-sm-12 mobile-menu-area" style=" background-color:black;">
 						<div class="mobile-menu hidden-md d-lg-none" id="mob-menu">
 							<span class="mobile-menu-title">Menu</span>
 							<a href="javascript:void(0);" class="openNav">
 								<i class="fa fa-bars" style="color: white;"></i>
 							</a>
-							<!-- Categories Menu -->
+							<!-- Categories Menu
 							<div class="categories-menu">
 								<ul class="categories-list">
-									<?php foreach ($cat_arr as $list) { ?>
+									<?php //foreach ($cat_arr as $list) { ?>
 										<li class="menu-item-has-children">
 											<a href="javascript:void(0);" class="expand-cat">
-												<?php echo $list['categories']; ?>
+												<?php //echo $list['categories']; ?>
 												<i class="fa fa-plus"></i>
 											</a>
 											<ul class="sub-menu">
@@ -231,70 +319,21 @@ if (isset($_SESSION['USER_LOGIN'])) {
 												$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
 												if (mysqli_num_rows($sub_cat_res) > 0) {
 													while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
-														echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
+														//echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
 													}
 												}
 												?>
 											</ul>
 										</li>
-									<?php } ?>
+									<?php //} ?>
 								</ul>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- mobile menu end -->
 			</div>
 		</div>
 	</div>
-	<!-- <div id="loader-wrapper">
-		<div id="loader">
-			<div class="loader-ellips">
-				<span class="ring"></span>
-				<span class="ring"></span>
-				<span class="ring"></span>
-			</div>
-		</div>
-	</div> -->
 </header>
 <!-- header area end -->
-
-
-<script>
-	// Ensure the DOM content is fully loaded before adding event listeners
-	document.addEventListener('DOMContentLoaded', function() {
-		// Toggle mobile navigation
-		document.querySelector('.openNav').addEventListener('click', function() {
-			document.getElementById("mob-menu").classList.toggle("show");
-			document.querySelector('.categories-menu').classList.toggle("show");
-		});
-
-		// Toggle category dropdown
-		document.querySelectorAll('.expand-cat').forEach(item => {
-			item.addEventListener('click', function() {
-				this.parentNode.querySelector('.sub-menu').classList.toggle('show');
-			});
-		});
-	});
-
-
-	document.addEventListener('DOMContentLoaded', function() {
-		// Add toggle behavior for dropdowns in mobile view
-		document.querySelectorAll('li.drop > a').forEach(function(categoryLink) {
-			categoryLink.addEventListener('click', function(e) {
-				e.preventDefault(); // Prevent the link from navigating
-				const parent = this.parentElement; // Get the parent <li>
-				parent.classList.toggle('open'); // Toggle the "open" class
-			});
-		});
-	});
-	// $(window).on('load', function() {
-	// 	$('#loader').delay(100).fadeOut('slow');
-	// 	$('#loader-wrapper').delay(500).fadeOut('slow');
-	// });
-
-	// var loader = document.getElementById("loader");
-	// window.addEventListener("load", function() {
-	// 	loader.style.display = "none";
-	// });
-</script>

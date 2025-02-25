@@ -1,6 +1,6 @@
 <!-- jquery-1.11.3.min js
 		============================================ -->
-<script src="js/vendor/jquery-1.12.4.min.js"></script>
+		<script src="js/vendor/jquery-1.12.4.min.js"></script>
 
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
@@ -48,8 +48,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include jQuery and Owl Carousel JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 <!-- main js
 		============================================ -->
 <script src="js/main.js"></script>
@@ -95,7 +99,7 @@
 	// });
 
 	// Open Sidebar
-	document.querySelector('.openNav').addEventListener('click', function () {
+	document.querySelector('#toggleSidebar').addEventListener('click', function () {
 		document.querySelector('.sidebar').classList.add('active');
 		document.querySelector('.sidebar-overlay').classList.add('active');
 	});
@@ -105,6 +109,11 @@
 		document.querySelector('.sidebar').classList.remove('active');
 		document.querySelector('.sidebar-overlay').classList.remove('active');
 	});
+	
+	$(".closebtn, .sidebar-overlay").click(function () {
+        $("#sidebar").removeClass("active");
+        $(".sidebar-overlay").removeClass("active");
+    });
 
 	// Toggle Dropdown
 	document.querySelectorAll('.expand-cat').forEach(item => {
@@ -114,7 +123,4 @@
 			this.querySelector('i').classList.toggle('fa-minus');
 		});
 	});
-
-
-
 </script>
