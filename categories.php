@@ -186,13 +186,13 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			<div class="row">
 				<div class="col-12">
 					<div class="container-inner">
-						 <ul>
+						<ul>
 							<li class="home">
 								<a href="index.php">Home</a>
 								<span><i class="fa fa-angle-right"></i></span>
 							</li>
 							<li class="category3"><span>Category</span></li>
-						</ul> 
+						</ul>
 					</div>
 				</div>
 			</div>
@@ -260,7 +260,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 							<?php
 							foreach ($chunk as $list) { ?>
 
-								<div class="col-md-4 product-list">
+								<div class="col-lg-3 col-md-4 col-sm-6 col-6 product-list">
 
 									<!-- Start Single Category -->
 
@@ -270,9 +270,9 @@ if (isset($_SESSION['USER_LOGIN'])) {
 										<div class="single-product">
 											<div class="product-img">
 												<a href="#">
-													<img class="primary-image" style="width: 360px; height: 400px;"
+													<img class="primary-image"
 														src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
-													<img class="secondary-image " style="width: 360px; height: 400px;"
+													<img class="secondary-image "
 														src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
 												</a>
 												<div class="actions">
@@ -385,4 +385,5 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 
 </body>
+
 </html>
