@@ -38,3 +38,15 @@
     transform: scale(1.2);
   }
 }
+.category3 span {
+  font-size: 17px;
+}
+@media (max-width: 575px) {
+  .product-list {
+    width: 50% !important;
+    height: auto !important;
+  }
+  .product-content {
+    font-size: 10px;
+  }
+}
