@@ -20,26 +20,26 @@ if ($str != '') {
 <body>
 
     <!-- header area start -->
-    <?php include 'includes/navBar2.php' ?>
+    <?php include 'includes/navbar2.php' ?>
     <!-- contact-details start -->
     <!-- <div class="body__overlay"></div> -->
 
     <!-- Start Bradcaump area -->
-    <div class="ht__bradcaump__area">
-        <div class="ht__bradcaump__wrap" style="height: 150px;">
+    <div class="ht__bradcaump__area mt-3">
+        <div class="ht__bradcaump__wrap mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="bradcaump__inner">
-                            <!-- <nav class="bradcaump-inner">
+                            <nav class="bradcaump-inner">
                                 <a class="breadcrumb-item" href="index.php">Home</a>
-                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                                <span class="brd-separetor"><i class="fa fa-chevron-right"></i></span>
                                 <span class="breadcrumb-item active">Search</span>
-                                <span class="brd-separetor"><i class="zmdi zmdi-chevron-right"></i></span>
+                                <span class="brd-separetor"><i class="fa fa-chevron-right"></i></span>
                                 <span class="breadcrumb-item active">
                                     <?php echo $str ?>
                                 </span>
-                            </nav> -->
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -55,47 +55,45 @@ if ($str != '') {
                         <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
                             <div class="single-product slider-item">
                                 <div class="product-img">
-                                    <a href="#">
-                                        <img class="primary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>"
-                                            alt="" />
-                                        <img class="secondary-image" width="540" height="660"
-                                            src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
+                                    <a href="product.php?id=<?php echo $list['id'] ?>">
+                                        <img class="primary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="<?php echo $list['name'] ?>" />
+                                        <img class="secondary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="<?php echo $list['name'] ?>" />
                                     </a>
                                     <div class="actions">
-                                        <div class="action-buttons">
-                                            <div class="add-to-links">
-                                                <div class="add-to-wishlist">
-                                                    <a href="javascript:void(0)"
-                                                        onclick="wishlist_manage('<?php echo $list['id'] ?>','add')"><i
-                                                            class="fa fa-heart"></i></a>
-                                                </div>
-                                                <div class="compare-button">
-                                                    <a href="product.php?id=<?php echo $list['id'] ?>"><i
-                                                            class="icon-bag"></i></a>
-                                                </div>
+                                        <div class="add-to-links">
+                                            <!-- <div class="add-to-wishlist">
+                                                <a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">
+                                                    <i class="fa fa-heart"></i>
+                                                </a>
+                                            </div> -->
+                                            <div class="add-to-wishlist text-black">
+                                                <a href="product.php?id=<?php echo $list['id'] ?>">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div class="compare-button">
+                                                <a href="product.php?id=<?php echo $list['id'] ?>">
+                                                    <i class="icon-bag"></i>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="price-box">
-                                        <span class="new-price">PKR
-                                            <?php echo $list['price'] ?>
-                                        </span>
-                                    </div>
                                 </div>
                                 <div class="product-content">
-                                    <h2 class="product-name"><a href="#">
-                                            <?php echo $list['name'] ?>
-                                        </a></h2>
+                                    <h2 class="product-name">
+                                        <a href="product.php?id=<?php echo $list['id'] ?>"><?php echo $list['short_desc']?></a>
+                                    </h2>
                                     <p>
-                                        <?php echo $list['short_desc'] ?>
+                                        <?php echo $list['name'] ?><br>
+                                        <span class="new-price">PKR <?php echo $list['price'] ?></span>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     <?php } ?>
                 <?php } else {
-                    echo '<h2 style="font-size: 18px; color: red; font-weight: bold; text-align: center;">Product Not Found.</h2> <br> 
-  <p style="font-size: 15px; color: grey; text-align: center;">  Your search returned no results.</p>
+                    echo '<h2 class="notfound"style="">Product Not Found.</h2> <br> 
+  <p class="noreturn">  Your search returned no results.</p>
     ';
                 } ?>
 
