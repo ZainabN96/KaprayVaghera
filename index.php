@@ -23,7 +23,7 @@ include 'includes/header2.php';
 	<!-- start home slider -->
 	<div class="slider-area an-1 hm-1 clr">
 		<!-- slider -->
-		<div class="bend niceties preview-2">
+		<!-- <div class="bend niceties preview-2">
 			<div id="ensign-nivoslider" class="slides abc">
 				<div class="carousel-item">
 					<img class="d-block mx-auto img-fluid" alt="Image 1"
@@ -36,7 +36,7 @@ include 'includes/header2.php';
 						title="#slider-direction-2" />
 				</div>
 			</div>
-			<!-- direction 1 -->
+			
 			<div id="slider-direction-1" class="t-cn slider-direction">
 				<div class="slider-progress"></div>
 				<div class="slider-content t-lfl lft-pr s-tb slider-1">
@@ -48,7 +48,6 @@ include 'includes/header2.php';
 				</div>
 			</div>
 
-			<!-- direction 2 -->
 			<div id="slider-direction-2" class="slider-direction">
 				<div class="slider-progress"></div>
 				<div class="slider-content t-lfl lft-pr s-tb  slider-2">
@@ -60,7 +59,48 @@ include 'includes/header2.php';
 				</div>
 			</div>
 		</div>
-		
+		 -->
+		 <div id="heroSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></li>
+				<li data-bs-target="#heroSlider" data-bs-slide-to="1"></li>
+			</ol>
+
+			<!-- Slides -->
+			<div class="carousel-inner">
+				<!-- Slide 1 -->
+				<div class="carousel-item active" style="background-image: url('img/slider/slider2.jpg');">
+					<div class="carousel-overlay"></div>
+					<div class="carousel-caption">
+						<h2 class="text-light">Collection 2025</h2>
+						<h3 class="text-light">FALL-WINTER</h3>
+						<a href="#hotselling" class="btn btn-danger btn-lg mt-3">View Collection</a>
+					</div>
+				</div>
+
+				<!-- Slide 2 -->
+				<div class="carousel-item" style="background-image: url('img/slider/slider1.jpg');">
+					<div class="carousel-overlay"></div>
+					<div class="carousel-caption">
+						<h2 class="text-light">Collection 2025</h2>
+						<h3 class="text-light">SPRING-SUMMER</h3>
+						<a href="#newarrival" class="btn btn-danger btn-lg mt-3">View Collection</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Controls -->
+			<a class="carousel-control-prev" href="#heroSlider" role="button" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#heroSlider" role="button" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</a>
+		</div>
+
 		<!-- slider end-->
 	</div>
 	<!-- end home slider -->
