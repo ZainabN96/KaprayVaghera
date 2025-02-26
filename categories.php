@@ -24,6 +24,7 @@ if (isset($_GET['sub_categories'])) {
 if ($cat_id > 0) {
 
 	$get_product = get_product($con, '', $cat_id, '', '', '', '', $sub_categories);
+	//prx($get_product)
 } else {
 ?>
 
@@ -160,7 +161,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 			<?php
 			if (!isset($_GET['sub_categories'])) {
 				while ($row = mysqli_fetch_assoc($get_cat_name)) {
-			?>
+				?>
 					<span>
 						<?php echo ($row['categories']); ?>
 					</span>
@@ -181,23 +182,49 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	</div>
 	<!-- category-banner area end -->
 	<!-- breadcrumbs area start -->
-	<div class="breadcrumbs">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="container-inner">
-						<ul>
-							<li class="home">
-								<a href="index.php">Home</a>
-								<span><i class="fa fa-angle-right"></i></span>
-							</li>
-							<li class="category3"><span>Category</span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="ht__bradcaump__area mt-3">
+        <div class="ht__bradcaump__wrap mb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="bradcaump__inner">
+                            <nav class="bradcaump-inner">
+							<a href="index.php">Home</a>
+							<?php
+								if (!isset($_GET['sub_categories'])) {
+									mysqli_data_seek($get_cat_name, 0); // Reset pointer
+									while ($row = mysqli_fetch_assoc($get_cat_name)) {
+										?>
+										<span class="brd-separetor"><i class="fa fa-angle-right"></i></span>
+										<span class="breadcrumb-item active"><?php echo ($row['categories']); ?></span>
+										<?php
+									}
+								} 
+								else {
+									mysqli_data_seek($get_sub_cat_name, 0); // Reset pointer for sub-category
+									while ($row = mysqli_fetch_assoc($get_cat_name)) {
+									 ?>
+										<span class="brd-separetor"><i class="fa fa-angle-right"></i></span>
+										<span class="breadcrumb-item active"><?php echo ($row['categories']); ?></span>
+									 <?php 
+									} 
+									while ($row = mysqli_fetch_assoc($get_sub_cat_name)) {
+									 ?>
+										<span class="brd-separetor"><i class="fa fa-angle-right"></i></span>
+										<span class="breadcrumb-item active"><?php echo ($row['sub_categories']); ?></span>
+									 <?php
+										
+									}
+								}
+							?>
+
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 	<!-- breadcrumbs area end -->
 	<!-- shop-with-sidebar Start -->
 	<div class="">

@@ -32,10 +32,10 @@ if ($str != '') {
                     <div class="col-xs-12">
                         <div class="bradcaump__inner">
                             <nav class="bradcaump-inner">
-                                <a class="breadcrumb-item" href="index.php">Home</a>
-                                <span class="brd-separetor"><i class="fa fa-chevron-right"></i></span>
+                                <a href="index.php">Home</a>
+                                <span class="brd-separetor"><i class="fa fa-angle-right"></i></span>
                                 <span class="breadcrumb-item active">Search</span>
-                                <span class="brd-separetor"><i class="fa fa-chevron-right"></i></span>
+                                <span class="brd-separetor"><i class="fa fa-angle-right"></i></span>
                                 <span class="breadcrumb-item active">
                                     <?php echo $str ?>
                                 </span>
