@@ -36,7 +36,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 				<div class="toggle-logo-container">
 					<div class="top-logo">
 						<a href="index.php">
-							<img width="130" height="50" src="img/newlogoo.png" alt="Logo" />
+							<img width="120" height="50" src="img/newlogoo.png" alt="Logo" />
 						</a>
 					</div>
 				</div>
@@ -102,7 +102,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 					<div class="disflow" style="height: 60px; width: 25.19px;">
 						<a href="login.php">
-							<i class="fa fa-user text-black user" style="font-size: 29px;"></i>
+							<i class="fa fa-user text-black user"></i>
 						</a>
 					</div>
 					<!-- addcart top start -->

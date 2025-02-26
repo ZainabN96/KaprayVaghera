@@ -60,7 +60,7 @@ include 'includes/header2.php';
 			</div>
 		</div>
 		 -->
-		 <div id="heroSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+		<div id="heroSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></li>

@@ -380,7 +380,7 @@ ul {
 
 /* Hero Slider */
 .carousel-item {
-  height: 75vh; /* Full screen height */
+  height: 60vh; /* Full screen height */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -417,6 +417,40 @@ ul {
   padding: 10px 20px;
   border-radius: 8px;
 }
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Mobile & Tablet View */
+@media (max-width: 768px) {
+  .carousel-caption {
+      top: auto;
+      bottom: 10%;
+      left: 50% !important;
+      transform: translateX(-50%);
+      max-width: 90%; /* Responsive width */
+  }
+
+  .carousel-caption h2 {
+      font-size: 1.8rem;
+  }
+
+  .carousel-caption h3 {
+      font-size: 1.5rem;
+  }
+
+  .carousel-caption .btn {
+      font-size: 1rem;
+      padding: 8px 16px;
+  }
+}
+
 
 
 /*  2.1  mainmenu area
@@ -886,7 +920,7 @@ a.sm-cart-product {
 }
 
 .cart-toggler i {
-  margin-left:6px;
+  margin-left: 6px;
   font-size: 30px;
   color: #3f3f3f;
   display: block;
@@ -1137,7 +1171,7 @@ button {
   }
   
   .whatsapp-icon-custom-size {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .user{
@@ -1150,9 +1184,8 @@ button {
   }
  
   .fa-bars {
-      font-size: 15px;
-     
-    }
+    font-size: 20px;
+  }
 }
 
 /*  2.5.2  NEW SEARCH CSS
@@ -4286,15 +4319,15 @@ article.blog-post-wrapper.item-post .player {
   margin-top: 18px;
   font-size: 27px;
 }
-.carousel {
+/* .carousel {
   position: relative;
 }
 
 .carousel.pointer-event {
   touch-action: pan-y;
-}
+} */
 
-.carousel-inner {
+/* .carousel-inner {
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -4304,9 +4337,9 @@ article.blog-post-wrapper.item-post .player {
   display: block;
   clear: both;
   content: "";
-}
+} */
 
-.carousel-item {
+/* .carousel-item {
   position: relative;
   display: none;
   float: left;
@@ -4314,7 +4347,7 @@ article.blog-post-wrapper.item-post .player {
   margin-right: -100%;
   backface-visibility: hidden;
   transition: transform 0.6s ease-in-out;
-}
+} */
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-item {
@@ -7710,12 +7743,7 @@ li.drop > a:hover {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
-.carousel-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-}
+
 /* Toggle visibility of mobile menu */
 .mobile-menu.show {
   display: block;
@@ -7765,11 +7793,7 @@ li.drop > a:hover {
     transform: translateX(-100%);
   }
 }
-@media (min-width: 440px) and (max-width: 767px) {
-  .sreach {
-    /* max-width: 350px; */
-  }
-}
+
 @media (min-width: 280px) and (max-width: 440px) {
   .sreach {
     max-width: auto;
