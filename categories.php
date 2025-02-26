@@ -200,7 +200,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	</div>
 	<!-- breadcrumbs area end -->
 	<!-- shop-with-sidebar Start -->
-	<div class="shop-with-sidebar">
+	<div class="">
 		<div class="container">
 			<div class="row flex-column-reverse flex-lg-row">
 				<!-- right sidebar start -->

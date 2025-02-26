@@ -13,7 +13,7 @@ include 'includes/header2.php';
     <!-- contact-details start -->
 
     <div class="ht__bradcaump__area">
-        <div class="ht__bradcaump__wrap" style="height: 150px;">
+        <div class="ht__bradcaump__wrap">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
@@ -33,7 +33,7 @@ include 'includes/header2.php';
     <!-- Start Contact Area -->
     <section class="htc__contact__area ptb--100 bg__white">
         <div class="container">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
                     <div class="map-contacts--2">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d13603.812130803182!2d74.3398965!3d31.5254499!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDMxJzIzLjYiTiA3NMKwMjAnMjQuMiJF!5e0!3m2!1sen!2s!4v1731558270652!5m2!1sen!2s" width="650" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -72,35 +72,60 @@ include 'includes/header2.php';
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="contact-form-wrap mt--60">
-                    <div class="col-xs-12">
+                    <!-- <div class="col-xs-12">
                         <div class="contact-title">
                             <h2 class="title__line--6">SEND A MAIL</h2>
                         </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <form id="contact-form" action="#" method="post">
-                            <div class="single-contact-form">
-                                <div class="contact-box name">
-                                    <input type="text" id="name" name="name" placeholder="Your Name*">
-                                    <input type="email" id="email" name="email" placeholder="Email*">
-                                    <input type="email" id="mobile" name="mobile" placeholder="Mobile*">
-                                </div>
-                            </div>
+                    </div> -->
+                    <h2 class="text-center my-4 fs-1">Contact Us</h2>
 
-                            <div class="single-contact-form">
-                                <div class="contact-box message">
-                                    <textarea name="message" id="message" placeholder="Your Message"></textarea>
-                                </div>
+                    <div class="row">
+                        <!-- Contact Form -->
+                        <div class="col-md-6">
+                            <div class="contact-form">
+                                <form action="contact_submit.php" method="post">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Your Name *</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Your Email *</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="phone" class="form-label">Your Phone Number *</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">+92</span>
+                                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Your Message *</label>
+                                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary w-100 fs-5">Submit</button>
+                                </form>
                             </div>
-                            <div class="contact-btn">
-                                <button type="button" onclick="send_message()" class="fv-btn">Send MESSAGE</button>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="col-md-6">
+                            <div class="contact-info">
+                                <h4 class="fs-2">CONTACT INFORMATION</h4>
+                                <!-- <p><strong>Sapphire Retail Head Office</strong></p> -->
+                                <p>2C Maratab Ali Road Gulberg-2 near KIMS and Green Halls academy
+                                </p>
+                                <p><strong>Email:</strong> <a href=" mailto:customercare@kvonline.shop">customercare@kvonline.shop</a>
+                                </p>
+                                <p><strong>Phone:</strong> <a href="tel:03136414263">03136414263</a></p>
                             </div>
-                        </form>
-                        <div class="form-output">
-                            <p class="form-messege"></p>
                         </div>
                     </div>
                 </div>

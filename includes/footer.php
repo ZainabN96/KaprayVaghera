@@ -166,7 +166,7 @@
 						</div>
 						<div class="infof-content">
 							<h3>Phone Support</h3>
-							<p>03136414263</p>
+							<p><a href="tel:03136414263" class="text-light">03136414263</a></p>
 						</div>
 					</div>
 				</div>
@@ -177,7 +177,8 @@
 						</div>
 						<div class="infof-content">
 							<h3>Email Support</h3>
-							<p>customercare@kvonline.shop</p>
+							<p><a href="mailto:customercare@kvonline.shop" class="text-light">customercare@kvonline.shop</a></p>
+
 						</div>
 					</div>
 				</div>
