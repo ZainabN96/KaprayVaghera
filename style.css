@@ -947,6 +947,12 @@ span.cart-quantity {
   font-size: 10px;
 }
 
+@media (max-width:540px){
+  span.cart-quantity {
+    left: 20px;
+  }
+}
+
 span.heart-quantity {
   background: #03a5e9;
   height: 15px;
