@@ -122,9 +122,9 @@ include 'includes/header2.php';
                                 <!-- <p><strong>Sapphire Retail Head Office</strong></p> -->
                                 <p>2C Maratab Ali Road Gulberg-2 near KIMS and Green Halls academy
                                 </p>
-                                <p><strong>Email:</strong> <a href=" mailto:customercare@kvonline.shop">customercare@kvonline.shop</a>
+                                <p><strong>Email:</strong> <a href=" mailto:customercare@kvonline.shop" class="text-dark text-decoration-none fw-bold">customercare@kvonline.shop</a>
                                 </p>
-                                <p><strong>Phone:</strong> <a href="tel:03136414263">03136414263</a></p>
+                                <p><strong>Phone:</strong> <a href="tel:03136414263" class="text-dark text-decoration-none fw-bold">03136414263</a></p>
                             </div>
                         </div>
                     </div>
