@@ -182,8 +182,8 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	</div>
 	<!-- category-banner area end -->
 	<!-- breadcrumbs area start -->
-	<div class="ht__bradcaump__area mt-3">
-        <div class="ht__bradcaump__wrap mb-5">
+	<div class="ht__bradcaump__area mt-3 mb-3">
+        <div class="ht__bradcaump__wrap">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12">
