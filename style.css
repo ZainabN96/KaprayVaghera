@@ -3685,13 +3685,11 @@ hr {
 
 .shop-toolbar {
   overflow: hidden;
-  margin: 0 0 30px;
   position: relative;
   font-size: 13px;
   color: #3f3f3f;
   font-family: Montserrat;
-  border-bottom: 1px solid #f7f6f8;
-  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e2e3;
 }
 
 .orderby-wrapper label,
