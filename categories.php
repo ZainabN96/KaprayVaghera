@@ -70,7 +70,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Categories | Kapray Vaghera</title>
+	<title> Categories | Kapray Vaghera</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -184,7 +184,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	<!-- breadcrumbs area start -->
 	<div class="ht__bradcaump__area mt-3">
         <div class="ht__bradcaump__wrap mb-5">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="bradcaump__inner">
@@ -228,7 +228,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	<!-- breadcrumbs area end -->
 	<!-- shop-with-sidebar Start -->
 	<div class="">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row flex-column-reverse flex-lg-row">
 				<!-- right sidebar start -->
 				<div class="col-lg-12 col-12">
@@ -271,13 +271,10 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	</div>
 
 	<section class="htc__product__grid bg__white ptb--100">
-		<div class="container category-list">
+		<div class="container-fluid category-list">
 			<div class="row">
 				<?php if (count($get_product) > 0) {
-					//prx($get_product);
 				?>
-
-
 					<!-- Loop through products -->
 					<?php foreach (array_chunk($get_product, 4) as $chunk) { ?>
 
@@ -288,76 +285,52 @@ if (isset($_SESSION['USER_LOGIN'])) {
 							foreach ($chunk as $list) { ?>
 
 								<div class="col-lg-3 col-md-4 col-sm-6 col-6 product-list">
-
 									<!-- Start Single Category -->
-
 									<div class="category">
-
 										<!-- single-product start -->
 										<div class="single-product">
-											<div class="product-img">
-												<a href="#">
-													<img class="primary-image"
-														src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
-													<img class="secondary-image "
-														src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="" />
-												</a>
-												<div class="actions">
-													<div class="action-buttons">
-														<div class="add-to-links">
-															<div class="add-to-wishlist">
-																<a href="javascript:void(0)"
-																	onclick="wishlist_manage('<?php echo $list['id'] ?>','add')"><i
-																		class="fa fa-heart"></i></a>
-															</div>
-															<div class="compare-button">
-																<a href="product.php?id=<?php echo $list['id'] ?>"><i
-																		class="icon-bag"></i></a>
-															</div>
-														</div>
-														<!-- <div class="quickviewbtn">
-																				<a href="#" title="Add to Compare"><i
-																						class="fa fa-retweet"></i></a>
-																			</div> -->
-													</div>
-												</div>
-												<div class="price-box">
-													<span class="new-price">
-														<?php echo $list['price'] ?>
-													</span>
-												</div>
-
-											</div>
-											<div class="product-content">
-												<h2 class="product-name"><a href="#">
-														<?php echo $list['name'] ?>
-													</a></h2>
-												<div class="product-desc">
-													<p>
-														<?php echo $list['short_desc'] ?>
-													</p>
-												</div>
-											</div>
-										</div>
+                                            <div class="product-img">
+                                                <a href="product.php?id=<?php echo $list['id'] ?>">
+                                                    <img class="primary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="<?php echo $list['name'] ?>" />
+                                                    <img class="secondary-image" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="<?php echo $list['name'] ?>" />
+                                                </a>
+                                                <div class="actions">
+                                                    <div class="add-to-links">
+                                                        <div class="add-to-wishlist text-black">
+                                                            <a href="product.php?id=<?php echo $list['id'] ?>">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="compare-button">
+                                                            <a href="product.php?id=<?php echo $list['id'] ?>">
+                                                                <i class="icon-bag"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-content">
+                                                <h2 class="product-name">
+                                                    <a href="product.php?id=<?php echo $list['id'] ?>"><?php echo $list['short_desc']?></a>
+                                                </h2>
+                                                <p>
+                                                    <?php echo $list['name'] ?><br>
+                                                    <span class="new-price">PKR <?php echo $list['price'] ?></span>
+                                                </p>
+                                            </div>
+                                        </div>
 									</div>
 									<!-- single-product end -->
 								</div>
 
-
-
 							<?php } ?>
-
-
 						</div>
 					<?php } ?>
-
-
-
 				<?php } else {
-					echo "No Product Found";
+					 echo '<h2 class="notfound"style="">Product Not Found.</h2> <br> 
+                          <p class="noreturn"> Your search returned no results.</p>
+                         ';
 				} ?>
-
-
 				<!-- right sidebar end -->
 			</div>
 		</div>
@@ -410,7 +383,5 @@ if (isset($_SESSION['USER_LOGIN'])) {
 	<!-- JS -->
 	<?php include 'includes/jsfiles.php'; ?>
 
-
 </body>
-
 </html>

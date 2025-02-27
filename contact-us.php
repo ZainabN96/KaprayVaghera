@@ -9,7 +9,7 @@ include 'includes/header2.php';
 <body>
 
     <!-- header area start -->
-    <?php include 'includes/navBar2.php' ?>
+    <?php include 'includes/navbar2.php' ?>
     <!-- contact-details start -->
 
     <div class="ht__bradcaump__area">

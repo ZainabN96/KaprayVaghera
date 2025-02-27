@@ -27,7 +27,7 @@ if ($str != '') {
     <!-- Start Bradcaump area -->
     <div class="ht__bradcaump__area mt-3">
         <div class="ht__bradcaump__wrap mb-5">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="bradcaump__inner">
@@ -48,11 +48,11 @@ if ($str != '') {
     </div>
     <!-- End Bradcaump area -->
     <section class="htc__product__grid bg__white ptb--100">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <?php if (count($get_product) > 0) { ?>
                     <?php foreach ($get_product as $list) { ?>
-                        <div class="col-md-4 col-lg-3 col-sm-4 col-xs-12">
+                        <div class="col-6 col-sm-6 col-md-3 col-lg-3">
                             <div class="single-product slider-item">
                                 <div class="product-img">
                                     <a href="product.php?id=<?php echo $list['id'] ?>">
@@ -93,8 +93,8 @@ if ($str != '') {
                     <?php } ?>
                 <?php } else {
                     echo '<h2 class="notfound"style="">Product Not Found.</h2> <br> 
-  <p class="noreturn">  Your search returned no results.</p>
-    ';
+                          <p class="noreturn">  Your search returned no results.</p>
+                         ';
                 } ?>
 
             </div>
@@ -113,6 +113,4 @@ if ($str != '') {
     <?php include 'includes/jsfiles.php'; ?>
 
 </body>
-
-
 </html>
