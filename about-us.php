@@ -98,7 +98,7 @@ include 'includes/header2.php';
 	<div class="our-product-area">
 		<div class="container">
 			<div class="heading">
-				<h1><span class="part"> About Us </span> </h1>
+				<h1 class="fs-1 fs-md-3 fs-lg-2"> <span class="part">About Us</span> </h1>
 			</div>
 			<div class="promotion-area pt-100 pb-50">
 				<div class="container">
