@@ -127,7 +127,7 @@
 								<li><a href="https://www.facebook.com/KaprayV" target="_blank" class="facebook text-decoration-none"><i
 											class="bi bi-facebook"></i><span class="ps-3 text-light "> Facebook
 										</span></a></li>
-								<li><a href="https://www.instagram.com/kaprayvaghera?igshid=OGQ5ZDc2ODk2ZA%3D%3D"
+								<li><a href="https://www.instagram.com/kvonline.shop/"
 										target="_blank" class="instagram text-decoration-none"><i class="bi bi-instagram"></i><span
 											class="ps-3 text-light ">
 											Instagram </a></span></li>
@@ -203,7 +203,7 @@
 			<div class="row">
 				<div class="col-lg-6 col-12">
 					<address><?php echo date('Y'); ?> &copy; <strong> Kapray Vaghera </strong> Made with by <a
-							href="https://www.hcc-me.com/hcc-technology-foundation/" target="_blank"><strong>HCC
+							href="https://www.instagram.com/hcc_technology_foundation/" target="_blank"><strong>HCC
 								Technology Foundation</strong></a></address>
 				</div>
 				<!-- <div class="col-lg-6 col-12">
