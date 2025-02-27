@@ -118,12 +118,12 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 <body>
     <?php include 'includes/navbar2.php'; ?>
 
-    <div class="container mt-5">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 d-flex">
                 <!-- Left Side Thumbnails -->
                 <?php if (isset($multipleImages[0])) { ?>
-                    <div class="d-flex flex-column mt-5 me-3 flex-grow-0 flex-shrink-0">
+                    <div class="d-flex flex-column mt-2 me-3 flex-grow-0 flex-shrink-0">
                         <?php foreach ($multipleImages as $list) { ?>
                             <a href="#" class="elevatezoom-gallery mb-2"
                                 data-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
@@ -137,7 +137,7 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
                 <?php } ?>
 
                 <!-- Main Image -->
-                <div class="zoomWrapper mt-5 flex-grow-1">
+                <div class="zoomWrapper mt-1 flex-grow-1">
                     <div id="img-1" class="zoomWrapper single-zoom">
                         <a href="#">
                             <img id="zoom1" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>"

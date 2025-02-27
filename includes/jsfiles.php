@@ -59,44 +59,15 @@
 <script src="js/main.js"></script>
 
 <script>
-	// $(document).ready(function () {
-	// 	$(".openNav").click(function () {
-	// 		$("#sidebar").addClass("active");
-	// 		$(".sidebar-overlay").addClass("active");
-	// 	});
+	$(window).on('load', function() {
+		$('#loader').delay(100).fadeOut('slow');
+		$('#loader-wrapper').delay(500).fadeOut('slow');
+	});
 
-	// 	$(".closebtn, .sidebar-overlay").click(function () {
-	// 		$("#sidebar").removeClass("active");
-	// 		$(".sidebar-overlay").removeClass("active");
-	// 	});
-	// });
-	// $(document).ready(function () {
-	// 	$(".openNav").click(function () {
-	// 		$("#sidebar").addClass("active");
-	// 		$(".sidebar-overlay").addClass("active");
-	// 	});
-
-	// 	$(".closebtn, .sidebar-overlay").click(function () {
-	// 		$("#sidebar").removeClass("active");
-	// 		$(".sidebar-overlay").removeClass("active");
-	// 	});
-
-	// 	// Expand Category & Toggle +/-
-	// 	$(".expand-cat").click(function () {
-	// 		var subMenu = $(this).next(".sub-menu");
-	// 		var icon = $(this).find("i");
-
-	// 		if (!subMenu.hasClass("show")) {
-	// 			$(".sub-menu").removeClass("show"); // Hide all other dropdowns
-	// 			$(".expand-cat i").removeClass("fa-minus").addClass("fa-plus"); // Reset all icons
-	// 			subMenu.addClass("show"); // Show current dropdown
-	// 			icon.removeClass("fa-plus").addClass("fa-minus"); 
-	// 		} else {
-	// 			subMenu.removeClass("show"); // Hide if already open
-	// 			icon.removeClass("fa-minus").addClass("fa-plus");
-	// 		}
-	// 	});
-	// });
+	var loader = document.getElementById("loader");
+	window.addEventListener("load", function() {
+		loader.style.display = "none";
+	})
 
 	// Open Sidebar
 	document.querySelector('#toggleSidebar').addEventListener('click', function () {

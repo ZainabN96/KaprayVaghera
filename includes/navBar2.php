@@ -145,7 +145,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 		</div>
 		<!-- Mobile Search Bar -->
-		<div class="row d-lg-none mb-5">
+		<div class="row d-lg-none mb-3">
 			<div class="col-12">
 				<div class="">
 					<div class="header-search expand">
