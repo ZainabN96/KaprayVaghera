@@ -67,7 +67,7 @@ include 'includes/header2.php';
                         <!-- Contact Form -->
                         <div class="col-md-6">
                             <div class="contact-form">
-                                <form method="post">
+                                <form method="post" id="contactForm">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Your Name *</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
@@ -92,6 +92,7 @@ include 'includes/header2.php';
                                     </div>
 
                                     <button type="submit" class="btn btn-primary w-100 fs-5">Submit</button>
+                                    <p id="responseMessage" class="mt-3"></p>
                                 </form>
                             </div>
                         </div>
