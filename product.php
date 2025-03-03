@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html class="no-js" lang="">
-
-
 <?php
 ob_start();
 $title = 'Product-Details | Kapray Vaghera';
@@ -76,469 +72,275 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 
 ?>
 
-<body class="s-prodct">
-	<!-- header area start -->
-	<?php include 'includes/navbar2.php' ?>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Kapray Vaghera</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .thumbnail-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+        }
+        .product-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+    </style>
+</head> -->
+<style>
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .thumbnail-img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+        }
+        .product-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        hr {
+        margin: 20px 0;
+        border: 0;
+        border-top: 1px solid #000;
+    }
+    </style>
+<body>
+    <?php include 'includes/navbar2.php'; ?>
 
-	<!-- header area end -->
-	<!-- breadcrumbs area start -->
-	<!-- <div class="breadcrumbs" style="margin-top: 150px!important;">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="container-inner">
-							<ul>
-								<li class="home">
-									<a href="index.html">Home</a>
-									<span><i class="fa fa-angle-right"></i></span>
-								</li>
-								<li class="category3"><span>Product-Details</span></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> -->
-	<!-- breadcrumbs area end -->
-	<!-- product-details Area Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 d-flex">
+                <!-- Left Side Thumbnails -->
+                <?php if (isset($multipleImages[0])) { ?>
+                    <div class="d-flex flex-column mt-2 me-3 flex-grow-0 flex-shrink-0">
+                        <?php foreach ($multipleImages as $list) { ?>
+                            <a href="#" class="elevatezoom-gallery mb-2"
+                                data-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
+                                data-zoom-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>">
+                                <img width="80" height="80"
+                                    src="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
+                                    class="thumbnail-img rounded" alt="Thumbnail">
+                            </a>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
 
-	<div class="product-details-area mt-5">
-		<div class="container mt-5">
-			<div class="row mt-5">
-				<div class="col-md-5 col-12 mt-5">
-					<div class="zoomWrapper mt-5">
-						<div id="img-1" class="zoomWrapper single-zoom">
-							<a href="#">
-								<img id="zoom1" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>"
-									data-zoom-image="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>"
-									alt="big-1">
-							</a>
-						</div>
-						<?php if (isset($multipleImages[0])) { ?>
-							<div class="single-zoom-thumb">
-								<ul class="nav" id="gallery_01">
-									<?php
-									foreach ($multipleImages as $list) {
-									?>
-										<li class="">
-											<a href="#" class="elevatezoom-gallery"
-												data-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
-												data-zoom-image="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>">
-												<img width="70" height="70"
-													src="<?php echo PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list; ?>"
-													alt="zo-th-4">
-											</a>
-										</li>
-									<?php } ?>
-								</ul>
-							</div>
-						<?php } ?>
-					</div>
-				</div>
-				<div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40  mt-5">
-					<div class=" product-list-wrapper mt-5">
-						<div class="single-product mt-5">
-							<div class="product-content mt-5">
-								<h2 class="product-name mt-5"><a href="#">
-										<?php echo $get_product['0']['short_desc'] ?>
-									</a></h2>
-								<div class="rating-price">
-									<!-- <div class="pro-rating">
-											<a href="#"><i class="fa fa-star"></i></a>
-											<a href="#"><i class="fa fa-star"></i></a>
-											<a href="#"><i class="fa fa-star"></i></a>
-											<a href="#"><i class="fa fa-star"></i></a>
-											<a href="#"><i class="fa fa-star"></i></a>
-										</div> -->
-									<div class="price-boxes">
-										<span class="new-price">PKR
-											<?php echo $get_product['0']['price'] ?>
-										</span>
-									</div>
-								</div>
-								<div class="product-desc">
-									<!-- <h3>Product Details</h3>
-									<p><span>Product Name:</span> -->
-									<?php echo $get_product['0']['name'] ?>
-									</p>
-								</div>
+                <!-- Main Image -->
+                <div class="zoomWrapper mt-1 flex-grow-1">
+                    <div id="img-1" class="zoomWrapper single-zoom">
+                        <a href="#">
+                            <img id="zoom1" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>"
+                                data-zoom-image="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>"
+                                class="product-image img-fluid rounded" alt="Product Image">
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-								<div class="ht__pro__desc">
-									<?php
-									$cart_show = 'yes';
-									$is_cart_box_show = "hide";
-									if ($is_color == 0 && $is_size == 0) {
-										$is_cart_box_show = "";
-									?>
+            <div class="col-md-6 product-info mt-5">
+                <h2><?php echo $get_product[0]['name']; ?></h2>
+                <p> PKR <?php echo $get_product[0]['price']; ?></p>
+                <hr>
+                <p><?php echo $get_product[0]['short_desc']; ?></p>
+                
+                <p><?php 
+                $getProductAttr = getProductAttr($con, $get_product['0']['id']);
 
-										<div class="sin__desc">
-											<?php
+                $productSoldQtyByProductId = productSoldQtyByProductId($con, $get_product['0']['id'], $getProductAttr);
 
-											$getProductAttr = getProductAttr($con, $get_product['0']['id']);
+                $pending_qty = $get_product['0']['qty'] - $productSoldQtyByProductId;
 
-											$productSoldQtyByProductId = productSoldQtyByProductId($con, $get_product['0']['id'], $getProductAttr);
+                echo ($pending_qty > 0) ? 'In Stock' : 'Out of Stock'; ?></p>
+                
+                <!-- <?php //if ($is_color > 0) { ?>
+                    <label for="color">Color:</label>
+                    <select class="form-select mb-3" id="color">
+                        <?php //foreach ($colorArr as $key => $val) { ?>
+                            <option value="<?php echo $key; ?>"><?php echo $val[0]; ?></option>
+                        <?php// } ?>
+                    </select>
+                <?php //} ?> -->
 
-											$pending_qty = $get_product['0']['qty'] - $productSoldQtyByProductId;
+                <?php if ($is_color > 1) { // Check if multiple colors exist ?>
+                    <!-- <label for="color">Color:</label> -->
+                    <select class="form-select mb-3" id="color">
+                        <?php foreach ($colorArr as $key => $val) { ?>
+                            <option value="<?php echo $key; ?>"><?php echo $val[0]; ?></option>
+                        <?php } ?>
+                    </select>
+                <?php } elseif ($is_color == 1) { // If only one color exists ?>
+                    <p>
+                        <!-- <strong>Color:</strong>  -->
+                        <?php echo reset($colorArr)[0]; ?></p>
+                <?php } ?>
 
-											$cart_show = 'yes';
-											if ($get_product['0']['qty'] > $productSoldQtyByProductId) {
-												$stock = 'In Stock';
-											} else {
-												$stock = 'Not in Stock';
-												$cart_show = '';
-											}
-											?>
-											<p><span>Availability:</span>
-												<?php echo $stock ?>
-											</p>
-										</div>
-									<?php } ?>
+    
+                <div class="d-flex align-items-center gap-3">
+                    <?php if ($is_size > 0) { ?>
+                        <div>
+                            <!-- <label for="size">Size:</label> -->
+                            <select class="form-select" id="size">
+                                <?php foreach ($sizeArr as $key => $val) { ?>
+                                    <option value="<?php echo $key; ?>"><?php echo $val[0]; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    <?php } ?>
 
-									<!-- 										
-										<div class="actions-e">
-											<div class="action-buttons-single">
-												<div class="inputx-content">
-													<label for="qty">Quantity:</label>
-													<input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty">
-												</div>
-												<div class="add-to-cart">
-													<a href="#">Add to cart</a>
-												</div>
-												<div class="add-to-links">
-													<div class="add-to-wishlist">
-														<a href="#" data-bs-toggle="tooltip" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-													</div> -->
-									<!-- <div class="compare-button">
-														<a href="#" data-bs-toggle="tooltip" title="" data-original-title="Compare"><i class="fa fa-refresh"></i></a>
-													</div>									 -->
-									<!-- </div>
-											</div>
-										</div> -->
+                    <div>
+                        <!-- <label for="qty">Quantity:</label> -->
+                        <select id="qty" class="form-select">
+                            <?php for ($i = 1; $i <= $pending_qty; $i++) { ?>
+                                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+            
+                <button class="btn btn-primary" onclick="manage_cart('<?php echo $get_product[0]['id']; ?>', 'add')">Add to Cart</button>
+                <br>
+                <!-- <p class="mt-5"> <?php echo $get_product[0]['description']; ?></p> -->
+                
+				<!-- Tabs -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Start List And Grid View -->
+                        <ul class="pro__details__tab" role="tablist">
+                            <li role="presentation" class="description active"><a href="#description" role="tab"
+                                data-bs-toggle="tab" aria-selected="true">Description</a></li>
+                            <li role="presentation" class="care"><a href="#care" role="tab" data-bs-toggle="tab"
+                                    aria-selected="true">Care</a></li>
+                            <li role="presentation" class="size"><a href="#size" role="tab" data-bs-toggle="tab" 
+                            aria-selected="true"></a></li>
+                            <!-- <li role="presentation" class="size"><a href="#size" role="tab" data-bs-toggle="tab"
+                                    aria-selected="true">Size Chart</a></li> -->
+                        </ul>
 
-									<!-- <?php if ($is_color > 0) { ?>
-										<div class="sin__desc align--left">
-											<p><span>Color:</span></p>
-											<ul class="pro__color">
-												<?php
-												foreach ($colorArr as $key => $val) {
-													echo "<li style='background:" . $val[0] . " none repeat scroll 0 0'><a href='javascript:void(0)' onclick=loadAttr('" . $key . "','" . $get_product['0']['id'] . "','color')>" . $val[0] . "</a></li>";
-												}
-												?>
-
-											</ul>
-										</div>
-									<?php } ?>
-									<br> -->
-									<?php if ($is_color > 0) { ?>
-										<div class="sin__desc align--left">
-											<!-- <p><span>Color:</span></p> -->
-											<ul class="pro__color">
-												<?php
-												$defaultColor = ''; // Variable to hold the default color key
-												foreach ($colorArr as $key => $val) {
-													// Set the first color as default
-													if ($defaultColor === '') {
-														$defaultColor = $key;
-													}
-
-													// Highlight the default color
-													$selectedClass = $key === $defaultColor ? 'selected-color' : '';
-
-													echo "<li class='$selectedClass' style='background:" . htmlspecialchars($val[0]) . " none repeat scroll 0 0'>
-																<a href='javascript:void(0)' onclick=\"loadAttr('" . htmlspecialchars($key) . "', '" . htmlspecialchars($get_product[0]['id']) . "', 'color')\">" . htmlspecialchars($val[0]) . "</a>
-															</li>";
-												}
-												?>
-											</ul>
-										</div>
-
-									<?php } ?>
-
-									<br>
-
-									<?php if ($is_size > 0) { ?>
-										<div class="sin__desc align--left">
-											<!-- <p><span>Size:</span></p> -->
-											<select class="select__size" id="size_attr" onchange="showQty()">
-												<option value="">Size</option>
-												<?php
-												foreach ($sizeArr as $key => $val) {
-													echo "<option value='" . $key . "'>" . $val[0] . "</option>";
-												}
-												?>
-
-											</select>
-										</div>
-									<?php } ?>
-
-
-									<?php
-									$isQtyHide = "hide";
-									if ($is_color == 0 && $is_size == 0) {
-										$isQtyHide = "";
-									}
-									?>
-
-									<div class="sin__desc align--left hide <?php echo $isQtyHide ?>" id="cart_qty">
-										<?php
-										if ($cart_show != '') {
-										?>
-											<p><span>Qty:</span>
-												<select id="qty" class="select__size">
-													<?php
-													for ($i = 1; $i <= $pending_qty; $i++) {
-														echo "<option>$i</option>";
-													}
-													?>
-												</select>
-											</p>
-										<?php } ?>
-									</div>
-
-									<div id="cart_attr_msg"></div>
-
-									<div class="sin__desc align--left">
-										<!-- <p><span>Category:</span></p> -->
-										<ul class="pro__cat__list">
-											<li><a>
-													<?php echo $get_product['0']['categories'] ?>
-												</a></li>
-										</ul>
-									</div>
-
-									<div class="sin__desc align--left">
-										<!-- <p><span>Description:</span></p> -->
-										<ul class="pro__cat__list">
-											<li><a>
-											<?php echo $get_product['0']['description'] ?>
-												</a></li>
-										</ul>
-									</div>
-									<!-- <div>
-										<a href="sizechart.php">
-											<img src="img/sizechart.jpeg" alt="Size Chart">
-										</a>
-									</div> -->
-								</div>
-
-							</div>
-
-						</div>
-
-						<div id="is_cart_box_show" class="<?php echo $is_cart_box_show ?>">
-
-							<a class="btn btn-primary mt-5 mb-2" href="javascript:void(0)"
-								onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to
-								cart</a>
-						</div>
-
-
-
-						<!-- <div class="inputx-content">
-													<label for="qty">Quantity:</label>
-													<input type="text" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty">
-												</div>
-												<br>
-												<div class="add-to-cart">
-													<a href="#">Add to cart</a>
-												</div>
-												<div class="add-to-links">
-													<div class="add-to-wishlist">
-														<a href="#" data-bs-toggle="tooltip" title="" data-original-title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-													</div>
-													<div class="compare-button">
-														<a href="#" data-bs-toggle="tooltip" title="" data-original-title="Compare"><i class="fa fa-refresh"></i></a>
-													</div>									 
-												</div> -->
-					</div>
-				</div>
-
-				<!-- <div class="singl-share">
-										<a href="#"><img width="406" height="36" src="img/single-share.webp" alt=""></a>
-									</div> -->
-			</div>
-		</div>
-	</div>
-
-
-	<input type="hidden" id="cid" />
-	<input type="hidden" id="sid" />
-
-	<!-- Start Product Description -->
-	<section class="htc__produc__decription bg__white">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<!-- Start List And Grid View -->
-					<ul class="pro__details__tab" role="tablist">
-						<li role="presentation" class="description active"><a href="#description" role="tab"
-								data-bs-toggle="tab">description</a></li>
-						<li role="presentation" class="review"><a href="#review" role="tab" data-bs-toggle="tab"
-								aria-selected="true">review</a></li>
-					</ul>
-
-					<!-- End List And Grid View -->
-				</div>
-			</div>
-
-			<!-- Tab panes -->
-			<div class="row">
+                        <!-- End List And Grid View -->
+                    </div>
+                </div>
+                <div class="row">
 				<div class="col-xs-12">
 					<div class="ht__pro__details__content">
 						<!-- Start Single Content -->
-						<!-- <div role="tabpanel mt-5" id="description" class="pro__single__content tab-pane active">
+						<div role="tabpanel mt-5" id="description" class="pro__single__content tab-pane ">
 							<div class="pro__tab__content__inner">
 								<?php echo $get_product['0']['description'] ?>
 							</div>
-						</div> -->
+                            <h4>Size Chart</h4>
+                            <div class="table-responsive mt-5">
+                                    <table class="table table-bordered table-striped text-center">
+                                        <thead class="table-primary">
+                                            <tr>
+                                                <th>Size</th>
+                                                <th>Bust </th>
+                                                <th>Waist </th>
+                                                <th>Hips </th>
+                                                <th>Length </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        
+                                            <tr>
+                                                <td>S</td>
+                                                <td>21</td>
+                                                <td>20</td>
+                                                <td>23</td>
+                                                <td>43</td>
+                                            </tr>
+                                            <tr>
+                                                <td>M</td>
+                                                <td>23</td>
+                                                <td>21</td>
+                                                <td>25</td>
+                                                <td>43</td>
+                                            </tr>
+                                            <tr>
+                                                <td>L</td>
+                                                <td>25</td>
+                                                <td>24</td>
+                                                <td>27</td>
+                                                <td>43</td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+						</div>
 						<!-- End Single Content -->
-
-						<div role="tabpanel mt-5" id="review" class="pro__single__content tab-pane fade">
+                        <div role="tabpanel mt-5" id="care" class="pro__single__content tab-pane ">
 							<div class="pro__tab__content__inner">
-								<?php
-								if (mysqli_num_rows($product_review_res) > 0) {
-
-									while ($product_review_row = mysqli_fetch_assoc($product_review_res)) {
-								?>
-
-										<article class="row">
-											<div class="col-md-12 col-sm-12">
-												<div class="panel panel-default arrow left">
-													<div class="panel-body">
-														<header class="text-left">
-															<div><span class="comment-rating">
-																	<?php echo $product_review_row['rating'] ?>
-																</span> (
-																<?php echo $product_review_row['name'] ?>)
-															</div>
-															<time class="comment-date">
-																<?php
-																$added_on = strtotime($product_review_row['added_on']);
-																echo date('d M Y', $added_on);
-																?>
-
-
-
-															</time>
-														</header>
-														<div class="comment-post">
-															<p>
-																<?php echo $product_review_row['review'] ?>
-															</p>
-														</div>
-													</div>
-												</div>
-											</div>
-										</article>
-								<?php }
-								} else {
-									echo "<h3 class='submit_review_hint'>No review added</h3><br/>";
-								}
-								?>
-
-
-								<h3 class="review_heading">Enter your review</h3><br />
-								<?php
-								if (isset($_SESSION['USER_LOGIN'])) {
-								?>
-									<div class="row" id="post-review-box" style=>
-										<div class="col-md-12">
-											<form action="" method="post">
-												<select class="form-control" name="rating" required>
-													<option value="">Select Rating</option>
-													<option>Worst</option>
-													<option>Bad</option>
-													<option>Good</option>
-													<option>Very Good</option>
-													<option>Fantastic</option>
-												</select> <br />
-												<textarea class="form-control" cols="50" id="new-review" name="review"
-													placeholder="Enter your review here..." rows="5"></textarea>
-												<div class="text-right mt10">
-													<button class="btn btn-success mt-3" type="submit" style="position: absolute;left: 26%" name="review_submit">Submit</button>
-												</div>
-											</form>
-										</div>
-									</div>
-
-								<?php } else {
-									echo "<span class='submit_review'>Please <a href='login.php' >Login</a> to submit your review</span>";
-								}
-								?>
+                            To preserve the intricate embroidery and fabric quality, we recommend gentle hand washing or dry cleaning. Avoid harsh detergents and excessive wringing. Store in a cool, dry place and iron on low heat, preferably inside out, to maintain its beauty for years.
 							</div>
+						</div>
+						
+                        <div role="tabpanel mt-5" id="size" class="pro__single__content tab-pane ">
+							<div class="pro__tab__content__inner">
+                                <img src="img/sizechart.jpeg" alt="Size Chart"> 
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped text-center">
+                                        <thead class="table-primary">
+                                            <tr>
+                                                <th>Size</th>
+                                                <th>Bust </th>
+                                                <th>Waist </th>
+                                                <th>Hips </th>
+                                                <th>Length </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        
+                                            <tr>
+                                                <td>S</td>
+                                                <td>21</td>
+                                                <td>20</td>
+                                                <td>23</td>
+                                                <td>43</td>
+                                            </tr>
+                                            <tr>
+                                                <td>M</td>
+                                                <td>23</td>
+                                                <td>21</td>
+                                                <td>25</td>
+                                                <td>43</td>
+                                            </tr>
+                                            <tr>
+                                                <td>L</td>
+                                                <td>25</td>
+                                                <td>24</td>
+                                                <td>27</td>
+                                                <td>43</td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>
-				<div>
-					<a href="sizechart.php">
-						<img src="img/sizechart.jpeg" alt="Size Chart">
-					</a>
-				</div>
+				
 			</div>
-		</div>
-	</section>
-	<!-- Include jQuery and ElevateZoom JS -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            
+        </div>
+    </div>
+<!-- Include jQuery and ElevateZoom JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.rawgit.com/elevateweb/elevatezoom/master/jquery.elevatezoom.min.js"></script>
-
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			const defaultColorKey = '<?php echo htmlspecialchars($defaultColor); ?>';
-			const productId = '<?php echo htmlspecialchars($get_product[0]['id']); ?>';
-
-			// Auto-load attributes for the default color
-			loadAttr(defaultColorKey, productId, 'color');
-		});
-		// function showMultipleImage(im) {
-		// 	jQuery('#img-tab-1').html("<img src='" + im + "' data-origin='" + im + "'/>");
-		// 	jQuery('.imageZoom').imgZoom();
-		// }
-		let is_color = '<?php echo $is_color ?>';
-		let is_size = '<?php echo $is_size ?>';
-		let pid = '<?php echo $product_id ?>';
-	
-		document.addEventListener('DOMContentLoaded', function() {
-			const descriptionTab = document.querySelector('.description');
-			const reviewTab = document.querySelector('.review');
-			const descriptionContent = document.getElementById('description');
-			const reviewContent = document.getElementById('review');
-
-			// Function to show description tab and hide review tab
-			function showDescription() {
-				descriptionTab.classList.add('active');
-				reviewTab.classList.remove('active');
-				descriptionContent.classList.add('active');
-				reviewContent.classList.remove('active');
-			}
-
-			// Function to show review tab and hide description tab
-			function showReview() {
-				reviewTab.classList.add('active');
-				descriptionTab.classList.remove('active');
-				reviewContent.classList.add('active');
-				descriptionContent.classList.remove('active');
-			}
-
-			// Show description by default or based on URL hash
-			if (window.location.hash === '#review') {
-				showReview();
-			} else {
-				showDescription();
-			}
-
-			// Add event listener to description tab
-			descriptionTab.addEventListener('click', function(event) {
-				event.preventDefault();
-				showDescription();
-			});
-
-			// Add event listener to review tab
-			reviewTab.addEventListener('click', function(event) {
-				event.preventDefault();
-				showReview();
-			});
-		});
-		$(document).ready(function() {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
 			// Initialize ElevateZoom on the main image
 			$("#zoom1").elevateZoom({
 				zoomType: "inner", // Inner zoom effect
@@ -568,18 +370,70 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
 					responsive: true
 				});
 			});
-		});							
-	</script>
-	
-	<!-- product-details Area end -->
+		});	
+        document.addEventListener('DOMContentLoaded', function() {
+			const descriptionTab = document.querySelector('.description');
+			const careTab = document.querySelector('.care');
+			const sizeTab = document.querySelector('.size');
+			const descriptionContent = document.getElementById('description');
+			const careContent = document.getElementById('care');
+			const sizeContent = document.getElementById('size');
 
-	<!-- FOOTER START -->
-	<?php include 'includes/footer.php'; ?>
-	<!-- FOOTER END -->
+			// Function to show description tab and hide review tab
+			function showDescription() {
+				descriptionTab.classList.add('active');
+				careTab.classList.remove('active');
+				sizeTab.classList.remove('active');
+				descriptionContent.classList.add('active');
+				careContent.classList.remove('active');
+				sizeContent.classList.remove('active');
+			}
 
-	<!-- JS -->
-	<?php include 'includes/jsfiles.php';
-	ob_flush();
-	?>
+			// Function to show review tab and hide description tab
+			function showCare() {
+				careTab.classList.add('active');
+				descriptionTab.classList.remove('active');
+				sizeTab.classList.remove('active');
+				careContent.classList.add('active');
+				descriptionContent.classList.remove('active');
+				sizeContent.classList.remove('active');
+			}
+            function showSize() {
+				sizeTab.classList.add('active');
+				descriptionTab.classList.remove('active');
+				careTab.classList.remove('active');
+				sizeContent.classList.add('active');
+				descriptionContent.classList.remove('active');
+				careContent.classList.remove('active');
+			}
+
+			// Show description by default or based on URL hash
+			if (window.location.hash === '#care') {
+				showCare();
+			} else if(window.location.hash === '#size'){
+                showSize();
+            }
+            else {
+				showDescription();
+			}
+
+			// Add event listener to description tab
+			descriptionTab.addEventListener('click', function(event) {
+				event.preventDefault();
+				showDescription();
+			});
+
+			// Add event listener to review tab
+			careTab.addEventListener('click', function(event) {
+				event.preventDefault();
+				showCare();
+			});
+
+            sizeTab.addEventListener('click', function(event) {
+				event.preventDefault();
+				showSize();
+			});
+		});
+    </script>
 </body>
 </html>
