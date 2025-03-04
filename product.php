@@ -335,6 +335,12 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
             
         </div>
     </div>
+    <!-- FOOTER START -->
+    <?php include 'includes/footer.php'; ?>
+    <!-- FOOTER END -->
+
+    <!-- JS -->
+    <?php include 'includes/jsfiles.php'; ?>
 <!-- Include jQuery and ElevateZoom JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.rawgit.com/elevateweb/elevatezoom/master/jquery.elevatezoom.min.js"></script>

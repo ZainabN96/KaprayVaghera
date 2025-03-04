@@ -383,7 +383,6 @@ if(isset($_POST['submit'])){
 											echo '<div class="col-lg-6" style="margin-top:20px;" id="add_image_box_'.$list['id'].'"><label for="categories" class=" form-control-label">Image</label><input type="file" name="product_images[]" class="form-control" accpet=".jpg, .png, .jpeg"><a href="manage_product.php?id='.$id.'&pi='.$list['id'].'" style="color:white;"><button type="button" class="btn btn-lg btn-danger btn-block"><span id="payment-button-amount"><a href="manage_product.php?id='.$id.'&pi='.$list['id'].'" style="color:white;">Remove</span></button></a>';
 											echo "<a target='_blank' href='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list['product_images']."'><img width='150px' src='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list['product_images']."'/></a>";
 											echo '<input type="hidden" name="product_images_id[]" value="'.$list['id'].'"/></div>';
-											
 										}										 
 									 }
 									 ?>
@@ -399,7 +398,7 @@ if(isset($_POST['submit'])){
 								
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Description</label>
-									<textarea name="description" placeholder="Enter product description" class="form-control" required><?php echo $description?></textarea>
+									<textarea id="description" name="description" placeholder="Enter product description" class="form-control" required><?php echo $description?></textarea>
 								</div>
 								
 								<!-- <div class="form-group">
@@ -489,4 +488,11 @@ if(isset($_GET['id'])){
 ?>
 get_sub_cat('<?php echo $sub_categories_id?>');
 <?php } ?>
+tinymce.init({
+    selector: '#description'
+});
+
+tinymce.init({
+    selector: '#editDescription'
+});
 </script>

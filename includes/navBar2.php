@@ -21,6 +21,15 @@ if (isset($_SESSION['USER_LOGIN'])) {
 }
 
 ?>
+<div id="loader-wrapper">
+	<div id="loader">
+		<div class="loader-ellips">
+			<span class="ring"></span>
+			<span class="ring"></span>
+			<span class="ring"></span>
+		</div>
+	</div>
+</div>
 <div class="marquee-container">
 	<span class="marquee-text">The delivery will be completed within 6 to 7 days</span>
 </div>
@@ -316,4 +325,5 @@ if (isset($_SESSION['USER_LOGIN'])) {
 		</div>
 	</div>
 </header>
+
 <!-- header area end -->

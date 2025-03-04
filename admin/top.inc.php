@@ -192,48 +192,4 @@ if(isset($_SESSION['ADMIN_LOGIN']) && $_SESSION['ADMIN_LOGIN']!=''){
                </div>
             </div>    
          </header>
-         <script src="assets/js/vendor/jquery-2.1.4.min.js" type="text/javascript"></script>
-
-         <script>
-            function fetchNotifications() {
-               debugger;
-               $.ajax({
-                     url: 'fetch_notifications.php', 
-                     type: 'GET',
-                     dataType: 'json',
-                     success: function(response) {
-                        //debugger;
-                        $('#notification-count').text(response.count);
-                        $('#notification-message').text(response.count);
-
-                        // Update notification list
-                        $('#notification-menu').empty();
-                        if (response.notifications.length > 0) {
-                           debugger;
-                           $.each(response.notifications, function(index, notification) {
-                              debugger;
-                              if (notification.message && notification.message.includes("New order")) {
-                                const orderNumberMatch = notification.message.match(/#(\d+)/);
-                                const orderNumber = orderNumberMatch ? orderNumberMatch[1] : null;
-                                    $('#notification-menu').append('<a class="dropdown-item media" href="order_master_detail.php?id=' + orderNumber + '">' +
-                                    '<i class="fa ' + notification.icon + '"></i>' +
-                                    '<p>' + notification.message + '</p>' +
-                                    '</a>');
-                                }
-                           });
-                        } else {
-                           $('#notification-menu').append('<p>No notifications found.</p>');
-                        }
-                     },
-                     error: function(xhr, status, error) {
-                        console.error('Error fetching notifications:', error);
-                     }
-               });
-            }
-
-            // Initial fetch of notifications
-            fetchNotifications();
-
-            // Refresh notifications every 2-3 seconds
-            //setInterval(fetchNotifications, 2000)
-         </script>
+         

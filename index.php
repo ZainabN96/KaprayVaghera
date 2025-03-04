@@ -7,15 +7,7 @@ include 'includes/header2.php';
 ?>
 
 <body class="home-five">
-	<div id="loader-wrapper">
-		<div id="loader">
-			<div class="loader-ellips">
-				<span class="ring"></span>
-				<span class="ring"></span>
-				<span class="ring"></span>
-			</div>
-		</div>
-	</div>
+	
 	<!-- header area start -->
 	<?php include 'includes/navbar2.php' ?>
 	<!-- header area end -->

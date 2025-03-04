@@ -41,7 +41,12 @@ include 'includes/header2.php';
 								<button type="button " class="btn btn-primary mt-3"
 									onclick="user_login()">Login</button>
 								<button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-									data-bs-target="#loginModal"><a href="loginandregister.php" style="color:white;"> Create An Account</a> </button>
+									data-bs-target="#loginModal"><a href="" style="color:white;"> Create An Account</a> 
+								</button>
+								<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#loginModal">
+									Create An Account
+								</button>
+
 							</div>
 						</form>
 					</div>
@@ -50,7 +55,7 @@ include 'includes/header2.php';
 					<p class="form-messege field_error"></p>
 				</div>
 				<div>
-					<div class="modal fade" id="loginModal" style="z-index: 10000;" tabindex="-1" role="dialog"
+					<!-- <div class="modal fade" id="loginModal" style="z-index: 10000;" tabindex="-1" role="dialog"
 						aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
@@ -113,7 +118,31 @@ include 'includes/header2.php';
 								</div>
 							</div>
 						</div>
+					</div> -->
+					<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Create a new Account</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<form>
+										<div class="mb-3">
+											<label for="name" class="form-label">Name</label>
+											<input type="text" class="form-control" id="name">
+										</div>
+										<div class="mb-3">
+											<label for="email" class="form-label">Email</label>
+											<input type="email" class="form-control" id="email">
+										</div>
+										<button type="submit" class="btn btn-primary">Register</button>
+									</form>
+								</div>
+							</div>
+						</div>
 					</div>
+
 				</div>
 				<!-- <div class="col-lg-6 col-12">
 					<div class="customer-register my-account">
