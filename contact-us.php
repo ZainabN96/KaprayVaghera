@@ -127,7 +127,7 @@ include 'includes/header2.php';
         $(document).ready(function() {
             $("#contactForm").submit(function(e) {
                 e.preventDefault(); // Prevent page reload
-        debugger;
+                debugger;
                 $.ajax({
                     type: "POST",
                     url: "contact_submit.php",

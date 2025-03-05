@@ -31,7 +31,7 @@ $attrProduct[0]['mrp']='';
 $attrProduct[0]['price']='';
 $attrProduct[0]['qty']='';
 $attrProduct[0]['id']='';
-
+$allowed_types = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/gif', 'image/bmp', 'image/tiff', 'image/svg+xml'];
 
 if(isset($_GET['pi']) && $_GET['pi']>0){
 	$pi=get_safe_value($con,$_GET['pi']);
@@ -121,24 +121,22 @@ if(isset($_POST['submit'])){
 	}
 	
 	if(isset($_GET['id']) && $_GET['id']==0){
-		if($_FILES['image']['type']!='image/png' && $_FILES['image']['type']!='image/jpg' && $_FILES['image']['type']!='image/jpeg'){
-			$msg="Please select only png,jpg and jpeg image formate";
-		}
+        if (!in_array($_FILES['image']['type'], $allowed_types)) {
+            $msg = "Please select a valid image format (PNG, JPG, JPEG, WEBP, GIF, BMP, TIFF, SVG)";
+        }
 	}else{
 		if($_FILES['image']['type']!=''){
-				if($_FILES['image']['type']!='image/png' && $_FILES['image']['type']!='image/jpg' && $_FILES['image']['type']!='image/jpeg'){
-				$msg="Please select only png,jpg and jpeg image formate";
-			}
+            if (!in_array($_FILES['image']['type'], $allowed_types)) {
+                $msg = "Please select a valid image format (PNG, JPG, JPEG, WEBP, GIF, BMP, TIFF, SVG)";
+            }
 		}
 	}
 	
 	if(isset($_FILES['product_images'])){
 		foreach($_FILES['product_images']['type'] as $key=>$val){
-			if($_FILES['product_images']['type'][$key]!=''){
-				if($_FILES['product_images']['type'][$key]!='image/png' && $_FILES['product_images']['type'][$key]!='image/jpg' && $_FILES['product_images']['type'][$key]!='image/jpeg'){
-					$msg="Please select only png,jpg and jpeg image formate in multipel product images";
-				}
-			}
+            if($_FILES['product_images']['type'][$key]!='' && !in_array($_FILES['product_images']['type'][$key], $allowed_types)){
+                $msg = "Please select valid image formats in multiple product images (PNG, JPG, JPEG, WEBP, GIF, BMP, TIFF, SVG)";
+            }
 		}
 	}
 	
@@ -155,31 +153,28 @@ if(isset($_POST['submit'])){
 		}else{
 			$image=rand(111111111,999999999).'_'.$_FILES['image']['name'];
 			move_uploaded_file($_FILES['image']['tmp_name'],'../img/products/'.$image);
-			//move_uploaded_file($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
-			//imageCompress($_FILES['image']['tmp_name'],PRODUCT_IMAGE_SERVER_PATH.$image);
 			mysqli_query($con,"insert into product(categories_id,name,mrp,price,qty,short_desc,description,status,image,best_seller,sub_categories_id,added_by) values('$categories_id','$name','$mrp','$price','$qty','$short_desc','$description',1,'$image','$best_seller','$sub_categories_id','".$_SESSION['ADMIN_ID']."')");
 			$id=mysqli_insert_id($con);
 		}
-		
 		
 		/*Product Multiple Images Start*/
 		if(isset($_GET['id']) && $_GET['id']!=''){
 			if(isset($_FILES['product_images']['name'])){
 				foreach($_FILES['product_images']['name'] as $key=>$val){
-				if($_FILES['product_images']['name'][$key]!=''){
-					if(isset($_POST['product_images_id'][$key])){
-						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
-						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
-						// imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
-						mysqli_query($con,"update product_images set product_images='$image' where id='".$_POST['product_images_id'][$key]."'");
-					}else{
-						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
-						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
-						// imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
-						mysqli_query($con,"insert into product_images(product_id,product_images) values('$id','$image')");
-					}
-				}
-			}
+    				if($_FILES['product_images']['name'][$key]!=''){
+    					if(isset($_POST['product_images_id'][$key])){
+    						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
+    						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
+    						// imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
+    						mysqli_query($con,"update product_images set product_images='$image' where id='".$_POST['product_images_id'][$key]."'");
+    					}else{
+    						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
+    						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
+    						// imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
+    						mysqli_query($con,"insert into product_images(product_id,product_images) values('$id','$image')");
+    					}
+    				}
+    			}
 			
 			}
 		}else{
@@ -383,6 +378,7 @@ if(isset($_POST['submit'])){
 											echo '<div class="col-lg-6" style="margin-top:20px;" id="add_image_box_'.$list['id'].'"><label for="categories" class=" form-control-label">Image</label><input type="file" name="product_images[]" class="form-control" accpet=".jpg, .png, .jpeg"><a href="manage_product.php?id='.$id.'&pi='.$list['id'].'" style="color:white;"><button type="button" class="btn btn-lg btn-danger btn-block"><span id="payment-button-amount"><a href="manage_product.php?id='.$id.'&pi='.$list['id'].'" style="color:white;">Remove</span></button></a>';
 											echo "<a target='_blank' href='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list['product_images']."'><img width='150px' src='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list['product_images']."'/></a>";
 											echo '<input type="hidden" name="product_images_id[]" value="'.$list['id'].'"/></div>';
+											
 										}										 
 									 }
 									 ?>
@@ -398,24 +394,10 @@ if(isset($_POST['submit'])){
 								
 								<div class="form-group">
 									<label for="categories" class=" form-control-label">Description</label>
-									<textarea id="description" name="description" placeholder="Enter product description" class="form-control" required><?php echo $description?></textarea>
+									<!--<textarea id="description" name="description" placeholder="Enter product description" class="form-control" required><?php echo $description?></textarea>-->
+							        <textarea id="description" name="description" placeholder="Enter product description" class="form-control" required><?php echo $description;?></textarea>
+
 								</div>
-								
-								<!-- <div class="form-group">
-									<label for="categories" class=" form-control-label">Meta Title</label>
-									<textarea name="meta_title" placeholder="Enter product meta title" class="form-control"><?php echo $meta_title?></textarea>
-								</div>
-								
-								<div class="form-group">
-									<label for="categories" class=" form-control-label">Meta Description</label>
-									<textarea name="meta_desc" placeholder="Enter product meta description" class="form-control"><?php echo $meta_desc?></textarea>
-								</div>
-								
-								<div class="form-group">
-									<label for="categories" class=" form-control-label">Meta Keyword</label>
-									<textarea name="meta_keyword" placeholder="Enter product meta keyword" class="form-control"><?php echo $meta_keyword?></textarea>
-								</div>
-								 -->
 								
 							   <button id="payment-button" name="submit" type="submit" class="btn btn-lg btn-info btn-block">
 							   <span id="payment-button-amount">Submit</span>
@@ -483,16 +465,28 @@ if(isset($_POST['submit'])){
 require('footer.inc.php');
 ?>
 <script>
-<?php
-if(isset($_GET['id'])){
-?>
-get_sub_cat('<?php echo $sub_categories_id?>');
-<?php } ?>
-tinymce.init({
-    selector: '#description'
-});
+    <?php
+        if(isset($_GET['id'])){
+        ?>
+            get_sub_cat('<?php echo $sub_categories_id?>');
+    <?php } ?>
+    document.querySelector("form").addEventListener("submit", function() {
+        tinymce.triggerSave();
+    });
+    // tinymce.init({
+    //     selector: '#description'
+    // });
 
-tinymce.init({
-    selector: '#editDescription'
-});
+ tinymce.init({
+        selector: '#description',
+        height: 300,
+        menubar: false,
+        plugins: 'lists link image charmap preview',
+        toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+        setup: function (editor) {
+            editor.on('change', function () {
+                tinymce.triggerSave();
+            });
+        }
+    });
 </script>

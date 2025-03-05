@@ -45,7 +45,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 				<div class="toggle-logo-container">
 					<div class="top-logo">
 						<a href="index.php">
-							<img width="120" height="50" src="img/newlogoo.png" alt="Logo" />
+							<img src="img/newlogoo.png" alt="Logo" />
 						</a>
 					</div>
 				</div>
