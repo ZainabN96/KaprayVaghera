@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
         case 'Faisalabad':
             $delivery_charges = 200;
             break;
-            // Add more cities and charges based on distance
+        // Add more cities and charges based on distance
         default:
             $delivery_charges = 250; // Default charge for other cities
             break;
@@ -158,75 +158,7 @@ if (isset($_POST['submit'])) {
                                 if (!isset($_SESSION['USER_LOGIN'])) {
                                     $accordion_class = 'accordion__hide';
                                 ?>
-                                    <div class="accordion__title">
-                                        Checkout Method
-                                    </div>
-                                    <div class="accordion__body">
-                                        <div class="accordion__body__form">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="checkout-method__login">
-                                                        <form id="login-form" method="post">
-                                                            <h5 class="checkout-method__title">Login</h5>
-                                                            <div class="single-input">
-                                                                <input type="text" class="form-control" name="login_email" id="login_email"
-                                                                    placeholder="Your Email*" style="width:100%">
-                                                                <span class="field_error" id="login_email_error"></span>
-                                                            </div>
 
-                                                            <div class="single-input">
-                                                                <input type="password" name="login_password"
-                                                                    id="login_password" class="form-control" placeholder="Your Password*"
-                                                                    style="width:100%">
-                                                                <span class="field_error" id="login_password_error"></span>
-                                                            </div>
-
-                                                            <p class="require">* Required fields</p>
-                                                            <div class="dark-btn">
-                                                                <button type="button" class="btn btn-primary btn-lg"
-                                                                    onclick="user_login()">Login</button>
-                                                            </div>
-                                                            <div class="form-output login_msg">
-                                                                <p class="form-messege field_error"></p>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="checkout-method__login">
-                                                        <form action="#">
-                                                            <h5 class="checkout-method__title">Register</h5>
-                                                            <div class="single-input">
-                                                                <input type="text" class="form-control" name="name" id="name"
-                                                                    placeholder="Your Name*" style="width:100%">
-                                                                <span class="field_error" id="name_error"></span>
-                                                            </div>
-                                                            <div class="single-input">
-                                                                <input type="text" class="form-control" name="email" id="email"
-                                                                    placeholder="Your Email*" style="width:100%">
-                                                                <span class="field_error" id="email_error"></span>
-                                                            </div>
-
-                                                            <div class="single-input">
-                                                                <input type="text" class="form-control" name="mobile" id="mobile"
-                                                                    placeholder="Your Mobile*" style="width:100%">
-                                                                <span class="field_error" id="mobile_error"></span>
-                                                            </div>
-                                                            <div class="single-input">
-                                                                <input type="password" class="form-control" name="password" id="password"
-                                                                    placeholder="Your Password*" style="width:100%">
-                                                                <span class="field_error" id="password_error"></span>
-                                                            </div>
-                                                            <div class="dark-btn">
-                                                                <button type="button" class="btn btn-primary btn-lg"
-                                                                    onclick="user_register()">Register</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 <?php } else {
                                     $lastOrderDetailsRes = mysqli_query($con, "select address,city,pincode from `order` where user_id='" . $_SESSION['USER_ID'] . "'");
 
@@ -238,15 +170,41 @@ if (isset($_POST['submit'])) {
                                     }
                                 }
                                 ?>
-                                <div class="<?php echo $accordion_class ?>">
-                                    Address Information
-                                </div>
                                 <form method="post" onsubmit="return validateCity()">
                                     <div class="accordion__body">
                                         <div class="bilinfo">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="single-input">
+                                                        <form action="#" class="accordion__body bilinfo">
+                                                            <h5 class="checkout-method__title fs-1">Order Details</h5>
+                                                            <div class="single-input">
+                                                                <label class="form-check-label" for="name">Name</label>
+                                                                <input type="text" class="form-control" name="name" id="name"
+                                                                    placeholder="Your Name*" style="width:100%">
+                                                                <span class="field_error" id="name_error"></span>
+                                                            </div>
+
+
+                                                            <div class="single-input">
+                                                                <label class="form-check-label" for="email">Email</label>
+                                                                <input type="text" class="form-control" name="email" id="email"
+                                                                    placeholder="Your Email*" style="width:100%">
+                                                                <span class="field_error" id="email_error"></span>
+                                                            </div>
+
+                                                            <div class="single-input">
+                                                                <label class="form-check-label" for="Mobile">Mbile Number</label>
+                                                                <input type="text" class="form-control" name="mobile" id="mobile"
+                                                                    placeholder="Your Mobile*" style="width:100%">
+                                                                <span class="field_error" id="mobile_error"></span>
+                                                            </div>
+
+                                                            <!-- <div class="dark-btn">
+                                                                <button type="button" class="btn btn-primary btn-lg"
+                                                                    onclick="user_register()">Register</button>
+                                                            </div> -->
+                                                        </form>
                                                         <label class="form-check-label" for="city">City</label>
                                                         <select class="form-control" name="city" id="city" required>
                                                             <option value="">Select City</option>
@@ -322,9 +280,7 @@ if (isset($_POST['submit'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="<?php echo $accordion_class ?>">
-                                        Payment Information
-                                    </div>
+
                                     <div class="accordion__body">
                                         <div class="paymentinfo">
                                             <div class="single-method">
@@ -334,7 +290,8 @@ if (isset($_POST['submit'])) {
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6">
-                                        <input type="submit" name="submit" class="btn btn-primary btn-lg" />
+                                        <!-- <input type="submit" name="submit" class="btn btn-primary btn-lg" /> -->
+                                        <button type="submit" class="btn btn-primary btn-lg">Place Your Order</button>
                                     </div>
                                 </form>
                             </div>
