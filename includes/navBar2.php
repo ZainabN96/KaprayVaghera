@@ -21,15 +21,15 @@ if (isset($_SESSION['USER_LOGIN'])) {
 }
 
 ?>
-<div id="loader-wrapper">
-	<div id="loader">
-		<div class="loader-ellips">
-			<span class="ring"></span>
-			<span class="ring"></span>
-			<span class="ring"></span>
-		</div>
-	</div>
-</div>
+<!--<div id="loader-wrapper">-->
+<!--	<div id="loader">-->
+<!--		<div class="loader-ellips">-->
+<!--			<span class="ring"></span>-->
+<!--			<span class="ring"></span>-->
+<!--			<span class="ring"></span>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--</div>-->
 <div class="marquee-container">
 	<span class="marquee-text">The delivery will be completed within 6 to 7 days</span>
 </div>
@@ -45,7 +45,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 				<div class="toggle-logo-container">
 					<div class="top-logo">
 						<a href="index.php">
-							<img src="img/newlogoo.png" alt="Logo" />
+							<img src="img/newlogoo.webp" alt="Logo" />
 						</a>
 					</div>
 				</div>
@@ -57,7 +57,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 					</button>
 					<div class="top-logo">
 						<a href="index.php">
-							<img src="img/newlogoo.png" alt="Logo" />
+							<img src="img/newlogoo.webp" alt="Logo" />
 						</a>
 					</div>
 				</div>
@@ -130,23 +130,6 @@ if (isset($_SESSION['USER_LOGIN'])) {
 						</div>
 					</div>
 
-					<!-- <div class="disflow" style="height: 60; width:25.19">
-						<div class="circle-shopping expand">
-							<div class="shopping-carts text-end">
-								<div class="cart-toggler">
-
-									<a href="wishlist.php"><i class="fa fa-heart text-black"></i></a>
-									<a href="wishlist.php"><span class=" htc__wishlist heart-quantity">
-											<?php //echo $wishlist_count 
-											?>
-										</span></a>
-								</div>
-
-							</div>
-						</div>
-					</div> -->
-
-
 				</div>
 			</div>
 			<!-- top details area end -->
@@ -182,7 +165,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 						<ul class="main__menu">
 							<?php foreach ($cat_arr as $list) { ?>
 								<li class="drop">
-									<a href="categories.php?id=<?php echo $list['id']; ?>">
+									<a href="javascript:void(0);">
 										<?php echo $list['categories']; ?>
 									</a>
 									<ul class="dropdown">
@@ -207,36 +190,6 @@ if (isset($_SESSION['USER_LOGIN'])) {
 
 				</div>
 				<!-- mobile menu start -->
-				<!-- <div class="sidebar" id="sidebar">
-					<span class="close-btn" id="closeSidebar">✖</span>
-					<div class="my-4">
-						<a href="#" class="btn-default"><i class="fa fa-phone border p-3"></i> </a> | <a href="#" class="btn-default"><i class="fa fa-user-o border p-3" aria-hidden="true"></i>
-						</a>
-					</div>
-					<hr>
-					<ul class="list-unstyled">
-						<li class="d-flex justify-content-between">
-							<a href="javascript:void(0);" class="expand-cat">
-								<?php //echo $list['categories']; 
-								?>
-								<i class="fa fa-plus"></i>
-							</a>
-							<ul class="sub-menu">
-								<?php
-								$cat_id = $list['id'];
-								$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
-								if (mysqli_num_rows($sub_cat_res) > 0) {
-									while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
-										//echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
-									}
-								}
-								?>
-							</ul>
-						</li>
-						<!-- <li class="d-flex justify-content-between"><span>Category 2</span> <span>➕</span></li> 
-						<li class="d-flex justify-content-between"><span>About Us</span></li>
-					</ul>
-				</div> -->
 				<div class="sidebar-overlay"></div>
 
 				<!-- Sidebar (Left Side) -->
@@ -282,44 +235,6 @@ if (isset($_SESSION['USER_LOGIN'])) {
 						<li><a href="about-us.php" class="expand-cat"> About Us</a><i class="fa fa-qaq"></i></li>
 					</ul>
 				</div>
-
-				<!-- <div class="row">
-					<div class="col-sm-12 mobile-menu-area" style=" background-color:black;">
-						<div class="mobile-menu hidden-md d-lg-none" id="mob-menu">
-							<span class="mobile-menu-title">Menu</span>
-							<a href="javascript:void(0);" class="openNav">
-								<i class="fa fa-bars" style="color: white;"></i>
-							</a>
-							 Categories Menu
-							<div class="categories-menu">
-								<ul class="categories-list">
-									<?php //foreach ($cat_arr as $list) { 
-									?>
-										<li class="menu-item-has-children">
-											<a href="javascript:void(0);" class="expand-cat">
-												<?php //echo $list['categories']; 
-												?>
-												<i class="fa fa-plus"></i>
-											</a>
-											<ul class="sub-menu">
-												<?php
-												$cat_id = $list['id'];
-												$sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
-												if (mysqli_num_rows($sub_cat_res) > 0) {
-													while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
-														//echo '<li><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></li>';
-													}
-												}
-												?>
-											</ul>
-										</li>
-									<?php //} 
-									?>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div> -->
 				<!-- mobile menu end -->
 			</div>
 		</div>

@@ -59,15 +59,15 @@
 <script src="js/main.js"></script>
 
 <script>
-	$(window).on('load', function() {
-		$('#loader').delay(100).fadeOut('slow');
-		$('#loader-wrapper').delay(500).fadeOut('slow');
-	});
+	// $(window).on('load', function() {
+	// 	$('#loader').delay(100).fadeOut('slow');
+	// 	$('#loader-wrapper').delay(500).fadeOut('slow');
+	// });
 
-	var loader = document.getElementById("loader");
-	window.addEventListener("load", function() {
-		loader.style.display = "none";
-	})
+	// var loader = document.getElementById("loader");
+	// window.addEventListener("load", function() {
+	// 	loader.style.display = "none";
+	// })
 
 	// Open Sidebar
 	document.querySelector('#toggleSidebar').addEventListener('click', function () {

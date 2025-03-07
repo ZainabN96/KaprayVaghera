@@ -12,13 +12,13 @@ if(isset($_GET['type']) && $_GET['type']!=''){
 		}else{
 			$status='0';
 		}
-		$update_status_sql="update categories set status='$status' where id='$id'";
+		$update_status_sql="update sub_categories set status='$status' where id='$id'";
 		mysqli_query($con,$update_status_sql);
 	}
 	
 	if($type=='delete'){
 		$id=get_safe_value($con,$_GET['id']);
-		$delete_sql="delete from categories where id='$id'";
+		$delete_sql="delete from sub_categories where id='$id'";
 		mysqli_query($con,$delete_sql);
 	}
 }

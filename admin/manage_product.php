@@ -7,21 +7,7 @@ if($_SESSION['ADMIN_ROLE']== "Admin" || $_SESSION['ADMIN_ROLE'] == "Product Team
 	$condition=" and product.added_by='".$_SESSION['ADMIN_ID']."'";
 	//$condition1=" and added_by='".$_SESSION['ADMIN_ID']."'";
 }
-$categories_id='';
-$name='';
-$image='';
-$mrp='';
-$price='';
-$qty='';
-$short_desc	='';
-$description	='';
-$meta_title	='';
-$meta_desc	='';
-$meta_keyword='';
-$best_seller='';
-$sub_categories_id='';
-$multipleImageArr=[];
-$msg='';
+$categories_id='';$name='';$image='';$mrp='';$price='';$qty='';$short_desc	='';$description	='';$meta_title	='';$meta_desc	='';$meta_keyword='';$best_seller='';$sub_categories_id='';$multipleImageArr=[];$msg='';
 $image_required='required';
 
 $attrProduct[0]['product_id']='';
@@ -49,14 +35,8 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 		$categories_id=$row['categories_id'];
 		$sub_categories_id=$row['sub_categories_id'];
 		$name=$row['name'];
-		// $mrp=$row['mrp'];
-		// $price=$row['price'];
-		// $qty=$row['qty'];
 		$short_desc=$row['short_desc'];
 		$description=$row['description'];
-		// $meta_title=$row['meta_title'];
-		// $meta_desc=$row['meta_desc'];
-		// $meta_keyword=$row['meta_keyword'];
 		$best_seller=$row['best_seller'];
 		$image=$row['image'];
 		
@@ -84,10 +64,10 @@ if(isset($_GET['id']) && $_GET['id']!=''){
 		}		
 		
 	}
-	// else{
-	// 	header('location:product.php');
-	// 	die();
-	// }
+	else{
+		header('location:product.php');
+		die();
+	}
 }
 
 if(isset($_POST['submit'])){
@@ -165,12 +145,12 @@ if(isset($_POST['submit'])){
     					if(isset($_POST['product_images_id'][$key])){
     						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
     						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
-    						// imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
+    						//imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
     						mysqli_query($con,"update product_images set product_images='$image' where id='".$_POST['product_images_id'][$key]."'");
     					}else{
     						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
     						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
-    						// imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/'.$image);
+    						 //imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
     						mysqli_query($con,"insert into product_images(product_id,product_images) values('$id','$image')");
     					}
     				}
@@ -182,7 +162,7 @@ if(isset($_POST['submit'])){
 				foreach($_FILES['product_images']['name'] as $key=>$val){
 					if($_FILES['product_images']['name'][$key]!=''){
 						$image=rand(111111111,999999999).'_'.$_FILES['product_images']['name'][$key];
-						move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
+						//move_uploaded_file($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
 						imageCompress($_FILES['product_images']['tmp_name'][$key],'../img/products/product-details/'.$image);
 						mysqli_query($con,"insert into product_images(product_id,product_images) values('$id','$image')");
 					}
@@ -191,7 +171,6 @@ if(isset($_POST['submit'])){
 			
 		}
 		/*Product Multiple Images End*/
-		
 		
 		/*Product Attributes Start*/
 		
@@ -240,7 +219,6 @@ if(isset($_POST['submit'])){
 												}else{
 													echo "<option value=".$row['id'].">".$row['categories']."</option>";
 												}
-												
 											}
 											?>
 										</select>
@@ -470,12 +448,6 @@ require('footer.inc.php');
         ?>
             get_sub_cat('<?php echo $sub_categories_id?>');
     <?php } ?>
-    document.querySelector("form").addEventListener("submit", function() {
-        tinymce.triggerSave();
-    });
-    // tinymce.init({
-    //     selector: '#description'
-    // });
 
  tinymce.init({
         selector: '#description',
