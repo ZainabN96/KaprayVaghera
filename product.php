@@ -451,6 +451,13 @@ $product_review_res = mysqli_query($con, "select users.name,product_review.id,pr
                 });
             });
         </script>
+        <?php include 'includes/footer.php'; ?>
+        <!-- FOOTER END -->
+
+        <!-- JS -->
+        <?php include 'includes/jsfiles.php';
+        ob_flush();
+        ?>
 </body>
 
 </html>
